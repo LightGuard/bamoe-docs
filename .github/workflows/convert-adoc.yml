@@ -1,0 +1,80 @@
+name: "CI :: Convert adoc file to DITA"
+
+# This should run on every branch when anything is pushed
+on:
+  push:
+    branches-ignore:
+      - 'generated-dita-**'
+
+jobs:
+  convert:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+
+      - name: "Install rsync"
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync
+
+      - name: "Install Ruby"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+
+      - name: "Install node.js"
+        uses: actions/setup-node@v4
+        with:
+          node-version: v22.14.0
+
+      - name: "Install asciidoctor and asciidoctor-dita-topic converter"
+        run: gem install asciidoctor asciidoctor-dita-topic
+
+      - name: "Install xslt3"
+        run: npm install xslt3
+
+      # Create a temporary location for the generation and also a final location
+      # Two are created so we're not overwriting the converted files with the xslt output
+      - name: "Create output directory"
+        run: |
+          mkdir temp-generation
+          mkdir generated-dita
+
+      # All non AsciiDoc files (images, code, etc.) should be copied over to the final
+      # location using the same structure. rsync makes this really easy and pretty quick.
+      # However, we don't want any of the git files, github files, or other build related files included.
+      - name: "Copy non-adoc files to output directory"
+        run: rsync -zarv --exclude="*.adoc" --exclude=".git" --exclude=".github" --exclude "node_modules" --exclude "package.json" --exclude "package.lock" . generated-dita
+
+      # The dita-topic converter was already downloaded and installed above.
+      # Using the '-r' flag instructs asciidoctor to include it and the 
+      # '-b' flag tells asciidoctor to use it for the conversion. The '-D' flag
+      # specifies an output directory.
+      - name: "Convert adoc files to dita"
+        run: find . -name '*.adoc' -print0 | xargs -0 asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation
+
+      # Some of the converted DITA files are not valid files (nested sections currently, could be other reasons)
+      # loop through all the .dita files and run them through the XSLT to fix them.
+      - name: "Execute xslt on dita files"
+        run: |
+          for dita in $(find temp-generation -name "*.dita"); do
+            baseFile=$(echo "$dita" | sed 's/temp-generation\///g');
+            node_modules/.bin/xslt3 -xsl:breakout-subsections.xslt -s:"$dita" -o:"generated-dita/$baseFile"
+          done
+
+      - name: "Commit to generated branch"
+      # {github.ref_name} for branch
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: generated-dita-${{ github.ref_name }}
+          FOLDER: generated-dita
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SKIP_EMPTY_COMMITS: true
+          MESSAGE: Generated DITA files from commit {sha} with message:\n{msg}
+
