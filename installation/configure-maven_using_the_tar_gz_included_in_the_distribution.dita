@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_the_tar_gz_included_in_the_distribution">
+   <title>Using the <tt>tar.gz</tt> included in the distribution</title>
+   <body>
+      <title>Using the <tt>tar.gz</tt> included in the distribution</title>
+      <p>This step varies depending on your cluster configuration, but it may involve setting up an image registry (or using one that is already set up), loading and re-tagging the docker image, and pushing it to the registry with the new tag.</p>
+      <codeblock outputclass="language-shell">
+docker image load --input bamoe-9.1.1-maven-repository-image.tar.gz
+docker tag quay.io/bamoe/maven-repository:9.1.1-ibm-0003 &lt;REGISTRY_URL&gt;/&lt;NAMESPACE&gt;/maven-repository:9.1.1-ibm-0003
+docker push &lt;REGISTRY_URL&gt;/&lt;NAMESPACE&gt;/maven-repository:9.1.1-ibm-0003
+</codeblock>
+      <note type="note">
+If you’re using a local Kubernetes cluster with Minikube or Kind you can skip the re-tagging and pushing and follow these commands: for Minikube, run <tt>minikube image load quay.io/bamoe/maven-repository:9.1.1-ibm-0003</tt>; for Kind, run <tt>kind load docker-image quay.io/bamoe/maven-repository:9.1.1-ibm-0003</tt>.
+</note>
+      <p>Set an env var with the image name</p>
+      <codeblock outputclass="language-shell">
+export BAMOE_MAVEN_REPOSITORY_IMAGE=maven-repository:9.1.1-ibm-0003
+# For Kind and Minikube use the original quay.io URL for this variable
+</codeblock>
+   </body>
+</topic>

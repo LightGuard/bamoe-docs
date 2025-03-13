@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_persistence_engine_properties">
+   <title>Persistence Engine Properties</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="8.3333*"/>
+            <colspec colname="col_4" colwidth="8.3334*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.codegen.persistence</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling code generation for the persistence engine</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.generate.rest.persistence</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle for REST persistence endpoint generation.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.persistence.data-index.proto.generation</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable generation of Protobuf marshallers</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.persistence.proto.marshaller</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable generation of Protobuf marshallers</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.persistence.type</p>
+                  </entry>
+                  <entry>
+                     <p>Database persistence type.</p>
+                  </entry>
+                  <entry>
+                     <p>enum of JDBC, MONGODB, FILESYSTEM, KAFKA, INFINISPAN, or POSTGRESQL</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.persistence.auto.ddl</p>
+                  </entry>
+                  <entry>
+                     <p>Toogle to automatically apply database schema changes.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.persistence.optimistic.lock</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to use optimistic locking in the database.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>false</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.persistence.query.timeout.millis</p>
+                  </entry>
+                  <entry>
+                     <p>Query execution timeout in milliseconds.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>10000</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

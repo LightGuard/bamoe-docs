@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_source">
+   <title>Source</title>
+   <body>
+      <title>Source</title>
+      <p>The <b>Source</b> tab displays the form source code on the left side, while on the right side there is the form UI.</p>
+      <fig>
+         <title>Hiring form</title>
+         <image href="../images/tools/hiring.png" placement="break">
+            <alt>Hiring form</alt>
+         </image>
+      </fig>
+      <p>Let’s remove this piece of the source code</p>
+      <codeblock outputclass="language-html">
+&lt;div class="alert alert-warning" role="alert"&gt;
+  &lt;h4 class="alert-heading"&gt;Unsupported field type: Array&lt;/h4&gt;
+  &lt;p&gt;Cannot find form control for property &lt;code&gt;candidateData.skills&lt;/code&gt; with type &lt;code&gt;Array&lt;/code&gt;.&lt;/p&gt;
+  &lt;hr /&gt;
+  &lt;p class="mb-0"&gt;
+    Some complex property types, such as &lt;code&gt;Array&lt;/code&gt; aren't yet supported, however, you can still write your own component into
+    the form and manually bind it.
+  &lt;/p&gt;
+&lt;/div&gt;
+</codeblock>
+      <p>and click the <b>Execute form</b> button.
+You will immediately see the result.</p>
+      <fig>
+         <title>Updated hiring form</title>
+         <image href="../images/tools/hiring-updated.png" placement="break">
+            <alt>Updated hiring form</alt>
+         </image>
+      </fig>
+      <p>The same functionality is available for the <tt>React</tt> forms.</p>
+   </body>
+</topic>

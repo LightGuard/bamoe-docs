@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-filter-expressions">
+   <title>Boxed filter expressions</title>
+   <body>
+      <p>A boxed filter offers a visual representation of collection filtering.
+The top part is an expression that is the collection to be filtered.
+The bottom part, between the square brackets, holds the filter expression.</p>
+      <p>The example below is an alternative way of defining logic as <xref href="#flight-capacity-example"/>.</p>
+      <fig>
+         <title>Filter expression of rebooked flights</title>
+         <image href="../images/runtime-services-modeling/dmn-filter-expression.png" placement="break">
+            <alt>dmn filter expression</alt>
+         </image>
+      </fig>
+      <p>Furthermore, the <tt>filter</tt> expression brings a reserved keyword <tt>item</tt>.
+Using this keyword you can explicitly access items from the filtered collection.
+Its benefit can be seen more for collections of simple data types (numbers, strings, etc.).</p>
+      <fig>
+         <title>Filter expression of rebooked flights using item keyword</title>
+         <image href="../images/runtime-services-modeling/dmn-filter-expression-item.png" placement="break">
+            <alt>dmn filter expression item</alt>
+         </image>
+      </fig>
+      <p>There is available source code of the <xref href="https://raw.githubusercontent.com/bamoe/bamoe-docs-source-code-examples/9.1.x/dmn/flight-has-capacity.dmn" scope="external">Filter expression of rebooked flights using item keyword</xref> example model.</p>
+      <note type="note">
+This feature was introduced as part of the IBM BAMOE 9.1 and DMN 1.5 releases.
+</note>
+   </body>
+</topic>

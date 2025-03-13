@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="authoring-scesim">
+   <title>Authoring test scenarios</title>
+   <body>
+      <p>As a developer of business decisions, you can use test scenarios in IBM BAMOE to test the decision logic in your IBM BAMOE decision services. Test scenarios enable you to ensure that your IBM BAMOE decision services are functioning properly and as expected as you develop your IBM BAMOE project.</p>
+      <p>Currently, Test Scenario models can be created and modified with VS Code Extension.</p>
+      <p>The Test Scenario Editor is made available through the KIE DMN Editor and KIE BPMN Editor extensions, and they feature all available features you have on BAMOE Canvas.
+Static file validation, DMN Runner, and Dev Deployments are not available for BAMOE Developer Tools yet, but you can achieve a similar experience of DMN Runner with our Test Scenario Editor.
+See how below.</p>
+      <section id="_creating_unit_tests_with_test_scenario">
+         <title>Creating unit tests with Test Scenario</title>
+         <p>Test scenarios in IBM BAMOE enable you to validate the functionality of business decisions and business decision data during project development. With a test scenario, you use data from your project to set given conditions and expected results based on one or more defined business decisions. When you run the scenario, the expected results and actual results of the decision instance are compared. If the expected results match the actual results, the test is successful. If the expected results do not match the actual results, then the test fails.</p>
+         <p>You define test scenarios in <tt>.scesim</tt> (scenario simulation) files that you can model in Visual Studio Code (VSCode) using the IBM BAMOE <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">VSCode extension</xref>. You can use one or multiple <tt>.scesim</tt> files in your IBM BAMOE project, and each <tt>.scesim</tt> file can contain one or multiple test scenarios based on the defined decision data.</p>
+         <fig>
+            <title>Example test scenarios for <tt>PersonDecisions</tt> DMN decision logic</title>
+            <image href="../images/test-scenarios/kogito-test-scenario-example-person.png" placement="break">
+               <alt>Image of PersonDecisionsTest test scenario</alt>
+            </image>
+         </fig>
+         <p>When you run the test scenarios in your IBM BAMOE project, all test scenarios in all <tt>.scesim</tt> files are run as part of the same command. However, individual test scenarios are independent, so one scenario cannot affect or modify another. You can run test scenarios at any time during project development. You do not need to compile or deploy your decision service to run test scenarios, but your IBM BAMOE project needs to be compilable and free from build errors.</p>
+         <p>This documentation provides a step-by-step guide on how to use the Test Scenario editor in VSCode to test DMN assets created with BAMOE. For that scope, this guide will refer to an existing project that lives in the <xref href="https://github.com/apache/incubator-kie-kogito-examples/tree/stable/kogito-quarkus-examples/dmn-pmml-quarkus-example" scope="external">kie-kogito-examples</xref> GitHub repo. However, this guide will provide the steps to enable Test Scenario in your own project</p>
+         <note type="note">
+At the current time, BAMOE supports DMN-based Test Scenario only. Rule-based Test Scenario are not supported yet. It’s still possible to <b>run</b> a Rule-based Test Scenario generated with BAMOE 8.0.x in Business Central using the old APIs. You can find an example <xref href="../getting-started/examples.dita">here</xref>
+         </note>
+         <note type="note">
+All the DMN-based scesim assets created prior to version 9.1.1 will require a user action to update the related DMN file location. This is requested because the DMN file path is now managed in a relative format.
+</note>
+         <note type="note">
+All the DMN-based scesim assets are compatible only with DMN 1.2 models. Due to this, use DMN Classic Editor instead of DMN New Editor to create DMN models, that will be tested using <tt>.scesim</tt> file.
+</note>
+         <div conref="authoring-scesim_project_setup.dita">_project_setup</div>
+         <div conref="authoring-scesim_creating_a_test_scenario.dita">_creating_a_test_scenario</div>
+         <div conref="authoring-scesim_defining_list_values_in_test_scenarios.dita">_defining_list_values_in_test_scenarios</div>
+         <div conref="authoring-scesimref-test-scenarios-supported-feel-data-types_{context}.dita">ref-test-scenarios-supported-feel-data-types_{context}</div>
+      </section>
+   </body>
+</topic>

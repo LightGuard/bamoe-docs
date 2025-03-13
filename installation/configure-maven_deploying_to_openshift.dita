@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_deploying_to_openshift">
+   <title>Deploying to OpenShift</title>
+   <body>
+      <title>Deploying to OpenShift</title>
+      <p>Choose the container image from one of the following sources:</p>
+      <dl>
+         <dlentry>
+            <dt>bamoe-9.1.1-maven-repository-image.tar.gz</dt>
+            <dd>included in the distribution</dd>
+         </dlentry>
+         <dlentry>
+            <dt>quay.io/bamoe/maven-repository:9.1.1-ibm-0003</dt>
+            <dd>the image hosted on Quay.io</dd>
+         </dlentry>
+      </dl>
+      <note type="caution">
+         <p>The container images provided are created for Linux distribution, running on a different architecture beside Linux x86_64 architecture may display a warning similar to: "WARNING: The requested image’s platform (linux/amd64) does not match the detected host platform (…​) and no specific platform was requested" which can be ignored.</p>
+      </note>
+      <p>
+         <b>Using bamoe-9.1.1-maven-repository-image.tar.gz</b>
+      </p>
+      <p>Enable the OpenShift registry and log into it using Docker:</p>
+      <codeblock outputclass="language-shell">
+oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
+export REGISTRY=`oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}'`
+docker login -u `oc whoami` -p `oc whoami --show-token` ${REGISTRY}
+</codeblock>
+      <p>Import the image from the <tt>tar.gz</tt> file, re-tag it, and push it to the OpenShift registry:</p>
+      <codeblock outputclass="language-shell">
+docker image load --input bamoe-9.1.1-maven-repository-image.tar.gz
+docker tag quay.io/bamoe/maven-repository:9.1.1-ibm-0003 ${REGISTRY}/&lt;PROJECT_NAME&gt;/maven-repository:9.1.1-ibm-0003
+docker push ${REGISTRY}/&lt;PROJECT_NAME&gt;/maven-repository:9.1.1-ibm-0003
+# Replace &lt;PROJECT_NAME&gt; with your OpenShift Project (namespace)
+</codeblock>
+      <p>Set an environment variable with the image name</p>
+      <codeblock outputclass="language-shell">
+export BAMOE_MAVEN_REPOSITORY_IMAGE=maven-repository:9.1.1-ibm-0003
+</codeblock>
+      <p>
+         <b>Using quay.io/bamoe/maven-repository:9.1.1-ibm-0003</b>
+      </p>
+      <p>This case is simpler as you only need to set an environment variable with the image URL</p>
+      <codeblock outputclass="language-shell">
+export BAMOE_MAVEN_REPOSITORY_IMAGE=quay.io/bamoe/maven-repository:9.1.1-ibm-0003
+</codeblock>
+      <p>Create the Deployment and Route</p>
+      <codeblock outputclass="language-shell">
+oc new-app ${BAMOE_MAVEN_REPOSITORY_IMAGE} --name bamoe-maven-repo
+oc create route edge --service=bamoe-maven-repo
+</codeblock>
+      <p>Get the Maven repository URL to be used in the next steps:</p>
+      <codeblock outputclass="language-shell">
+oc get route bamoe-maven-repo --output jsonpath={.spec.host}
+</codeblock>
+   </body>
+</topic>

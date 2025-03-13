@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="upgrading">
+   <title>Upgrading from BAMOE 9.0.x</title>
+   <body>
+      <p>The following new features may require you to upgrade your projects:</p>
+      <ul>
+         <li>Canvas Helm chart</li>
+         <li>The new DMN editor supporting DMN 1.5</li>
+      </ul>
+      <p>To upgrade BAMOE from 9.0.x to 9.1.1, follow these steps:</p>
+      <ul>
+         <li>Update QUARKUS Version to 3.8.6</li>
+         <li>Update pom files from your projects with 9.1.1 BAMOE BOM</li>
+         <li>Rebuild projects and re-deploy as regular software rollout.</li>
+      </ul>
+      <p>For BAMOE Canvas:</p>
+      <p>The new containers are the drop-in replacements for the existing.
+You can use <xref href="https://docs.openshift.com/container-platform/4.14/applications/deployments/route-based-deployment-strategies.html#deployments-blue-green_route-based-deployment-strategies" scope="external">blue/green deployment strategies</xref>
+      </p>
+      <p>For the new DMN editor:
+After upgrade, the New DMN Editor will be opened automatically when you first access it in Canvas or Developer tools for VS Code.
+Existing DMN files (any version) can be opened directly in the editor. For more information, see <xref href="../editing/authoring-decisions.dita">Authoring decisions</xref>
+      </p>
+      <section id="_maven_libraries_mapping_guide">
+         <title>Maven libraries mapping guide</title>
+         <p>With the transition of the KIE projets to the Apache Software Foundation (ASF), it has become necessary to rename a number of Maven modules.  The following table(s) describe the changes to the Maven GAV (GroupID/ArtifactID/Version) that happened in 9.1.0:</p>
+         <p>The general guidelines are:</p>
+         <ul>
+            <li>
+               <xref href="../installation/gav-mapping-rules.dita">Drools Maven mappings</xref> for anything related to rules or decisions.</li>
+            <li>
+               <xref href="../installation/gav-mapping-process.dita">jBPM Maven mappings</xref> for anything related to BPMN-based stateless/stateful processes.</li>
+            <li>
+               <xref href="../installation/gav-mapping-kogito.dita">Kogito Maven mappings</xref> for anything related to infrastructure or extended services.</li>
+            <li>
+               <xref href="../installation/gav-mapping-kie.dita">KIE Maven mappings</xref> for anything else that does not fall into the above categories.</li>
+         </ul>
+      </section>
+   </body>
+</topic>

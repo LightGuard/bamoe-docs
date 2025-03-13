@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_invalid_coercion">
+   <title>Invalid Coercion</title>
+   <body>
+      <p>For example, Java allows coercion from int to long.
+However, Java does not allow coercion from int to Long.
+This is the rule to call the setWrapperLong method which accepts Long:</p>
+      <codeblock outputclass="language-drl">
+rule Rule1
+dialect "mvel"
+when
+  $f : Fact()
+then
+  $f.setWrapperLong(10);
+end
+</codeblock>
+      <p>The non-executable model coerces 10 to Long, and hence it does not throw an Exception.
+However, the executable model throws a build error, <tt>The method setWrapperLong(Long) in the type Fact is not applicable for the arguments (int)</tt>.
+You can fix the rule by using valid Java syntax. For example:</p>
+      <codeblock>
+...
+then
+  $f.setWrapperLong(10L);
+end
+</codeblock>
+      <p>Generics return type resolution, assuming you have classes below:</p>
+      <p outputclass="title">
+         <b>Parent Class</b>
+      </p>
+      <codeblock>
+public abstract class Vehicle&lt;TEngine extends Engine&gt; {
+    // ...
+
+	public abstract TEngine getEngine();
+
+	public TEngine getMotor() {
+		return getEngine();
+	}
+</codeblock>
+      <p outputclass="title">
+         <b>Sub Class</b>
+      </p>
+      <codeblock outputclass="language-java">
+public class DieselCar extends Vehicle&lt;DieselEngine&gt; {
+	private final DieselEngine engine;
+
+	public DieselCar(String maker, String model, int kw, boolean adBlueRequired) {
+		super(maker, model);
+		this.engine = new DieselEngine(kw, adBlueRequired);
+	}
+
+	@Override
+	public DieselEngine getEngine() {
+		return engine;
+	}
+}
+</codeblock>
+      <p outputclass="title">
+         <b>Java Class</b>
+      </p>
+      <codeblock outputclass="language-java">
+public class DieselEngine extends Engine {
+
+	private final boolean adBlueRequired;
+</codeblock>
+      <p outputclass="title">
+         <b>Rule</b>
+      </p>
+      <codeblock outputclass="language-drl">
+rule Rule1
+	when
+		$v : DieselCar(motor.adBlueRequired == true)
+	then
+		// do something
+end
+</codeblock>
+      <p>The non-executable model can dynamically resolve that motor is <tt>DieselEngine</tt> and hence the rule works.
+However, the executable model resolves motor to TEngine, so a build error is thrown as, <tt>Unknown field adBlueRequired on TEngine</tt>.
+You can fix the rule by specifying the subtype with the # operator.
+For example:</p>
+      <codeblock outputclass="language-drl">
+...
+when
+	$v : DieselCar(motor#DieselEngine.adBlueRequired == true)
+</codeblock>
+   </body>
+</topic>

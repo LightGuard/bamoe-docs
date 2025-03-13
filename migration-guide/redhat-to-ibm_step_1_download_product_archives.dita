@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_step_1_download_product_archives">
+   <title>Step 1: Download Product Archives</title>
+   <body>
+      <title>Step 1: Download Product Archives</title>
+      <p>The first step in migration is to download the product archives from either <xref href="https://www.ibm.com/support/fixcentral/swg/selectFixes?parent=ibm%7EWebSphere&amp;product=ibm/WebSphere/IBM+Business+Automation+Manager+Open+Editions&amp;release=8.0&amp;function=all&amp;_gl=1*eyjqut*_ga*MjAzNDU5OTI0MC4xNjYzMTE3Mjg0*_ga_FYECCCS21D*MTY5NjAwMDIzMy45Ni4xLjE2OTYwMDI5MjQuMC4wLjA" scope="external">IBM Fix Central</xref>
+         <i>(which requires an active support subscription to IBM BAMOE)</i> or via the <xref href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-52220" scope="external">IBM Business Automation Manager Open Editions Developer Program</xref>
+         <i>(subject to its terms)</i>.
+Download the files <i>(replace with the most current version)</i> based on your requirement.
+The following table shows the most common files but you can select other files according to your environment.</p>
+      <p outputclass="title">
+         <b>BAMOE Product Archives</b>
+      </p>
+      <p>The following archives are typically used in migrating to BAMOE:</p>
+      <table>
+         <title>Common Product Archives</title>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Product Archive</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>ILMT_for_IBAMOE_<b>{VERSION</b>}.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is used by IBM ILMT to measure the usage deployed in an environment of the product.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-installer-<b>{VERSION</b>}.jar</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is an executable file that installs BAMOE version  8.0.x in a preinstalled Red Hat JBoss EAP on all supported Linux and Windows environments.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-add-ons.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive contains things like the Database Migration Scripts (found at path /bamoe-<b>VERSION</b>-add-ons/process-migration/upgrade-scripts/<b>Database</b>)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-business-central-eap7-deployable.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is required if you are running Business Central on your JBoss Enterprise Application Platform (EAP)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-kie-server-ee7.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is required if you are running running KIE Server EE7 on JBoss EAP</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-kie-server-ee8.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is required if you are running KIE Server EE8 on JBoss EAP</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-maven-repository.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is required if you need to have a local copy of the product artifacts</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-offliner.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is required to help you to build the Maven mirror repository in an offline fashion, in situations where you need to have a disconnected loading of the Maven repository in your environment.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-update.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive includes all of the updates that get applied with the overall product set.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-kogito-offliner.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive facilitates preparing a Maven mirror repository for offline use.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-kogito-maven-repository.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive is the Kogito Maven repository, which contains many of the requirements that Java developers typically use to build Kogito-based applications.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>bamoe-<b>{VERSION</b>}-openshift-templates.zip</p>
+                  </entry>
+                  <entry>
+                     <p>This archive facilitates building a custom KIE Server extension image for an external database.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <note type="note">
+         <p>In the displayed table, you must replace <b>VERSION</b> with the version of BAMOE you are migrating to, such as 8.0.6.</p>
+      </note>
+      <p>Now that you have the files, you can start the migration process.</p>
+   </body>
+</topic>

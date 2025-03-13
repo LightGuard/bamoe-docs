@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="process-sample-pom">
+   <title/>
+   <body>
+      <p>
+         <b>Example Maven pom.xml for Process Projects</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;?xml version="1.0"?&gt;
+&lt;project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;!-- Project Properties --&gt;
+    &lt;groupId&gt;${PROJECT-GROUP-ID}&lt;/groupId&gt;
+    &lt;artifactId&gt;${PROJECT-ARTIFACT_ID}&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+
+    &lt;properties&gt;
+        &lt;!-- General Properties --&gt;
+	    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+	    &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;
+
+        &lt;!-- Java Properties --&gt;
+        &lt;java.version&gt;17&lt;/java.version&gt;
+
+        &lt;!-- Common Maven Properties --&gt;
+        &lt;maven.compiler.source&gt;${java.version}&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;${java.version}&lt;/maven.compiler.target&gt;
+        &lt;maven.compiler.release&gt;${java.version}&lt;/maven.compiler.release&gt;
+        &lt;maven-compiler-plugin.version&gt;3.10.1&lt;/maven-compiler-plugin.version&gt;
+        &lt;maven-resources-plugin.version&gt;3.2.0&lt;/maven-resources-plugin.version&gt;
+        &lt;surefire-plugin.version&gt;3.0.0-M7&lt;/surefire-plugin.version&gt;
+        &lt;skipITs&gt;true&lt;/skipITs&gt;
+
+        &lt;!-- BAMOE --&gt;
+        &lt;bamoe.version&gt;9.1.x-ibm-0001&lt;/bamoe.version&gt;
+        &lt;bamoe.bom.group-id&gt;com.ibm.bamoe&lt;/bamoe.bom.group-id&gt;
+        &lt;bamoe.bom.artifact-id&gt;bamoe-bom&lt;/bamoe.bom.artifact-id&gt;
+        &lt;bamoe.bom.version&gt;9.1.x-ibm-0001&lt;/bamoe.bom.version&gt;
+
+        &lt;!-- Quarkus --&gt;
+        &lt;quarkus.plugin.version&gt;3.8.6&lt;/quarkus.plugin.version&gt;
+        &lt;quarkus.platform.artifact-id&gt;quarkus-bom&lt;/quarkus.platform.artifact-id&gt;
+        &lt;quarkus.platform.group-id&gt;io.quarkus&lt;/quarkus.platform.group-id&gt;
+        &lt;quarkus.platform.version&gt;3.8.6&lt;/quarkus.platform.version&gt;
+    &lt;/properties&gt;
+
+    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;!-- Quarkus --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;${quarkus.platform.group-id}&lt;/groupId&gt;
+                &lt;artifactId&gt;${quarkus.platform.artifact-id}&lt;/artifactId&gt;
+                &lt;version&gt;${quarkus.platform.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- BAMOE --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;${bamoe.bom.group-id}&lt;/groupId&gt;
+                &lt;artifactId&gt;${bamoe.bom.artifact-id}&lt;/artifactId&gt;
+                &lt;version&gt;${bamoe.bom.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+
+            &lt;!-- BAMOE Tech Preview --&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;${bamoe.bom.group-id}&lt;/groupId&gt;
+                &lt;artifactId&gt;bamoe-techpreview-bom&lt;/artifactId&gt;
+                &lt;version&gt;${bamoe.bom.version}&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- IBM License Management--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.ibm.bamoe&lt;/groupId&gt;
+            &lt;artifactId&gt;bamoe-ilmt-compliance-quarkus-pamoe&lt;/artifactId&gt;
+            &lt;version&gt;${bamoe.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- jBPM --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.jbpm&lt;/groupId&gt;
+            &lt;artifactId&gt;jbpm-with-drools-quarkus&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kie-addons-quarkus-process-management&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kogito-addons-quarkus-jobs-management&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kie-addons-quarkus-process-svg&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kie-addons-quarkus-source-files&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Persistence --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-jdbc-postgresql&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-agroal&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kie-addons-quarkus-persistence-jdbc&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Data Index Addon --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kogito-addons-quarkus-data-index-postgresql&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Jobs Service --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kogito-addons-quarkus-jobs&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+            &lt;artifactId&gt;jobs-service-postgresql-common&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Data Audit --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kogito-addons-quarkus-data-audit-jpa&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie&lt;/groupId&gt;
+            &lt;artifactId&gt;kogito-addons-quarkus-data-audit&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- Quarkus --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-resteasy&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-resteasy-jackson&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-smallrye-openapi&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-smallrye-health&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-swagger-ui&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+            &lt;artifactId&gt;quarkus-junit5&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+            &lt;artifactId&gt;kogito-quarkus-test-utils&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.awaitility&lt;/groupId&gt;
+            &lt;artifactId&gt;awaitility&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;finalName&gt;${project.artifactId}&lt;/finalName&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;${quarkus.platform.group-id}&lt;/groupId&gt;
+                &lt;artifactId&gt;quarkus-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;${quarkus.plugin.version}&lt;/version&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;build&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+          &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</codeblock>
+   </body>
+</topic>

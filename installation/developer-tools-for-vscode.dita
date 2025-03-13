@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="developer-tools-for-vscode">
+   <title>Developer Tools for VS Code</title>
+   <body>
+      <p>BAMOE provides some VS Code Extensions for developers to work with their Decision and Workflow projects.
+These extensions are all available through the BAMOE Developer Tools extension.</p>
+      <p>It is available at the Visual Studio Marketplace, as <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+            <b>IBM BAMOE Developer Tools for VS Code</b>
+         </xref>.
+More information on using the extensions can be found in <xref href="../tools/developer-tools-for-vscode.dita">Developer Tools for VS Code</xref>.</p>
+   </body>
+</topic>

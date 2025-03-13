@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="kie-helm-charts">
+   <title>Using Helm charts</title>
+   <body>
+      <p>BAMOE Canvas helm chart is a Helm chart based on the open-source KIE Sandbox and it is a technology that can enable you to install multi-container services with a single command: Helm, <xref href="https://helm.sh/" scope="external">the package manager for Kubernetes</xref>.</p>
+      <p>Helm helps you manage Kubernetes applications, and Helm Charts help you define, install, and upgrade even the most complex Kubernetes applications.</p>
+      <p>Charts are easy to create, version, share, and publish instead of using copy-and-paste.</p>
+      <p>This chart can be used to deploy the BAMOE Canvas image on a <xref href="https://kubernetes.io" scope="external">Kubernetes</xref> cluster using the <xref href="https://helm.sh" scope="external">Helm package manager</xref>.</p>
+      <section id="_additional_requirements">
+         <title>Additional requirements</title>
+         <ul>
+            <li>Podman (for Linux)</li>
+            <li>Docker (for macOS)</li>
+            <li>Minikube</li>
+         </ul>
+      </section>
+      <section id="_components">
+         <ul>
+            <li>BAMOE Canvas: Main application</li>
+            <li>Extended Services: Powers the DMN Runner and validator</li>
+            <li>CORS Proxy: Intended to solve CORS issues</li>
+         </ul>
+      </section>
+      <section id="_installing_a_released_version_from_the_oci_registry">
+         <p>Install a released version available on quay.io registry:</p>
+         <div conref="kie-helm-charts_default_install.dita">_default_install</div>
+         <div conref="kie-helm-charts_minikube_install.dita">_minikube_install</div>
+         <div conref="kie-helm-charts_kubernetes_install.dita">_kubernetes_install</div>
+         <div conref="kie-helm-charts_openshift_install.dita">_openshift_install</div>
+      </section>
+      <section id="_uninstalling_the_chart">
+         <p>Follow the command to uninstall the <tt>my-bamoe-canvas</tt> deployment:</p>
+         <codeblock outputclass="language-shell">
+$ helm uninstall my-bamoe-canvas
+</codeblock>
+      </section>
+      <section id="_passing_environmental_variables">
+         <p>This chart uses default environmental variables from <tt>values.yaml</tt> file. You can override the variables by passing them through the command line.</p>
+         <codeblock outputclass="language-shell">
+$ helm install my-bamoe-canvas ./src --set image.repository=quay.io
+</codeblock>
+      </section>
+      <section id="_configuration">
+         <p>The following table lists the configurable parameters of the BAMOE Canvas
+ chart and their default values.</p>
+         <table>
+            <tgroup cols="4">
+               <colspec colname="col_1" colwidth="25*"/>
+               <colspec colname="col_2" colwidth="25*"/>
+               <colspec colname="col_3" colwidth="25*"/>
+               <colspec colname="col_4" colwidth="25*"/>
+               <thead>
+                  <row>
+                     <entry>Key</entry>
+                     <entry>Type</entry>
+                     <entry>Default</entry>
+                     <entry>Description</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>global.ingressSource</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Which ingress source is being used (none/"minikube"/"kubernetes"/"openshift") Obs.: For NOTES generation only</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>global.kubernetesClusterDomain</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>If using Minikube or Kubernetes, set the cluster domain</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>global.kubernetesIngressClass</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>If using Minikube or Kubernetes, set the Ingress class (i.e: nginx)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>global.openshiftRouteDomain</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>If using OpenShift Routes, set the Route domain</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>fullnameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts full name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>nameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.autoscaling</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}</p>
+                     </entry>
+                     <entry>
+                        <p>CORS Proxy HorizontalPodAutoscaler configuration (<xref href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/" scope="external">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.fullnameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts full name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.image</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"account":"kie-tools","name":"cors-proxy-image","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"latest"}</p>
+                     </entry>
+                     <entry>
+                        <p>Image source configuration for the CORS Proxy image</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.imagePullSecrets</p>
+                     </entry>
+                     <entry>
+                        <p>list</p>
+                     </entry>
+                     <entry>
+                        <p>[]</p>
+                     </entry>
+                     <entry>
+                        <p>Pull secrets used when pulling CORS Proxy image</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.ingress</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"cors-proxy.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}</p>
+                     </entry>
+                     <entry>
+                        <p>CORS Proxy OpenShift Route configuration (<xref href="https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html" scope="external">https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.name</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>"cors-proxy"</p>
+                     </entry>
+                     <entry>
+                        <p>The CORS Proxy application name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.nameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.openshiftRoute</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"enabled":false,"host":"cors-proxy.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}</p>
+                     </entry>
+                     <entry>
+                        <p>CORS Proxy OpenShift Route configuration (<xref href="https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html" scope="external">https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.service</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"nodePort":"","port":8080,"type":"ClusterIP"}</p>
+                     </entry>
+                     <entry>
+                        <p>CORS Proxy Service configuration (<xref href="https://kubernetes.io/docs/concepts/services-networking/service/" scope="external">https://kubernetes.io/docs/concepts/services-networking/service/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>cors_proxy.serviceAccount</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"create":true,"name":""}</p>
+                     </entry>
+                     <entry>
+                        <p>CORS Proxy ServiceAccount configuration (<xref href="https://kubernetes.io/docs/concepts/security/service-accounts/" scope="external">https://kubernetes.io/docs/concepts/security/service-accounts/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.autoscaling</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}</p>
+                     </entry>
+                     <entry>
+                        <p>Extended Services HorizontalPodAutoscaler configuration (<xref href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/" scope="external">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.fullnameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts full name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.image</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"account":"bamoe","name":"extended-services","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.1"}</p>
+                     </entry>
+                     <entry>
+                        <p>Image source configuration for the Extended Services image</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.imagePullSecrets</p>
+                     </entry>
+                     <entry>
+                        <p>list</p>
+                     </entry>
+                     <entry>
+                        <p>[]</p>
+                     </entry>
+                     <entry>
+                        <p>Pull secrets used when pulling Extended Services image</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.ingress</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"extended-services.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}</p>
+                     </entry>
+                     <entry>
+                        <p>Extended Services Ingress configuration (<xref href="https://kubernetes.io/docs/concepts/services-networking/ingress/" scope="external">https://kubernetes.io/docs/concepts/services-networking/ingress/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.name</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>"extended-services"</p>
+                     </entry>
+                     <entry>
+                        <p>The Extended Services application name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.nameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.openshiftRoute</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"enabled":false,"host":"extended-services.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}</p>
+                     </entry>
+                     <entry>
+                        <p>Extended Services OpenShift Route configuration (<xref href="https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html" scope="external">https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.service</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"nodePort":"","port":21345,"type":"ClusterIP"}</p>
+                     </entry>
+                     <entry>
+                        <p>Extended Services Service configuration (<xref href="https://kubernetes.io/docs/concepts/services-networking/service/" scope="external">https://kubernetes.io/docs/concepts/services-networking/service/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>extended_services.serviceAccount</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"create":true,"name":""}</p>
+                     </entry>
+                     <entry>
+                        <p>Extended Services ServiceAccount configuration (<xref href="https://kubernetes.io/docs/concepts/security/service-accounts/" scope="external">https://kubernetes.io/docs/concepts/security/service-accounts/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.autoscaling</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"enabled":false,"maxReplicas":100,"minReplicas":1,"targetCPUUtilizationPercentage":80}</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Canvas HorizontalPodAutoscaler configuration (<xref href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/" scope="external">https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.env</p>
+                     </entry>
+                     <entry>
+                        <p>list</p>
+                     </entry>
+                     <entry>
+                        <p>[{"name":"KIE_SANDBOX_EXTENDED_SERVICES_URL","value":"http://127.0.0.1:21345"},{"name":"KIE_SANDBOX_CORS_PROXY_URL","value":"http://127.0.0.1:8081"}]</p>
+                     </entry>
+                     <entry>
+                        <p>Env variables for BAMOE Canvas deployment</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.fullnameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts full name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.image</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"account":"bamoe","name":"canvas","pullPolicy":"IfNotPresent","registry":"quay.io","tag":"9.1.1"}</p>
+                     </entry>
+                     <entry>
+                        <p>Image source configuration for the BAMOE Canvas image</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.imagePullSecrets</p>
+                     </entry>
+                     <entry>
+                        <p>list</p>
+                     </entry>
+                     <entry>
+                        <p>[]</p>
+                     </entry>
+                     <entry>
+                        <p>Pull secrets used when pulling BAMOE Canvas image</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.ingress</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"className":"{{ .Values.global.kubernetesIngressClass }}","enabled":false,"hosts":[{"host":"kie-sandbox.{{ .Values.global.kubernetesClusterDomain }}","paths":[{"path":"/","pathType":"ImplementationSpecific"}]}],"tls":[]}</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Canvas Ingress configuration (<xref href="https://kubernetes.io/docs/concepts/services-networking/ingress/" scope="external">https://kubernetes.io/docs/concepts/services-networking/ingress/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.name</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>"kie_sandbox"</p>
+                     </entry>
+                     <entry>
+                        <p>The BAMOE Canvas application name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.nameOverride</p>
+                     </entry>
+                     <entry>
+                        <p>string</p>
+                     </entry>
+                     <entry>
+                        <p>""</p>
+                     </entry>
+                     <entry>
+                        <p>Overrides charts name</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.openshiftRoute</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"enabled":false,"host":"kie_sandbox.{{ .Values.global.openshiftRouteDomain }}","tls":{"insecureEdgeTerminationPolicy":"None","termination":"edge"}}</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Canvas OpenShift Route configuration (<xref href="https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html" scope="external">https://docs.openshift.com/container-platform/4.14/networking/routes/route-configuration.html</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.service</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"nodePort":"","port":8080,"type":"ClusterIP"}</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Canvas Service configuration (<xref href="https://kubernetes.io/docs/concepts/services-networking/service/" scope="external">https://kubernetes.io/docs/concepts/services-networking/service/</xref>)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>kie_sandbox.serviceAccount</p>
+                     </entry>
+                     <entry>
+                        <p>object</p>
+                     </entry>
+                     <entry>
+                        <p>{"annotations":{},"create":true,"name":""}</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Canvas ServiceAccount configuration (<xref href="https://kubernetes.io/docs/concepts/security/service-accounts/" scope="external">https://kubernetes.io/docs/concepts/security/service-accounts/</xref>)</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+   </body>
+</topic>

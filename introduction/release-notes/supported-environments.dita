@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="supported-environments">
+   <title>Supported environments</title>
+   <body>
+      <p>This section summarizes the tested and supported configurations available for BAMOE 9.1.x. Support is available for any issues you identify while using the functionality provided in the product in production or development, physical or virtual environments, and depending on your subscription agreement. For any supplementary details, in particular for patch releases, you can see the <xref href="https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=1EA3BE2E21944FDABF4A432FD818E438" scope="external">IBM Support site link</xref>.</p>
+      <p>A supported configuration includes the application containers, the JVM version families and their corresponding Operating Systems.</p>
+      <section id="_bamoe_9_1_1">
+         <title>BAMOE 9.1.1</title>
+         <p>This section summarizes the tested and supported configurations available for BAMOE 9.1.1.</p>
+         <div conref="supported-environments_supported_configurations.dita">_supported_configurations</div>
+         <div conref="supported-environments_tested_configurations.dita">_tested_configurations</div>
+         <div conref="supported-environments_tested_integrations.dita">_tested_integrations</div>
+         <div conref="supported-environments_decision_services_support.dita">_decision_services_support</div>
+      </section>
+      <section id="_bamoe_9_1_0">
+         <p>This section summarizes the tested and supported configurations available for BAMOE 9.1.0.</p>
+         <div conref="supported-environments_supported_configurations_2.dita">_supported_configurations_2</div>
+         <div conref="supported-environments_tested_configurations_2.dita">_tested_configurations_2</div>
+         <div conref="supported-environments_tested_integrations_2.dita">_tested_integrations_2</div>
+         <div conref="supported-environments_decision_services_support_2.dita">_decision_services_support_2</div>
+         <div conref="supported-environments_supported_runtimes.dita">_supported_runtimes</div>
+         <div conref="supported-environments_model_level_support.dita">_model_level_support</div>
+      </section>
+   </body>
+</topic>

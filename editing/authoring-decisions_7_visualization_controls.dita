@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_7_visualization_controls">
+   <title>7. Visualization controls</title>
+   <body>
+      <p>The visualization controls give the user the option to zoom in/out from the model, to make the viewport fit the current model, or to lock any interaction.</p>
+   </body>
+</topic>

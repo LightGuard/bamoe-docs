@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-documentation">
+   <title>DMN model documentation in the IBM BAMOE DMN modeler</title>
+   <body>
+      <p>In the IBM BAMOE DMN modeler, you can use the <b>Documentation</b> tab to generate a report of your DMN model. The DMN model report contains all decision requirements diagrams (DRDs), data types, and boxed expressions in your DMN model. You can use this report to share your DMN model details or as part of your internal reporting workflow.</p>
+      <fig>
+         <title>Example DMN model report</title>
+         <image href="../images/dmn-documentation.png" placement="break">
+            <alt>dmn documentation</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

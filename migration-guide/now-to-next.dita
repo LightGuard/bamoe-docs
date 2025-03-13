@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="now-to-next">
+   <title>Migrating to IBM Business Automation Manager Open Editions version 9.0</title>
+   <body>
+      <p>IBM BAMOE version 9.0.1 is optimized for a hybrid cloud environment and adapts to your domain and tooling needs.
+The core objective of BAMOE is to help you mold a set of business processes and decisions into your own domain-specific cloud-native set of services.</p>
+      <section id="_overview">
+         <title>Overview</title>
+         <p>This section describes the migration of existing applications to version 9.0.1 of IBM Business Automation Manager Open Editions.</p>
+      </section>
+      <section id="_prerequisites">
+         <p>The following tools are required to migrate to BAMOE version 9.0.1:</p>
+         <ul>
+            <li>
+               <xref href="https://openjdk.org" scope="external">JDK 11</xref> or later is installed.</li>
+            <li>
+               <xref href="https://maven.apache.org" scope="external">Apache Maven 3.8.6</xref> or later is installed.</li>
+            <li>
+               <xref href="https://code.visualstudio.com/download" scope="external">Visual Studio Code IDE</xref> latest version</li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM BAMOE Developer Tools</xref> latest version of VS Code IDE extensions</li>
+         </ul>
+      </section>
+      <section id="_procedure">
+         <p>While it is possible to migrate an existing <b>Knowledge Jar (KJAR)</b> project, it is recommended that you start your project from scratch since the Maven configuration for BAMOE version 9.0.1 is significantly different from that of BAMOE version 8.0.x or Red Hat Decision Manager version 7.
+Note that the process is simple, as it is driven by Maven and Quarkus specifically.</p>
+         <p>The first step is to generate a new Maven project so that there is a place to migrate your existing business automation assets into the new BAMOE architecture.
+There are several ways to create Maven projects; however, this approach uses a published Maven plugin.
+Follow the procedure to ensure that the Maven project is setup properly:</p>
+         <div conref="now-to-next_step_1_update_maven_configuration.dita">_step_1_update_maven_configuration</div>
+         <div conref="now-to-next_step_2_generate_a_new_maven_project_using_apache_maven.dita">_step_2_generate_a_new_maven_project_using_apache_maven</div>
+         <div conref="now-to-next_step_3_add_business_automation_assets.dita">_step_3_add_business_automation_assets</div>
+         <div conref="now-to-next_step_4_compile_build_test_deploy.dita">_step_4_compile_build_test_deploy</div>
+      </section>
+   </body>
+</topic>

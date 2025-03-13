@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_tested_configurations">
+   <title>Tested configurations</title>
+   <body>
+      <p>A full range of platform tests have been performed on the following configurations:</p>
+      <table>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="33.3334*"/>
+            <thead>
+               <row>
+                  <entry>Operating System/Chip</entry>
+                  <entry>Container architecture</entry>
+                  <entry>JAVA Virtual Machines</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Red Hat Enterprise Linux 9.4 (RHEL) / x86_64</p>
+                  </entry>
+                  <entry>
+                     <p>OpenShift Container Platform 4.15</p>
+                     <p>Kubernetes 1.30</p>
+                  </entry>
+                  <entry>
+                     <p>OpenJDK 17</p>
+                     <p>Adoptium OpenJDK 17</p>
+                     <p>Quarkus 3.8.6</p>
+                     <p>GraalVM Community Edition for JDK 17</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Microsoft Windows Server 2022 / x86_64</p>
+                  </entry>
+                  <entry>
+                     <p>OpenShift Container Platform 4.15</p>
+                     <p>Kubernetes 1.30</p>
+                  </entry>
+                  <entry>
+                     <p>OpenJDK 17</p>
+                     <p>Adoptium OpenJDK 17</p>
+                     <p>Quarkus 3.8.6</p>
+                     <p>GraalVM Community Edition for JDK 17</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>For more information on support statements for various Kubernetes platforms, see <xref href="https://www.ibm.com/support/pages/node/7037216" scope="external">BAMOE support statements</xref>
+      </p>
+   </body>
+</topic>

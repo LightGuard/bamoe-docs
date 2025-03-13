@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_providing_a_key_for_a_kafka_record">
+   <title>Providing a key for a Kafka record</title>
+   <body>
+      <title>Providing a key for a Kafka record</title>
+      <p>To specify the key to your Kafka record, you can use a custom <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/blob/main/quarkus/addons/common/reactive-messaging/src/main/java/org/kie/kogito/addon/quarkus/common/reactive/messaging/MessageDecorator.java" scope="external">MessageDecorator</xref> implementation.</p>
+      <p>For an example, see <xref href="https://github.com/apache/incubator-kie-kogito-examples/blob/main/kogito-quarkus-examples/process-kafka-avro-multi-quarkus/src/main/java/org/acme/travel/StringKeyDecorator.java" scope="external">StringKeyDecorator.java</xref>
+      </p>
+   </body>
+</topic>

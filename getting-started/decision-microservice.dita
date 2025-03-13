@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="decision-microservice">
+   <title>Decision microservice in 15 minutes</title>
+   <body>
+      <p>This lab introduces you to the deployment of an existing Decision Model and Notation (DMN) and the validation of its decisions.</p>
+      <ul>
+         <li>Explore an existing DMN file</li>
+         <li>Test the DMN file</li>
+         <li>Deploy the existing DMN project using BAMOE Canvas</li>
+         <li>Test the deployed DMN</li>
+      </ul>
+      <section id="_prerequisites">
+         <title>Prerequisites</title>
+         <ul>
+            <li>
+               <xref href="../installation/configure-maven.dita">Apache Maven installed</xref>
+            </li>
+            <li>
+               <xref href="#../installation/canvas.dita/">BAMOE Canvas installed</xref>
+            </li>
+         </ul>
+         <p>Instructions for both can be found within this documentation, links on the left.</p>
+      </section>
+      <section id="_examine_the_existing_dmn_diagram">
+         <p>The following example describes an <b>insurance</b> price calculator based on an applicant’s age and accident history. You can check the DMN model at <xref href="https://github.com/bamoe/bamoe-docs-source-code-examples/tree/9.1.x/dmn/insurance-pricing.dmn" scope="external">GitHub</xref>.</p>
+         <p>This example consists of a simple DMN model, which is represented by the following diagram:</p>
+         <image href="../images/insurance-price-drd.png" width="600" placement="break">
+            <alt>Insurance Pricing Requirements Diagram</alt>
+         </image>
+         <p>In this decision diagram, the applicant’s age and accident history are the required inputs for the decision node "Insurance Total Price". This node has a simple decision table that can be checked below:</p>
+         <fig>
+            <title>DMN Decision Table</title>
+            <image href="../images/insurance-price-dt.png" width="600" placement="break">
+               <alt>Completed Decision Table</alt>
+            </image>
+         </fig>
+         <p>The DMN decision table includes a <tt>hit policy</tt>, <tt>inputs</tt> columns, and <tt>outputs</tt> columns. In this example, the <tt>hit policy</tt> is <tt>U</tt>, which means <tt>Unique</tt>, therefore only one input rule should be matched per time. The <tt>inputs</tt> are <tt>Age</tt> and <tt>had previous incidents</tt> and the combination of both creates a rule. The result of this rule is the <tt>outputs</tt> column, which in this case is the "Insurance Total Price".</p>
+         <p>The conditions for the <tt>Age</tt> input are defined using the Friendly Enough Expression Language (FEEL).</p>
+      </section>
+      <section id="_import_the_dmn_file_into_bamoe_canvas">
+         <p>In this section, you will import the GitHub repository to BAMOE Canvas directly.</p>
+         <ol>
+            <li>
+               <p>Under <b>Import &lt;/&gt; From URL</b> copy and paste the following link and click <b>Import</b>:</p>
+               <codeblock outputclass="language-console">
+https://raw.githubusercontent.com/bamoe/bamoe-docs-source-code-examples/9.1.x/dmn/insurance-pricing.dmn
+</codeblock>
+               <image href="../images/github-import.png" placement="break">
+                  <alt>Import DMN</alt>
+               </image>
+            </li>
+            <li>
+               <p>Once the project is imported, you will see the DMN Editor with the <b>insurance-pricing</b> DMN model displayed. If, instead of pointing to a particular DMN, you pointed to an entire project, any DMN/BPMN models associated with it would be able to be viewed/edited within BAMOE Canvas.</p>
+               <image href="../images/insurance-pricing-dmn.png" placement="break">
+                  <alt>Sandbox Model</alt>
+               </image>
+            </li>
+            <li>
+               <p>You can then click the <b>Run</b> button to get this DMN running within the browser session itself.</p>
+               <note type="note">
+                  <p>If you’re not connected to Extended Services, a modal will open showing how to setup it in your local environment.</p>
+               </note>
+               <image href="../images/insurance-pricing-run.png" placement="break">
+                  <alt>Run DMN</alt>
+               </image>
+            </li>
+            <li>
+               <p>This will have a section of the browser turn into a form, and you can run the model right there by modifying the checkbox based on the boolean of <tt>had previous incidents</tt> and setting an <tt>Age</tt> based on the data type being a number.</p>
+               <image href="../images/insurance-pricing-dmn-runner.png" placement="break">
+                  <alt>Form inputs</alt>
+               </image>
+            </li>
+         </ol>
+      </section>
+      <section id="_deploy">
+         <p>In this section, you will use BAMOE Canvas to deploy your DMN model to a Kubernetes cluster.</p>
+         <div conref="decision-microservice_setup_your_credentials.dita">_setup_your_credentials</div>
+         <div conref="decision-microservice_deploy_your_dmn_model.dita">_deploy_your_dmn_model</div>
+      </section>
+   </body>
+</topic>

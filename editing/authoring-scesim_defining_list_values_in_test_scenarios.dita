@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_defining_list_values_in_test_scenarios">
+   <title>Defining list values in test scenarios</title>
+   <body>
+      <p>When data types in Decision Model and Notation (DMN) models are configured as <tt>List</tt> types, you can set the values of the list for that data object in the corresponding test scenario. You can define list values in cells for both <b>GIVEN</b> and <b>EXPECT</b> columns.</p>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>In your VSCode IDE, open the DMN file that contains the decisions that you want to test and select the <b>Data Types</b> tab to view the data types for that DMN model.</li>
+         <li>
+            <p>Add or modify a data type of any kind, toggle the <b>List</b> option to define the data type as a list, and save the DMN file.</p>
+            <div>
+               <p>For example, the following <tt>State</tt> data type is part of a DMN model for determining fine amounts and driver suspension in a traffic violation decision service. In this case, the <tt>State</tt> data type is defined as a <tt>List</tt> type so that the relevant states can be explicitly listed in the decision service or test scenarios.</p>
+               <fig>
+                  <title>Example <tt>State</tt> data type as a list</title>
+                  <image href="../images/test-scenarios/kogito-test-scenario-example-list-type.png" placement="break">
+                     <alt>Image of State data type as a list type</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>Add or modify a test scenario (<tt>.scesim</tt>) file that corresponds to the DMN decision service and insert the DMN data type that you defined as a <tt>List</tt> type in a relevant <b>GIVEN</b> or <b>EXPECT</b> header cell.</p>
+            <div>
+               <p>For example, the following <tt>TrafficViolationTest.scesim</tt> test scenario file uses the <b>Driver</b> → <b>State</b> data object defined previously as a <tt>List</tt> type as part of the <b>GIVEN</b> parameters for the traffic violation scenarios.</p>
+               <fig>
+                  <title>Example <tt>State</tt> data type in a test scenario header cell</title>
+                  <image href="../images/test-scenarios/kogito-test-scenario-example-list-type-scenario.png" placement="break">
+                     <alt>Image of State data type as a list type in test scenario</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>Double-click a value cell in the column and in the window that appears, select from the following options:</p>
+            <div>
+               <ul>
+                  <li>
+                     <b>Create List</b>: Use this option to create a list using the guided form in the window. Select <b>Add list value</b> to begin adding list values.</li>
+                  <li>
+                     <b>Define List</b>: Use this option to define a list as a Friendly Enough Expression Language (FEEL) literal expression.</li>
+               </ul>
+               <fig>
+                  <title>Create list in guided form</title>
+                  <image href="../images/test-scenarios/kogito-test-scenario-example-list-define-UI.png" placement="break">
+                     <alt>Image of window to create list</alt>
+                  </image>
+               </fig>
+               <image href="../images/test-scenarios/kogito-test-scenario-example-list-define-UI2.png" placement="break">
+                  <alt>Image of window to add list values</alt>
+               </image>
+               <fig>
+                  <title>Define list as FEEL expression</title>
+                  <image href="../images/test-scenarios/kogito-test-scenario-example-list-define-expression.png" placement="break">
+                     <alt>Image of window to define list as FEEL expression</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>Click <b>Save</b> in the list window to save the list values.</p>
+            <div>
+               <p>The value for the selected cell in the test scenario is now defined with the new list:</p>
+               <fig>
+                  <title>Example list for <tt>State</tt> cell value</title>
+                  <image href="../images/test-scenarios/kogito-test-scenario-example-list-type-scenario2.png" placement="break">
+                     <alt>Image of State column with new list value</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+      </ol>
+   </body>
+</topic>

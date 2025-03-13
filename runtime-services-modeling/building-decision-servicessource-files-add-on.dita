@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="source-files-add-on">
+   <title>IBM BAMOE source files add-on</title>
+   <body>
+      <p>The IBM BAMOE Source Files Add-on adds the capability of listing and downloading source files to IBM BAMOE projects.</p>
+      <lq>
+         <p>
+            <b>⚠️</b>
+This add-on isn’t supposed to be used by end-users, if not needed for internal integrations, since it can be a potential security breach for some users' use cases.</p>
+      </lq>
+      <p>To add the endpoints to download your services' source files, you can add the source files add-on as a dependency in your <tt>pom.xml</tt> file.</p>
+      <p outputclass="title">
+         <b>Project dependency to enable source files endpoints</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-source-files&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p>Access to all the endpoints is granted to the role <tt>source-files-client</tt>.
+To define basic authentication, you can add the following code to your <tt>application.properties</tt> file:</p>
+      <p outputclass="title">
+         <b>Example of credentials for the user <tt>scott</tt> and password <tt>jb0ss</tt>
+         </b>
+      </p>
+      <codeblock outputclass="language-properties">
+quarkus.security.users.embedded.enabled=true
+quarkus.security.users.embedded.plain-text=true
+quarkus.security.users.embedded.users.scott=jb0ss
+quarkus.security.users.embedded.roles.scott=source-files-client
+</codeblock>
+      <p>You can also disable plain-text passwords by setting the <tt>quarkus.security.users.embedded.plain-text</tt> property to
+<tt>false</tt> or just removing it from the configuration. In this case, the passwords are encrypted using MD5.</p>
+      <p outputclass="title">
+         <b>Example of credentials for the user <tt>scott</tt> and password <tt>jb0ss</tt> encrypted using MD5</b>
+      </p>
+      <codeblock outputclass="language-properties">
+quarkus.security.users.embedded.enabled=true
+quarkus.security.users.embedded.users.scott=4960d03c13b5aff4ca6886758a8be019
+quarkus.security.users.embedded.roles.scott=source-files-client
+</codeblock>
+      <p>To define a more robust authentication mechanism, you can refer to the <xref href="https://quarkus.io/guides/security" scope="external">Quarkus documentation</xref>.</p>
+      <p>The Source Files Add-on provides REST support for the following operation:</p>
+      <div conref="building-decision-services_list_all_the_source_files_for_the_specified_process.dita">_list_all_the_source_files_for_the_specified_process</div>
+      <div conref="building-decision-services_download_the_specified_source_file.dita">_download_the_specified_source_file</div>
+   </body>
+</topic>

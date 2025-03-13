@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_engine_specific_properties">
+   <title>Engine Specific Properties</title>
+   <body>
+      <p>IBM BAMOE is composed of five different engines.</p>
+      <ol>
+         <li>Decisions</li>
+         <li>Persistence</li>
+         <li>Processes</li>
+         <li>Rules</li>
+         <li>Workflow</li>
+      </ol>
+      <p>Each engine has its own properties.</p>
+      <div conref="configuration_decision_engine_properties.dita">_decision_engine_properties</div>
+      <div conref="configuration_persistence_engine_properties.dita">_persistence_engine_properties</div>
+      <div conref="configuration_process_engine_properties.dita">_process_engine_properties</div>
+      <div conref="configuration_rules_engine_properties.dita">_rules_engine_properties</div>
+      <div conref="configuration_workflow_engine_properties.dita">_workflow_engine_properties</div>
+   </body>
+</topic>

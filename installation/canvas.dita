@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="canvas">
+   <title>BAMOE Canvas</title>
+   <body>
+      <p>BAMOE Canvas is a web application that provides authoring tools for Decisions and Workflows, directly in the browser. It enables different profiles of user (business automation developers and business policy managers) to create, edit and manage Decisions and Workflows, through editors and tool integrations such as Git for syncing repositories, and OpenShift and Kubernetes for deploying your files.</p>
+      <p>It depends on two backend applications to provide full functionality:</p>
+      <ul>
+         <li>Extended Services: provides features like DMN Runner, static validation of DMN, BPMN models, and a proxy to communicate with OpenShift and Kubernetes clusters.</li>
+         <li>CORS Proxy: provides a proxy to allow BAMOE Canvas web app to communicate with Git providers, like github.com and bitbucket.org.</li>
+      </ul>
+      <p>BAMOE Canvas and its two backend applications are available as container images.
+These images are published to Quay.io and can be used to run containers locally or with any cloud provider.</p>
+      <ul>
+         <li>Canvas → <xref href="https://quay.io/repository/bamoe/canvas" scope="external">https://quay.io/repository/bamoe/canvas</xref> @ 9.1.1-ibm-0003</li>
+         <li>Extended Services → <xref href="https://quay.io/repository/bamoe/extended-services" scope="external">https://quay.io/repository/bamoe/extended-services</xref> @ 9.1.1-ibm-0003</li>
+         <li>CORS Proxy → <xref href="https://quay.io/repository/bamoe/cors-proxy" scope="external">https://quay.io/repository/bamoe/cors-proxy</xref> @ 9.1.1-ibm-0003</li>
+      </ul>
+      <note type="note">
+All three image versions must be the same for deployment to work.
+</note>
+      <section id="_deploying_bamoe_canvas_to_openshift">
+         <title>Deploying BAMOE Canvas to OpenShift</title>
+         <p>If you have an OpenShift cluster and are logged in via the <tt>oc</tt> cli tool, follow these steps to deploy BAMOE Canvas and its dependencies.</p>
+         <note type="note">
+Labeling the resources is optional, but it will make organizing and identifying your deployed resources significantly easier.
+</note>
+         <ol>
+            <li>
+               <p>Define some variables that will be useful to name and label the resources created.</p>
+               <codeblock outputclass="language-shell">
+export APP_PART_OF=bamoe-canvas-app
+export APP_NAME_EXTENDED_SERVICES=bamoe-extended-services
+export APP_NAME_CORS_PROXY=bamoe-cors-proxy
+export APP_NAME_BAMOE_CANVAS=bamoe-canvas
+</codeblock>
+            </li>
+            <li>
+               <p>Deploy Extended Services and label its resources</p>
+               <codeblock outputclass="language-shell">
+oc new-app quay.io/bamoe/extended-services:9.1.1-ibm-0003 --name=$APP_NAME_EXTENDED_SERVICES
+oc create route edge --service=$APP_NAME_EXTENDED_SERVICES
+oc label services/$APP_NAME_EXTENDED_SERVICES app.kubernetes.io/part-of=$APP_PART_OF
+oc label routes/$APP_NAME_EXTENDED_SERVICES app.kubernetes.io/part-of=$APP_PART_OF
+oc label deployments/$APP_NAME_EXTENDED_SERVICES app.kubernetes.io/part-of=$APP_PART_OF
+oc label deployments/$APP_NAME_EXTENDED_SERVICES app.openshift.io/runtime=golang
+</codeblock>
+            </li>
+            <li>
+               <p>Deploy CORS Proxy and label its resources</p>
+               <codeblock outputclass="language-shell">
+oc new-app quay.io/bamoe/cors-proxy:9.1.1-ibm-0003 --name=$APP_NAME_CORS_PROXY
+oc create route edge --service=$APP_NAME_CORS_PROXY
+oc label services/$APP_NAME_CORS_PROXY app.kubernetes.io/part-of=$APP_PART_OF
+oc label routes/$APP_NAME_CORS_PROXY app.kubernetes.io/part-of=$APP_PART_OF
+oc label deployments/$APP_NAME_CORS_PROXY app.kubernetes.io/part-of=$APP_PART_OF
+oc label deployments/$APP_NAME_CORS_PROXY app.openshift.io/runtime=nodejs
+</codeblock>
+            </li>
+            <li>
+               <p>Finally, deploy the BAMOE Canvas image, setting the environment variables required to connect it to the Extended Services and CORS Proxy backends.</p>
+               <codeblock outputclass="language-shell">
+oc new-app quay.io/bamoe/canvas:9.1.1-ibm-0003 --name=$APP_NAME_BAMOE_CANVAS \
+  -e KIE_SANDBOX_EXTENDED_SERVICES_URL=https://$(oc get route $APP_NAME_EXTENDED_SERVICES --output jsonpath={.spec.host}) \
+  -e KIE_SANDBOX_CORS_PROXY_URL=https://$(oc get route $APP_NAME_CORS_PROXY --output jsonpath={.spec.host})
+oc create route edge --service=$APP_NAME_BAMOE_CANVAS
+oc label services/$APP_NAME_BAMOE_CANVAS app.kubernetes.io/part-of=$APP_PART_OF
+oc label routes/$APP_NAME_BAMOE_CANVAS app.kubernetes.io/part-of=$APP_PART_OF
+oc label deployments/$APP_NAME_BAMOE_CANVAS app.kubernetes.io/part-of=$APP_PART_OF
+oc label deployments/$APP_NAME_BAMOE_CANVAS app.openshift.io/runtime=js
+</codeblock>
+            </li>
+         </ol>
+         <fig>
+            <title>The OpenShift topology after BAMOE Canvas deployment</title>
+            <image href="../images/bamoe-canvas-openshift-topology.png" placement="break">
+               <alt>OpenShift topology after BAMOE Canvas deployment</alt>
+            </image>
+         </fig>
+         <p>Your BAMOE Canvas instance should be up and accessible via the route created in this last step. To get it, run this command:</p>
+         <codeblock outputclass="language-shell">
+oc get route $APP_NAME_BAMOE_CANVAS --output jsonpath={.spec.host}
+</codeblock>
+         <note type="note">
+All services will be available via <tt>https</tt>, which means that if you’re deploying them to a local OpenShift instance (i.e. via CRC), the BAMOE Canvas web app, the Extended Services and CORS Proxy backends will all be using self-signed certificates, causing warnings in your browser. To fix this, access each URL individually and allow them in your browser.
+</note>
+      </section>
+      <section id="_installing_and_configuring_bamoe_canvas_images_manually_via_docker">
+         <div conref="canvas_configuring_extended_services.dita">_configuring_extended_services</div>
+         <div conref="canvas_configuring_cors_proxy.dita">_configuring_cors_proxy</div>
+         <div conref="canvas_configuring_canvas.dita">_configuring_canvas</div>
+      </section>
+      <section id="_other_installation_methods">
+         <p>BAMOE Canvas can also be deployed via <xref href="docker-compose.dita">Docker Compose</xref> or using <xref href="kie-helm-charts.dita">Helm Charts</xref>.</p>
+      </section>
+      <section id="_securing_your_installation">
+         <p>It is recommended to have a secure protocol (HTTPS) available for the BAMOE Canvas installation as well as all services that BAMOE Canvas has access to, such as remote git repositories, or container orchestration like OpenShift. To enable that, please follow your Kubernetes distribution documentation on how to enable a secure protocol, ensuring that all access tokens have a token expiration policy.</p>
+      </section>
+   </body>
+</topic>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_disabling_grafana_dashboards_generation_in_ibm_bamoe">
+   <title>Disabling Grafana dashboards generation in IBM BAMOE</title>
+   <body>
+      <p>You can disable the generation of default dashboards in Prometheus metrics monitoring using the following properties:</p>
+      <p outputclass="title">
+         <b>Properties to disable default dashboards</b>
+      </p>
+      <codeblock>
+kogito.grafana.disabled.operational.dashboards
+kogito.grafana.disabled.domain.dashboards
+</codeblock>
+      <p outputclass="title">
+         <b>Prerequisites</b>
+      </p>
+      <ul>
+         <li>Prometheus is installed. For information about downloading and using Prometheus, see the <xref href="https://prometheus.io/docs/introduction/overview/" scope="external">Prometheus documentation page</xref>.</li>
+      </ul>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>
+            <p>To disable Grafana dashboard, add a comma-separated list of dashboard identifiers to the following properties:</p>
+            <div>
+               <p outputclass="title">
+                  <b>Properties to disable Grafana dashboard</b>
+               </p>
+               <codeblock>
+kogito.grafana.disabled.operational.dashboards
+kogito.grafana.disabled.domain.dashboards
+</codeblock>
+               <p>The <tt>kogito.grafana.disabled.operational.dashboards</tt> property disables the generation of operational dashboards and <tt>kogito.grafana.disabled.domain.dashboards</tt> property disables the generation of domain dashboards.</p>
+               <p>For example, a project containing the following resources uses the default configuration and generates the default dashboards:</p>
+               <p outputclass="title">
+                  <b>Example project resources</b>
+               </p>
+               <codeblock>
+Hello.drl
+LoanEligibility.dmn
+Traffic Violation.dmn
+</codeblock>
+               <p>The following are the default generated dashboards in IBM BAMOE:</p>
+               <table>
+                  <title>Example default generated dashboards for a project</title>
+                  <tgroup cols="2">
+                     <colspec colname="col_1" colwidth="50*"/>
+                     <colspec colname="col_2" colwidth="50*"/>
+                     <thead>
+                        <row>
+                           <entry>Dashboard type</entry>
+                           <entry>Dashboard name</entry>
+                        </row>
+                     </thead>
+                     <tbody>
+                        <row>
+                           <entry morerows="2">
+                              <p>Operational</p>
+                           </entry>
+                           <entry>
+                              <p>
+                                 <tt>Hello</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <p>
+                                 <tt>LoanEligibility</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <p>
+                                 <tt>Traffic Violation</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry morerows="2">
+                              <p>Domain</p>
+                           </entry>
+                           <entry>
+                              <p>
+                                 <tt>Hello</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <p>
+                                 <tt>LoanEligibility</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <p>
+                                 <tt>Traffic Violation</tt>
+                              </p>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+               <p>If you use the following configuration in the <tt>application.properties</tt> file, the generation of <tt>Hello</tt> and <tt>Traffic Violation</tt> operational dashboards, and <tt>LoanEligibility</tt> domain dashboard is avoided.</p>
+               <p outputclass="title">
+                  <b>Configuration for disabling specific dashboards</b>
+               </p>
+               <codeblock outputclass="language-properties">
+kogito.grafana.disabled.operational.dashboards=Hello,Traffic Violation
+kogito.grafana.disabled.domain.dashboards=LoanEligibility
+</codeblock>
+               <table>
+                  <title>Customized generation of dashboards in IBM BAMOE</title>
+                  <tgroup cols="2">
+                     <colspec colname="col_1" colwidth="50*"/>
+                     <colspec colname="col_2" colwidth="50*"/>
+                     <thead>
+                        <row>
+                           <entry>Dashboard type</entry>
+                           <entry>Dashboard name</entry>
+                        </row>
+                     </thead>
+                     <tbody>
+                        <row>
+                           <entry>
+                              <p>Operational</p>
+                           </entry>
+                           <entry>
+                              <p>
+                                 <tt>LoanEligibility</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry morerows="1">
+                              <p>Domain</p>
+                           </entry>
+                           <entry>
+                              <p>
+                                 <tt>Hello</tt>
+                              </p>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <p>
+                                 <tt>Traffic Violation</tt>
+                              </p>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+               <note type="important">
+                  <p>The spaces between the dashboard identifiers are eliminated as follows:</p>
+                  <p outputclass="title">
+                     <b>Example dashboard identifiers with spaces</b>
+                  </p>
+                  <codeblock>
+Hello, Traffic Violation, LoanEligibility
+</codeblock>
+                  <p outputclass="title">
+                     <b>Example dashboard identifiers without spaces</b>
+                  </p>
+                  <codeblock>
+"Hello"
+"Traffic Violation"
+"LoanEligibility"
+</codeblock>
+                  <p>However, the spaces within a dashboard identifier are maintained as follows:</p>
+                  <p outputclass="title">
+                     <b>Example dashboard identifiers with spaces</b>
+                  </p>
+                  <codeblock>
+Traffic Violation, Traffic    Violation, Tra ffic Violation
+</codeblock>
+                  <p outputclass="title">
+                     <b>Example dashboard identifiers without spaces</b>
+                  </p>
+                  <codeblock>
+"Traffic Violation"
+"Traffic    Violation"
+"Tra ffic Violation"
+</codeblock>
+               </note>
+            </div>
+         </li>
+      </ol>
+   </body>
+</topic>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_system">
+   <title>System</title>
+   <body>
+      <title>System</title>
+      <dl>
+         <dlentry>
+            <dt>Runtime</dt>
+            <dd>This is the infrastructure providing basic services required for running a complex application: transactions, rest infraestructure (JAX-RS), jdbc pool, thread pools, escalability, security, DI (dependency injection). The runtime relies on Quarkus.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Workflow Engine</dt>
+            <dd>The kogito API + jBPM workflow engine provides the workflow execution environment using kogito APIs and implementations.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Process Container</dt>
+            <dd>This is the BPMN file compiled and wired in to the workflow engine.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

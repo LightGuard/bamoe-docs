@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_events">
+   <title>Events</title>
+   <body>
+      <p>It should be noted, that the <tt>kogito.quarkus.events.*</tt> properties, despite having the word <tt>quarkus</tt> in them, are not specific to the Quarkus environment.</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.quarkus.events.threads.poolSize</p>
+                  </entry>
+                  <entry>
+                     <p>Maximum number of threads to handle incoming events by channel.</p>
+                  </entry>
+                  <entry>
+                     <p>int</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>10</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.quarkus.events.threads.queueSize</p>
+                  </entry>
+                  <entry>
+                     <p>Maximum size of queue to hold incoming events to be processed by threads in the pool.</p>
+                  </entry>
+                  <entry>
+                     <p>int</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>1</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.events.processinstances.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling publishing of processes instances events.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.events.processinstances.errors.propagate</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to propagate errors for process instance emitter.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>false</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.events.processdefinitions.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable publishing processes definition events.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.events.processdefinitions.errors.propagate</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to propagate errors for process definition emitter.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>false</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.events.usertasks.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable publishing user task instances events.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.events.usertasks.errors.propagate</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to propagate errors for user tasks.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>false</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

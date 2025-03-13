@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_supporting_program_ibm_robotic_process_automation">
+   <title>Supporting Program: IBM Robotic Process Automation</title>
+   <body>
+      <p>Subscriptions for IBM Business Automation Manager Open Editions include access to <xref href="https://www.ibm.com/br-pt/products/robotic-process-automation" scope="external">IBM Robotic Process Automation</xref> as a Supporting program.</p>
+      <p>Through the Supporting program IBM grants limited access to (IBM Robotic Process Automation) at no additional charge on the condition that the program is only used in conjunction with (and only to the extent necessary to support) the components of IBM Business Automation Manager Open Editions.</p>
+      <div conref="licensing_included_components.dita">_included_components</div>
+      <div conref="licensing_limitations.dita">_limitations</div>
+   </body>
+</topic>

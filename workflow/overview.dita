@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="overview">
+   <title>Overview stateful processes</title>
+   <body>
+      <p>As a developer of business processes, you can use BAMOE to develop process services using Business Process Model and Notation (BPMN) 2.0 models. BPMN process models are graphical representations of the steps required to achieve a business goal. You can design your BPMN processes with Canvas or the Kogito BPMN modeler in VS Code. Alternatively you can import existing BPMN processes into your BAMOE projects for deployment and execution.</p>
+      <p>This technology preview enables you to go further in the BPMN workflows that you implement enabling you to use new elements such as process variables, events, timers,  human tasks and asynchronous tasks (service, decision, script).</p>
+      <p>This section also introduces the key concepts of the new Compact Architecture where certain services can be colocated directly in the Runtime. This architecture simplifies the application configuration and minimizes the communication between components which ensures that BAMOE applications are stable and robust in a Business Process environment.</p>
+      <section id="_compact_architecture">
+         <title>Compact architecture</title>
+         <p>Compact architecture is a way to enable a process to run everything in an integrated way within the same
+deployment. In this architecture the communication with required or optional subsystems is via internal VM
+communication. Here are some basic definitions:</p>
+         <dl>
+            <dlentry>
+               <dt>deployment</dt>
+               <dd>is considered to be a consistent functional program that provides a set of defined functionalities that enable workflow execution.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>stateful process</dt>
+               <dd>is one that is able to persist the process instance state into a database or other type of storage.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>stateless process or straight-through process (STP)</dt>
+               <dd>is a process whose instance state cannot be stored in database. Stateless processes are a subset of stateful process.</dd>
+            </dlentry>
+         </dl>
+         <fig>
+            <title>The different components of Compact architecture</title>
+            <image href="../images/wf-compact-arch.png" placement="break">
+               <alt>wf compact arch</alt>
+            </image>
+         </fig>
+         <p>The following table shows the mandatory components in the subsystem of the compact architecture to implement a stateful workflow.</p>
+         <table>
+            <tgroup cols="4">
+               <colspec colname="col_1" colwidth="25*"/>
+               <colspec colname="col_2" colwidth="25*"/>
+               <colspec colname="col_3" colwidth="25*"/>
+               <colspec colname="col_4" colwidth="25*"/>
+               <thead>
+                  <row>
+                     <entry>Subsystem</entry>
+                     <entry>Type</entry>
+                     <entry>Stateful process (compact)</entry>
+                     <entry>Stateless (STP)</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>Workflow engine</p>
+                     </entry>
+                     <entry>
+                        <p>System</p>
+                     </entry>
+                     <entry>
+                        <p>mandatory</p>
+                     </entry>
+                     <entry>
+                        <p>mandatory</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Jobs</p>
+                     </entry>
+                     <entry>
+                        <p>Addon</p>
+                     </entry>
+                     <entry>
+                        <p>mandatory</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Human task</p>
+                     </entry>
+                     <entry>
+                        <p>Addon</p>
+                     </entry>
+                     <entry>
+                        <p>mandatory</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Storage/persistence</p>
+                     </entry>
+                     <entry>
+                        <p>System</p>
+                     </entry>
+                     <entry>
+                        <p>mandatory</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Data index</p>
+                     </entry>
+                     <entry>
+                        <p>Addon</p>
+                     </entry>
+                     <entry>
+                        <p>optional</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Data audit</p>
+                     </entry>
+                     <entry>
+                        <p>Addon</p>
+                     </entry>
+                     <entry>
+                        <p>optional</p>
+                     </entry>
+                     <entry>
+                        <p>N/A</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+      <section id="_component_description">
+         <div conref="overview_system.dita">_system</div>
+         <div conref="overview_addons.dita">_addons</div>
+         <div conref="overview_required_deployments.dita">_required_deployments</div>
+      </section>
+   </body>
+</topic>

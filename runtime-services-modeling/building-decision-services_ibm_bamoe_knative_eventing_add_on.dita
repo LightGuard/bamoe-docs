@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_knative_eventing_add_on">
+   <title>IBM BAMOE Knative Eventing add-on</title>
+   <body>
+      <p>The Knative Eventing add-on is used in the IBM BAMOE project for messaging. The <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/tree/main/addons/common/knative/eventing" scope="external">IBM BAMOE Knative Eventing</xref> add-on enables your project to connect to a <xref href="https://knative.dev/docs/developer/eventing/sinks/" scope="external">sink</xref> or make it a <xref href="https://github.com/knative-sandbox/eventing-kogito#kogito-source" scope="external">KogitoSource</xref>.</p>
+      <p>The add-on processes the <xref href="https://knative.dev/development/developer/eventing/sources/sinkbinding/" scope="external">
+            <tt>K_SINK</tt>
+         </xref> and <xref href="https://knative.dev/development/developer/eventing/sources/sinkbinding/reference/#cloudevent-overrides" scope="external">
+            <tt>K_CE_OVERRIDES</tt>
+         </xref> environment variables injected by Knative Eventing controllers (<tt>SinkBinding</tt> or <tt>KogitoSource</tt>).</p>
+      <p>The service requires the <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/tree/main/addons/common/messaging" scope="external">IBM BAMOE Messaging</xref> and <xref href="https://quarkus.io/guides/reactive-messaging-http.html" scope="external">Quarkus HTTP connector</xref> libraries to wire the IBM BAMOE service with a given sink. The IBM BAMOE Messaging and Quarkus HTTP connector perform as dependencies for the Knative Eventing add-on.</p>
+      <p>To use the Knative Eventing add-on, add the following code to the <tt>pom.xml</tt> file of your project:</p>
+      <p outputclass="title">
+         <b>Quarkus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-knative-eventing&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <div conref="building-decision-services_auto_generated_knative_resources.dita">_auto_generated_knative_resources</div>
+   </body>
+</topic>

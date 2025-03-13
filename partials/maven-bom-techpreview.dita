@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="maven-bom-techpreview">
+   <title/>
+   <body>
+      <codeblock outputclass="language-xml">
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.ibm.bamoe&lt;/groupId&gt;
+            &lt;artifactId&gt;bamoe-techpreview-bom&lt;/artifactId&gt;
+            &lt;version&gt;{BOM_VERSION_911}&lt;/version&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</codeblock>
+      <p>See <xref href="../introduction/release-notes/version-mapping.dita">version mapping for {PRODUCT_SHORT}</xref> version 9.1.</p>
+   </body>
+</topic>

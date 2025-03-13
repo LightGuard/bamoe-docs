@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-jobs-management">
+   <title>Jobs management</title>
+   <body>
+      <p>The <b>Jobs Management</b> tab displays the list of existing jobs, which you can filter and perform related management actions such as viewing job details, rescheduling a job, or canceling a job.</p>
+      <fig>
+         <title>Jobs Management page</title>
+         <image href="../images/runtime-services-modeling/kogito-management-console-jobs-management.png" placement="break">
+            <alt>Image of Jobs Management page in Management Console</alt>
+         </image>
+      </fig>
+      <p>You can also cancel the multiple jobs at the same time.
+To cancel multiple jobs, select the jobs to be canceled and click the <b>Cancel Selected</b> button.</p>
+   </body>
+</topic>

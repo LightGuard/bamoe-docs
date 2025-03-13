@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="configuration">
+   <title>Configuration Reference</title>
+   <body>
+      <section id="_ibm_bamoe_configuration_properties">
+         <title>IBM BAMOE Configuration Properties</title>
+         <p>Configuration for an IBM BAMOE project is done within the <tt>META-INF/application.properties</tt> file.
+This file will also contain other configuration properties for the application.
+There are a number of different properties available in a IBM BAMOE application, below is a listing of those properties, a short description, the corresponding Java type and a default, if one exists.</p>
+         <div conref="configuration_global_properties.dita">_global_properties</div>
+         <div conref="configuration_engine_specific_properties.dita">_engine_specific_properties</div>
+         <div conref="configuration_additional_configuration_properties.dita">_additional_configuration_properties</div>
+      </section>
+   </body>
+</topic>

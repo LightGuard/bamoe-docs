@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_reusing_logic_decision_service">
+   <title>Reusing logic - Decision Service</title>
+   <body>
+      <title>Reusing logic - Decision Service</title>
+      <p>Using the Decision Service node, you can define logic that can be reused unlimitedly in your DMN models or models that will import the Decision Service node.</p>
+      <p>The Decision Service node allows for the wrapping and structuring of a larger set of Decision nodes while producing a single output.
+Reuse an existing community example, <xref href="https://raw.githubusercontent.com/apache/incubator-kie-kogito-examples/8123b27b7fb64d6a0a4c4561d97487e2b6253cf7/kogito-quarkus-examples/onboarding-example/payroll/src/main/resources/org/kie/kogito/examples/payroll/taxRate.dmn" scope="external">taxRate.dmn</xref> to get started quickly.</p>
+      <note type="note">
+The <tt>taxRate.dmn</tt> link was introduced with BAMOE 9.1.0. and you may update the url commit SHA accordingly or simply search for that file in the GitHub repository to see the latest version.
+</note>
+      <p>After opening <tt>taxRate.dmn</tt>, you will see a node <tt>rate</tt> containing two nodes <tt>compute Payroll</tt> and <tt>taxRate</tt>.
+However, using only one <b>encapsulated</b> node <tt>taxRate</tt> and one <b>output</b> node <tt>compute Payroll</tt> does not sufficiently demonstrate the power of the Decision Service node.
+Therefore, we will build on this example by adding more nodes.</p>
+      <p>As a first step, move <tt>compute Payroll</tt> node out of the <tt>rate</tt> node and remove its connection with the <tt>taxRate</tt> node.
+We will use this node later to invoke the logic wrapped in the Decision Service node.
+We can also change the model name from <tt>taxes</tt> to <tt>payroll</tt>.</p>
+      <image href="../images/tools/runningDecisions/reusing-logic-checkpoint-1.png" placement="break">
+         <alt>reusing logic checkpoint 1</alt>
+      </image>
+      <p>Now, make the Decision Service node <tt>rate</tt> bigger, as more content will be added to it.
+Introduce logic similar to the <tt>taxRate</tt> node for computing vacation days and payment dates by adding two new Decision nodes into the <b>output</b> section of the <tt>rate</tt> node and name: <tt>vacationDays</tt> and <tt>paymentDate</tt>.
+Connect the existing <tt>employee</tt> node with both added nodes.
+Move also the existing <tt>taxRate</tt> node from the <b>encapsulated</b> into the <b>output</b> section.</p>
+      <image href="../images/tools/runningDecisions/reusing-logic-checkpoint-2.png" placement="break">
+         <alt>reusing logic checkpoint 2</alt>
+      </image>
+      <p>This successfully changes the structure of the logic.
+By moving all Decision nodes into the <b>output</b> section, the Decision Service node will now return Complex data instead of Simple data.</p>
+      <note type="note">
+See <xref href="authoring-decisions.dita#adding-a-data-type">adding a data type</xref> to learn more about data types.
+</note>
+      <p>Now, to define logic for the new nodes.
+Set the <tt>vacationDays</tt> and <tt>paymentDate</tt> data type to <tt>number</tt>.
+Do not use <tt>date</tt> for the <tt>paymentDate</tt> because in this example the <tt>paymentDate</tt> is a day of the month.</p>
+      <p>Both <tt>vacationDays</tt> and <tt>paymentDate</tt> will be implemented as a decision table very similar to the <tt>taxRate</tt> decision table.
+It is a good opportunity to use the copy and paste feature.
+This feature is available by clicking the top left corner of the node expression.</p>
+      <image href="../images/tools/runningDecisions/reusing-logic-checkpoint-3.png" placement="break">
+         <alt>reusing logic checkpoint 3</alt>
+      </image>
+      <p>Click on the node expression type.
+Copy the existing <tt>taxRate</tt> expression and paste it into <tt>vacationDays</tt> and <tt>paymentDate</tt> nodes, or create the decision tables from scratch.</p>
+      <note type="note">
+If you decided to use the copy and paste feature, you will need to rename the nodes back to <tt>vacationDays</tt> and <tt>paymentDate</tt>.
+</note>
+      <p>Return <b>38</b> vacation days for <b>"US"</b> and <b>"33"</b> vacation days for <b>"UK"</b>.
+Return <b>15</b> as a payment date for <b>"US"</b> and <b>"10"</b> as a payment date for <b>"UK"</b>.</p>
+      <p>For a moment, switch to the <b>Data types</b> tab.
+Add new Complex type <tt>tPayroll</tt> with these properties: <tt>taxRate: number</tt>, <tt>vacationDays: number</tt> and <tt>paymentDate: number</tt>.</p>
+      <note type="note">
+See <xref href="authoring-decisions.dita#adding-a-data-type">adding a data type</xref> to learn more about Complex data types.
+</note>
+      <image href="../images/tools/runningDecisions/reusing-logic-checkpoint-3.png" placement="break">
+         <alt>reusing logic checkpoint 3</alt>
+      </image>
+      <p>Switch back to the <b>Editor</b> tab.
+Rename the <tt>rate</tt> node to <tt>payroll</tt> and sets its Data type as <tt>tPayroll</tt>.
+Now connect the <tt>payroll</tt> with the <tt>compute Payroll</tt>.</p>
+      <p>Open the <tt>compute Payroll</tt> node and <b>Reset</b> its expression to be an <b>Invocation</b>.
+For the Invocation we need to specify the function name as <tt>payroll</tt> and the single parameter as <tt>employee</tt>, with a passed value of <tt>employee</tt>.
+In this case, the <tt>compute Payroll</tt> Data type will be <tt>tPayroll</tt> and the <tt>employee</tt> Data type will be <tt>tEmployee</tt>.</p>
+      <note type="note">
+The complete list of parameters that a Decision Service node requires to be invoked can be also seen in the Properties panel <b>Invoking this Decision Service in FEEL</b> section.
+</note>
+      <image href="../images/tools/runningDecisions/reusing-logic-checkpoint-4.png" placement="break">
+         <alt>reusing logic checkpoint 4</alt>
+      </image>
+      <p>Then, open the <b>DMN Runner</b> and input the employee’s country.
+You should see the payroll computed accordingly.</p>
+      <p>There is source code available for the <xref href="https://raw.githubusercontent.com/bamoe/bamoe-docs-source-code-examples/9.1.x/dmn/payroll.dmn" scope="external">payroll.dmn</xref> example model.</p>
+      <image href="../images/tools/runningDecisions/reusing-logic-checkpoint-5.png" placement="break">
+         <alt>reusing logic checkpoint 5</alt>
+      </image>
+   </body>
+</topic>

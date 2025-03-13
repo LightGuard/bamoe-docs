@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="editors-libraries">
+   <title>DMN and BPMN Editors JavaScript Libraries</title>
+   <body>
+      <p>From version 9.1.1 the editors used in both BAMOE Canvas and BAMOE Developer Tools are also available as standalone Javascript libraries that can be embedded into any frontend web application.</p>
+      <p>They are available by importing the following libraries from npm:</p>
+      <ul>
+         <li>
+            <b>@ibm/bamoe-standalone-bpmn-and-dmn-editors-classic</b>: The classic DMN and BPMN Editors</li>
+         <li>
+            <b>@ibm/bamoe-standalone-dmn-editor</b>: The new and modern DMN Editor</li>
+      </ul>
+      <section id="_classic_dmn_and_bpmn_editors">
+         <title>Classic DMN and BPMN Editors</title>
+         <p>The following classic GWT-based editors are available as JavaScript file for each Editor.</p>
+         <fig>
+            <title>DMN Editor classic</title>
+            <image href="../images/tools/editorsLibraries/dmn-editor-classic.png" placement="break">
+               <alt>dmn editor classic</alt>
+            </image>
+         </fig>
+         <fig>
+            <title>BPMN Editor classic</title>
+            <image href="../images/tools/editorsLibraries/bpmn-editor-classic.png" placement="break">
+               <alt>bpmn editor classic</alt>
+            </image>
+         </fig>
+         <div conref="editors-libraries_installing_and_using_the_classic_dmn_and_bpmn_editors.dita">_installing_and_using_the_classic_dmn_and_bpmn_editors</div>
+      </section>
+      <section id="_new_dmn_editor">
+         <p>The modern DMN Editor, built with React, is faster and supports up to DMN 1.5 specifications while maintaining the same simple-to-use API.</p>
+         <fig>
+            <title>New DMN Editor</title>
+            <image href="../images/tools/editorsLibraries/new-dmn-editor.png" placement="break">
+               <alt>new dmn editor</alt>
+            </image>
+         </fig>
+         <div conref="editors-libraries_installing_and_using_the_new_dmn_editor.dita">_installing_and_using_the_new_dmn_editor</div>
+      </section>
+   </body>
+</topic>

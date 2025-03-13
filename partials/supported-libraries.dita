@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="supported-libraries">
+   <title/>
+   <body>
+      <table>
+         <title>Supported Libraries for {PRODUCT} v{VERSION}</title>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="66.6667*"/>
+            <thead>
+               <row>
+                  <entry>Library</entry>
+                  <entry>Supported Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>{QUARKUS_VERSION_SHORT}</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Kogito Runtimes</p>
+                  </entry>
+                  <entry>
+                     <p>{KOGITO_VERSION}</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Kogito AddOns</p>
+                  </entry>
+                  <entry>
+                     <p>{KOGITO_VERSION}</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Drools`</p>
+                  </entry>
+                  <entry>
+                     <p>{DROOLS_VERSION}</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Tools`</p>
+                  </entry>
+                  <entry>
+                     <p>{KIE_TOOLS_VERSION}</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

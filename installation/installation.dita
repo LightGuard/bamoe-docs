@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="installation">
+   <title>Installing</title>
+   <body>
+      <p>The installation of IBM BAMOE follows a typical Java application approach using Apache Maven to kickstart the project structure, download dependencies, and build the project.</p>
+      <p>Project setup is available at <xref href="../getting-started/project-setup.dita">Initial Project Setup and Walkthrough</xref>.</p>
+      <p>In this section, you’ll learn how to install other tools that are part of IBM BAMOE and that can help you during the authoring of business processes and automations.</p>
+   </body>
+</topic>

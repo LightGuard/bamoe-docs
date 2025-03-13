@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="prerequisites">
+   <title/>
+   <body>
+      <ul>
+         <li>
+            <xref href="https://openjdk.org" scope="external">JDK 11</xref> or later is installed.</li>
+         <li>
+            <xref href="https://maven.apache.org" scope="external">Apache Maven 3.8.6</xref> or later is installed.</li>
+         <li>
+            <xref href="https://code.visualstudio.com/download" scope="external">Visual Studio Code IDE</xref> latest version</li>
+         <li>
+            <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM {DEV_TOOLS}</xref> latest version of VS Code IDE extensions</li>
+      </ul>
+   </body>
+</topic>

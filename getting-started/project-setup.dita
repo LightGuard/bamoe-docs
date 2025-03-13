@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="project-setup">
+   <title>Initial project setup and walkthrough</title>
+   <body>
+      <section id="_requirements">
+         <title>Requirements</title>
+         <p>Set up your Maven environment, following these instructions for doing so <xref href="../installation/configure-maven.dita">Configuring Maven with BAMOE binaries</xref>.</p>
+      </section>
+      <section id="_project_setup_options">
+         <p>With the migration of the BAMOE product to Quarkus 3 you now have these options:</p>
+         <ul>
+            <li>Create a project manually</li>
+            <li>Create a new project using the BAMOE Canvas accelerator functionality. See <xref href="../tools/applying-accelerators.dita">Using Accelerators</xref>.</li>
+         </ul>
+      </section>
+      <section id="_creating_a_bamoe_project_manually">
+         <p>Typically, Maven projects are created either using plugins or archetypes.  You can use a simple Maven archetype to generate a basic Maven project, for example:</p>
+         <codeblock outputclass="language-console">
+mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-simple -DarchetypeVersion=1.4 -DinteractiveMode=false
+</codeblock>
+         <p>then update the <tt>pom.xml</tt> for the project with content from one of the following templates:</p>
+         <p>
+            <xref href="../partials/rules-sample-pom.dita">Sample Rules/Decision Application POM Template</xref> a sample POM that describes a typical rules/decisions project dependencies and plugins.</p>
+         <p>
+            <xref href="../partials/process-sample-pom.dita">Sample Process Application POM Template</xref> a sample POM that describes a typical process project dependencies and plugins.</p>
+      </section>
+      <section id="_editing_within_vs_code">
+         <ol>
+            <li>
+               <p>Open the project in VS Code.
+Within the explorer are the basic artifacts created by maven:</p>
+               <ol>
+                  <li>
+                     <tt>src/main/java</tt>
+                  </li>
+                  <li>
+                     <tt>src/main/java/com/mycompany/app/App.java</tt>
+                  </li>
+                  <li>
+                     <tt>test/java/com/mycompany/app/AppTest.java</tt>
+                  </li>
+                  <li>and others.</li>
+               </ol>
+            </li>
+            <li>
+               <p>Install <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                     <b>IBM BAMOE Developer Tools for VS Code</b>
+                  </xref>.
+This gives you access to the visual editors for DMN and BPMN files.
+It also allows you to create and edit testing scenarios for projects.</p>
+               <image href="../images/bamoe-vscode-marketplace.png" placement="break">
+                  <alt>IBM BAMOE Developer Tools for VS Code within the marketplace</alt>
+               </image>
+            </li>
+         </ol>
+      </section>
+      <section id="_next_steps">
+         <p>Follow along with one of the examples in 15 minutes to complete setup and usage for the various use cases: <xref href="business-rule-microservice.html">business rules microservice</xref>, <xref href="orchestrating.html">orchestration</xref>, or <xref href="decision-microservice.html">decision microservice</xref>.</p>
+      </section>
+      <section id="_source_control">
+         <p>BAMOE Canvas is a standalone editor for BAMOE files, only works with git.
+Any git based tools should continue to work with BAMOE projects (i.e. vscode, git cli, GitHub Desktop, etc.).
+Add the code to git using a preferred tool, and push to a remote.
+More information about <xref href="../installation/canvas.html">installing</xref> and <xref href="../editing/intro-editing-testing.html">using BAMOE Canvas</xref> can be found later in this documentation.</p>
+      </section>
+   </body>
+</topic>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_stateless">
+   <title>Stateless</title>
+   <body>
+      <p>The session is <xref href="https://docs.drools.org/8.44.0.Final/drools-docs/drools/rule-engine/index.html#kie-sessions-stateless-con_rule-engine" scope="external">stateless</xref>.
+It is obtained using <tt>newStatelessKieSession()</tt> method.
+Stateless is a one-off execution of a <tt>KieRuntime</tt> with a provided data set.
+It may return some results, with the session being disposed at the end, prohibiting further iterative interactions.
+You can think of stateless as treating an engine like a function call with optional return results.</p>
+      <codeblock outputclass="language-java">
+StatelessKieSession kieSession = kieBase.newStatelessKieSession();
+</codeblock>
+   </body>
+</topic>

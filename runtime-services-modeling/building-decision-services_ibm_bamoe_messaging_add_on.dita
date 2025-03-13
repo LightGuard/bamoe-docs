@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_messaging_add_on">
+   <title>IBM BAMOE messaging add-on</title>
+   <body>
+      <title>IBM BAMOE messaging add-on</title>
+      <p>IBM BAMOE provides a messaging add-on, enabling a process to register an event listener. The messaging add-on uses events in the IBM BAMOE projects.</p>
+      <p>To configure messaging capabilities for your Kogito services, you must add the messaging add-on as a dependency in the <tt>pom.xml</tt> file of your Kogito project:</p>
+      <p outputclass="title">
+         <b>Project dependency to enable messaging operations in Quarkus projects</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-messaging&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p>For Quarkus, the IBM BAMOE process event add-on implementation is based on <xref href="https://smallrye.io/smallrye-reactive-messaging/smallrye-reactive-messaging/2/connectors/connectors.html" scope="external">Smallrye Messaging</xref> library, which provides a set of connectors for event brokers, such as JMS, AMQP, and Kafka. Therefore, the IBM BAMOE process event add-on is not specifically combined with any event broker, but also requires additional configuration to use a suitable Smallrye connector.</p>
+      <p>For example, to use Kafka as an event broker in Quarkus, you must add the following dependency in the <tt>pom.xml</tt> file of your IBM BAMOE project:</p>
+      <p outputclass="title">
+         <b>Project dependency to enable event broker in Quarkus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+   &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+   &lt;artifactId&gt;quarkus-smallrye-reactive-messaging-kafka&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p>Smallrye uses an abstraction named <tt>channel</tt>. The implementation of channels depends on the underlying event broker. For example, when using Kafka, every channel is mapped to a topic.</p>
+      <p>Channels are configured by using properties. The pattern for these properties is <tt>mp.messaging.[incoming|outgoing].&lt;channel name&gt;.&lt;property_name&gt;</tt>.</p>
+      <p>IBM BAMOE allows different channel mapping strategies:</p>
+      <ul>
+         <li>Define one default incoming channel to receive all the incoming messages and one default outgoing channel to store all the published messages.</li>
+         <li>Define a channel for each message name so that every message type has a dedicated channel.</li>
+         <li>Define a channel for certain message names and let the not mapped message names to use the default incoming or outgoing channel.</li>
+      </ul>
+      <p>IBM BAMOE first searches for channel name equals to message name in the properties. If found, it uses that channel for that message name. If not, it searches for default channel definition. If also not existing, then an error will be reported.</p>
+      <p>The name for the default incoming channel is <tt>kogito_incoming_stream</tt> and for the default outgoing channel is <tt>kogito_outgoing_stream</tt>.</p>
+      <p>You can change the default incoming and outgoing topic name as follows:</p>
+      <p outputclass="title">
+         <b>Quarkus</b>
+      </p>
+      <codeblock>
+kogito.addon.messaging.incoming.defaultName=&lt;default channel name&gt;
+kogito.addon.messaging.outgoing.defaultName=&lt;default channel name&gt;
+</codeblock>
+      <p>Optionally, for Kafka connector, you can define the Kafka topic to be used for that channel using the following form:</p>
+      <p>
+         <tt>mp.messaging.[incoming|outgoing].&lt;channel name&gt;.topic = &lt;topic name&gt;</tt>
+      </p>
+      <p>If the topic property is not found, then the topic name is considered to be the same as Kafka name.
+Note that you can map different channels to the same topic.</p>
+      <div conref="building-decision-services_providing_a_key_for_a_kafka_record.dita">_providing_a_key_for_a_kafka_record</div>
+      <div conref="building-decision-services_customizing_message_format.dita">_customizing_message_format</div>
+   </body>
+</topic>

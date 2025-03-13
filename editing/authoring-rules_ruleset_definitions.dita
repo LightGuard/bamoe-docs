@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ruleset_definitions">
+   <title>RuleSet definitions</title>
+   <body>
+      <p>Entries in the <tt>RuleSet</tt> area of a decision table define DRL constructs and rule attributes that you want to apply to all rules in a package (not only in the spreadsheet). Entries must be in a vertically stacked sequence of cell pairs, where the first cell contains a label and the cell to the right contains the value. A decision table spreadsheet can have only one <tt>RuleSet</tt> area.</p>
+      <p>The following table lists the supported labels and values for <tt>RuleSet</tt> definitions:</p>
+      <table>
+         <title>Supported <tt>RuleSet</tt> definitions</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="30*"/>
+            <colspec colname="col_2" colwidth="40*"/>
+            <colspec colname="col_3" colwidth="30*"/>
+            <thead>
+               <row>
+                  <entry>Label</entry>
+                  <entry>Value</entry>
+                  <entry>Usage</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>RuleSet</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The package name for the generated DRL file. Optional, the default is <tt>rule_table</tt>.</p>
+                  </entry>
+                  <entry>
+                     <p>Must be the first entry.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>Unit</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>The name of the rule unit for the generated DRL file.</p>
+                  </entry>
+                  <entry>
+                     <p>Recommended for optimal rule grouping and execution.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>Sequential</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt> or <tt>false</tt>. If <tt>true</tt>, then salience is used to ensure that rules fire from the top down.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, at most once. If omitted, no firing order is imposed.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>SequentialMaxPriority</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Integer numeric value.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, at most once. In sequential mode, this option is used to set the start value of the salience. If omitted, the default value is <tt>65535</tt>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>SequentialMinPriority</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Integer numeric value.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, at most once. In sequential mode, this option is used to check if this minimum salience value is not violated. If omitted, the default value is <tt>0</tt>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>EscapeQuotes</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt> or <tt>false</tt>. If <tt>true</tt>, then quotation marks are escaped so that they appear literally in the DRL.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, at most once. If omitted, quotation marks are escaped.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>Import</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>A comma-separated list of Java classes to import from another package.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, may be used repeatedly.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>Queries</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>One or more query definitions, according to DRL syntax.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, may be used repeatedly.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>Declare</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>One or more declarative types, according to DRL syntax.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional, may be used repeatedly.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <note type="warning">
+In some cases, Microsoft Office, LibreOffice, and OpenOffice might encode a double quotation mark differently, causing a compilation error. For example, <tt>“A”</tt> fails, but <tt>"A"</tt> succeeds.
+</note>
+   </body>
+</topic>

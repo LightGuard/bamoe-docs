@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_example_1">
+   <title>Example 1</title>
+   <body>
+      <title>Example 1</title>
+      <p>Execute a registered query, e.g. <tt>GetAllProcessInstancesState</tt> with a definition of data fields that should be returned:</p>
+      <codeblock outputclass="language-console">
+curl -H "Content-Type: application/json" -H "Accept: application/json" -s -X POST http://${HOST}/data-audit/q/ -d '
+{
+    "query": "{GetAllProcessInstancesState {eventId, processInstanceId, eventType, eventDate}}"
+}'|jq
+</codeblock>
+      <p>To retrieve the GraphQL schema definition including a list of all registered queries, run a GET command to the <tt>${HOST}/data-audit/r</tt> endpoint. This endpoint can also be used to register new queries.</p>
+   </body>
+</topic>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_deploying_to_a_kubernetes_cluster">
+   <title>Deploying to a Kubernetes cluster</title>
+   <body>
+      <p>Choose the container image from one of the following sources:</p>
+      <dl>
+         <dlentry>
+            <dt>bamoe-9.1.1-maven-repository-image.tar.gz</dt>
+            <dd>included in the distribution</dd>
+         </dlentry>
+         <dlentry>
+            <dt>quay.io/bamoe/maven-repository:9.1.1-ibm-0003</dt>
+            <dd>the image hosted on Quay.io</dd>
+         </dlentry>
+      </dl>
+      <div conref="configure-maven_using_the_tar_gz_included_in_the_distribution.dita">_using_the_tar_gz_included_in_the_distribution</div>
+      <div conref="configure-maven_using_quay_io_hosted_version.dita">_using_quay_io_hosted_version</div>
+   </body>
+</topic>

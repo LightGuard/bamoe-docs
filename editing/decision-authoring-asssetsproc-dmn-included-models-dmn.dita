@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="proc-dmn-included-models-dmn">
+   <title>Including other DMN models within a DMN file in IBM BAMOE Developer Tools for VS Code</title>
+   <body>
+      <title>Including other DMN models within a DMN file in IBM BAMOE Developer Tools for VS Code</title>
+      <p>You cannot include DMN models from different directories within your IBM BAMOE project or from other IBM BAMOE projects.</p>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>
+            <p>In your VSCode IDE, open the DMN file to view the decision requirements diagram (DRD) in the IBM BAMOE DMN modeler.</p>
+            <div>
+               <note type="note">
+                  <p>If the DRD does not open in the IBM BAMOE DMN modeler, ensure that you have installed and enabled the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                        <b>IBM BAMOE Developer Tools for VS Code</b>
+                     </xref>.</p>
+                  <p>If the IBM BAMOE DMN modeler opens only the XML source of the DMN file and displays an error message, review the reported errors and the DMN model file to ensure that all DMN elements are correctly defined.</p>
+               </note>
+            </div>
+         </li>
+         <li>In the DMN modeler, click the <b>Included Models</b> tab.</li>
+         <li>
+            <p>Click <b>Include Model</b>, select a DMN model from your directory in the <b>Models</b> list, enter a unique name for the included model, and click <b>Include</b>:</p>
+            <div>
+               <fig>
+                  <title>Including a DMN model</title>
+                  <image href="../images/dmn-include-model.png" placement="break">
+                     <alt>dmn include model</alt>
+                  </image>
+               </fig>
+               <p>The DMN model is added to this DMN file, and all DRD nodes from the included model are listed under <b>Decision Components</b> in the <b>Decision Navigator</b> view:</p>
+               <fig>
+                  <title>DMN file with decision components from the included DMN model</title>
+                  <image href="../images/dmn-include-model-list.png" placement="break">
+                     <alt>dmn include model list</alt>
+                  </image>
+               </fig>
+               <p>All data types from the included model are also listed in read-only mode in the <b>Data Types</b> tab for the DMN file:</p>
+               <fig>
+                  <title>DMN file with data types from the included DMN model</title>
+                  <image href="../images/dmn-include-model-data-types.png" placement="break">
+                     <alt>dmn include model data types</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>In the <b>Editor</b> tab of the DMN modeler, click and drag the included DRD components onto the canvas to begin implementing them in your DRD:</p>
+            <div>
+               <fig>
+                  <title>Adding DRD components from the included DMN model</title>
+                  <image href="../images/dmn-include-model-drd.png" placement="break">
+                     <alt>dmn include model drd</alt>
+                  </image>
+               </fig>
+               <p>To edit DRD nodes or data types from included models, you must update the source file for the included model directly. If you update the source file for an included DMN model, open the DMN file where the DMN model is included (or close and re-open) to verify the changes.</p>
+               <p>To edit the included model name or to remove the included model from the DMN file, use the <b>Included Models</b> tab in the DMN modeler.</p>
+               <note type="important">
+When you remove an included model, any nodes from that included model that are currently used in the DRD are also removed.
+</note>
+            </div>
+         </li>
+      </ol>
+   </body>
+</topic>

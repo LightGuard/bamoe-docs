@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="decision-authoring-asssets">
+   <title>DMN and Decision Authoring assets</title>
+   <body>
+      <p>As a developer of business decisions, you can use Decision Model and Notation (DMN) to model a decision service graphically. The decision requirements of a DMN decision model are determined by a decision requirements graph (DRG) that is depicted in one or more decision requirements diagrams (DRDs). A DRD can represent part or all of the overall DRG for the DMN model. DRDs trace business decisions from start to finish, with each decision node using logic defined in DMN boxed expressions such as decision tables.</p>
+      <p>You can design your DMN models with BAMOE Canvas or import existing DMN models into your IBM BAMOE projects for deployment and execution.</p>
+      <p>For more information about DMN, see the Object Management Group (OMG) <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+      <section id="ref-decision-authoring-assets">
+         <title>Decision-authoring assets in IBM BAMOE</title>
+         <p>IBM BAMOE supports several assets that you can use to define business decisions for your decision service. Each decision-authoring asset has different advantages, and you might prefer to use one or a combination of multiple assets depending on your goals and needs.</p>
+         <p>The following table highlights the main decision-authoring assets supported in IBM BAMOE projects to help you decide or confirm the best method for defining decisions in your decision service.</p>
+         <table>
+            <title>Decision-authoring assets supported in IBM BAMOE</title>
+            <tgroup cols="3">
+               <colspec colname="col_1" colwidth="25*"/>
+               <colspec colname="col_2" colwidth="50*"/>
+               <colspec colname="col_3" colwidth="25*"/>
+               <thead>
+                  <row>
+                     <entry>Asset</entry>
+                     <entry>Highlights</entry>
+                     <entry>Authoring tools</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>Decision Model and Notation (DMN) models</p>
+                     </entry>
+                     <entry>
+                        <ul>
+                           <li>Are decision models based on a notation standard defined by the Object Management Group (OMG)</li>
+                           <li>Use graphical decision requirements diagrams (DRDs) that represent part or all of the overall decision requirements graph (DRG) to trace business decision flows</li>
+                           <li>Use an XML schema that allows the DMN models to be shared between DMN-compliant platforms</li>
+                           <li>Support Friendly Enough Expression Language (FEEL) to define decision logic in DMN decision tables and other DMN boxed expressions</li>
+                           <li>Can be integrated efficiently with Business Process Model and Notation (BPMN) process models</li>
+                           <li>Are optimal for creating comprehensive, illustrative, and stable decision flows</li>
+                        </ul>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Canvas or other DMN-compliant editor</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DRL rules</p>
+                     </entry>
+                     <entry>
+                        <ul>
+                           <li>Are individual rules that you define directly in <tt>.drl</tt> text files</li>
+                           <li>Provide the most flexibility for defining rules and other technicalities of rule behavior</li>
+                           <li>Are optimal for creating rules that require advanced DRL options, such as rule units</li>
+                           <li>Have strict syntax requirements for rules to be compiled properly</li>
+                        </ul>
+                     </entry>
+                     <entry>
+                        <p>Any integrated development environment (IDE)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Spreadsheet decision tables</p>
+                     </entry>
+                     <entry>
+                        <ul>
+                           <li>Are tabular sets of rules that you define in <tt>.xls</tt> or <tt>.xlsx</tt> spreadsheet files</li>
+                           <li>Support template keys and values for creating rule templates</li>
+                           <li>Are optimal for business environments that already rely on decision tables for rules</li>
+                           <li>Have strict syntax requirements for rules to be compiled properly when used in IBM BAMOE</li>
+                        </ul>
+                     </entry>
+                     <entry>
+                        <p>Spreadsheet editor</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+      <section id="con-dmn">
+         <p>Decision Model and Notation (DMN) is a standard established by the <xref href="https://www.omg.org/" scope="external">Object Management Group (OMG)</xref> for describing and modeling operational decisions. DMN defines an XML schema that enables DMN models to be shared between DMN-compliant platforms and across organizations so that business analysts and business rules developers can collaborate in designing and implementing DMN decision services. The DMN standard is similar to and can be used together with the Business Process Model and Notation (BPMN) standard for designing and modeling business processes.</p>
+         <p>For more information about the background and applications of DMN, see the OMG <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+         <note type="important">
+TO BE MOVED UNDER AUTHORING v ?
+</note>
+         <div conref="decision-authoring-asssetscon-dmn-boxed-expressions.dita">con-dmn-boxed-expressions</div>
+         <div conref="decision-authoring-asssetsref-dmn-model-example.dita">ref-dmn-model-example</div>
+         <div conref="decision-authoring-asssetscon-dmn-validation.dita">con-dmn-validation</div>
+      </section>
+      <section id="proc-dmn-model-creating">
+         <p>You can use the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+               <b>IBM BAMOE Developer Tools for VS Code</b>
+            </xref> to design DMN decision requirements diagrams (DRDs) and define decision logic for a complete and functional DMN decision model.</p>
+         <p outputclass="title">
+            <b>Procedure</b>
+         </p>
+         <ol>
+            <li>In your VSCode IDE, create or import a DMN file in the relevant folder of your IBM BAMOE project, typically in <tt>src/main/resources</tt>.</li>
+            <li>
+               <p>Open the new or imported DMN file to view the decision requirements diagram (DRD) in the IBM BAMOE DMN modeler.</p>
+               <div>
+                  <note type="note">
+                     <p>If the DRD does not open in the IBM BAMOE DMN modeler, ensure that you have installed and enabled the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                           <b>IBM BAMOE Developer Tools for VS Code</b>
+                        </xref>.</p>
+                     <p>If the IBM BAMOE DMN modeler opens only the XML source of the DMN file and displays an error message, review the reported errors and the DMN model file to ensure that all DMN elements are correctly defined.</p>
+                  </note>
+               </div>
+            </li>
+            <li>
+               <p>Begin adding components to your new or imported DRD by clicking and dragging one of the DMN nodes from the left toolbar:</p>
+               <div>
+                  <fig>
+                     <title>Adding DRD components</title>
+                     <image href="../images/dmn-drag-decision-node.png" placement="break">
+                        <alt>dmn drag decision node</alt>
+                     </image>
+                  </fig>
+                  <p>The following DRD <xref href="#_dmn_decision_requirements_diagram_drd_components"/> are available.</p>
+               </div>
+            </li>
+            <li>In the DMN modeler canvas, double-click the new DRD node to enter an informative node name.</li>
+            <li>
+               <p>If the node is a decision or business knowledge model, select the node to display the node options and click the <b>Edit</b> icon to open the DMN boxed expression editor to define the decision logic for the node:</p>
+               <div>
+                  <fig>
+                     <title>Opening a new decision node boxed expression</title>
+                     <image href="../images/dmn-decision-edit.png" placement="break">
+                        <alt>dmn decision edit</alt>
+                     </image>
+                  </fig>
+                  <fig>
+                     <title>Opening a new business knowledge model boxed expression</title>
+                     <image href="../images/dmn-bkm-edit.png" placement="break">
+                        <alt>dmn bkm edit</alt>
+                     </image>
+                  </fig>
+                  <p>By default, all business knowledge models are defined as boxed function expressions containing a literal FEEL expression, a nested context expression of an external JAVA or PMML function, or a nested boxed expression of any type.</p>
+                  <p>For decision nodes, you click the undefined table to select the type of boxed expression you want to use, such as a boxed literal expression, boxed context expression, decision table, or other DMN boxed expression.</p>
+                  <fig>
+                     <title>Selecting the logic type for a decision node</title>
+                     <image href="../images/dmn-decision-boxed-expression-options.png" placement="break">
+                        <alt>dmn decision boxed expression options</alt>
+                     </image>
+                  </fig>
+                  <p>For business knowledge models, you click the upper-left function cell to select the function type, or right-click the function value cell, select <b>Clear</b>, and select a boxed expression of another type.</p>
+                  <fig>
+                     <title>Selecting the function or other logic type for a business knowledge model</title>
+                     <image href="../images/dmn-bkm-define.png" placement="break">
+                        <alt>dmn bkm define</alt>
+                     </image>
+                  </fig>
+               </div>
+            </li>
+            <li>
+               <p>In the selected boxed expression editor for either a decision node (any expression type) or business knowledge model (function expression), click the applicable table cells to define the table name, variable data types, variable names and values, function parameters and bindings, or FEEL expressions to include in the decision logic.</p>
+               <div>
+                  <p>You can right-click cells for additional actions where applicable, such as inserting or removing table rows and columns or clearing table contents.</p>
+                  <p>The following is an example decision table for a decision node that determines credit score ratings based on a defined range of a loan applicant’s credit score:</p>
+                  <fig>
+                     <title>Decision node decision table for credit score rating</title>
+                     <image href="../images/dmn-decision-table-example1a.png" placement="break">
+                        <alt>dmn decision table example1a</alt>
+                     </image>
+                  </fig>
+                  <p>The following is an example boxed function expression for a business knowledge model that calculates mortgage payments based on principal, interest, taxes, and insurance (PITI) as a literal expression:</p>
+                  <fig>
+                     <title>Business knowledge model function for PITI calculation</title>
+                     <image href="../images/dmn-function-expression-example4.png" placement="break">
+                        <alt>dmn function expression example4</alt>
+                     </image>
+                  </fig>
+               </div>
+            </li>
+            <li>After you define the decision logic for the selected node, click <b>Back to <i>MODEL_NAME</i>
+               </b> to return to the DRD view.</li>
+            <li>
+               <p>For the selected DRD node, use the available connection options to create and connect to the next node in the DRD, or click and drag a new node onto the DRD canvas from the left toolbar.</p>
+               <div>
+                  <p>The node type determines which connection options are supported. For example, an <b>Input data</b> node can connect to a decision node, knowledge source, or text annotation using the applicable connection type, whereas a <b>Knowledge source</b> node can connect to any DRD element. A <b>Decision</b> node can connect only to another decision or a text annotation.</p>
+                  <p>The following connection types are available, depending on the node type:</p>
+                  <ul>
+                     <li>
+                        <b>Information requirement</b>: Use this connection from an input data node or decision node to another decision node that requires the information.</li>
+                     <li>
+                        <b>Knowledge requirement</b>: Use this connection from a business knowledge model to a decision node or to another business knowledge model that invokes the decision logic.</li>
+                     <li>
+                        <b>Authority requirement</b>: Use this connection from an input data node or a decision node to a dependent knowledge source or from a knowledge source to a decision node, business knowledge model, or another knowledge source.</li>
+                     <li>
+                        <b>Association</b>: Use this connection from an input data node, decision node, business knowledge model, or knowledge source to a text annotation.</li>
+                  </ul>
+                  <fig>
+                     <title>Connecting credit score input to the credit score rating decision</title>
+                     <image href="../images/dmn-input-connection-example.png" placement="break">
+                        <alt>dmn input connection example</alt>
+                     </image>
+                  </fig>
+                  <image href="../images/dmn-input-connection-example2.png" placement="break">
+                     <alt>dmn input connection example2</alt>
+                  </image>
+               </div>
+            </li>
+            <li>
+               <p>Continue adding and defining the remaining DRD components of your decision model and save the completed DRD.</p>
+               <div>
+                  <p>The following is an example DRD for a loan prequalification decision model:</p>
+                  <fig>
+                     <title>Completed DRD for loan prequalification</title>
+                     <image href="../images/dmn-example-drd.png" placement="break">
+                        <alt>dmn example drd</alt>
+                     </image>
+                  </fig>
+                  <p>The following is an example DRD for a phone call handling decision model using a reusable decision service:</p>
+                  <fig>
+                     <title>Completed DRD for phone call handling with a decision service</title>
+                     <image href="../images/dmn-example-drd3.png" width="90%" placement="break">
+                        <alt>dmn example drd3</alt>
+                     </image>
+                  </fig>
+                  <p>In a DMN decision service node, the decision nodes in the bottom segment incorporate input data from outside of the decision service to arrive at a final decision in the top segment of the decision service node. The resulting top-level decisions from the decision service are then implemented in any subsequent decisions or business knowledge requirements of the DMN model. You can reuse DMN decision services in other DMN models to apply the same decision logic with different input data and different outgoing connections.</p>
+               </div>
+            </li>
+         </ol>
+         <div conref="decision-authoring-asssetsproc-dmn-logic-defining.dita">proc-dmn-logic-defining</div>
+         <div conref="decision-authoring-asssetsproc-dmn-data-types-defining.dita">proc-dmn-data-types-defining</div>
+         <div conref="decision-authoring-asssetscon-dmn-included-models.dita">con-dmn-included-models</div>
+         <div conref="decision-authoring-asssetsproc-dmn-model-creating-multiples.dita">proc-dmn-model-creating-multiples</div>
+         <div conref="decision-authoring-asssetscon-dmn-documentation.dita">con-dmn-documentation</div>
+         <div conref="decision-authoring-asssetsref-dmn-designer-nav.dita">ref-dmn-designer-nav</div>
+      </section>
+   </body>
+</topic>

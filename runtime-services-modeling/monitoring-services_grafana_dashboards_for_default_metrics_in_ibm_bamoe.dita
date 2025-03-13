@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_grafana_dashboards_for_default_metrics_in_ibm_bamoe">
+   <title>Grafana dashboards for default metrics in IBM BAMOE</title>
+   <body>
+      <title>Grafana dashboards for default metrics in IBM BAMOE</title>
+      <p>If any of the Prometheus monitoring modules are imported as dependencies in the <tt>pom.xml</tt> file of your IBM BAMOE project, some Grafana dashboards that use the default metrics are generated under the folder <tt>target/classes/META-INF/resources/monitoring/dashboards/</tt> every time you compile your IBM BAMOE service.</p>
+      <p>Two types of dashboards are exported depending on the decision model used on the endpoints:</p>
+      <ul>
+         <li>
+            <p>
+               <b>Operational dashboard</b>: This dashboard is generated for DMN and DRL endpoints and contains the following metrics:</p>
+            <ul>
+               <li>Total number of requests on the endpoint</li>
+               <li>Average number of requests per minute on the endpoint</li>
+               <li>Quantiles on the elapsed time to evaluate the requests</li>
+               <li>
+                  <p>Exception details</p>
+                  <fig>
+                     <title>Generated operational dashboard example</title>
+                     <image href="../images/grafana-operational-dashboard.png" placement="break">
+                        <alt>Generated operational dashboard</alt>
+                     </image>
+                  </fig>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <b>Domain-specific dashboard</b>: Currently this dashboard is exported only for DMN endpoints. The domain-specific dashboard contains a graph for each type of decision in the DMN model. Only the built-in types <tt>number</tt>, <tt>string</tt>, and <tt>boolean</tt> are currently supported.</p>
+            <ul>
+               <li>If the output of the decision is a <tt>number</tt> type, the graph contains the quantiles for that metric on a sliding window of 3 minutes.</li>
+               <li>
+                  <p>If the output is a <tt>boolean</tt> or a <tt>string</tt> type, the graph contains the number of occurrences for each output on a 10-minute average.</p>
+                  <fig>
+                     <title>Generated domain-specific dashboard example</title>
+                     <image href="../images/grafana-domain-dashboard.png" placement="break">
+                        <alt>Generated domain specific dashboard</alt>
+                     </image>
+                  </fig>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <note type="note">
+Generated dashboards for BPMN resources are currently not supported.
+</note>
+   </body>
+</topic>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_deployment_tokens">
+   <title>Deployment tokens</title>
+   <body>
+      <title>Deployment tokens</title>
+      <fig>
+         <title>Dev Deployment tokens list</title>
+         <image href="../images/tools/devDeployments/tokens.png" placement="break">
+            <alt>tokens</alt>
+         </image>
+      </fig>
+      <p>Dev Deployment tokens are "variables" that can be used inside the parameters on the Dev Deployment modal. They are also used inside the resource YAMLs applied to the Kubernetes/OpenShift cluster (see the topic below). These tokens are then interpolated during the deployment, replacing their strings with a runtime value.</p>
+      <codeblock outputclass="language-javascript">
+devDeployment: {
+  labels: {
+    createdBy: "tools.kie.org/created-by",
+    partOf: "tools.kie.org/part-of",
+ },
+  annotations: {
+    workspaceId: "tools.kie.org/workspace-id",
+    workspaceName: "tools.kie.org/workspace-name",
+ },
+  uniqueName: string,
+  uploadService: {
+    apiKey: string,
+ },
+  workspace: {
+    id: string,
+    name: string,
+ },
+  kubernetes: {
+    namespace: string,
+ },
+},
+</codeblock>
+      <note type="note">
+Some tokens are pre-defined, and others are generated during runtime (like <tt>uniqueName</tt> and <tt>uploadService.apiKey</tt>).
+</note>
+      <p>These tokens are referenced in the YAML resources using the following notation: <tt>${{ varPath.varName }}</tt>. Here are some examples from the tokens above:</p>
+      <ul>
+         <li>
+            <tt>${{ devDeployment.labels.createdBy }}</tt>
+         </li>
+         <li>
+            <tt>${{ devDeployment.annotations.workspaceId }}</tt>
+         </li>
+         <li>
+            <tt>${{ devDeployment.uniqueName }}</tt>
+         </li>
+         <li>
+            <tt>${{ devDeployment.kubernetes.namespace }}</tt>
+         </li>
+      </ul>
+   </body>
+</topic>

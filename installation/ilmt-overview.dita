@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ilmt-overview">
+   <title>Licensing and tracking usage with IBM License Metric Tool (ILMT)</title>
+   <body>
+      <p>This section includes a License Guide to assist you in deploying the Program(s) you have licensed from IBM through your purchased entitlement, and to enable you to install and configure IBM License Metric Tool (ILMT). ILMT enables you to maintain an up-to-date inventory of software assets that are installed in your infrastructure, gather information about your hardware, and ensure license compliance of your enterprise.</p>
+      <p>By monitoring the consumption of PVU, VPC, and RVU MAPC metrics in IBM® products with full and subcapacity licensing terms, you can understand the current license consumption as well as predict the future license consumption and optimize your license costs.</p>
+      <ul>
+         <li>
+            <xref href="licensing.dita">Licensing guide</xref>
+         </li>
+         <li>
+            <xref href="ilmt-track-bamlcns-metrictool.dita">Tracking BAMOE License use in IBM License Metric Tool</xref>
+         </li>
+         <li>
+            <xref href="ilmt-track-bamlcns-kubernetes.dita">Tracking BAMOE license use in Kubernetes</xref>
+         </li>
+      </ul>
+   </body>
+</topic>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="vs-code-bundle-precondition">
+   <title/>
+   <body>
+      <note type="note">
+         <p>If the DRD does not open in the {PRODUCT} DMN modeler, ensure that you have installed and enabled the {VS_CODE_BUNDLE_LINK}[<b>{VS_CODE_BUNDLE}</b>].</p>
+         <p>If the {PRODUCT} DMN modeler opens only the XML source of the DMN file and displays an error message, review the reported errors and the DMN model file to ensure that all DMN elements are correctly defined.</p>
+      </note>
+   </body>
+</topic>

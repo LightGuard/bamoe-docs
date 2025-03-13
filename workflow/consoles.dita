@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="consoles">
+   <title>Interacting with processes and tasks using Consoles</title>
+   <body>
+      <section id="_management_console">
+         <title>Management Console</title>
+         <p>The Management Console is a user interface for viewing the state of all available BAMOE services and managing process instances:</p>
+         <fig>
+            <title>Management Console</title>
+            <image href="../images/runtime-services-modeling/kogito-management-console.png" placement="break">
+               <alt>Image of Kogito Management Console</alt>
+            </image>
+         </fig>
+         <p>You can use the Management Console to view process, subprocess, and node instance details, abort process instances, and view domain-specific process data.</p>
+         <p>The Management Console requires your BAMOE services to use the following BAMOE components:</p>
+         <ul>
+            <li>
+               <b>BAMOE Data Index Service</b>: Enables the Management Console to access stored events related to processes and domain data from your BAMOE services. The BAMOE Data Index Service requires PostgreSQL persistence.</li>
+            <li>
+               <b>BAMOE process management add-on</b>: Enables the Management Console to interact with the process data from your BAMOE services through the add-on REST endpoint <tt>/management/processes</tt>.
+If you do not enable this add-on for your BAMOE service, the Management Console provides read-only access to your service data without the ability to modify instances, such as aborting process instances.</li>
+         </ul>
+         <p>To visualize the process instance execution path at the management console, add the following add-on:</p>
+         <ul>
+            <li>
+               <b>BAMOE process SVG add-on</b>: Enables the process SVG diagram to visualize the process instance execution path.
+If this add-on is not enabled for your BAMOE service, the management console does not display the diagram panel.</li>
+         </ul>
+      </section>
+      <section id="_management_console_docker_image">
+         <p>The Management Console image is published to Quay.io and can be used to run containers locally or with any cloud provider.</p>
+         <ul>
+            <li>Management Console → <xref href="https://quay.io/repository/bamoe/management-console" scope="external">quay.io/bamoe/management-console</xref> @ 9.1.1</li>
+         </ul>
+         <div conref="consoles_configuration.dita">_configuration</div>
+         <div conref="consoles_using_the_management_console_to_manage_process_instances.dita">_using_the_management_console_to_manage_process_instances</div>
+         <div conref="consoles_management_console_application.dita">_management_console_application</div>
+         <div conref="consoles_enabling_management_console_security.dita">_enabling_management_console_security</div>
+      </section>
+      <section id="_task_console">
+         <p>The Task Console is a user interface for viewing and interacting with user tasks in BAMOE process services.</p>
+         <fig>
+            <title>Task Console</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console.png" placement="break">
+               <alt>Image of Kogito Task Console</alt>
+            </image>
+         </fig>
+         <p>You can use the Task Console to view your list of assigned tasks, view the task details for each task, and move the task to the next phase of the task lifecycle.</p>
+         <p>The Task Console requires your BAMOE services to use the BAMOE Data Index Service.
+The Data Index Service enables the Task Console to access stored events related to tasks and domain data from your BAMOE services.</p>
+         <div conref="consoles_task_console_docker_image.dita">_task_console_docker_image</div>
+         <div conref="consoles_using_the_task_console_to_interact_with_user_tasks.dita">_using_the_task_console_to_interact_with_user_tasks</div>
+         <div conref="consoles_enabling_task_console_security.dita">_enabling_task_console_security</div>
+      </section>
+   </body>
+</topic>

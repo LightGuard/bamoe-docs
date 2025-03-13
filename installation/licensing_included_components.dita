@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_included_components">
+   <title>Included components</title>
+   <body>
+      <title>Included components</title>
+      <p>The following IBM Robotic Process Automation components are included in the supporting program:</p>
+      <ul>
+         <li>Unattended Bot Agent</li>
+         <li>IBM Robotic Process Automation Environment</li>
+         <li>IBM Robotic Process Automation Studio</li>
+      </ul>
+   </body>
+</topic>

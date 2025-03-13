@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_workflow_engine_properties">
+   <title>Workflow Engine Properties</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="8.3333*"/>
+            <colspec colname="col_4" colwidth="8.3334*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.codegen.workflow</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling code generation for the workflow engine</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.generate.rest.workflow</p>
+                  </entry>
+                  <entry>
+                     <p>Toogle for REST workflow endpoint generation</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.workflow.version-strategy</p>
+                  </entry>
+                  <entry>
+                     <p>Strategy used to resolve a Process version.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>workflow</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.workflow.proto.marshaller</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to generate Protobuf marshallers for runtime.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.workflow.data-index.proto.generation</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to generate Protobuf marshallers for Data Index.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.logger.always-include</p>
+                  </entry>
+                  <entry>
+                     <p>Always include the Workflow debug logger.
+By default, this will only be included in dev and test.
+Setting this to true will also include the Workflow debug logger in Prod</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>false</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

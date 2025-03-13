@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_update_to_use_the_maven_bill_of_materials_bom">
+   <title>Update to use the Maven Bill of Materials (BOM)</title>
+   <body>
+      <p>A bill of materials (BOM) is a list of the parts or components that are required to build a product.
+BOMs are ordinary <tt>pom.xml</tt> files — they contain no source code and their only purpose is to declare their bundled modules.</p>
+      <note type="important">
+         <p>It is highly recommended to use bill of materials (BOM) to manage project dependencies, as it simplifies dependency management by organizing a group of dependencies under a single version.</p>
+      </note>
+      <p>A Bill of materials (BOM) can be added to an existing POM file by adding it to the <b>
+            <i>dependencyManagement</i>
+         </b> section as a dependency with a pom type:</p>
+      <codeblock outputclass="language-xml">
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.redhat.ba&lt;/groupId&gt;
+            &lt;artifactId&gt;ba-platform-bom&lt;/artifactId&gt;
+            &lt;version&gt;&lt;!-- See Version Mapping Table --&gt;&lt;/version&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</codeblock>
+      <p>When a bill of materials (BOM) is used, it is not necessary to specify the dependency’s version, as that appears from the BOM, so your dependencies end up like the following:</p>
+      <codeblock outputclass="language-xml">
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</codeblock>
+      <note type="note">
+         <p>During the course of your Maven dependency update, if you encounter any dependencies that are <b>not</b> included in the bill of materials (BOM), then use the Maven Library Version noted in the table below, such as:</p>
+      </note>
+      <codeblock outputclass="language-xml">
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+        &lt;version&gt;VERSION&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</codeblock>
+   </body>
+</topic>

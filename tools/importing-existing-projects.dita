@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="importing-existing-projects">
+   <title>Importing Existing Projects</title>
+   <body>
+      <p>From the Home page, existing projects can be imported in several ways.
+Projects can be imported from a remote Git repository, a local file or folder, or a URL pointing to a specific Decision or Workflow file.
+GitHub Gists and Bitbucket Snippets are also supported.</p>
+      <fig>
+         <title>Import section at the Home page of BAMOE Canvas</title>
+         <image href="../images/tools/image27.png" placement="break">
+            <alt>Import section at the Home page of BAMOE Canvas</alt>
+         </image>
+      </fig>
+      <p>The following sections outline the methods for importing files:</p>
+      <section id="_uploading_files_and_folders">
+         <title>Uploading Files and Folders</title>
+         <p>To upload work stored locally, click on "Select files…" or "Select folder…".
+Drag-and-drop functionality is also supported.</p>
+         <p>Uploading locally stored Git repositories will ignore the <tt>.git</tt> directory, meaning that BAMOE Canvas will create a new repository without any history.</p>
+      </section>
+      <section id="_importing_a_public_git_repository">
+         <p>Paste the URL of the Git repository into the input field.
+BAMOE Canvas will automatically detect the default branch and a corresponding connected account based on the repository’s URL.</p>
+         <fig>
+            <title>“Import” section at the Home page of BAMOE Canvas shown for a public GitHub repository, with a connected account automatically inferred based on the repository URL.</title>
+            <image href="../images/tools/image16.png" placement="break">
+               <alt>“Import” section at the Home page of BAMOE Canvas shown for a public GitHub repository, with a connected account automatically inferred based on the repository URL</alt>
+            </image>
+         </fig>
+         <p>To change the connected account or the branch being imported, click on "Change…" or "More options…".</p>
+      </section>
+      <section id="_importing_a_private_git_repository">
+         <p>To import a private Git repository, a connected Git account that can access the repository is required.
+This can be achieved from the "Import" section on the BAMOE Canvas Home page.
+Select "More options…" and paste the repository URL.
+The following screen should appear:</p>
+         <fig>
+            <title>Example of attempting to import a private Git repository without a connected account selected.</title>
+            <image href="../images/tools/image12.png" placement="break">
+               <alt>Example of attempting to import a private Git repository without a connected account selected</alt>
+            </image>
+         </fig>
+         <p>To connect to an account, open the Authentication drop-down menu and choose “+ Connect to an account…”.</p>
+         <fig>
+            <title>“Authentication select” on the “More options…” import modal, from BAMOE Canvas Home page</title>
+            <image href="../images/tools/image21.png" placement="break">
+               <alt>“Authentication select” on the “More options…” import modal, from BAMOE Canvas Home page</alt>
+            </image>
+         </fig>
+         <p>This will open the Accounts modal, where a Git provider can be selected and connected.
+Upon completion, the Import modal will display the selected account with the main branch selected by default:</p>
+         <fig>
+            <title>Git import selection</title>
+            <image href="../images/tools/image22.png" placement="break">
+               <alt>Git import selection</alt>
+            </image>
+         </fig>
+         <p>Click "Clone" to import the repository into BAMOE Canvas.</p>
+         <p>BAMOE Canvas supports importing private repositories only from predefined Git providers.</p>
+      </section>
+      <section id="_importing_a_github_gist_or_bitbucket_snippet">
+         <p>GitHub Gists and Bitbucket Snippets are treated as repositories.
+Paste the URL of the GitHub Gist or Bitbucket Snippet and click Clone.
+For private Gists, follow the steps outlined above for private Git repositories.
+Individual Gist and Snippet files can also be imported.</p>
+      </section>
+      <section id="_importing_an_individual_file_from_a_url">
+         <p>BAMOE Canvas will first attempt to import any URL as a Git repository.
+If this fails, it will attempt to import it as an individual file, based on the file extension.
+Supported extensions include "dmn", "bpmn", and "bpmn2".</p>
+      </section>
+   </body>
+</topic>

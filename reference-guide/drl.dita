@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="drl">
+   <title>DRL reference</title>
+   <body>
+      <p>Please see the full <xref href="https://docs.drools.org/8.38.0.Final/drools-docs/docs-website/drools/language-reference/index.html" scope="external">reference guide</xref> hosted on drools.org.</p>
+   </body>
+</topic>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="dev-deployment-upload-service">
+   <title>Dev Deployment Upload Service</title>
+   <body>
+      <p>The Dev Deployment Upload Service runs an HTTP server that accepts ZIP file uploads to the <tt>/upload</tt> endpoint.
+Verify that the service is ready to accept uploads via the <tt>/upload-status</tt> endpoint.</p>
+      <p>When an upload is complete, the application unzips the file at the configured location and exits with a 0 code.
+If anything goes wrong during execution, it exits with code 1, and a helpful message is printed to stderr.</p>
+      <p>To install it, download the zip file, extract it, and copy the correct executable somewhere in the <tt>PATH</tt> (usually <tt>/usr/local/bin</tt>).</p>
+      <p>USAGE: <tt>dev-deployment-upload-service</tt>.</p>
+      <p>Arguments are passed using env vars:</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="25*"/>
+            <colspec colname="col_2" colwidth="12.5*"/>
+            <colspec colname="col_3" colwidth="37.5*"/>
+            <colspec colname="col_4" colwidth="25*"/>
+            <thead>
+               <row>
+                  <entry>Environment variable</entry>
+                  <entry>Required</entry>
+                  <entry>Description</entry>
+                  <entry>Default value</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DEV_DEPLOYMENT__UPLOAD_SERVICE_EXTRACT_TO_DIR</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <b>Yes</b>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Where the uploaded zip file will be extracted. If it doesn’t exist, it will be created.</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <i>empty</i>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DEV_DEPLOYMENT__UPLOAD_SERVICE_PORT</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <b>Yes</b>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Port where the HTTP Server will run.</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <i>empty</i>
+                     </p>
+                     <p>
+                        <i>(<tt>8080</tt> on the Canvas Dev Deployment Base image)</i>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DEV_DEPLOYMENT__UPLOAD_SERVICE_API_KEY</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <b>Yes</b>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>API Key used as a queryParam for the <tt>/upload</tt> endpoint.</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <i>empty</i>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DEV_DEPLOYMENT__UPLOAD_SERVICE_ROOT_PATH</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <b>No</b>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Subpath where the API endpoints will be based.</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>/</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <note type="note">
+The Dev Deployment Upload Service requires the system to have both the <tt>tar</tt> and <tt>gzip</tt> libraries installed.
+</note>
+   </body>
+</topic>

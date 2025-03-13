@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="gav-mapping-process">
+   <title/>
+   <body>
+      <table>
+         <title>Process Related Mapping for BAMOE Version 9.1.x</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="42.8571*"/>
+            <colspec colname="col_2" colwidth="28.5714*"/>
+            <colspec colname="col_3" colwidth="28.5715*"/>
+            <thead>
+               <row>
+                  <entry>Description</entry>
+                  <entry>9.0.x Name</entry>
+                  <entry>9.1.x Name</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-mail</p>
+                  </entry>
+                  <entry>
+                     <p>org.jbpm:jbpm-addons-quarkus-mail</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-task-management</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.jbpm:jbpm-addons-quarkus-task-management</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-task-notification</p>
+                  </entry>
+                  <entry>
+                     <p>org.jbpm:jbpm-addons-quarkus-task-notification</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.kie.kogito:kogito-quarkus-processes</p>
+                  </entry>
+                  <entry>
+                     <p>org.jbpm:jbpm-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>Add business automation capabilities - processes and rules with Kogito (a toolkit that originates from projects Drools and jBPM)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.kie.kogito:kogito-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>org.jbpm:jbpm-with-drools-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>Runtime development tools for KIE projects</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_decisions_in_traffic_violation_example">
+   <title>Decisions in traffic violation example</title>
+   <body>
+      <p>The traffic violations process contains license validation as a decision that is created using DRL. The license validation consists of rules that are evaluated to verify whether the license is expired or not. The result of the license validation is added to the driver variable. The rule units are declared in the <tt>LicenseValidationService.drl</tt> file and the rule unit data is added to the <tt>LicenseValidationService</tt> class.</p>
+      <p>Example <tt>LicenseValidationService.drl</tt> file:</p>
+      <codeblock>
+unit LicenseValidationService
+
+rule "Is driver license valid"
+when
+    $driver: /driver[licenseExpiration.after(currentTime)]
+then
+    $driver.setValidLicense(true);
+end
+
+rule "Is driver license expired"
+when
+    $driver: /driver[licenseExpiration.before(currentTime)]
+then
+    $driver.setValidLicense(false);
+end
+
+query "validation"
+  $driver : /driver
+end
+</codeblock>
+      <p>Example <tt>LicenseValidationService</tt> class:</p>
+      <codeblock outputclass="language-java">
+public class LicenseValidationService implements RuleUnitData {
+    private SingletonStore&lt;Driver&gt; driver;
+
+    public LicenseValidationService() {
+        this(DataSource.createSingleton());
+    }
+
+    public LicenseValidationService(SingletonStore&lt;Driver&gt; driver) {
+        this.driver = driver;
+    }
+
+    public void setDriver(SingletonStore&lt;Driver&gt; driver) {
+        this.driver = driver;
+    }
+
+    public SingletonStore&lt;Driver&gt; getDriver() {
+        return driver;
+    }
+
+    public Date getCurrentTime() {
+        return new Date();
+    }
+}
+</codeblock>
+      <p>After the license validation task, the traffic violations process contains traffic violation as a decision that is created using DMN. The traffic violation decision verifies whether the driver is suspended or not based on the points in the driver’s license.</p>
+      <p>The traffic violation decision is declared in the <tt>TrafficViolation.dmn</tt> file.</p>
+      <fig>
+         <title>Example <tt>TrafficViolation.dmn</tt> file</title>
+         <image href="../images/traffic-violation-dmn.png" placement="break">
+            <alt>Image of traffic TrafficViolation.dmn file</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

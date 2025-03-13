@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_rules_engine_properties">
+   <title>Rules Engine Properties</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="8.3333*"/>
+            <colspec colname="col_4" colwidth="8.3334*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.codegen.rules</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling code generation for the rules engine</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.generate.rest.rules</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle for REST rules endpoint generation.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.rules.<tt>rule_unit_name</tt>.event-processing-type</p>
+                  </entry>
+                  <entry>
+                     <p>Type of event processing for a given rule-unit.
+Possible values: CLOUD, STREAM</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.rules.<tt>rule_unit_name</tt>.clock-type</p>
+                  </entry>
+                  <entry>
+                     <p>Event clock type for a given rule-unit.
+Possible values: PSEUDO, REALTIME</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.rules.<tt>rule_unit_name</tt>.sessions-pool</p>
+                  </entry>
+                  <entry>
+                     <p>The size fore the sessions pool</p>
+                  </entry>
+                  <entry>
+                     <p>int</p>
+                  </entry>
+                  <entry/>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

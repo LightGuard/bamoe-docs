@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_build_locally_with_docker_and_create_manual_deployment_on_openshift">
+   <title>Build Locally with Docker and Create Manual Deployment on OpenShift</title>
+   <body>
+      <p>This option provides a way to build the application’s container image locally using Docker, push the image to a registry, and manually deploy it on OpenShift.</p>
+      <p>The image created in the process is based on the IBM Semeru image (<tt>icr.io/appcafe/ibm-semeru-runtimes:open-17-jre-ubi-minimal</tt>), which can be customized by editing the <tt>Dockerfile.jvm</tt> file in <tt>src/main/docker</tt>.</p>
+      <ol>
+         <li>
+            <p>
+               <b>Log in to OpenShift CLI:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+oc login
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Add the Docker extension to the Quarkus project:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+mvn quarkus:add-extension -Dextensions='quarkus-container-image-docker'
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Update the <tt>src/main/resources/application.properties</tt> file with the following properties to configure the image:</b>
+            </p>
+            <codeblock outputclass="language-properties">
+# Container Image Builder
+quarkus.container-image.builder=docker
+quarkus.container-image.registry=&lt;image_registry&gt; ①
+quarkus.container-image.group=&lt;image_registry_group_or_user&gt; ②
+quarkus.container-image.name=&lt;image_name&gt; ③
+quarkus.container-image.tag=&lt;image_tag&gt; ④
+quarkus.docker.buildx.platform=linux/amd64
+</codeblock>
+            <table outputclass="callout-list">
+               <tgroup cols="2">
+                  <colspec colwidth="15*"/>
+                  <colspec colwidth="85*"/>
+                  <tbody>
+                     <row>
+                        <entry>①</entry>
+                        <entry>
+                           <p>The URL of the container image registry where the Docker image will be stored. Example: <tt>docker.io</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>②</entry>
+                        <entry>
+                           <p>The group or user in the container image registry. Example: <tt>myuser</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>③</entry>
+                        <entry>
+                           <p>The name of the Docker image to be built. Example: <tt>myapp</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>④</entry>
+                        <entry>
+                           <p>The tag of the Docker image. Example: <tt>v1.0.0</tt>.</p>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </li>
+      </ol>
+      <p>Replace these tokens with appropriate values based on the environment setup.</p>
+      <ol>
+         <li>
+            <p>
+               <b>Add the <tt>Dockerfile.jvm</tt> file to <tt>src/main/docker</tt>:</b>
+            </p>
+            <codeblock outputclass="language-Dockerfile">
+FROM icr.io/appcafe/ibm-semeru-runtimes:open-17-jre-ubi-minimal
+
+# Switch to root
+USER 0
+
+# Copy the compiled application files from the local `target` directory to the `/app/` directory inside the container.
+COPY target /app/
+
+# Support Arbitrary User IDs
+# https://docs.openshift.com/container-platform/3.11/creating_images/guidelines.html#openshift-specific-guidelines
+RUN chgrp -R 0 /app &amp;&amp; \
+  chmod -R g+rwX /app
+
+# Switch back to a non-root user
+USER 1001
+
+WORKDIR /app
+
+EXPOSE 8080
+
+CMD ["java", "-jar", "quarkus-app/quarkus-run.jar"]
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Build and push the Docker image:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+mvn install -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Manually create a deployment and expose it on OpenShift:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+oc new-app --name=&lt;deployment_name&gt; &lt;1&gt; &lt;image_registry&gt;/&lt;image_registry_group_or_user&gt;/&lt;image_name&gt;:&lt;image_tag&gt; ② ③ ④ ⑤
+oc create route edge --service=&lt;deployment_name&gt; ①
+</codeblock>
+            <table outputclass="callout-list">
+               <tgroup cols="2">
+                  <colspec colwidth="15*"/>
+                  <colspec colwidth="85*"/>
+                  <tbody>
+                     <row>
+                        <entry>①</entry>
+                        <entry>
+                           <p>Is the name of the OpenShift deployment that will be created. Example: <tt>myapp-deployment</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>②</entry>
+                        <entry>
+                           <p>The URL of the container image registry where the Docker image will be stored. Example: <tt>docker.io</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>③</entry>
+                        <entry>
+                           <p>The group or user in the container image registry. Example: <tt>myuser</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>④</entry>
+                        <entry>
+                           <p>The name of the Docker image to be built. Example: <tt>myapp</tt>.</p>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>⑤</entry>
+                        <entry>
+                           <p>The tag of the Docker image. Example: <tt>v1.0.0</tt>.</p>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+         </li>
+      </ol>
+   </body>
+</topic>

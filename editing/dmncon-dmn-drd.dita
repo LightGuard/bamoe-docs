@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-drd">
+   <title>DMN decision requirements diagram (DRD) components</title>
+   <body>
+      <title>DMN decision requirements diagram (DRD) components</title>
+      <p>A decision requirements diagram (DRD) is a visual representation of your DMN model. A DRD can represent part or all of the overall decision requirements graph (DRG) for the DMN model. DRDs trace business decisions using decision nodes, business knowledge models, sources of business knowledge, input data, and decision services.</p>
+      <p>The following table summarizes the components in a DRD:</p>
+      <table>
+         <title>DRD components</title>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="20*"/>
+            <colspec colname="col_2" colwidth="20*"/>
+            <colspec colname="col_3" colwidth="40*"/>
+            <colspec colname="col_4" colwidth="20*"/>
+            <thead>
+               <row>
+                  <entry namest="col_1" nameend="col_2">Component</entry>
+                  <entry>Description</entry>
+                  <entry>Notation</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry morerows="4">
+                     <p>Elements</p>
+                  </entry>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry>
+                     <p>Node where one or more input elements determine an output based on defined decision logic.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-decision-node.png" placement="break">
+                        <alt>dmn decision node</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Business knowledge model</p>
+                  </entry>
+                  <entry>
+                     <p>Reusable function with one or more decision elements. Decisions that have the same logic but depend on different sub-input data or sub-decisions use business knowledge models to determine which procedure to follow.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-bkm-node.png" placement="break">
+                        <alt>dmn bkm node</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Knowledge source</p>
+                  </entry>
+                  <entry>
+                     <p>External authorities, documents, committees, or policies that regulate a decision or business knowledge model. Knowledge sources are references to real-world factors rather than executable business rules.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-knowledge-source-node.png" placement="break">
+                        <alt>dmn knowledge source node</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Input data</p>
+                  </entry>
+                  <entry>
+                     <p>Information used in a decision node or a business knowledge model. Input data usually includes business-level concepts or objects relevant to the business, such as loan applicant data used in a lending strategy.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-input-data-node.png" placement="break">
+                        <alt>dmn input data node</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Decision service</p>
+                  </entry>
+                  <entry>
+                     <p>Top-level decision containing a set of reusable decisions published as a service for invocation. A decision service can be invoked from an external application or a BPMN business process.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-decision-service-node.png" placement="break">
+                        <alt>dmn decision service node</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry morerows="2">
+                     <p>Requirement connectors</p>
+                  </entry>
+                  <entry>
+                     <p>Information requirement</p>
+                  </entry>
+                  <entry>
+                     <p>Connection from an input data node or decision node to another decision node that requires the information.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-info-connector.png" placement="break">
+                        <alt>dmn info connector</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Knowledge requirement</p>
+                  </entry>
+                  <entry>
+                     <p>Connection from a business knowledge model to a decision node or to another business knowledge model that invokes the decision logic.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-knowledge-connector.png" placement="break">
+                        <alt>dmn knowledge connector</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Authority requirement</p>
+                  </entry>
+                  <entry>
+                     <p>Connection from an input data node or a decision node to a dependent knowledge source or from a knowledge source to a decision node, business knowledge model, or another knowledge source.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-authority-connector.png" placement="break">
+                        <alt>dmn authority connector</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry morerows="1">
+                     <p>Artifacts</p>
+                  </entry>
+                  <entry>
+                     <p>Text annotation</p>
+                  </entry>
+                  <entry>
+                     <p>Explanatory note associated with an input data node, decision node, business knowledge model, or knowledge source.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-annotation-node.png" placement="break">
+                        <alt>dmn annotation node</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Association</p>
+                  </entry>
+                  <entry>
+                     <p>Connection from an input data node, decision node, business knowledge model, or knowledge source to a text annotation.</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-association-connector.png" placement="break">
+                        <alt>dmn association connector</alt>
+                     </image>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The following table summarizes the permitted connectors between DRD elements:</p>
+      <table>
+         <title>DRD connector rules</title>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="20*"/>
+            <colspec colname="col_2" colwidth="20*"/>
+            <colspec colname="col_3" colwidth="20*"/>
+            <colspec colname="col_4" colwidth="40*"/>
+            <thead>
+               <row>
+                  <entry>Starts from</entry>
+                  <entry>Connects to</entry>
+                  <entry>Connection type</entry>
+                  <entry>Example</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry>
+                     <p>Information requirement</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-decision-to-decision.png" placement="break">
+                        <alt>dmn decision to decision</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry morerows="1">
+                     <p>Business knowledge model</p>
+                  </entry>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>Knowledge requirement</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-bkm-to-decision.png" placement="break">
+                        <alt>dmn bkm to decision</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Business knowledge model</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-bkm-to-bkm.png" placement="break">
+                        <alt>dmn bkm to bkm</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry morerows="1">
+                     <p>Decision service</p>
+                  </entry>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry morerows="1">
+                     <p>Knowledge requirement</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-decision-service-to-decision.png" placement="break">
+                        <alt>dmn decision service to decision</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Business knowledge model</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-decision-service-to-bkm.png" placement="break">
+                        <alt>dmn decision service to bkm</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry morerows="1">
+                     <p>Input data</p>
+                  </entry>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry>
+                     <p>Information requirement</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-input-to-decision.png" placement="break">
+                        <alt>dmn input to decision</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Knowledge source</p>
+                  </entry>
+                  <entry>
+                     <p>Authority requirement</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-input-to-knowledge-source.png" placement="break">
+                        <alt>dmn input to knowledge source</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry morerows="2">
+                     <p>Knowledge source</p>
+                  </entry>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry morerows="2">
+                     <p>Authority requirement</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-knowledge-source-to-decision.png" placement="break">
+                        <alt>dmn knowledge source to decision</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Business knowledge model</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-knowledge-source-to-bkm.png" placement="break">
+                        <alt>dmn knowledge source to bkm</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Knowledge source</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-knowledge-source-to-knowledge-source.png" placement="break">
+                        <alt>dmn knowledge source to knowledge source</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Decision</p>
+                  </entry>
+                  <entry morerows="3">
+                     <p>Text annotation</p>
+                  </entry>
+                  <entry morerows="3">
+                     <p>Association</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-decision-to-annotation.png" placement="break">
+                        <alt>dmn decision to annotation</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Business knowledge model</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-bkm-to-annotation.png" placement="break">
+                        <alt>dmn bkm to annotation</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Knowledge source</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-knowledge-source-to-annotation.png" placement="break">
+                        <alt>dmn knowledge source to annotation</alt>
+                     </image>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Input data</p>
+                  </entry>
+                  <entry>
+                     <image href="../images/dmn-input-to-annotation.png" placement="break">
+                        <alt>dmn input to annotation</alt>
+                     </image>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The following example DRD illustrates some of these DMN components in practice:</p>
+      <fig>
+         <title>Example DRD: Loan prequalification</title>
+         <image href="../images/dmn-example-drd.png" placement="break">
+            <alt>dmn example drd</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

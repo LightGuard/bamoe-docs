@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="deploying-process-services">
+   <title>Components of a process service</title>
+   <body>
+      <p>This section provides more detail on the deployment architecture to simplify event management and ensure stable and robust stateful applications.
+The standard Event-Driven IBM BAMOE setup is better adapted to Serverless execution.</p>
+      <p>The new Compact Architecture consists of applications built using a new set of IBM BAMOE add-ons, that collocate add-on services (Jobs, Data audit, Data index) in the runtime.
+This architecture simplifies the application configuration and minimizes the communication between components.</p>
+      <section id="_the_jobs_subsystem">
+         <title>The Jobs subsystem</title>
+         <p>The Jobs service takes care of scheduling jobs, in particular timers such as those from boundary events, SLA, or throw events relevant to timers.
+It is also used for human tasks notifications.</p>
+         <p>By collocating the Job Scheduler within the BAMOE Runtime, the Job service add-on enables direct communication between both services inside a BAMOE App.
+It uses the Data Source as the app.</p>
+         <p>The Jobs subsystem only supports Quarkus runtimes and PostgreSQL storage.</p>
+         <div conref="deploying-process-services_how_it_works.dita">_how_it_works</div>
+         <div conref="deploying-process-services_using_the_job_service_add_on.dita">_using_the_job_service_add_on</div>
+      </section>
+      <section id="_the_data_audit_subsystem">
+         <p>The Data Audit subsystem enables the storage of events issued by the following process elements and persists them in the Data index subsystem:</p>
+         <ul>
+            <li>workflow engine</li>
+            <li>user task</li>
+            <li>job service</li>
+         </ul>
+         <p>The system contains several modules and common modules to redistribute responsibilities. The main features of this system are:</p>
+         <ul>
+            <li>runs as colocated services with Quarkus</li>
+            <li>contains a module that enables you to implement your own subsystem</li>
+            <li>contains graphql modules to query data</li>
+            <li>provides extension points to develop new storage easily</li>
+            <li>provides extension points to develop new queries extending graphql definitions</li>
+         </ul>
+         <fig>
+            <title>Graphical view of the Data Audit subsystem</title>
+            <image href="../images/data-audit-design.png" placement="break">
+               <alt>data audit design</alt>
+            </image>
+         </fig>
+         <dl>
+            <dlentry>
+               <dt>Data Audit Common</dt>
+               <dd>Provides the common framework to create implementations.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Data Audit «Quarkus»</dt>
+               <dd>Provides the wiring to use Data Audit with Quarkus as colocated service in a deployment.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Data Audit JPA Common</dt>
+               <dd>Provides the common extension that doesn’t depend on the runtime.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Data Audit JPA «Quarkus»</dt>
+               <dd>Provides the wiring between the specific implementation and Quarkus System.</dd>
+            </dlentry>
+         </dl>
+         <div conref="deploying-process-services_querying.dita">_querying</div>
+         <div conref="deploying-process-services_java_persistence_api_jpa_implementation.dita">_java_persistence_api_jpa_implementation</div>
+         <div conref="deploying-process-services_extension_points.dita">_extension_points</div>
+         <div conref="deploying-process-services_using_the_data_audit_add_on.dita">_using_the_data_audit_add_on</div>
+      </section>
+      <section id="_the_data_index_subsystem">
+         <p>The Data Index subsystem is used to store a snapshot of the latest state of the process instance.</p>
+         <fig>
+            <title>Graphical view of the Data Index subsystem</title>
+            <image href="../images/data-index.png" placement="break">
+               <alt>data index</alt>
+            </image>
+         </fig>
+         <p>The concepts to understand the above picture are:</p>
+         <dl>
+            <dlentry>
+               <dt>Transport</dt>
+               <dd>the medium used to transfer events between the runtime and the data index service. The transport is in-vm.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Storage</dt>
+               <dd>the persistence tier of the data index component.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Data index</dt>
+               <dd>the main component responsible for creating/updating the data index, and for providing query capabilities.</dd>
+            </dlentry>
+         </dl>
+         <div conref="deploying-process-services_querying_2.dita">_querying_2</div>
+         <div conref="deploying-process-services_using_the_data_index_add_on.dita">_using_the_data_index_add_on</div>
+      </section>
+   </body>
+</topic>

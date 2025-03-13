@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-conditional-expressions">
+   <title>Boxed conditional expressions</title>
+   <body>
+      <p>A boxed conditional offers a visual representation of an <tt>if</tt> statement using three rows.
+The expression in the <tt>if</tt> part must resolve to a boolean.
+When the <tt>if</tt> resolves to a <tt>true</tt>, <tt>then</tt> part is returned.
+When the <tt>if</tt> resolves to a <tt>false</tt>, <tt>else</tt> part is returned.</p>
+      <fig>
+         <title>Conditional expression of MonthlyFee computation</title>
+         <image href="../images/runtime-services-modeling/dmn-conditional-expression.png" placement="break">
+            <alt>dmn conditional expression</alt>
+         </image>
+      </fig>
+      <note type="note">
+This feature was introduced as part of the IBM BAMOE 9.1 and DMN 1.5 releases.
+</note>
+   </body>
+</topic>

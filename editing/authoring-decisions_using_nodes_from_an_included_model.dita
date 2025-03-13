@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_nodes_from_an_included_model">
+   <title>Using Nodes from an included model</title>
+   <body>
+      <title>Using Nodes from an included model</title>
+      <p>Once the model has been included as described above, you can switch back to the Editor Diagram and click the <b>External nodes</b> button in the left palette to display a card for your included models. You can drag required elements from the list of nodes as shown in the graphic below.</p>
+      <fig>
+         <title>BKM node from included model</title>
+         <image href="../images/tools/authoringDecisions/creating-external-bkm.png" placement="break">
+            <alt>Included models cards</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

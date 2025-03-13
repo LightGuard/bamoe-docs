@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_task_console_docker_image">
+   <title>Task Console Docker Image</title>
+   <body>
+      <title>Task Console Docker Image</title>
+      <p>The Task Console image is published to Quay.io and can be used to run containers locally or with any cloud provider.</p>
+      <ul>
+         <li>Task Console → <xref href="https://quay.io/repository/bamoe/task-console" scope="external">quay.io/bamoe/task-console</xref> @ 9.1.1</li>
+      </ul>
+      <div conref="consoles_configuration_2.dita">_configuration_2</div>
+   </body>
+</topic>

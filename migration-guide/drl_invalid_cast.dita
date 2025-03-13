@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_invalid_cast">
+   <title>Invalid Cast</title>
+   <body>
+      <title>Invalid Cast</title>
+      <p>When you specify dialect <tt>mvel</tt> in a rule, the non-executable model is tolerant of invalid type cast, because of type coercion behavior in MVEL.
+For example:</p>
+      <codeblock outputclass="language-drl">
+global MyUtils myUtils;
+
+rule Rule1
+dialect "mvel"
+when
+  $p : Person()
+then
+  myUtils.doWork((String) $p.age )));
+end
+</codeblock>
+      <p>This rule can be built with the non-executable model even if <tt>$p.age</tt> is an int which is not acceptable in Java syntax.</p>
+      <p>With the executable model, the rule fails with a build error, <tt>Cannot cast from int to String</tt>.
+You can fix the rule by using valid Java syntax.
+For example:</p>
+      <codeblock outputclass="language-drl">
+...
+then
+  myUtils.doWork(java.util.Objects.toString( $p.age ));
+end
+</codeblock>
+   </body>
+</topic>

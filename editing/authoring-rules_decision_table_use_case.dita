@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_decision_table_use_case">
+   <title>Decision table use case</title>
+   <body>
+      <p>An online shopping site lists the shipping charges for ordered items. The site provides free shipping under the following conditions:</p>
+      <ul>
+         <li>The number of items ordered is 4 or more and the checkout total is $300 or more.</li>
+         <li>Standard shipping is selected (4 or 5 business days from the date of purchase).</li>
+      </ul>
+      <p>The following are the shipping rates under these conditions:</p>
+      <table>
+         <title>For orders less than $300</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="33.3334*"/>
+            <thead>
+               <row>
+                  <entry>Number of items</entry>
+                  <entry>Delivery day</entry>
+                  <entry>Shipping charge in USD, N = Number of items</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>3 or fewer</p>
+                  </entry>
+                  <entry>
+                     <p>Next day</p>
+                     <p>2nd day</p>
+                     <p>Standard</p>
+                  </entry>
+                  <entry>
+                     <p>35</p>
+                     <p>15</p>
+                     <p>10</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>4 or more</p>
+                  </entry>
+                  <entry>
+                     <p>Next day</p>
+                     <p>2nd day</p>
+                     <p>Standard</p>
+                  </entry>
+                  <entry>
+                     <p>N*7.50</p>
+                     <p>N*3.50</p>
+                     <p>N*2.50</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <table>
+         <title>For orders more than $300</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="33.3334*"/>
+            <thead>
+               <row>
+                  <entry>Number of items</entry>
+                  <entry>Delivery day</entry>
+                  <entry>Shipping charge in USD, N = Number of items</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>3 or fewer</p>
+                  </entry>
+                  <entry>
+                     <p>Next day</p>
+                     <p>2nd day</p>
+                     <p>Standard</p>
+                  </entry>
+                  <entry>
+                     <p>25</p>
+                     <p>10</p>
+                     <p>N*1.50</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>4 or more</p>
+                  </entry>
+                  <entry>
+                     <p>Next day</p>
+                     <p>2nd day</p>
+                     <p>Standard</p>
+                  </entry>
+                  <entry>
+                     <p>N*5</p>
+                     <p>N*2</p>
+                     <p>FREE</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>These conditions and rates are shown in the following example spreadsheet decision table:</p>
+      <fig>
+         <title>Decision table for shipping charges</title>
+         <image href="../images/decision-table-example-02.png" placement="break">
+            <alt>Decision table example</alt>
+         </image>
+      </fig>
+      <p>In order for a decision table to be compiled in your IBM BAMOE project, the table must comply with certain structure and syntax requirements within an XLS or XLSX spreadsheet, as shown in this example.</p>
+   </body>
+</topic>

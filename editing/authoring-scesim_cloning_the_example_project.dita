@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_cloning_the_example_project">
+   <title>Cloning the Example Project</title>
+   <body>
+      <title>Cloning the Example Project</title>
+      <p>If you are a new BAMOE user and you do not have any project to set up yet, or you prefer having an out-of-the-box project to deal with, you can use the previously mentioned example in the <tt>incubator-kie-kogito-examples</tt> repository.</p>
+      <ol>
+         <li>Clone the <tt>incubator-kie-kogito-examples</tt> repository.</li>
+         <li>Open VSCode and navigate to <tt>incubator-kie-kogito-examples/kogito-quarkus-examples/dmn-quarkus-example</tt>.
+This project contains all the necessary files and prerequisites for this tutorial.</li>
+      </ol>
+   </body>
+</topic>

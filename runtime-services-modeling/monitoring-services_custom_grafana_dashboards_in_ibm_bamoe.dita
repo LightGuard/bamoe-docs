@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_custom_grafana_dashboards_in_ibm_bamoe">
+   <title>Custom Grafana dashboards in IBM BAMOE</title>
+   <body>
+      <p>You can add custom dashboards that are defined as <tt>json</tt> files in your project. For format specification and more information, see <xref href="https://grafana.com/docs/grafana/latest/dashboards/json-model/" scope="external">Official documentation</xref> page.</p>
+      <p>To add custom dashboards in your IBM BAMOE project, you must follow the following conventions:</p>
+      <ul>
+         <li>Dashboard files must be stored in <tt>/src/main/resources/META-INF/dashboards</tt> directory</li>
+         <li>dashboard file names must start with <tt>domain-dashoboard</tt> (for domain specific dashboards) or <tt>operational-dashboard</tt> (for operational dashboards)</li>
+         <li>Dashboard file names must end with <tt>.json</tt>
+         </li>
+         <li>Dashboard file names must not conflict with the auto-generated ones</li>
+         <li>The <tt>title</tt> attribute of custom dashboards must not conflict with the auto-generated attributes</li>
+      </ul>
+      <p>Custom dashboards are available in the Grafana panel along with the auto-generated dashboards.</p>
+   </body>
+</topic>

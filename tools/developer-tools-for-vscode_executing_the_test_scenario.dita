@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_executing_the_test_scenario">
+   <title>Executing the Test Scenario</title>
+   <body>
+      <ol>
+         <li>
+            <b>Save the File</b>:
+Save the <tt>.scesim</tt> file (<tt>CTRL+S</tt>).</li>
+         <li>
+            <p>
+               <b>Run Tests</b>:
+Open a terminal in your project’s root directory (eg. the <tt>incubator-kie-kogito-examples/kogito-quarkus-examples/dmn-pmml-quarkus-example</tt>) and execute:</p>
+            <codeblock outputclass="language-console">
+   $ mvn clean test
+</codeblock>
+            <p>Alternatively, if you installed the <tt>Language Support for Java™ by Red Hat</tt> extension, run the test from <tt>KogitoScenarioJunitActivator.java</tt> using the <tt>Run Java</tt> button in VSCode.</p>
+         </li>
+         <li>
+            <p>
+               <b>Verify Results</b>:
+Check the results to ensure the scenarios pass. The test results will be visible in your Terminal after the completion of the <tt>mvn clean test</tt> command.</p>
+            <image href="../images/developer-tools/scesim-runner-results.png" placement="break">
+               <alt>scesim runner results</alt>
+            </image>
+            <p>Using the <tt>Run Java</tt> button provided by <tt>Language Support for Java™ by Red Hat</tt>, the test results will appear in the native VSCode <tt>Test Results</tt> window.</p>
+            <image href="../images/developer-tools/scesim-java-test-runner-results.png" placement="break">
+               <alt>scesim java test runner results</alt>
+            </image>
+         </li>
+      </ol>
+   </body>
+</topic>

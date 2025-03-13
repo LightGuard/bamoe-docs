@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="deploying-to-openshift">
+   <title>Deploying a BAMOE application to OpenShift using Quarkus</title>
+   <body>
+      <p>This guide provides instructions for deploying a business application to OpenShift using three different methods.</p>
+      <p>Ensure that the following prerequisites are in place before proceeding.</p>
+      <section id="_prerequisites">
+         <title>Prerequisites</title>
+         <ul>
+            <li>
+               <xref href="https://docs.openshift.com/container-platform/4.16/cli_reference/openshift_cli/getting-started-cli.html#installing-openshift-cli" scope="external">OpenShift CLI (<tt>oc</tt>)</xref>
+            </li>
+            <li>
+               <xref href="https://docs.docker.com/manuals/" scope="external">Docker</xref>
+            </li>
+         </ul>
+      </section>
+      <section id="_deployment_options">
+         <p>Use the following methods to deploy the  business application on OpenShift:</p>
+         <ul>
+            <li>
+               <xref href="#_build_and_deploy_on_openshift"/>
+            </li>
+            <li>
+               <xref href="#_build_locally_with_docker_and_automatically_deploy_on_openshift"/>
+            </li>
+            <li>
+               <xref href="#_build_locally_with_docker_and_create_manual_deployment_on_openshift"/>
+            </li>
+         </ul>
+         <div conref="deploying-to-openshift_build_and_deploy_on_openshift.dita">_build_and_deploy_on_openshift</div>
+         <div conref="deploying-to-openshift_build_locally_with_docker_and_automatically_deploy_on_openshift.dita">_build_locally_with_docker_and_automatically_deploy_on_openshift</div>
+         <div conref="deploying-to-openshift_build_locally_with_docker_and_create_manual_deployment_on_openshift.dita">_build_locally_with_docker_and_create_manual_deployment_on_openshift</div>
+      </section>
+      <section id="_conclusion">
+         <p>Choose the appropriate deployment method based on the development workflow and environment requirements.</p>
+         <p>For further customization or troubleshooting, refer to the official Quarkus guides:</p>
+         <ul>
+            <li>
+               <xref href="https://quarkus.io/guides/container-image" scope="external">https://quarkus.io/guides/container-image</xref>
+            </li>
+            <li>
+               <xref href="https://quarkus.io/guides/deploying-to-openshift" scope="external">https://quarkus.io/guides/deploying-to-openshift</xref>
+            </li>
+         </ul>
+      </section>
+   </body>
+</topic>

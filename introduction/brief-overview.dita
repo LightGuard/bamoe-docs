@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="brief-overview">
+   <title>Overview</title>
+   <body>
+      <p>IBM Business Automation Manager Open Editions is an open-source business automation platform that combines flexible business process automation and decision management. BAMOE facilitates the collaboration between business and IT users throughout the creation, management, validation, and deployment of tailored process and decision automation solutions. Business users can modify business logic and business processes without requiring assistance from IT personnel.</p>
+      <p>BAMOE is a cloud-native technology fully supported on both Red Hat OpenShift Container Platform and Kubernetes, allowing for flexible deployment across hybrid cloud environments.</p>
+   </body>
+</topic>

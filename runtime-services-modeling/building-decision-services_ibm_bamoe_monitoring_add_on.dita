@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_monitoring_add_on">
+   <title>IBM BAMOE monitoring add-on</title>
+   <body>
+      <p>The monitoring add-on provides monitoring capabilities in the IBM BAMOE project.</p>
+      <p>To use the monitoring add-on, add the following code to the <tt>pom.xml</tt> file of your project:</p>
+      <p outputclass="title">
+         <b>Quarkus dependency for elastic search</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-monitoring-elastic&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p outputclass="title">
+         <b>Quarkus dependency for Prometheus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-monitoring-prometheus&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+   </body>
+</topic>

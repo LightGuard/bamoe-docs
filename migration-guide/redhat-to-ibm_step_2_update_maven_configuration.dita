@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_step_2_update_maven_configuration">
+   <title>Step 2: Update Maven Configuration</title>
+   <body>
+      <p>
+         <xref href="http://maven.apache.org" scope="external">Apache Maven</xref> is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project’s build, reporting and documentation from a central piece of information.
+IBM Business Automation Manager Open Editions relies on Maven in order to build various types of deployable artifacts, such as decision service applications.
+For a quick start, see <xref href="http://maven.apache.org/guides/getting-started/" scope="external">Maven Quick Start Guide</xref>.</p>
+   </body>
+</topic>

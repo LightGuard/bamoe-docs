@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_importing_your_java_classes_as_dmn_types">
+   <title>Importing your Java Classes as DMN Types</title>
+   <body>
+      <p>Open your target DMN file, the reference for this guide is the <tt>TrafficViolation.dmn</tt> file already available in the example project. Go to the <tt>Data Types</tt> tab. Here, you should notice a  button: <tt>Import Java Classes</tt>.
+Be aware that this button is enabled only if the previously described requirements are satisfied.</p>
+      <image href="../images/developer-tools/dmn-import-java-classes-button.png" placement="break">
+         <alt>dmn import java classes button</alt>
+      </image>
+      <p>After clicking that button, the Import Java Classes panel will appear. At this point, follow these steps:</p>
+      <ul>
+         <li>
+            <p>
+               <b>Select Java Classes:</b> In the search box, put the name of the Java Class you want to import as a DMN Type. You can use the class simple name (eg. Book) or the full qualified name (eg. dto.Book). Below the search box, a list with all Java Classes that match the provided key will appear. Select the ones you want to import. When ready, click on the <tt>Next</tt> button.</p>
+            <image href="../images/developer-tools/dmn-import-java-classes-selection.png" placement="break">
+               <alt>dmn import java classes selection</alt>
+            </image>
+         </li>
+         <li>
+            <p>
+               <b>Select Fields and Review:</b> In this section, the list of all Java Classes' fields will be shown.</p>
+            <image href="../images/developer-tools/dmn-import-java-classes-fields.png" placement="break">
+               <alt>dmn import java classes fields</alt>
+            </image>
+         </li>
+         <li>
+            <p>
+               <b>Import:</b> Press the <tt>Import</tt> button. This will automatically import the selected Java Class in the DMN Data Type tab.</p>
+            <image href="../images/developer-tools/dmn-import-java-classes-imported.png" placement="break">
+               <alt>dmn import java classes imported</alt>
+            </image>
+         </li>
+      </ul>
+   </body>
+</topic>

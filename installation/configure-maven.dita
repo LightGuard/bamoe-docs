@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="configure-maven">
+   <title>Configuring Maven with BAMOE binaries</title>
+   <body>
+      <p>With IBM Business Automation Manager Open Editions version 9.1 aligning with BAMOE version 8.0 in the downstream build model, the artifacts are no longer available in Maven Central.
+Instead the artifacts are shipped as a Container Image and Maven Repository inside compressed files in a consumable format.</p>
+      <p>If you have a Maven Repository Manager tool such as Artifactory or Nexus, you can import the compressed BAMOE Maven repository content into Maven Repository Manager.
+For companies without such infrastructure, it is highly recommended to use the container image and make it available interally for all developers and the continuous integration (CI) system.
+For companies that already use a Maven Repository Manager tool, developers and the CI system are usually configured to connect with it.
+If you are using the container image, ensure that it is made available and provide the URL that developers and the CI system need to specify in their <tt>settings.xml</tt> file.</p>
+      <note type="note">
+When you configure the repository by modifying the Maven <tt>settings.xml</tt> file, the changes apply to all of your Maven projects.
+</note>
+      <p>There are two ways to do this:</p>
+      <ul>
+         <li>Set up a maven repository with a container image</li>
+         <li>Configure your local maven repository</li>
+      </ul>
+      <section id="_configuring_maven_with_the_container_image">
+         <title>Configuring Maven with the container image</title>
+         <p>Before changing your Maven settings you must first deploy/run the container image somewhere.
+There are a few options and your choice will depend on your work environment and the tools that are available to you.</p>
+         <div conref="configure-maven_deploying_to_openshift.dita">_deploying_to_openshift</div>
+         <div conref="configure-maven_configuring_maven_on_openshift_without_elevated_privileges.dita">_configuring_maven_on_openshift_without_elevated_privileges</div>
+         <div conref="configure-maven_deploying_to_a_kubernetes_cluster.dita">_deploying_to_a_kubernetes_cluster</div>
+         <div conref="configure-maven_running_on_docker_locally.dita">_running_on_docker_locally</div>
+         <div conref="configure-maven_configure_maven_with_the_container_image_url.dita">_configure_maven_with_the_container_image_url</div>
+      </section>
+      <section id="_configuring_a_local_maven_repository_for_bamoe">
+         <p>If you prefer not to use containers, you can download and configure the BAMOE Maven repository from the compressed file.
+The BAMOE Maven repository contains the libraries that Java developers need to build BAMOE applications.</p>
+         <p>To configure the BAMOE Maven repository locally follow these steps:</p>
+         <ol>
+            <li>Download the Maven Repository`bamoe-9.1.1-maven-repository.zip`.</li>
+            <li>Extract the downloaded archive.</li>
+            <li>Go to the <tt>~/.m2/</tt> directory and open the Maven <tt>settings.xml</tt> file in a text editor or IDE.</li>
+            <li>
+               <p>Add the following lines to the <tt>&lt;profiles&gt;</tt> element of the Maven settings.xml file, where <tt>&lt;MAVEN_REPOSITORY&gt;</tt> is the path of the Maven repository that you downloaded.
+The format of <tt>&lt;MAVEN_REPOSITORY&gt;</tt> must be <tt>file://$PATH</tt>. For example, <tt>file:///home/userX/bamoe-{VERSION}-maven-repository/</tt>:</p>
+               <codeblock>
+&lt;profile&gt;
+  &lt;id&gt;ibm-bamoe-enterprise-maven-repository&lt;/id&gt;
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;ibm-bamoe-enterprise-maven-repository&lt;/id&gt;
+      &lt;url&gt;&lt;MAVEN_REPOSITORY&gt;&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+  &lt;pluginRepositories&gt;
+    &lt;pluginRepository&gt;
+      &lt;id&gt;ibm-bamoe-enterprise-maven-repository&lt;/id&gt;
+      &lt;url&gt;&lt;MAVEN_REPOSITORY&gt;&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/pluginRepository&gt;
+  &lt;/pluginRepositories&gt;
+&lt;/profile&gt;
+</codeblock>
+            </li>
+            <li>Add the following lines to the <tt>&lt;activeProfiles&gt;</tt> element of the Maven <tt>settings.xml</tt> file and save the file:</li>
+         </ol>
+         <codeblock>
+&lt;activeProfile&gt;ibm-bamoe-enterprise-maven-repository&lt;/activeProfile&gt;
+</codeblock>
+         <p>If your Maven repository contains outdated artifacts, you might encounter Maven error messages when you build or deploy the project, such as:</p>
+         <ul>
+            <li>
+               <tt>Missing artifact &lt;PROJECT_NAME&gt;</tt>
+            </li>
+            <li>
+               <tt>[ERROR] Failed to execute goal on project &lt;ARTIFACT_NAME&gt;; Could not resolve dependencies for &lt;PROJECT_NAME&gt;</tt>
+            </li>
+         </ul>
+         <p>To resolve these issues, delete the cached version of your local repository that is located in the  <tt>~/.m2/repository</tt> directory to force a download of the latest Maven artifacts.</p>
+         <p>Your Maven repository is now properly configured and ready to build BAMOE projects using a standard Maven workflow.</p>
+      </section>
+   </body>
+</topic>

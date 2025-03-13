@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_deployment_resources_requirements">
+   <title>Deployment resources requirements</title>
+   <body>
+      <p>The Kubernetes/OpenShift resources created by a Dev Deployment must have a few labels and annotations so that BAMOE Canvas can list and manage these resources.</p>
+      <p>For a successful deployment, this is the required information each resource needs:</p>
+      <codeblock outputclass="language-yaml">
+metadata:
+  name: \${{ devDeployment.uniqueName }}
+  namespace: \${{ devDeployment.kubernetes.namespace }}
+  labels:
+    \${{ devDeployment.labels.createdBy }}: kie-tools
+    \${{ devDeployment.labels.partOf }}: \${{ devDeployment.uniqueName }}
+  annotations:
+    \${{ devDeployment.annotations.workspaceId }}: \${{ devDeployment.workspace.id }}
+    \${{ devDeployment.annotations.workspaceName }}: \${{ devDeployment.workspace.name }}
+</codeblock>
+      <ul>
+         <li>The <tt>name</tt> is how the deployment is identified across the board.</li>
+         <li>The <tt>namespace</tt> is where the deployment should be created in the cluster and should be the same configured in the connected account.</li>
+         <li>The labels (<tt>createdBy</tt> and <tt>partOf</tt>) are required so that BAMOE Canvas can filter and map all resources related to a single deployment. <b>Important:</b>
+            <tt>createdBy</tt> should always have the value <tt>kie-tools</tt>.</li>
+         <li>The annotations (<tt>workspaceId</tt> and <tt>workspaceName</tt>) help match a deployment to a workspace.</li>
+      </ul>
+      <note type="note">
+It’s important to note that our Dev Deployment service inside BAMOE Canvas already applies these required labels and annotations by patching the resource YAMLs.
+</note>
+   </body>
+</topic>

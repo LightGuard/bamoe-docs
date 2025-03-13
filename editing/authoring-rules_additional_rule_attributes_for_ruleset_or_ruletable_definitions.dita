@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_additional_rule_attributes_for_ruleset_or_ruletable_definitions">
+   <title>Additional rule attributes for RuleSet or RuleTable definitions</title>
+   <body>
+      <p>The <tt>RuleSet</tt> and <tt>RuleTable</tt> areas also support labels and values for other rule attributes, such as <tt>PRIORITY</tt> or <tt>NO-LOOP</tt>. Rule attributes specified in a <tt>RuleSet</tt> area will affect all rule assets in the same package (not only in the spreadsheet). Rule attributes specified in a <tt>RuleTable</tt> area will affect only the rules in that rule table. You can use each rule attribute only once in a <tt>RuleSet</tt> area and once in a <tt>RuleTable</tt> area. If the same attribute is used in both <tt>RuleSet</tt> and <tt>RuleTable</tt> areas within the spreadsheet, then <tt>RuleTable</tt> takes priority and the attribute in the <tt>RuleSet</tt> area is overridden.</p>
+      <p>The following table lists the supported labels (column headers) and values for additional <tt>RuleSet</tt> or <tt>RuleTable</tt> definitions. For column headers, you can use either the given labels or any custom labels that begin with the letters listed in the table.</p>
+      <table>
+         <title>Additional rule attributes for <tt>RuleSet</tt> or <tt>RuleTable</tt> definitions</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="25*"/>
+            <colspec colname="col_2" colwidth="20*"/>
+            <colspec colname="col_3" colwidth="55*"/>
+            <thead>
+               <row>
+                  <entry>Label</entry>
+                  <entry>Or custom label that begins with</entry>
+                  <entry>Value</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>PRIORITY</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>P</p>
+                  </entry>
+                  <entry>
+                     <p>An integer defining the <tt>salience</tt> value of the rule. Rules with a higher salience value are given higher priority when ordered in the activation queue. Overridden by the <tt>Sequential</tt> flag.</p>
+                     <p>Example: <tt>PRIORITY 10</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DATE-EFFECTIVE</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>V</p>
+                  </entry>
+                  <entry>
+                     <p>A string containing a date and time definition. The rule can be activated only if the current date and time is after a <tt>DATE-EFFECTIVE</tt> attribute.</p>
+                     <p>Example: <tt>DATE-EFFECTIVE "4-Sep-2018"</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DATE-EXPIRES</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Z</p>
+                  </entry>
+                  <entry>
+                     <p>A string containing a date and time definition. The rule cannot be activated if the current date and time is after the <tt>DATE-EXPIRES</tt> attribute.</p>
+                     <p>Example: <tt>DATE-EXPIRES "4-Oct-2018"</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>NO-LOOP</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>U</p>
+                  </entry>
+                  <entry>
+                     <p>A Boolean value. When this option is set to <tt>true</tt>, the rule cannot be reactivated (looped) if a consequence of the rule re-triggers a previously met condition.</p>
+                     <p>Example: <tt>NO-LOOP true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>ACTIVATION-GROUP</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>X</p>
+                  </entry>
+                  <entry>
+                     <p>A string identifying an activation (or XOR) group to which you want to assign the rule. In activation groups, only one rule can be activated. The first rule to fire will cancel all pending activations of all rules in the activation group.</p>
+                     <p>Example: <tt>ACTIVATION-GROUP "GroupName"</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>DURATION</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>D</p>
+                  </entry>
+                  <entry>
+                     <p>A long integer value defining the duration of time in milliseconds after which the rule can be activated, if the rule conditions are still met.</p>
+                     <p>Example: <tt>DURATION 10000</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>TIMER</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>T</p>
+                  </entry>
+                  <entry>
+                     <p>A string identifying either <tt>int</tt> (interval) or <tt>cron</tt> timer definitions for scheduling the rule.</p>
+                     <p>Example: <tt>TIMER "*/5 * * * *"</tt>  (every 5 minutes)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>CALENDAR</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>E</p>
+                  </entry>
+                  <entry>
+                     <p>A Quartz calendar definition for scheduling the rule.</p>
+                     <p>Example: <tt>CALENDAR "* * 0-7,18-23 ? * *"</tt>  (exclude non-business hours)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>AUTO-FOCUS</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>F</p>
+                  </entry>
+                  <entry>
+                     <p>A Boolean value, applicable only to rules within agenda groups. When this option is set to <tt>true</tt>, the next time the rule is activated, a focus is automatically given to the agenda group to which the rule is assigned.</p>
+                     <p>Example: <tt>AUTO-FOCUS true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>LOCK-ON-ACTIVE</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>L</p>
+                  </entry>
+                  <entry>
+                     <p>A Boolean value, applicable only to rules within rule flow groups or agenda groups. When this option is set to <tt>true</tt>, the next time the ruleflow group for the rule becomes active or the agenda group for the rule receives a focus, the rule cannot be activated again until the ruleflow group is no longer active or the agenda group loses the focus. This is a stronger version of the <tt>no-loop</tt> attribute, because the activation of a matching rule is discarded regardless of the origin of the update (not only by the rule itself). This attribute is ideal for calculation rules where you have a number of rules that modify a fact and you do not want any rule re-matching and firing again.</p>
+                     <p>Example: <tt>LOCK-ON-ACTIVE true</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <fig>
+         <title>Sample decision table spreadsheet with attribute columns</title>
+         <image href="../images/decision-table-example-03.png" placement="break">
+            <alt>Example decision table with definitions used</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

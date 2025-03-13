@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="gav-mapping-kogito">
+   <title/>
+   <body>
+      <table>
+         <title>Kogito Related Mapping for BAMOE Version 9.1.x</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="42.8571*"/>
+            <colspec colname="col_2" colwidth="28.5714*"/>
+            <colspec colname="col_3" colwidth="28.5715*"/>
+            <thead>
+               <row>
+                  <entry>Description</entry>
+                  <entry>9.0.x Name</entry>
+                  <entry>9.1.x Name</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>KIE Add-On to interact with the Jobs Service using events via the knative eventing system</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-jobs-knative-eventing</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs-knative-eventing</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Add-On to interact with Jobs Service</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-jobs-management</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs-management</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Add-On to interact with the Jobs Service using events via the reactive messaging api</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-jobs-messaging</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs-messaging</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-fabric8-kubernetes-service-catalog</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-fabric8-kubernetes-service-catalog</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-knative-serving</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-knative-serving</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-microprofile-config-service-catalog</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-microprofile-config-service-catalog</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index Infinispan Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-infinispan</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-infinispan</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index In-memory Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-inmemory</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-inmemory</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index MongoDB Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-mongodb</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-mongodb</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index PostgreSQL Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-postgresql</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-postgresql</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index Persistence PostgreSQL  Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-persistence-postgresql</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-persistence-postgresql</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index Persistence Infinispan Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-persistence-infinispan</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-persistence-infinispan</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Data Index Persistence MongoDB Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-persistence-mongodb</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-index-persistence-mongodb</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Add-On for Job Http Recipient extension</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-job-http-recipient</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-job-http-recipient</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Add-On for Job Sink Recipient extension</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-job-sink-recipient</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-job-sink-recipient</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Job Service Embedded Quarkus Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs-service-embedded</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs-service-embedded</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>KIE Jobs Collocated Quarkus Add-On</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-jobs</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-audit</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-audit</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-audit</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-audit-jpa</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-audit-jpa</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie:kogito-addons-quarkus-data-audit-jpa</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

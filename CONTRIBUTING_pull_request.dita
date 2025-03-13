@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_pull_request">
+   <title>Pull Request</title>
+   <body>
+      <p>Pull requests are often done in the browser for GitHub.
+Read more about creating a pull request in the <xref href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request" scope="external">documentation</xref>.</p>
+      <p>You may also install the "GitHub Pull Requests and Issues" extension for VS Code:</p>
+      <fig>
+         <title>GitHub Pull Request and Issues Extension</title>
+         <image href="images/contributing/vscode-github-pr-extension.png" placement="break">
+            <alt>Pull Request Extension</alt>
+         </image>
+      </fig>
+      <p>This extension will add a new icon on the left side, the GitHub logo, it also allows you to create new pull requests and work with GitHub Issues without leaving VS Code.</p>
+      <p>Creating a new pull request is done by selecting the GitHub Icon on the left and clicking the "Create Pull Request" button at the top.</p>
+      <fig>
+         <title>Create a new Pull Request</title>
+         <image href="images/contributing/vscode-github-create-pr-menu.png" placement="break">
+            <alt>vscode github create pr menu</alt>
+         </image>
+      </fig>
+      <p>You can then select the base, the remote and branch, you want to merge into, and the branch that has been published.
+You should also create a title and description for the pull request.</p>
+      <fig>
+         <title>Pull Request details</title>
+         <image href="images/contributing/vscode-github-create-pr-dialog-base.png" placement="break">
+            <alt>Pull Request details</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

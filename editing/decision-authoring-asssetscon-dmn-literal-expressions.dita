@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-literal-expressions">
+   <title>Boxed literal expressions</title>
+   <body>
+      <p>A boxed literal expression in DMN is a literal FEEL expression as text in a table cell, typically with a labeled column and an assigned data type. You use boxed literal expressions to define simple or complex node logic or decision data directly in FEEL for a particular node in a decision. Literal FEEL expressions must conform to FEEL syntax requirements in the OMG <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+      <p>For example, the following boxed literal expression defines the minimum acceptable PITI calculation (principal, interest, taxes, and insurance) in a lending decision, where <tt>acceptable rate</tt> is a variable defined in the DMN model:</p>
+      <fig>
+         <title>Boxed literal expression for minimum PITI value</title>
+         <image href="../images/dmn-literal-expression-example2.png" placement="break">
+            <alt>dmn literal expression example2</alt>
+         </image>
+      </fig>
+      <p>The following boxed literal expression sorts a list of possible dating candidates (soul mates) in an online dating application based on their score on criteria such as age, location, and interests:</p>
+      <fig>
+         <title>Boxed literal expression for matching online dating candidates</title>
+         <image href="../images/dmn-literal-expression-example3b.png" placement="break">
+            <alt>dmn literal expression example3b</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

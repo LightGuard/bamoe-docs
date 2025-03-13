@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_containerfile">
+   <title>Containerfile</title>
+   <body>
+      <title>Containerfile</title>
+      <codeblock outputclass="language-docker">
+# Set the base image with Java 17, Maven, and the dev-deployment-upload-service.
+FROM quay.io/bamoe/canvas-dev-deployment-base:9.1.1-ibm-0003
+
+# Start as root to get elevated access.
+USER root
+
+# Configure the dev-deployment-upload-service:
+# Our extraction directory is /src/main/resources inside our Quarkus app, but it may differ for your application.
+# This is the path where all files from your BAMOE Canvas project (including .dmn, .bpmn, etc) will be extracted to after upload.
+ENV DEV_DEPLOYMENT__UPLOAD_SERVICE_EXTRACT_TO_DIR=$HOME_PATH/app/src/main/resources
+ENV DEV_DEPLOYMENT__UPLOAD_SERVICE_PORT=8080
+
+# Copy your Quarkus app folder with everything needed to run a Quarkus app with .dmn and .bpmn resources,
+# setting the permissions/ownership for the target user.
+COPY --chown=$USER_ID:$USER_ID ./my-quarkus-app $HOME_PATH/app/
+
+# Expose port 8080
+EXPOSE 8080
+
+# Set to a user different than root (in this case, user ID 185, coming from our base image).
+USER $USER_ID
+
+# Set the entrypoint to run bash.
+ENTRYPOINT ["/bin/bash", "-c"]
+
+# The CMD directive is unnecessary since BAMOE Canvas will overwrite it.
+</codeblock>
+   </body>
+</topic>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_1_empty_state">
+   <title>1. Empty state</title>
+   <body>
+      <title>1. Empty state</title>
+      <p>In the empty state you can create a new DMN model using one of the two options:</p>
+      <ol>
+         <li>
+            <p>New Decision Table</p>
+            <p>Creates a new Decision node with an empty Decision Table.</p>
+            <fig>
+               <title>Decision node with a Decision Table</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-empty-state-decision-node.png" width="300px" placement="break">
+                  <alt>new editor diagram empty state decision node</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>New Decision with Input Data</p>
+            <p>Creates a new Input Data and Decision node with an Information Requirement relationship.</p>
+            <fig>
+               <title>Input Data and Decision nodes</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-empty-state-input-decision.png" width="300px" placement="break">
+                  <alt>new editor diagram empty state input decision</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+   </body>
+</topic>

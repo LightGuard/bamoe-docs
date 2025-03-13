@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ref-test-scenarios-supported-feel-data-types_{context}">
+   <title>Supported FEEL data types in DMN test scenarios</title>
+   <body>
+      <p>The IBM BAMOE test scenario modeler supports the following Friendly Enough Expression Language (FEEL) data types for Decision Model and Notation (DMN) test scenarios:</p>
+      <table>
+         <title>Supported FEEL data types in DMN test scenarios</title>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="*"/>
+            <colspec colname="col_2" colwidth="*"/>
+            <thead>
+               <row>
+                  <entry>Supported data types</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Numbers</p>
+                  </entry>
+                  <entry>
+                     <p>Numbers based on the <xref href="http://ieeexplore.ieee.org/document/4610935/" scope="external">IEEE 754-2008</xref> Decimal 128 format, with additional number notations extended by IBM BAMOE, such as <tt>1.2e3</tt> for <tt>1.2*10**3</tt> (scientific) and <tt>0xff</tt> for <tt>255</tt> (hexadecimal)</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Strings</p>
+                  </entry>
+                  <entry>
+                     <p>Any sequence of characters delimited by double quotation marks, such as <tt>"John Doe"</tt>, <tt>"Brno"</tt>, and <tt>""</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Boolean values</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>, <tt>false</tt>, and <tt>null</tt>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Dates, time, and date and time</p>
+                  </entry>
+                  <entry>
+                     <p>Date literals, time literals, and combined date and time literals, such as <tt>date("2019-05-13")</tt>, <tt>time("14:10:00+02:00")</tt>, and <tt>date and time( "2019-05-13T23:59:00" )</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Years and months duration, days and time duration</p>
+                  </entry>
+                  <entry>
+                     <p>Duration strings for years, months, days, hours, minutes, and seconds that follow the format defined in the <xref href="https://www.w3.org/TR/xmlschema-2/#duration" scope="external">XML Schema Part 2: Datatypes</xref> document, such as <tt>duration( "P2Y" )</tt> for year, <tt>duration( "P3Y5M" )</tt> for year and month, <tt>duration( "P23D" )</tt> for days, <tt>duration( "PT12H" )</tt> for hours, and <tt>duration( "P1DT23H12M30S" )</tt> for days, hours, minutes, and seconds.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Functions</p>
+                  </entry>
+                  <entry>
+                     <p>Built-in math functions, such as <tt>avg</tt> and <tt>max</tt>, or variables of functions extended by IBM BAMOE, such as <tt>function(a, b) a + b</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Contexts</p>
+                  </entry>
+                  <entry>
+                     <p>Lists of key and value pairs, such as <tt>{x : 5, y : 3}</tt> and <tt>{x : 5, even : false, type : "integer number"}</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Ranges and lists</p>
+                  </entry>
+                  <entry>
+                     <p>Range literals and list literals, such as <tt>[1 .. 10]</tt> and <tt>[2, 3, 4, 5]</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>For more information about supported test scenario actions and data types, see the <b>Scenario Cheatsheet</b> icon in the right toolbar of the test scenario modeler in Visual Studio Code (VSCode).</p>
+      <p>For more information about FEEL data types, see <xref href="https://kiegroup.github.io/dmn-feel-handbook/#dmn-feel-handbook" scope="external">DMN FEEL Handbook</xref>.</p>
+   </body>
+</topic>

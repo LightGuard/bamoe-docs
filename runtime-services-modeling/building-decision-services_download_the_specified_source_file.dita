@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_download_the_specified_source_file">
+   <title>Download the specified source file</title>
+   <body>
+      <ul>
+         <li>
+            <p>GET: <tt>/management/processes/{processId}/source</tt>
+            </p>
+            <ul>
+               <li>
+                  <p>parameters:</p>
+                  <ul>
+                     <li>processId: process identifier</li>
+                  </ul>
+               </li>
+               <li>
+                  <p>output:</p>
+                  <ul>
+                     <li>Source file content used by the editor</li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p outputclass="title">
+         <b>Example: to list the source file for the process with id <tt>petstore_http</tt>, you can use the following command:</b>
+      </p>
+      <codeblock outputclass="language-bash">
+$ curl -X 'GET' \
+  'http://localhost:8080/management/processes/petstore_http/source' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Basic c2NvdHQ6amIwc3M='
+</codeblock>
+      <p outputclass="title">
+         <b>Output</b>
+      </p>
+      <codeblock outputclass="language-json">
+{
+  "id": "petstore_http",
+  "version": "1.0",
+  "name": "Send CloudEvent after creating Pluto",
+  "start": "AddPluto",
+  "functions": [
+    {
+      "name": "addPet",
+      "operation": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v2.0/json/petstore-simple.json#addPet"
+    }
+  ],
+  "states": [
+    {
+      "name": "AddPluto",
+      "type": "operation",
+      "actions": [
+        {
+          "functionRef": {
+            "refName": "addPet",
+            "parameters": {
+              "body": {
+                "name": "Pluto"
+              }
+            }
+          }
+        }
+      ],
+      "end": true
+    }
+  ]
+}
+</codeblock>
+      <p outputclass="title">
+         <b>Example: to download the source file located at <tt>org/kie/kogito/examples/petstore_http.sw.json</tt>, you can use the following command:</b>
+      </p>
+      <codeblock outputclass="language-bash">
+$ curl -X 'GET' \
+  'http://localhost:8080/sources?uri=org/kie/kogito/examples/petstore_http.sw.json' \
+  -H 'accept: */*' \
+  -H 'Authorization: Basic c2NvdHQ6amIwc3M='
+</codeblock>
+   </body>
+</topic>

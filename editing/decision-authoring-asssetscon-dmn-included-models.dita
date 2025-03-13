@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-included-models">
+   <title>Included models in DMN files in the IBM BAMOE Developer Tools for VS Code</title>
+   <body>
+      <p>In <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+            <b>IBM BAMOE Developer Tools for VS Code</b>
+         </xref>, you can use the <b>Included Models</b> tab to include other DMN models and Predictive Model Markup Language (PMML) models from your project in a specified DMN file. When you include a DMN model within another DMN file, you can use all of the nodes and logic from both models in the same decision requirements diagram (DRD). When you include a PMML model within a DMN file, you can invoke that PMML model as a boxed function expression for a DMN decision node or business knowledge model node.</p>
+      <div conref="decision-authoring-asssetsproc-dmn-included-models-dmn.dita">proc-dmn-included-models-dmn</div>
+      <div conref="decision-authoring-asssetsproc-dmn-included-models-pmml.dita">proc-dmn-included-models-pmml</div>
+   </body>
+</topic>

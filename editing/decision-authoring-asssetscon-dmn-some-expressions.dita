@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-some-expressions">
+   <title>Boxed some expressions</title>
+   <body>
+      <p>A boxed some offers a visual representation of an iterator statement.
+For the <tt>some</tt> loop, the right part of the <tt>some</tt> displays the iterator variable name.
+The second row holds an expression representing the collection that will be iterated over.
+The expression in the <tt>in</tt> row must resolve to a collection.
+The last line is an expression that will be evaluated on each item.
+The expression defined in the <tt>satisfies</tt> must resolve to a boolean.</p>
+      <fig>
+         <title>Some expression of Will Not Fly Together decision</title>
+         <image href="../images/runtime-services-modeling/dmn-some-expression.png" placement="break">
+            <alt>dmn some expression</alt>
+         </image>
+      </fig>
+      <note type="note">
+This feature was introduced as part of the IBM BAMOE 9.1 and DMN 1.5 releases.
+</note>
+   </body>
+</topic>

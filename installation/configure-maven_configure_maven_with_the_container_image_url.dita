@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_configure_maven_with_the_container_image_url">
+   <title>Configure Maven with the container image URL</title>
+   <body>
+      <p>To configure Maven with a container image follow these steps:</p>
+      <ol>
+         <li>Download the dedicated M2 repository image container (<tt>bamoe-9.1.1-maven-repository-image.tar.gz</tt>).</li>
+         <li>
+            <p>Open the Maven <tt>~/.m2/settings.xml</tt> file in a text editor or IDE.</p>
+            <note type="note">
+If there is no <tt>settings.xml</tt> file in the <tt>~/.m2/</tt> directory, copy the <tt>settings.xml</tt> file from the <tt>$MAVEN_HOME/.m2/conf/</tt> directory into the <tt>~/.m2/</tt> directory.
+</note>
+         </li>
+         <li>
+            <p>Add the following lines to the <tt>&lt;profiles&gt;</tt> element of the <tt>settings.xml</tt> file:</p>
+            <codeblock>
+&lt;profile&gt;
+  &lt;id&gt;ibm-bamoe-enterprise-maven-repository&lt;/id&gt;
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;ibm-bamoe-enterprise-maven-repository&lt;/id&gt;
+      &lt;url&gt;https://container-URL-here&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+  &lt;pluginRepositories&gt;
+    &lt;pluginRepository&gt;
+      &lt;id&gt;ibm-bamoe-enterprise-maven-repository&lt;/id&gt;
+      &lt;url&gt;https://container-URL-here/&lt;/url&gt;
+      &lt;releases&gt;
+        &lt;enabled&gt;true&lt;/enabled&gt;
+      &lt;/releases&gt;
+      &lt;snapshots&gt;
+        &lt;enabled&gt;false&lt;/enabled&gt;
+      &lt;/snapshots&gt;
+    &lt;/pluginRepository&gt;
+  &lt;/pluginRepositories&gt;
+&lt;/profile&gt;
+</codeblock>
+         </li>
+         <li>Add the following lines to the <tt>&lt;activeProfiles&gt;</tt> element of the <tt>settings.xml</tt> file and save the file:</li>
+      </ol>
+      <codeblock>
+&lt;activeProfile&gt;ibm-bamoe-enterprise-maven-repository&lt;/activeProfile&gt;
+</codeblock>
+   </body>
+</topic>

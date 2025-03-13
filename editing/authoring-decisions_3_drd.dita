@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_3_drd">
+   <title>3. DRD</title>
+   <body>
+      <p>The new editor provides an improved experience with DRDs.
+In the image below you can see an overview of the functionality.</p>
+      <fig>
+         <title>DRD Overview</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-drd-overview.png" width="500px" placement="break">
+            <alt>new editor diagram drd overview</alt>
+         </image>
+      </fig>
+      <p>Clicking on (1) will open the DRD dropdown.
+To edit the DRD name, you can click on its name and type the new desired name.
+On (2), you can create new DRDs, which will automatically change to a new empty DRD.
+(3) is the list of DRDs on the DRG.
+Finally, 4 is the DRD options of the selected DRD.</p>
+      <fig>
+         <title>DRG nodes overview</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-drg-nodes-overview.png" width="500px" placement="break">
+            <alt>new editor diagram drg nodes overview</alt>
+         </image>
+      </fig>
+      <p>In the example above, the user has created a new DRD and named it DRD2, which we can see on (1).
+Clicking on (2) will open the DRG nodes (<b>3</b>).
+In this example, the “My Decision” and “Person” nodes are present on the DRG but not in the current DRD.
+By clicking on it and dragging it into the diagram the node will be added to the current DRD.
+This behavior is illustrated below.</p>
+      <fig>
+         <title>Dragging a new node from the DRG nodes list</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-drg-nodes-dragging.gif" width="500px" placement="break">
+            <alt>new editor diagram drg nodes dragging</alt>
+         </image>
+      </fig>
+      <p>It’s possible to see that the “My Decision” became grayish on the DRG nodes modal, as it’s now present on the current DRD.
+Also, it has a “three dot” mark on the bottom of it, which tells us, that this node has dependencies that are not shown on the current DRD.
+By dragging the “Person” node we can see the three dots disappearing, and an information requirement is automatically placed.</p>
+      <fig>
+         <title>DRD alteranative representation for the Input Data node</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-drd-overview-alternative-input.png" width="500px" placement="break">
+            <alt>new editor diagram drd overview alternative input</alt>
+         </image>
+      </fig>
+      <p>Also, it’s possible to change the classic shape to an alternative one, making it more visually cohesive with the BPMN model.
+This change affects the entire DRD, so it’s not possible to have just one node with an alternative shape.</p>
+   </body>
+</topic>

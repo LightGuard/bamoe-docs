@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_additional_configuration_properties">
+   <title>Additional Configuration Properties</title>
+   <body>
+      <p>There are other additional configuration properties within IBM BAMOE.
+These include properties from addons or integrations.</p>
+      <div conref="configuration_flyway.dita">_flyway</div>
+      <div conref="configuration_job_related.dita">_job_related</div>
+      <div conref="configuration_events.dita">_events</div>
+      <div conref="configuration_devservices.dita">_devservices</div>
+      <div conref="configuration_messaging.dita">_messaging</div>
+      <div conref="configuration_security.dita">_security</div>
+      <div conref="configuration_data_index.dita">_data_index</div>
+      <div conref="configuration_jobs_service.dita">_jobs_service</div>
+   </body>
+</topic>

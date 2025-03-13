@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_configuring_cors_proxy">
+   <title>Configuring CORS Proxy</title>
+   <body>
+      <codeblock outputclass="language-shell">
+docker run -p 8090:8080 -it quay.io/bamoe/cors-proxy:9.1.1-ibm-0003
+# Add the -d flag to run in detached mode.
+</codeblock>
+      <p>The API is accessible via port 8090 (8080 is reserved for the bamoe-canvas image). No additional configuration is necessary.</p>
+   </body>
+</topic>

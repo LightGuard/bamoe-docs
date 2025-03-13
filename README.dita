@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="README">
+   <title>IBM Business Automation Manager Open Edition (BAMOE) Documentation</title>
+   <body>
+      <p>Documentation for the IBM Business Automation Manager Open Edition product lives here.
+It is a combination of Asciidoc files and possibly links to other repositories within the KIE Community.</p>
+      <section id="_installing_asciidoctor">
+         <title>Installing asciidoctor</title>
+         <p>Please consult the <xref href="https://asciidoctor.org/#installation" scope="external">asciidoctor installation instructions</xref>.</p>
+      </section>
+      <section id="_building">
+         <p>Using either the native asciidoctor, asciidoctor.js, or asciidoctor in Docker, execute the following command to build the documentation from the cloned repository:</p>
+         <codeblock outputclass="language-shell">
+asciidoctor -vw -R . -D output \**/*.adoc
+</codeblock>
+         <p>This will build all the files as HTML, show you any warnings, and output into the <tt>output</tt> directory, which is ignored by git.</p>
+      </section>
+      <section id="_authoring">
+         <p>We recommend using the <xref href="https://github.com/asciidoctor/asciidoctor-vscode" scope="external">VS Code extension</xref> for authoring and previewing.</p>
+      </section>
+      <section id="_writing_conventions">
+         <ul>
+            <li>One sentence per line.</li>
+            <li>Tables one column per line, rows seperated by an empty line.</li>
+            <li>TBD</li>
+         </ul>
+      </section>
+      <section id="_repository_layout">
+         <p>The root of the repository contains a <tt>nav.adoc</tt> file, which closely resembles an <xref href="https://antora.org" scope="external">Antora</xref> navigation file.
+This is used in building the Table of Contents (TOC) for the documentation.</p>
+         <p>Each main section in the navigation file corresponds to a directory.
+Each secondary section of the navigation has its own file.</p>
+         <p>Images are kept at the root level.</p>
+         <p>All attributes are in the <tt>partials/attributes.adoc</tt> file and included at the top of every file.</p>
+      </section>
+   </body>
+</topic>

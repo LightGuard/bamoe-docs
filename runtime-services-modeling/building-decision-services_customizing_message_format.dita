@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_customizing_message_format">
+   <title>Customizing message format</title>
+   <body>
+      <p>By default, IBM BAMOE uses Cloud event JSON format for messaging. However, you can change the default format by providing your own <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/blob/main/api/kogito-events-api/src/main/java/org/kie/kogito/event/EventMarshaller.java" scope="external">event marshaler</xref> implementation.
+For an example, see <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/blob/main/addons/common/marshallers/avro/src/main/java/org/kie/kogito/event/avro/AvroEventMarshaller.java" scope="external">AvroEventMarshaller.java example</xref>.</p>
+   </body>
+</topic>

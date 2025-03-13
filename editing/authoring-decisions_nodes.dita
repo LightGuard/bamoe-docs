@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_nodes">
+   <title>Nodes</title>
+   <body>
+      <p>In this section we explore all node features, for this, we will be using a Decision node.</p>
+      <fig>
+         <title>Decision node components</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-node-overview.png" width="300px" placement="break">
+            <alt>new editor diagram node overview</alt>
+         </image>
+      </fig>
+      <ol>
+         <li>
+            <p>Node name</p>
+            <p>The node name is validated for uniqueness.
+The editor doesn’t allow you to rename a node to a name that is already being used by another node. Empty names are also invalid.
+Trying to rename a node to an invalid one will cause it to revert to its previous name.
+The only moment you can have nodes with the same name is when you create two or more nodes of the same type without renaming them.
+The following example illustrates two Decision nodes that were created without renaming and an Input Data node where we try to rename it to “New Decision”, and after it to an empty name.</p>
+            <fig>
+               <title>Node unique name</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-unique-name.gif" width="300px" placement="break">
+                  <alt>new editor diagram node unique name</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Node type</p>
+            <p>Nodes that have a data type, show this information on top of the node.
+It’s possible to change the node data type using the dropdown menu, or even access a custom data type to have a better visualization of the type.
+More about the Data Types are covered in the B section.</p>
+            <fig>
+               <title>Editing node data type</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-data-type.gif" width="300px" placement="break">
+                  <alt>new editor diagram node data type</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>New relationship</p>
+            <p>It is possible to create a new requirement or association relationship from the target node to another node respecting the DMN specification.
+The available options vary from node to node.</p>
+            <fig>
+               <title>Create new relationship</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-new-relationship.gif" width="300px" placement="break">
+                  <alt>new editor diagram node new relationship</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>New connected node</p>
+            <p>It is possible to create a new connected node from the target node.
+It will create a node with the respective relationship.
+The available options vary based on the node type and respect the DMN specification.</p>
+            <fig>
+               <title>Create new connected node</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-new-connected.gif" width="300px" placement="break">
+                  <alt>new editor diagram node new connected</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Edit</p>
+            <p>The Edit button is only available for the Decisions and Business Knowledge Model (BKM) nodes.
+Clicking on it opens the DMN Boxed Expression Editor with the node expression.
+The Boxed Expression Editor has access to the DRG context, and is powered by an auto-completion tool, which helps you to build expressions.</p>
+            <fig>
+               <title>Open node Boxed Expression Editor</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-boxed-expression-editor.gif" width="500px" placement="break">
+                  <alt>new editor diagram node boxed expression editor</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Properties panel</p>
+            <p>Clicking on this button will open the Properties Panel of the node.
+On this panel, you can check and edit the node name, type, description, allowed answer, documentation links, font styles, and shape styles.
+You can also check the node ID, for more information see the "Properties Panel” section.</p>
+            <fig>
+               <title>Open node properties panel</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-properties-panel.gif" width="500px" placement="break">
+                  <alt>new editor diagram node properties panel</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Resize handler</p>
+            <p>You can click and drag he small arrow to resize the target node.
+Each node has a minimal width and height.</p>
+            <fig>
+               <title>Resize node</title>
+               <image href="../images/tools/authoringDecisions/new-editor-diagram-node-resize.gif" width="500px" placement="break">
+                  <alt>new editor diagram node resize</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+      <div conref="authoring-decisions_decision_service.dita">_decision_service</div>
+      <div conref="authoring-decisions_unknown_node.dita">_unknown_node</div>
+   </body>
+</topic>

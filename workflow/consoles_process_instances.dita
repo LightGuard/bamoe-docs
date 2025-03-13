@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_process_instances">
+   <title>Process instances</title>
+   <body>
+      <title>Process instances</title>
+      <p>The <b>Process Instances</b> tab displays the list of process instances and enables you to add filters to the list.</p>
+      <fig>
+         <title>Process Instances tab</title>
+         <image href="../images/runtime-services-modeling/kogito-management-console-process-instance-section.png" placement="break">
+            <alt>Image of process instance list section</alt>
+         </image>
+      </fig>
+      <p>When you select a process instance on the <b>Process Instances</b> page, it redirects you to the <b>Process Details</b> page, providing the process instance details including interactions with the process instance.
+You can access the <b>Process Details</b> page from a different Management Console tab, displaying the instance related data and enables you to perform the available actions.
+You can also sort the results based on the column headers.</p>
+      <fig>
+         <title>Process Details page</title>
+         <image href="../images/runtime-services-modeling/kogito-management-console-process-diagram.png" placement="break">
+            <alt>Image of Process Instance details in Management Console</alt>
+         </image>
+      </fig>
+      <p>The <b>Process Details</b> page consists of the following panels:</p>
+      <ul>
+         <li>Process Diagram panel</li>
+         <li>Details panel</li>
+         <li>Process Variables panel</li>
+         <li>Timeline panel</li>
+         <li>Node Trigger panel</li>
+         <li>Milestones panel</li>
+         <li>
+            <p>Jobs panel</p>
+            <dl>
+               <dlentry>
+                  <dt>Process Diagram panel</dt>
+                  <dd>
+                     <div>
+                        <p>This panel enables you to explore the process diagram and execution path of the related process instance.
+The execution path is displayed when the Management Console finds the <tt>.svg</tt> resources using the BAMOE process SVG add-on configuration included in the Management Console.</p>
+                        <fig>
+                           <title>Process Diagram panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-process-diagram-panel.png" placement="break">
+                              <alt>Image of process instance diagram panel</alt>
+                           </image>
+                        </fig>
+                        <p>This panel includes different controls to view the process diagram, such as <b>Selection</b>, <b>Pan</b>, <b>Zoom in</b>, <b>Zoom out</b>, and <b>Fit to viewer</b>.</p>
+                     </div>
+                  </dd>
+               </dlentry>
+               <dlentry>
+                  <dt>Details panel</dt>
+                  <dd>
+                     <div>
+                        <p>This panel displays the basic process instance information and provides links to the related process runtime UI.
+If the process instance is related to other process instances, then links to the parent and subprocess instances are also available in the <b>Details</b> panel.</p>
+                        <fig>
+                           <title>Details panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-details-panel.png" placement="break">
+                              <alt>Image of process instance details panel</alt>
+                           </image>
+                        </fig>
+                        <p>The Details panel consists of the following fields:</p>
+                        <ul>
+                           <li>
+                              <b>Name</b>: The process definition ID related to the process instance.</li>
+                           <li>
+                              <b>Business key</b>: Optional business key of the process instance.</li>
+                           <li>
+                              <b>State</b>: The state of the process instance. The state of a process instance can be pending, active, completed, aborted, suspended, or error.</li>
+                           <li>
+                              <b>Id</b>: The unique identifier of the process instance.</li>
+                           <li>
+                              <p>
+                                 <b>Endpoint</b>: The endpoint of the process instance. You can click the displayed endpoint to view the process or application UI that triggered the process instance.</p>
+                              <fig>
+                                 <title>Process instance details endpoint</title>
+                                 <image href="../images/runtime-services-modeling/kogito-management-console-process-details-endpoint.png" placement="break">
+                                    <alt>Image of process instance details endpoint in Management Console</alt>
+                                 </image>
+                              </fig>
+                           </li>
+                           <li>
+                              <b>Start</b>: Time reference indicating when the process instance is started.</li>
+                           <li>
+                              <b>Last Updated</b>: Time reference indicating when the process instance is updated.</li>
+                           <li>
+                              <b>End</b>: Time reference indicating when the process instance is completed.</li>
+                           <li>
+                              <b>Parent Process</b>: Parent process instance of the instance (if linked). You can click and navigate to the parent process instance.</li>
+                           <li>
+                              <b>Sub Processes</b>: Subprocess of the instance (if linked). You can click and navigate to the subprocess instances.</li>
+                        </ul>
+                     </div>
+                  </dd>
+               </dlentry>
+               <dlentry>
+                  <dt>Process Variables panel</dt>
+                  <dd>
+                     <div>
+                        <p>The <b>Process Variables</b> panel displays the process instance domain data in a tree structure.
+When you hover the mouse on different elements, the available actions are displayed.</p>
+                        <fig>
+                           <title>Process Variables panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-process-variable-panel.png" placement="break">
+                              <alt>Image of process variables panel  in Management Console</alt>
+                           </image>
+                        </fig>
+                        <fig>
+                           <title>Actions in Process Variables panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-process-variable-actions.png" placement="break">
+                              <alt>Image of process variables panel available actions in Management Console</alt>
+                           </image>
+                        </fig>
+                        <p>The process variables in the <b>Process Variables</b> panel consists of the following actions:</p>
+                        <ul>
+                           <li>Expand or collapse: Enables you to expand or collapse an element.</li>
+                           <li>
+                              <p>Add item: Enables you to add a new key. When you add a new key, it contains null values, which you can edit if required.</p>
+                              <fig>
+                                 <title>Add new key</title>
+                                 <image href="../images/runtime-services-modeling/kogito-management-console-process-variable-add.png" placement="break">
+                                    <alt>Steps to add a new variable to a process instance in Management Console</alt>
+                                 </image>
+                              </fig>
+                           </li>
+                           <li>Copy: Enables you to copy the selected value in clipboard.</li>
+                           <li>Edit: Enables you to edit the selected element value.</li>
+                           <li>Remove: Enables you to remove the selected element.</li>
+                        </ul>
+                        <p>If there are pending changes to be saved, the panel displays <b>Changes are not saved yet</b> message.
+To save the changes that you made to the process variable, click <b>Save</b>, or click <b>Abort</b> to abort the changes.
+If you want to revert the changes, click the refresh icon.</p>
+                     </div>
+                  </dd>
+               </dlentry>
+               <dlentry>
+                  <dt>Timeline panel</dt>
+                  <dd>
+                     <div>
+                        <p>The <b>Timeline</b> panel displays the list of node instances related to the process instance sorted by the start time.
+Each node consists of an icon, indicating the state of the node, such as active, completed, or error.</p>
+                        <fig>
+                           <title>Timeline panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-process-timeline-panel.png" placement="break">
+                              <alt>Image of Timeline panel showing the related node instances</alt>
+                           </image>
+                        </fig>
+                        <p>The actions that are available for an active node include retriggering and canceling a node.
+Whereas the actions for an error node include retrying and skipping the node.
+The node actions in the <b>Timeline</b> panel are connected with the BAMOE runtime service to perform the requested action.</p>
+                        <p>If a node in the <b>Timeline</b> panel is associated with a job, then select the clock icon to view the job details or click the menu for additional job operations, such as <b>Job Reschedule</b> or <b>Job Cancel</b>.</p>
+                     </div>
+                  </dd>
+               </dlentry>
+               <dlentry>
+                  <dt>Node Trigger panel</dt>
+                  <dd>
+                     <div>
+                        <p>The <b>Node Trigger</b> panel displays the list of all process definition nodes in a drop-down.
+When you select a node, the related information is displayed, such as <b>Node name</b>, <b>Node type</b>, and <b>Node id</b>.
+Click the <b>Trigger</b> button, to trigger the selected node.</p>
+                        <fig>
+                           <title>Node Trigger panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-node-trigger-panel.png" placement="break">
+                              <alt>Image of node trigger panel in Management Console</alt>
+                           </image>
+                        </fig>
+                     </div>
+                  </dd>
+               </dlentry>
+               <dlentry>
+                  <dt>Milestones panel</dt>
+                  <dd>
+                     <div>
+                        <p>The <b>Milestones</b> panel displays a list of the milestones for the process instance, if applicable.</p>
+                        <fig>
+                           <title>Milestones panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-milestones-panel.png" placement="break">
+                              <alt>Image of milestones panel in Management Console</alt>
+                           </image>
+                        </fig>
+                     </div>
+                  </dd>
+               </dlentry>
+               <dlentry>
+                  <dt>Jobs panel</dt>
+                  <dd>
+                     <div>
+                        <p>The <b>Jobs</b> panel displays the list of available jobs that are related to the process instance.</p>
+                        <fig>
+                           <title>Jobs panel</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-jobs-panel.png" placement="break">
+                              <alt>Image of jobs panel in Management Console</alt>
+                           </image>
+                        </fig>
+                        <fig>
+                           <title>Job details</title>
+                           <image href="../images/runtime-services-modeling/kogito-management-console-jobs-panel-details.png" placement="break">
+                              <alt>Image of jobs panel details in Management Console</alt>
+                           </image>
+                        </fig>
+                        <p>You can reschedule or cancel a job that is in scheduled or error state.
+You can also modify the expiration time for one-time jobs and repeat interval, repeat time, and expiration time for the periodic jobs.</p>
+                     </div>
+                  </dd>
+               </dlentry>
+            </dl>
+         </li>
+      </ul>
+   </body>
+</topic>

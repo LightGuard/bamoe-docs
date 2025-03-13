@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_build_and_deploy_on_openshift">
+   <title>Build and Deploy on OpenShift</title>
+   <body>
+      <title>Build and Deploy on OpenShift</title>
+      <p>Use this method to build and deploy the application directly on OpenShift.</p>
+      <p>It will use a UBI OpenJDK base image from Red Hat (usually <tt>registry.access.redhat.com/ubi9/openjdk-17</tt>) and add the compiled files from the Quarkus project to it before creating a Deployment.</p>
+      <ol>
+         <li>
+            <p>
+               <b>Log in to OpenShift CLI:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+oc login
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Add the OpenShift extension to the Quarkus project:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+mvn quarkus:add-extension -Dextensions='quarkus-openshift'
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Update the <tt>src/main/resources/application.properties</tt> file to enable the creation of an OpenShift Route by adding the following properties (more info <xref href="https://quarkus.io/guides/deploying-to-openshift#exposing_routes" scope="external">here</xref>):</b>
+            </p>
+            <codeblock outputclass="language-properties">
+# OpenShift
+quarkus.openshift.route.expose=true
+## Route TLS configuration:
+quarkus.openshift.route.tls.termination=edge
+quarkus.openshift.route.tls.insecure-edge-termination-policy=None
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Build and deploy the application:</b>
+            </p>
+            <codeblock outputclass="language-shell">
+mvn install -Dquarkus.openshift.deploy=true
+</codeblock>
+         </li>
+      </ol>
+   </body>
+</topic>

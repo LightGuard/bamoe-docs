@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_devservices">
+   <title>DevServices</title>
+   <body>
+      <p>Kogito DevServices function only when a Kogito Quarkus application is in dev mode.
+Enabling DevServices starts an in-memory Data Index container.
+When using IBM BAMOE, it is recommended to use the data-index addon instead of the in-memory Data Index container when using DevServices.</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.kogito.devservices.port</p>
+                  </entry>
+                  <entry>
+                     <p>Optional port the dev service will listen to.
+If not defined, 8180 will be used.</p>
+                  </entry>
+                  <entry>
+                     <p>int</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8180</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.kogito.devservices.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable DevServices for Kogito.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.kogito.devservices.image-name</p>
+                  </entry>
+                  <entry>
+                     <p>The Data Index image to use.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.kogito.devservices.shared</p>
+                  </entry>
+                  <entry>
+                     <p>(Quarkus Only) Toggle to enable sharing of Quarkus Dev Services.
+When shared, Quarkus looks for running containers using label-based service discovery.
+If a matching container is found, it is used, so a second one is not started.
+Otherwise, Dev Services for a new Data Index instance is started.
+The discovery uses the <tt>kogito-dev-service-data-index</tt> label.
+The value is configured using the <tt>service-name</tt> property.
+Container sharing is only used in dev mode.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.kogito.devservices.service-name</p>
+                  </entry>
+                  <entry>
+                     <p>The value of the <tt>kogito-dev-service-data-index</tt> label attached to the started container.
+This property is used when <tt>shared</tt> is set to <tt>true</tt>.
+In this case, before starting a container, Dev Services looks for a container with the <tt>kogito-dev-service-data-index</tt> label set to the configured value.
+If found, it will use this container instead of starting a new one.
+Otherwise, it starts a new container with the <tt>kogito-dev-service-data-index</tt> label set to the specified value.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>kogito-data-index</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.kogito.devservices.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable Kogito Dev Services.
+Dev Services are generally enabled by default, unless there is an existing configuration present.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>quarkus.jbpm.devui.users.<tt>&lt;user name&gt;</tt>.groups</p>
+                  </entry>
+                  <entry>
+                     <p>Groups to which the provided user (specified in the name of the config) belongs.</p>
+                     <p>This is only used when testing/developing services through DevUi.
+The configured user (specified by the <tt>user name</tt>) and their groups (specified in this configuration) will be listed in a Task Inbox dropdown so the developer can switch between users during development and testing.</p>
+                  </entry>
+                  <entry>
+                     <p>List of strings</p>
+                  </entry>
+                  <entry>
+                     <p>None</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

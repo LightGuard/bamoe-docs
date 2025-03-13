@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_project_setup">
+   <title>Project Setup</title>
+   <body>
+      <title>Project Setup</title>
+      <p>To run this scenario, you must have set up BAMOE and Developer Tools for VS Code. See <xref href="../installation/installation.dita">Installing</xref>. Optionally, you can use Language Support for Java™.</p>
+      <div conref="authoring-scesim_cloning_the_example_project.dita">_cloning_the_example_project</div>
+      <div conref="authoring-scesim_setup_any_project.dita">_setup_any_project</div>
+   </body>
+</topic>

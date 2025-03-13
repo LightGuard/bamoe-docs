@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="version-mapping-v9copy">
+   <title/>
+   <body>
+      <table>
+         <title>Version Mapping for {PRODUCT} Version 9.0</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="33.3334*"/>
+            <thead>
+               <row>
+                  <entry>Product Version</entry>
+                  <entry>BOM Version</entry>
+                  <entry>Maven Library Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>IBM BAMOE 9.1.0</p>
+                  </entry>
+                  <entry>
+                     <p>{BOM_VERSION_910}</p>
+                  </entry>
+                  <entry>
+                     <p>{BOM_VERSION_910}</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="connecting-accounts">
+   <title>Connecting to accounts</title>
+   <body>
+      <p>As mentioned previously, BAMOE Canvas does not feature its own authentication mechanism.
+Instead, BAMOE Canvas allows the linking of existing accounts from Git and Cloud providers.
+These accounts are utilized for Git operations such as Pull and Push, and for creating Dev Deployments, respectively.</p>
+      <p>All connected accounts are visible in the Accounts modal, which is accessible through the person icon in the top-right corner.
+This modal displays the number of repositories and deployments being used by those accounts.
+Clicking on the arrow provides further information about the accounts, including the date they were linked to BAMOE Canvas.</p>
+      <p>Accounts can be removed from BAMOE Canvas through the Accounts modal.
+Removing an account will result in repositories linked to Git provider accounts losing the ability to Push and Pull.
+The account linked to a repository can be changed at any time using the dropdown available on the Editor page of any file in the repository.</p>
+      <fig>
+         <title>Accounts modal on BAMOE Canvas</title>
+         <image href="../images/tools/image17.png" placement="break">
+            <alt>image17</alt>
+         </image>
+      </fig>
+      <p>The figure shows two connected accounts: one from from GitHub and another from a Kubernetes cluster, respectively.</p>
+   </body>
+</topic>

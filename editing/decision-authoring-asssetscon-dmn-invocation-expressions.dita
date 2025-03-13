@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-invocation-expressions">
+   <title>Boxed invocation expressions</title>
+   <body>
+      <p>A boxed invocation expression in DMN is a boxed expression that invokes a business knowledge model. A boxed invocation expression contains the name of the business knowledge model to be invoked and a list of parameter bindings. Each binding is represented by two boxed expressions on a row: The box on the left contains the name of a parameter and the box on the right contains the binding expression whose value is assigned to the parameter to evaluate the invoked business knowledge model. You use boxed invocations to invoke at a particular decision node a business knowledge model defined in the decision model.</p>
+      <p>For example, the following boxed invocation expression invokes a <tt>Reassign Next Passenger</tt> business knowledge model as the concluding decision node in a flight-rebooking decision model:</p>
+      <fig>
+         <title>Boxed invocation expression to reassign flight passengers</title>
+         <image href="../images/dmn-invocation-example.png" placement="break">
+            <alt>dmn invocation example</alt>
+         </image>
+      </fig>
+      <p>The following boxed invocation expression invokes an <tt>InstallmentCalculation</tt> business knowledge model to calculate a monthly installment amount for a loan before proceeding to affordability decisions:</p>
+      <fig>
+         <title>Boxed invocation expression for required monthly installment</title>
+         <image href="../images/dmn-invocation-example2.png" placement="break">
+            <alt>dmn invocation example2</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

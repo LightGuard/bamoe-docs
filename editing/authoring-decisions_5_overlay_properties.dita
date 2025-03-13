@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_5_overlay_properties">
+   <title>5. Overlay properties</title>
+   <body>
+      <p>On the Overlay properties, it’s possible to tweak user preferences, which helps with visualization and organization.</p>
+      <ol>
+         <li>
+            <p>Snapping → Makes the elements snap into an invisible grid.
+It’s possible to tweak the grid layout by changing the "Horizontal" and "Vertical" values.</p>
+            <fig>
+               <title>Enable/disable snapping</title>
+               <image href="../images/tools/authoringDecisions/new-editor-overlay-snapping.gif" placement="break">
+                  <alt>new editor overlay snapping</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Highlight selected node(s) hierarchy → This option is very useful for complex models where the user needs to verify which nodes are somehow impacting the selected node.</p>
+            <fig>
+               <title>Enable/disable node hierarchy</title>
+               <image href="../images/tools/authoringDecisions/new-editor-overlay-hierarchy.gif" placement="break">
+                  <alt>new editor overlay hierarchy</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Show data type toolbar on nodes → Control if the data type toolbar is visible or not on the Input Data, Decision, BKM, and Decision Service nodes.</p>
+            <fig>
+               <title>Enable/disable data type toolbar on nodes</title>
+               <image href="../images/tools/authoringDecisions/new-editor-overlay-show-data-type.gif" placement="break">
+                  <alt>new editor overlay show data type</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Enable styles → It’s possible to turn on/off the node styles.
+It’s important to notice that this option will not change the file, only the visual representation.</p>
+            <fig>
+               <title>Enable/disable data type toolbar on nodes</title>
+               <image href="../images/tools/authoringDecisions/new-editor-overlay-style.gif" placement="break">
+                  <alt>new editor overlay style</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+   </body>
+</topic>

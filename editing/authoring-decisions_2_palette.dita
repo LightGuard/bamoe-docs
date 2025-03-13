@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_2_palette">
+   <title>2. Palette</title>
+   <body>
+      <p>You can use  the Palette enables to interact with the DRD and DRG:</p>
+      <ul>
+         <li>Add a new node to the DRD.</li>
+         <li>Use nodes from other DRDs.</li>
+         <li>Add nodes from external models.</li>
+         <li>Create artifact nodes to the DRD, improving documentation, organization, and visualization.</li>
+      </ul>
+      <p outputclass="title">
+         <b>a. Add DRG node</b>
+      </p>
+      <p>To add a new DRG node you drag the desired node from the palette and drop it into the diagram.</p>
+      <fig>
+         <title>Dragging a new Input Data node from the Palette</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-drag-from-palette.gif" width="300px" placement="break">
+            <alt>new editor diagram drag from palette</alt>
+         </image>
+      </fig>
+      <p outputclass="title">
+         <b>b. Artifact nodes</b>
+      </p>
+      <p>Using the artifact nodes you have the tools to improve the documentation and visualization of the DRG by modifying the DRD.
+The Group node creates a visual separation, and the Text Annotation enables to writing short documentation.</p>
+      <p outputclass="title">
+         <b>c. All DRG nodes</b>
+      </p>
+      <p>Clicking on it will open a modal providing access to the list of all DRG nodes that are part of the current file.
+It’s possible to filter the nodes by name, and nodes that are part of the current DRD are grayish.
+Clicking and dragging the node name to the diagram will add the node to the current DRD.
+More about this can be found in the DRD section.</p>
+      <fig>
+         <title>Dragging a Decision node from DRG nodes</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-palette-all-drg-nodes.gif" width="300px" placement="break">
+            <alt>new editor diagram palette all drg nodes</alt>
+         </image>
+      </fig>
+      <p outputclass="title">
+         <b>d. External nodes</b>
+      </p>
+      <p>All nodes that are part of the included models can be found here.</p>
+      <note type="note">
+See the <xref href="#included-models">Included models</xref> section to learn more about <b>Included models</b>.
+</note>
+      <p>Clicking on it will open a dialog that shows all nodes separated by namespace. You can filter the nodes by name.</p>
+      <fig>
+         <title>Dragging an external Input Data node</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-palette-external-nodes.gif" width="300px" placement="break">
+            <alt>new editor diagram palette external nodes</alt>
+         </image>
+      </fig>
+      <p>You can also see the chosen name for the included model and the DMN file name it originates from.
+In the above example the name is “ex” and the filename “Another DMN.dmn”.</p>
+   </body>
+</topic>

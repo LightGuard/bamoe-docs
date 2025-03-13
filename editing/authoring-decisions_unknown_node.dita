@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_unknown_node">
+   <title>Unknown node</title>
+   <body>
+      <p>Is a node with an invalid DMN element reference(<tt>dmnElementRef</tt>).
+This node cannot be correctly rendered as the reference cannot be found in the current model.
+It is replaced by a placeholder node.</p>
+      <fig>
+         <title>Unknown node example</title>
+         <image href="../images/tools/authoringDecisions/new-editor-unknown-node.png" placement="break">
+            <alt>new editor unknown node</alt>
+         </image>
+      </fig>
+      <p>(1) Reference is the <tt>dmnElementRef</tt> value that could not resolve to a node.
+The editor does not provide a feature to change this value.
+To change this value, open and edit the file manually outside the editor.
+The <tt>dmnElementRef</tt> has a <tt>QName</tt> value, with the <tt>namespaceDeclarationName:nodeId</tt> format.
+For elements that are referenced on the current namespace, <tt>namespaceDeclarationName</tt> is not present, which means the <tt>dmnElementRef</tt> will have the <tt>nodeId</tt> format.</p>
+      <ul>
+         <li>The <tt>namespaceDeclarationName</tt> part should be equal to the declaration name of the included model namespace, which must be included on the <xref href="#included-models">Included models</xref> tab.</li>
+         <li>The <tt>nodeId</tt> should then refer to one of the nodes from the included model.</li>
+      </ul>
+   </body>
+</topic>

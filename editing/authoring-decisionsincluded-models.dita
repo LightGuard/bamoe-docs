@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="included-models">
+   <title>Included models</title>
+   <body>
+      <p>By default there are no included models and clicking the last button on the node palette <b>External nodes</b> displays an empty dialog.</p>
+      <p>You can include any <b>DMN</b> and <b>PMML</b> models that are stored in the current workspace using the Include Model button in this palette.</p>
+      <image href="../images/tools/authoringDecisions/included-models-tab-modal.png" placement="break">
+         <alt>Include model dialog</alt>
+      </image>
+      <p>
+         <b>(1) all models</b> is the current workspace name indicator, and in this instance it is the workspace name used in this demo.
+You can choose any workspace name.</p>
+      <p>
+         <b>(2) Model</b> is a dropdown that will list all <b>DMN</b> and <b>PMML</b> models from the <b>all models</b> workspace.</p>
+      <p>
+         <b>(3) Name</b> is a namespace we give to the included model, which is used for referencing included nodes and data types.</p>
+      <note type="note">
+With DMN 1.5 if you leave this empty the <xref href="#import-to-default-namespace">default namespace</xref> feature is used.
+</note>
+      <p>
+         <b>(4) Include model</b> is the button that confirms the include operation.
+Upon confirmation, each selected model will be displayed as a card.</p>
+      <fig>
+         <title>Included model cards</title>
+         <image href="../images/tools/authoringDecisions/included-models-tab-cards.png" placement="break">
+            <alt>Included models cards</alt>
+         </image>
+      </fig>
+      <p>
+         <b>(1)</b> indicates the number of included models in your model.
+The number <b>3</b> indicates three included models.</p>
+      <p>
+         <b>(2)</b> is a card displaying details of the included model.</p>
+      <p>
+         <b>(3)</b> is the namespace given to the included model.
+The namespace <b>includedLogic</b> can be changed by double-clicking on the value and typing a new namespace value.</p>
+      <p>
+         <b>(4)</b> gives an option to remove the included model.</p>
+      <p>
+         <b>(5)</b> is a card displaying an included model not found in the current workspace.</p>
+      <div conref="authoring-decisions_using_nodes_from_an_included_model.dita">_using_nodes_from_an_included_model</div>
+   </body>
+</topic>

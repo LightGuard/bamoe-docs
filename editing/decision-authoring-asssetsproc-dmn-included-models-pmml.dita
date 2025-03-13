@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="proc-dmn-included-models-pmml">
+   <title>Including PMML models within a DMN file in the IBM BAMOE VSCode DMN modeler</title>
+   <body>
+      <p>You cannot include PMML models from different directories within your IBM BAMOE project or from other IBM BAMOE projects.</p>
+      <note type="note">
+         <p>Please notice IBM BAMOE doesn’t contain a PMML modeler. You need to create the PMML model before it is included into DMN model using some other PMML modeler. For example the KIE community <xref href="https://marketplace.visualstudio.com/items?itemName=kie-group.pmml-vscode-extension" scope="external">PMML Scorecard Modeler</xref>.</p>
+      </note>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>
+            <p>In your VSCode IDE, open the DMN file to view the decision requirements diagram (DRD) in the IBM BAMOE DMN modeler.</p>
+            <div>
+               <note type="note">
+                  <p>If the DRD does not open in the IBM BAMOE DMN modeler, ensure that you have installed and enabled the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                        <b>IBM BAMOE Developer Tools for VS Code</b>
+                     </xref>.</p>
+                  <p>If the IBM BAMOE DMN modeler opens only the XML source of the DMN file and displays an error message, review the reported errors and the DMN model file to ensure that all DMN elements are correctly defined.</p>
+               </note>
+            </div>
+         </li>
+         <li>In the DMN modeler, click the <b>Included Models</b> tab.</li>
+         <li>
+            <p>Click <b>Include Model</b>, select a PMML model from your directory in the <b>Models</b> list, enter a unique name for the included model, and click <b>Include</b>:</p>
+            <div>
+               <fig>
+                  <title>Including a PMML model</title>
+                  <image href="../images/dmn-include-model-pmml.png" placement="break">
+                     <alt>dmn include model pmml</alt>
+                  </image>
+               </fig>
+               <p>The PMML model is added to this DMN file:</p>
+               <fig>
+                  <title>DMN file with included PMML model</title>
+                  <image href="../images/dmn-include-model-list-pmml.png" placement="break">
+                     <alt>dmn include model list pmml</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>In the <b>Editor</b> tab of the DMN modeler, select or create the decision node or business knowledge model node in which you want to invoke the PMML model and click the <b>Edit</b> icon to open the DMN boxed expression editor:</p>
+            <div>
+               <fig>
+                  <title>Opening a new decision node boxed expression</title>
+                  <image href="../images/dmn-decision-edit.png" placement="break">
+                     <alt>dmn decision edit</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>Opening a new business knowledge model boxed expression</title>
+                  <image href="../images/dmn-bkm-edit.png" placement="break">
+                     <alt>dmn bkm edit</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>Set the expression type to <b>Function</b> (default for business knowledge model nodes), click the upper-left function cell, and select <b>PMML</b>.</li>
+         <li>
+            <p>In the <b>document</b> and <b>model</b> rows in the table, double-click the undefined cells to specify the included PMML document and the relevant PMML model within that document:</p>
+            <div>
+               <fig>
+                  <title>Adding a PMML model in a DMN business knowledge model</title>
+                  <image href="../images/dmn-include-model-expression-pmml.png" placement="break">
+                     <alt>dmn include model expression pmml</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>Example PMML definition in a DMN business knowledge model</title>
+                  <image href="../images/dmn-function-expression-example5.png" placement="break">
+                     <alt>dmn function expression example5</alt>
+                  </image>
+               </fig>
+               <p>If you update the source file for an included PMML model, you must remove and re-include the PMML model in the DMN file to apply the source changes.</p>
+               <p>To edit the included model name or to remove the included model from the DMN file, use the <b>Included Models</b> tab in the DMN modeler.</p>
+            </div>
+         </li>
+      </ol>
+   </body>
+</topic>

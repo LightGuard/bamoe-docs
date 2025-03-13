@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_global_properties">
+   <title>Global Properties</title>
+   <body>
+      <title>Global Properties</title>
+      <p>Global properties do not belong to a particular engine, or feature of IBM BAMOE.
+These properties will affect the entire application regardless of what features are being used.</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="44.4444*"/>
+            <colspec colname="col_3" colwidth="11.1111*"/>
+            <colspec colname="col_4" colwidth="11.1112*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.service.url</p>
+                  </entry>
+                  <entry>
+                     <p>The service URL needed to connect to the runtime endpoint from outside the service.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.generate.rest</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling the global rest endpoint generation.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.generate.di</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling dependency injection</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.codegen.ignoreHiddenFiles</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to ignore hidden files when collecting files for code generation.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.codegen.process.failOnError</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to fail when there are parsing/validation errors of process assets.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.rest.resource.type</p>
+                  </entry>
+                  <entry>
+                     <p>Specifier of the type of REST resource to generate.
+Valid values: "reactive", or "".</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

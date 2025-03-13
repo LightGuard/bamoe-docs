@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_the_management_console_to_manage_process_instances">
+   <title>Using the Management Console to manage process instances</title>
+   <body>
+      <p>You can use the Management Console to view and manage process instance details from your BAMOE services.
+You can run the Management Console for local BAMOE services or add it to your BAMOE infrastructure on OpenShift.</p>
+      <p outputclass="title">
+         <b>Prerequisites</b>
+      </p>
+      <ul>
+         <li>A BAMOE Data Index Service instance is configured and running for your BAMOE service.
+The Data Index Service enables the Management Console to access stored process data.
+The Data Index Service requires Infinispan or MongoDB persistence and Apache Kafka messaging for your BAMOE service.</li>
+         <li>
+            <p>The <tt>pom.xml</tt> file of your BAMOE project contains the following dependency for the process management add-on.
+This add-on enables the Management Console to interact with the process data through the add-on REST endpoint <tt>/management/processes</tt>.</p>
+            <p outputclass="title">
+               <b>Project dependency to enable process management REST operations</b>
+            </p>
+            <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-process-management&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+         </li>
+         <li>
+            <p>The <tt>application.properties</tt> file of your BAMOE project contains the following system properties for the location where the BAMOE service is deployed, such as <tt>http://localhost:8080</tt>, and for Quarkus Cross-Origin Resource Sharing (CORS) support.
+These properties enable the Management Console to generate the URLs to execute the REST operations from the process management add-on.</p>
+            <p outputclass="title">
+               <b>Application properties for REST URLs</b>
+            </p>
+            <codeblock>
+kogito.service.url=http://<i>HOST</i>:<i>PORT</i>
+quarkus.http.cors=true
+</codeblock>
+         </li>
+         <li>
+            <p>Procedure</p>
+            <ol>
+               <li>
+                  <p>In a command terminal, enter the following command to run the Management Console:</p>
+                  <p outputclass="title">
+                     <b>Running the Management Console</b>
+                  </p>
+                  <codeblock>
+$ docker run -p 8280:8080 quay.io/bamoe/management-console:9.1.1-ibm-0003
+</codeblock>
+                  <note type="note">
+                     <p>The default port for the Management Console is 8080, but this example specifies port 8280 to avoid conflicts with the example BAMOE service running at port 8080.</p>
+                     <p>Also, the Management Console uses the default Data Index Service port 8180.
+If you modified this port in your Data Index Service instance, you can set the new Data Index URL using the <tt>RUNTIME_TOOLS_MANAGEMENT_CONSOLE_DATA_INDEX_ENDPOINT</tt> environment variable like:</p>
+                     <codeblock>
+$ docker run -e RUNTIME_TOOLS_MANAGEMENT_CONSOLE_DATA_INDEX_ENDPOINT=http:/_HOST_:_PORT_/graphql -p 8280:8080 quay.io/bamoe/management-console:9.1.1-ibm-0003
+</codeblock>
+                  </note>
+               </li>
+            </ol>
+         </li>
+      </ul>
+   </body>
+</topic>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_merging">
+   <title>Merging</title>
+   <body>
+      <p>Merging and pulling within VS Code are synonymous.
+However, within the command line, a pull is actually a fetch and a merge.
+Within VS Code, your main branch should already be configured to periodically be synced with the upstream.
+Should you need to merge some other remote branch into your working local branch, this can be done using the Source Repo → Pull menu.</p>
+      <fig>
+         <title>VS Code Source Repo Pull menu</title>
+         <image href="images/contributing/vscode-repo-pull.png" placement="break">
+            <alt>Pull menu</alt>
+         </image>
+      </fig>
+      <p>This will pull from whichever remote branch is set as the upstream.
+If the "Pull from…​" menu is selected, you will be presented with the familiar dialog to select a remote branch to pull and merge.</p>
+      <p>On the command line, this action is done using:</p>
+      <codeblock outputclass="language-bash">
+git pull &lt;remote name&gt; &lt;branch name&gt;
+</codeblock>
+   </body>
+</topic>

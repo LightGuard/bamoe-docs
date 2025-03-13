@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_containerfile_2">
+   <title>Containerfile</title>
+   <body>
+      <title>Containerfile</title>
+      <codeblock outputclass="language-docker">
+# Set the base image with Java 17 and Maven.
+FROM icr.io/appcafe/ibm-semeru-runtimes:open-17-jdk-ubi-minimal
+
+# Arguments and environment variables to define our user and home path.
+# Obs.: This can vary according to your base image.
+ARG USER_ID_ARG=185
+ARG HOME_PATH_ARG=$HOME
+ENV USER_ID=${USER_ID_ARG}
+ENV HOME_PATH=${HOME_PATH_ARG}
+
+# Start as root to install all required dependencies.
+USER root
+
+# Configure the dev-deployment-upload-service:
+# Our extraction directory is /src/main/resources inside our Quarkus app, but it may differ for your application.
+# This is the path where all files from your BAMOE Canvas project (including .dmn, .bpmn, etc) will be extracted to after upload.
+ENV DEV_DEPLOYMENT__UPLOAD_SERVICE_EXTRACT_TO_DIR=$HOME_PATH/app/src/main/resources
+ENV DEV_DEPLOYMENT__UPLOAD_SERVICE_PORT=8080
+
+# Install `tar` and `gzip` packages, as they are required by the dev-deployment-upload-service to unzip the uploaded files.
+RUN microdnf --disableplugin=subscription-manager install -y tar gzip \
+ &amp;&amp; microdnf --disableplugin=subscription-manager clean all
+
+# Create the user home, tmp, and .m2 paths to be used by our application.
+# Setting the permission to 777 is important so users can access and modify these files during runtime.
+RUN mkdir -p -m 777 $HOME_PATH/app \
+ &amp;&amp; mkdir -p -m 777 /tmp/app \
+ &amp;&amp; mkdir -p -m 777 /.m2
+
+# Copy the dev-deployment-upload-service binary to the /usr/local/bin directory, making it globally available.
+# NOTE: In this base image /usr/local/bin is included in the PATH environment variable,
+# if you're using a different one, make sure the binary is globally accessible.
+COPY dev-deployment-upload-service /usr/local/bin
+
+# Another round of changing permissions and ownership of directories.
+# This is important because our Quarkus app will make changes to files during runtime.
+RUN chgrp -R 0 $HOME_PATH/app &amp;&amp; \
+ chmod -R 777 $HOME_PATH/app &amp;&amp; \
+ chgrp -R 0 /.m2 &amp;&amp; \
+ chmod -R 777 /.m2
+
+# Change the work directory to our app path.
+WORKDIR $HOME_PATH/app/
+
+# Copy your Quarkus app folder with everything needed to run a Quarkus app with .dmn and .bpmn resources,
+# setting the permissions/ownership for the target user.
+COPY --chown=$USER_ID:$USER_ID ./my-quarkus-app $HOME_PATH/app/
+
+# Expose port 8080
+EXPOSE 8080
+
+# Set to a user different than root (in this case, user ID 185, but it may vary depending on your base image).
+USER $USER_ID
+
+# Set the entrypoint to run bash.
+ENTRYPOINT ["/bin/bash", "-c"]
+
+# The CMD directive is unnecessary since BAMOE Canvas will overwrite it.
+</codeblock>
+      <p>All that is needed to do is build and publish the image.</p>
+   </body>
+</topic>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="orchestrating">
+   <title>Orchestrating decisions and rules in 15 minutes</title>
+   <body>
+      <p>The following example is a workflow scenario in IBM BAMOE that demonstrates how you can use process definitions to orchestrate your IBM BAMOE decision services. The example of a traffic violations project describes how to use decisions within the processes and how to integrate decisions in an embedded way using the business rule tasks, which must be deployed with a process in the same application.</p>
+      <note type="note">
+IBM BAMOE fully supports Straight-Through-Processing (STP) where processes are integrating decisions without any safe points and without persistence. For more IBM BAMOE examples that use process capabilities, see the references below. Stateful processing is provided as a technology preview (<xref href="../workflow/overview.dita">Stateful processs overview</xref>) in the 9.1.0 and 9.1.1.
+</note>
+      <p>The following diagram illustrates how decisions are integrated with processes:</p>
+      <fig>
+         <title>Embedded method to integrate a process with decisions in IBM BAMOE</title>
+         <image href="../images/process-decisions-embedded-integration.png" placement="break">
+            <alt>Image of embedded method to integrate a process with decisions in IBM BAMOE</alt>
+         </image>
+      </fig>
+      <p>To view the complete project, see the <xref href="../getting-started/examples.dita">
+            <tt>process-decisions-quarkus</tt>
+         </xref> example application for Quarkus.</p>
+      <p>The example of a traffic violations project describes how to use decisions within processes.
+Those decisions are then integrated using an embedded form using the business rule tasks.
+The tasks must be deployed with a process in the same application.</p>
+      <p>In Kogito, the decisions can be expressed in different domains or assets, such as DMN and DRL. All the assets, including BPMN, DMN, and DRL must be placed in the resources folder.</p>
+      <p>When the example application is running, there also must be different running processes, such as a process using a business rule task, containing the URL as <tt>http://localhost:8080/traffic</tt>.</p>
+      <section id="_traffic_violations_example_for_embedded_method">
+         <title>Traffic violations example for embedded method</title>
+         <p>The traffic violations project is based on the evaluation process of traffic violations. In the traffic violations example, first, the information of the driver is fetched, and based on the fetched information, it is determined whether the driver has a valid driving license using a RuleUnit in a DRL. After the validation of the driving license, the violation evaluation is executed, which is defined as a DMN decision, and the output provides information on whether the driver is suspended or not.</p>
+         <fig>
+            <title>Traffic violations example</title>
+            <image href="../images/traffic-rules-dmn.png" placement="break">
+               <alt>Image of traffic violations example</alt>
+            </image>
+         </fig>
+         <div conref="orchestrating_processes_in_traffic_violation_example.dita">_processes_in_traffic_violation_example</div>
+         <div conref="orchestrating_decisions_in_traffic_violation_example.dita">_decisions_in_traffic_violation_example</div>
+         <div conref="orchestrating_data_mapping_between_a_process_and_decisions.dita">_data_mapping_between_a_process_and_decisions</div>
+         <div conref="orchestrating_running_your_project.dita">_running_your_project</div>
+         <div conref="orchestrating_other_examples.dita">_other_examples</div>
+      </section>
+   </body>
+</topic>

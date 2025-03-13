@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_tested_integrations_2">
+   <title>Tested integrations</title>
+   <body>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Product</entry>
+                  <entry>Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Visual Studio Code</p>
+                  </entry>
+                  <entry>
+                     <p>Latest</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Apache Kafka</p>
+                  </entry>
+                  <entry>
+                     <p>3.6</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The following web browsers were tested as part of the BAMOE 9.1.0 release process:</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Web Browser</entry>
+                  <entry>Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Google Chrome</p>
+                  </entry>
+                  <entry>
+                     <p>Latest release, tested with 125.0.6422.76</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The following database was tested as part of the BAMOE 9.1.0 release process for the stateful process technology preview:</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Database</entry>
+                  <entry>Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>PostgreSQL</p>
+                  </entry>
+                  <entry>
+                     <p>16.1</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

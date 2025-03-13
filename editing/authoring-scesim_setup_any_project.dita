@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_setup_any_project">
+   <title>Setup any project</title>
+   <body>
+      <p>To enable Test Scenario in your project, follow the below steps:</p>
+      <ol>
+         <li>
+            <p>
+               <b>Add the required Test Scenario dependency</b>:
+Add the following dependency to your project’s <tt>pom.xml</tt> to enable the Test Scenario runner:</p>
+            <codeblock outputclass="language-console">
+   &lt;dependency&gt;
+     &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+     &lt;artifactId&gt;kogito-scenario-simulation&lt;/artifactId&gt;
+     &lt;scope&gt;test&lt;/scope&gt;
+   &lt;/dependency&gt;
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>Create <tt>KogitoScenarioJunitActivatorTest.java</tt>
+               </b>:
+Create the <tt>KogitoScenarioJunitActivatorTest.java</tt> file in the <tt>src/test/testscenario</tt> directory:</p>
+            <codeblock outputclass="language-console">
+   package testscenario;
+
+   @org.junit.runner.RunWith(org.kogito.scenariosimulation.runner.KogitoJunitActivator.class)
+   public class KogitoScenarioJunitActivatorTest {
+   }
+</codeblock>
+            <image href="../images/developer-tools/scesim-activator.png" placement="break">
+               <alt>scesim activator</alt>
+            </image>
+         </li>
+         <li>
+            <b>Create Resources Directory</b>:
+Create the <tt>src/test/resources</tt> directory for storing <tt>.scesim</tt> files.</li>
+      </ol>
+   </body>
+</topic>

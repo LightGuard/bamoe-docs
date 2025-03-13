@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_adjust_properties_and_add_process_variables">
+   <title>Adjust Properties and Add Process Variables</title>
+   <body>
+      <ol>
+         <li>
+            <p>Create a start node with a script to initialize variables:</p>
+            <codeblock outputclass="language-java">
+System.out.println("New Hiring has been created for candidate: " + candidateData.getFullName());
+kcontext.setVariable("hr_approval", false);
+kcontext.setVariable("it_approval", false);
+</codeblock>
+         </li>
+         <li>Add an exclusive gateway for decision-making.</li>
+         <li>
+            <p>Create a business rule task with specific properties and data assignments:</p>
+            <codeblock outputclass="language-java">
+System.out.println("###################################");
+System.out.println("Generated offer for candidate: " + candidateData.getFullName());
+System.out.println("Job Category: " + offer.getCategory());
+System.out.println("Base salary: " + offer.getSalary());
+System.out.println("###################################");
+</codeblock>
+         </li>
+         <li>
+            <p>Create and configure human tasks and boundary events:</p>
+            <codeblock outputclass="language-java">
+System.out.println("###################################");
+System.out.println("HR Interview have been avoided after reasonable time");
+System.out.println("###################################");
+</codeblock>
+         </li>
+         <li>
+            <p>Add scripts for various tasks and events to log important details and actions:</p>
+            <codeblock outputclass="language-java">
+System.out.println("###################################");
+System.out.println("To: " + candidateData.getEmail());
+System.out.println("Subject: Congratulations you made it!");
+System.out.println("Dear " + candidateData.getFullName() + ", we are happy to tell you that you've successfully went through the hiring process. You'll find the final Offer details in attached.");
+System.out.println("Job Category: " + offer.getCategory());
+System.out.println("Base salary: " + offer.getSalary());
+System.out.println("###################################");
+
+System.out.println("###################################");
+System.out.println("Candidate " + candidateData.getFullName() + " doesn't meet the requirements for the position but we'll keep it on records for the future!");
+System.out.println("###################################");
+</codeblock>
+         </li>
+      </ol>
+   </body>
+</topic>

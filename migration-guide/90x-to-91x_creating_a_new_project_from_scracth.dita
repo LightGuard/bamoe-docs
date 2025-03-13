@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_creating_a_new_project_from_scracth">
+   <title>Creating a new project from scracth</title>
+   <body>
+      <p>Now that you have Maven properly configured, you can create a new Maven project to migrate your existing business automation assets to the new BAMOE version 9.1.1.
+There are several ways to create Maven projects; this approach uses a published Maven plugin.</p>
+      <ol>
+         <li>In a terminal window, create a new local folder for the new Maven project, for example, <tt>/Users/developer</tt>, and navigate to that folder.</li>
+         <li>
+            <p>Create the project using Quarkus and the following Maven commands.
+This creates a Quarkus project called <tt>my-sample-decision-service</tt>, which is versioned <tt>1.0.0-SNAPSHOT</tt>, and includes the extensions <tt>resteasy-reactive-jackson, quarkus-smallrye-openapi, quarkus-smallrye-health</tt>.</p>
+            <codeblock outputclass="language-console">
+mvn io.quarkus.platform:quarkus-maven-plugin:3.8.6:create \
+    -DprojectGroupId=com.ibm.bamoe.samples \
+    -DprojectArtifactId=my-sample-decision-service \
+    -DprojectVersion=1.0.0-SNAPSHOT \
+    -DplatformGroupId=io.quarkus.platform \
+    -DplatformArtifactId=quarkus-bom \
+    -Dextensions=resteasy-reactive-jackson,quarkus-smallrye-openapi,quarkus-smallrye-health
+</codeblock>
+            <note type="note">
+               <p>As you can see from the Maven command, there are a number of possible <tt>extensions</tt> that can be added to the project for the specific functionality.
+You can find more information on available extensions at the following locations:  <xref href="https://quarkus.io/extensions/" scope="external">Quarkus Extensions</xref>, and <xref href="https://quarkus.io/extensions/?search-regex=kogito" scope="external">Kogito Extensions</xref>.</p>
+            </note>
+            <p>When you create this project, you will notice the Maven artifacts being streamed in your console as they are pulled. When the process is complete, you will see a console message like the following:</p>
+            <codeblock outputclass="language-console">
+[INFO]
+[INFO] ========================================================================================
+[INFO] Your new application has been created in /Users/developer/my-sample-decision-service
+[INFO] Navigate into this directory and launch your application with mvn quarkus:dev
+[INFO] Your application will be accessible on http://localhost:8080
+[INFO] ========================================================================================
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.632 s
+[INFO] Finished at: 2024-06-11T11:20:51-03:00
+[INFO] ------------------------------------------------------------------------
+</codeblock>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Add the following <tt>properties</tt> to the <tt>pom.xml</tt> file, using the row numbers as a guide.
+This specifies the Maven coordinates for the BAMOE Maven Bill-of-Materials (BOM), which manages all of the associated dependency versions for a specific BAMOE release:</p>
+            <codeblock outputclass="language-xml">
+17   &lt;surefire-plugin.version&gt;3.0.0-M7&lt;/surefire-plugin.version&gt;
+18   &lt;kogito.bom.group-id&gt;com.ibm.bamoe&lt;/kogito.bom.group-id&gt;
+19   &lt;kogito.bom.artifact-id&gt;bamoe-bom&lt;/kogito.bom.artifact-id&gt;
+20   &lt;kogito.bom.version&gt;9.1.1-ibm-0003&lt;/kogito.bom.version&gt;
+21 &lt;/properties&gt;
+</codeblock>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Replace lines 31-37, which essentially add the <tt>bamoe-bom</tt> to the list of imported dependencies:</p>
+            <codeblock outputclass="language-xml">
+31  &lt;dependency&gt;
+32    &lt;groupId&gt;${kogito.bom.group-id}&lt;/groupId&gt;
+33    &lt;artifactId&gt;${kogito.bom.artifact-id}&lt;/artifactId&gt;
+34    &lt;version&gt;${kogito.bom.version}&lt;/version&gt;
+35    &lt;type&gt;pom&lt;/type&gt;
+36    &lt;scope&gt;import&lt;/scope&gt;
+37  &lt;/dependency&gt;
+</codeblock>
+            <p>A bill of materials (BOM) is a list of parts or components that are required to build a product.
+BOMs are ordinary <tt>pom.xml</tt> files that contain no source code, and their only purpose is to declare their bundled modules.</p>
+         </li>
+      </ol>
+      <note type="important">
+         <p>It is recommended to use a bill of materials (BOM) to manage project dependencies, as it simplifies dependency management by organizing a group of dependencies under a single version.</p>
+         <p>The use of a Maven bill-of-materials (BOM) does not add any dependencies to the project.
+Rather, it functions as a reference for managing the versions of your project dependencies (and transient dependencies).</p>
+      </note>
+      <p>A bill of materials (BOM) can be added to an existing POM file by adding it to the <b>
+            <i>dependencyManagement</i>
+         </b> section as a dependency with a pom type:</p>
+      <codeblock outputclass="language-xml">
+&lt;dependencyManagement&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.redhat.ba&lt;/groupId&gt;
+            &lt;artifactId&gt;ba-platform-bom&lt;/artifactId&gt;
+            &lt;version&gt;&lt;!-- See Version Mapping Table --&gt;&lt;/version&gt;
+            &lt;scope&gt;import&lt;/scope&gt;
+            &lt;type&gt;pom&lt;/type&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</codeblock>
+      <p>When a bill of materials (BOM) is used, it is not necessary to specify the version of the dependency, as that appears from the BOM, so your dependencies will resemble the following:</p>
+      <codeblock outputclass="language-xml">
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</codeblock>
+      <note type="note">
+         <p>During the course of your Maven dependency update, if you encounter any dependencies that are not included in the bill of materials (BOM) please report it to IBM to be resolved.</p>
+      </note>
+      <p>See <xref href="../introduction/release-notes/version-mapping.dita">version mapping for BAMOE version 9.1.x</xref>.</p>
+      <ol>
+         <li>
+            <p>Add the <tt>IBM ILMT Compliance Library</tt> to the <tt>pom.xml</tt>
+               <i>(this is required  to report on subscription entitlement usage within the system)</i>:</p>
+            <codeblock outputclass="language-xml">
+40  &lt;dependencies&gt;
+41    &lt;dependency&gt;
+42      &lt;groupId&gt;com.ibm.bamoe&lt;/groupId&gt;
+43      &lt;artifactId&gt;bamoe-ilmt-compliance-quarkus-dmoe&lt;/artifactId&gt;
+44    &lt;/dependency&gt;
+</codeblock>
+         </li>
+      </ol>
+      <note type="note">
+         <p>You might notice that the newly added Maven dependency includes the <tt>groupId</tt> and <tt>artifactId</tt> portions of the Maven coordinates but does not specify a <tt>version</tt> tag.
+This is due to importing the <tt>bamoe-bom</tt> into the project, where the various dependency versions are managed.</p>
+      </note>
+      <ol>
+         <li>
+            <p>Add the dependencies.</p>
+            <p>For this example, you will be creating a project with only DMN files.
+So you must add the the Drools Kogito Quarkus dependency.
+In the BAMOE version 9.1.1 some dependencies had a slight name change, see section, 'Maven libraries mapping guide' in <xref href="../installation/upgrading.dita">Upgrading</xref> and update accordingly.</p>
+            <codeblock outputclass="language-xml">
+45 &lt;dependency&gt;
+46   &lt;groupId&gt;org.drools&lt;/groupId&gt;
+47   &lt;artifactId&gt;drools-quarkus-decisions&lt;/artifactId&gt;
+48 &lt;/dependency&gt;
+</codeblock>
+            <note type="note">
+               <p>Depending on the project files you may be required to add other dependencies.</p>
+            </note>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Disable Quarkus Dev Services.</p>
+            <p>Currently, the Quarkus Dev Services isn’t fully supported, meaning that it should be disabled.
+To do so, add the following line in the <tt>src/main/resources/application.properties</tt> file:</p>
+            <codeblock>
+quarkus.devservices.enabled=false
+</codeblock>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Build the project in the root folder:</p>
+            <codeblock outputclass="language-console">
+mvn clean package
+</codeblock>
+            <p>You might get Maven streaming text once again, and at the end of it you must have:</p>
+            <codeblock outputclass="language-console">
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.023 s
+[INFO] Finished at: 2024-06-11T17:09:00-03:00
+[INFO] ------------------------------------------------------------------------
+</codeblock>
+            <note type="note">
+               <p>The choice of extensions determines the imported behavior of the project including adding sample models or testing related code.</p>
+            </note>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Add and update Business Automation assets</p>
+            <p>After the project is generated, you must see a project structure in VS Code, similar to the following diagram:</p>
+            <fig>
+               <title>Example Maven Project in VS Code</title>
+               <image href="../images/maven-project.png" placement="break">
+                  <alt>Example Maven Project in VS Code</alt>
+               </image>
+            </fig>
+            <p>As you can see from the figure, a Maven compliant project is generated, including all of the standard folders typically found in a Maven project.
+The most significant folder is the <tt>resources</tt> folder, which is where new or migrated business automation asset files must be stored.
+Examples of supported business automation assets are:</p>
+            <ul>
+               <li>Decision Model &amp; Notation (DMN) Models (.dmn)</li>
+               <li>Drools Rule Language (DRL) Files (.drl)</li>
+               <li>Business Process Modeling &amp; Notation (BPMN) Models (.bpmn)</li>
+               <li>Excel Decision Tables Excel Files (.xlsx)</li>
+               <li>Standard Property Files (.properties)</li>
+               <li>
+                  <p>Test Scenario Files (.scesim)</p>
+                  <note type="note">
+                     <p>The proper folder for unit test files is <tt>src/test/resources</tt>, as this is a testing resource.</p>
+                  </note>
+                  <p>Now, copy all your assets from the BAMOE version 9.0.1 project to the respective folders on the new project.
+As the new project uses Quarkus 3, you must make a few more updates.
+One of the biggest changes is that Quarkus 3 uses Jarkarta EE 10. You need to update all <tt>javax</tt> to <tt>jakarta</tt>.
+This is simply achieved by replacing any <tt>javax</tt> instance over <tt>jarkarta</tt>, like the following:</p>
+                  <codeblock outputclass="language-diff">
+ --- import javax.inject.Named;
+ +++ import jakarta.inject.Named;
+</codeblock>
+                  <note type="note">
+                     <p>Refer <xref href="https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.0" scope="external">Quarkus v3 migration guide</xref> for any other change that is related to Quarkus.</p>
+                  </note>
+               </li>
+            </ul>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Build the project one more time.</p>
+            <codeblock outputclass="language-console">
+mvn clean package
+</codeblock>
+            <p>You might get Maven streaming text once again, and at the end of it you must have:</p>
+            <codeblock outputclass="language-console">
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.023 s
+[INFO] Finished at: 2024-06-11T17:09:00-03:00
+[INFO] ------------------------------------------------------------------------
+</codeblock>
+            <p>Now you can start using your BAMOE version 9.1.1 project.</p>
+         </li>
+      </ol>
+   </body>
+</topic>

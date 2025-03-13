@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_create_process_variables">
+   <title>Create Process Variables</title>
+   <body>
+      <title>Create Process Variables</title>
+      <ol>
+         <li>Open Canvas with workflow elements.</li>
+         <li>
+            <p>Click anywhere in the canvas and then click on the properties tab to access the properties panel.</p>
+            <fig>
+               <title>Canvas for workflow showing properties</title>
+               <image href="../images/wf-tutorial/canvas-wf-1.png" placement="break">
+                  <alt>Canvas for workflow showing properties</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Set the following properties:</p>
+            <ul>
+               <li>
+                  <b>Name</b>: Provide a label for the process.</li>
+               <li>
+                  <b>ID</b>: Specify an identifier that will be used for endpoints.</li>
+               <li>
+                  <b>Description</b>: Write a detailed description of the process.</li>
+            </ul>
+         </li>
+         <li>
+            <p>To add input variables:</p>
+            <ul>
+               <li>Click the plus button to add a new variable.</li>
+               <li>
+                  <p>Set the variable’s name and data type.</p>
+                  <ul>
+                     <li>
+                        <i>Name</i> is the ID and name of the variable which can be referenced via scripts or input/output of activities.</li>
+                     <li>Data type refers to a Java type. If you click Select Custom, the field turns into the fully qualified name of the class.</li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ol>
+      <fig>
+         <title>Process properties</title>
+         <image href="../images/wf-tutorial/input-data-2.png" placement="break">
+            <alt>Setting process properties</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

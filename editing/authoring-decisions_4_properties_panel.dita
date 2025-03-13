@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_4_properties_panel">
+   <title>4. Properties panel</title>
+   <body>
+      <p>The properties panel lets you manage the properties of a Decision element.
+Enabling the possibility to add detailed descriptions, and documentation links and tweak the font and shape styles.</p>
+   </body>
+</topic>

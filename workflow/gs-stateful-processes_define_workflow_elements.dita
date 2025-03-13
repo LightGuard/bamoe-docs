@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_define_workflow_elements">
+   <title>Define Workflow Elements</title>
+   <body>
+      <p>Use the following elements to define your workflow:</p>
+      <ul>
+         <li>
+            <b>Start Event</b>: Green circle indicating the starting point of the workflow.</li>
+         <li>
+            <b>Intermediate Events</b>: Yellow circle for events that occur between the start and end points.</li>
+         <li>
+            <b>End Events</b>: Red circle marking the end of the workflow.</li>
+         <li>
+            <b>Activities</b>: Empty rectangle representing tasks or activities in the workflow.</li>
+         <li>
+            <b>Subprocess</b>: Rectangle with a square for subprocesses.</li>
+         <li>
+            <b>Gateways</b>: Diamond shape for decision points.</li>
+         <li>
+            <b>Lanes</b>: Checklist icon to organize tasks by roles or departments.</li>
+         <li>
+            <b>Non-executable Items</b>: 3D cube for items not executed within the workflow.</li>
+         <li>
+            <b>Miscellaneous</b>: Engine icon for other workflow components.</li>
+      </ul>
+   </body>
+</topic>

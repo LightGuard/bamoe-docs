@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_cloning_locally">
+   <title>Cloning Locally</title>
+   <body>
+      <p>Once you have your own fork of a repository, you will need to clone that repository locally to your own machine.</p>
+      <p outputclass="title">
+         <b>Cloning a repository locally via CLI</b>
+      </p>
+      <codeblock outputclass="language-bash">
+git clone &lt;git repository URL&gt;
+</codeblock>
+      <p>Using VS Code, selecting the Source Control section on the left will present two buttons "Open Folder" and "Clone Repository".</p>
+      <fig>
+         <title>VS Code Clone Button within Source Control</title>
+         <image href="images/contributing/vscode-local-clone-button.png" placement="break">
+            <alt>Cloning Button VS Code</alt>
+         </image>
+      </fig>
+      <p>Clicking the "Clone Repository" button will provide a dropdown where you can specify the location of the remote repository.</p>
+      <fig>
+         <title>VS Code Remote Repository Dropdown</title>
+         <image href="images/contributing/vscode-local-clone.png" placement="break">
+            <alt>Remote Repository Clone Dropdown</alt>
+         </image>
+      </fig>
+      <p>It is highly recommended to add the upstream, the original repository, to your list of git remotes and periodically merging (or pull) changes from that repository into your local copy.
+The process of performing a merge is detailed later in this documentation.</p>
+      <div conref="CONTRIBUTING_adding_a_remote.dita">_adding_a_remote</div>
+   </body>
+</topic>

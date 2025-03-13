@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="dev-deployments">
+   <title>Dev Deployments</title>
+   <body>
+      <p>Dev Deployments can be used to share work with others or integrate it with other applications still under development.</p>
+      <p>BAMOE Canvas allows for Dev Deployments targeting OpenShift or simple Kubernetes clusters. This is achieved by applying pre-defined Kubernetes or OpenShift resources, depending on the selected authentication provider.</p>
+      <p>These authentication provider’s connections can be made with local and remote Kubernetes/OpenShift instances.
+They can be configured via the "Accounts modal," which is accessed using the person icon at the top-right corner of the page.
+Instructions for configuring Kubernetes or OpenShift connections are provided upon selection.
+For more detailed information, refer to the
+<xref href="../tools/connecting-accounts.dita">Connecting accounts</xref> section.</p>
+      <p>This connection enables the deployment of all Decisions, Workflows, and even complete Java projects for development purposes only.
+Within any open project, select the connected account intended for the Dev Deployment and confirm the selection.</p>
+      <fig>
+         <title>Deploy dropdown for a project called "bamoe-sample-project" on BAMOE Canvas</title>
+         <image href="../images/tools/devDeployments/kubernetes-deploy.png" width="400px" placement="break">
+            <alt>kubernetes deploy</alt>
+         </image>
+      </fig>
+      <p>After clicking Deploy, you will be presented with options for different types of deployment:</p>
+      <section id="_kogito_quarkus_blank_app">
+         <title>Kogito Quarkus Blank App</title>
+         <fig>
+            <title>Kogito Quarkus Blank App deployment option</title>
+            <image href="../images/tools/devDeployments/deployment-option-kogito-quarkus-blank-app.png" placement="break">
+               <alt>deployment option kogito quarkus blank app</alt>
+            </image>
+         </fig>
+         <p>This is the most "hands-off" Dev Deployment option, but it has a few requirements:</p>
+         <ul>
+            <li>Your project should only have Decisions and Workflows; all other files will be ignored;</li>
+            <li>The deployment will fail if an error is found in any file.</li>
+         </ul>
+         <p>It’s a pre-defined Quarkus project template that already includes all the dependencies necessary to run a Decision or Workflow. It runs on a container image with Java and Maven, as well as the Dev Deployment Upload Service (<xref href="dev-deployment-upload-service.html">read more about it here</xref>).</p>
+         <p>A parameter is shown, giving the user the option to <tt>Include DMN Form Webapp</tt>. This is a sidecar container containing a webapp that parses the backend service API and dynamically generates a form with all of the Decisions inputs and outputs, allowing the user to fill the inputs simulate differente scenarios.</p>
+         <fig>
+            <title>Dev Deployment application for a Decision created from BAMOE Canvas</title>
+            <image href="../images/tools/devDeployments/form.png" placement="break">
+               <alt>form</alt>
+            </image>
+         </fig>
+         <p>The current Decision can be changed using the dropdown in the top-right corner (if the deployment has more than one Decision). The Swagger UI can be opened via the kebab menu.</p>
+         <note type="note">
+The DMN Form Webapp only works for Decisions. Workflows should be handled directly via the API or Dev UIs.
+</note>
+         <p>Images used in this deployment:</p>
+         <ul>
+            <li>
+               <xref href="https://quay.io/repository/bamoe/canvas-dev-deployment-quarkus-blank-app" scope="external">Canvas Dev Deployment Quarkus Blank App</xref>: <tt>quay.io/bamoe/canvas-dev-deployment-quarkus-blank-app:9.1.1-ibm-0003</tt>
+            </li>
+            <li>
+               <xref href="https://quay.io/repository/bamoe/canvas-dev-deployment-dmn-form-webapp" scope="external">Canvas Dev Deployment DMN Form Webapp</xref>: <tt>quay.io/bamoe/canvas-dev-deployment-dmn-form-webapp:9.1.1-ibm-0003</tt>
+            </li>
+         </ul>
+      </section>
+      <section id="_custom_image">
+         <fig>
+            <title>Custom Image deployment option</title>
+            <image href="../images/tools/devDeployments/deployment-option-custom-image.png" placement="break">
+               <alt>deployment option custom image</alt>
+            </image>
+         </fig>
+         <p>The Custom Image option is the most configurable one and should allow users to create all kinds of different deployments. The deployed image can be changed to whatever the user decides, alongside the container port and initial container command to be executed.</p>
+         <p>This combination of parameters makes it a highly flexible option, but should be used with care and follow a few requirements still:</p>
+         <ul>
+            <li>The deployed image must have an instance of the Dev Deployment Upload Service running on startup, and the service binary should be available in the <tt>PATH</tt>
+               <i>(The <tt>Command</tt> parameter is executed after the Dev Deployment Upload Service finishes, in other words, the final command executed by the container will be something like: <tt>dev-deployment-upload-service &amp;&amp; &lt;CUSTOM_COMMAND&gt;</tt>)</i>.</li>
+            <li>The Dev Deployment Upload Service must run on the same port defined by the <tt>Container Port</tt> parameter.</li>
+            <li>After BAMOE Canvas uploads the current project to the container it expects an HTTP 200 response from the <tt>&lt;DEPLOYMENT_URL&gt;/q/health</tt> endpoint to make sure the deployment was successful <i>(Your deployment will be made even without this endpoint, but BAMOE Canvas won’t be able to know if it was successful or not)</i>.</li>
+         </ul>
+         <p>Images used in this deployment:</p>
+         <ul>
+            <li>
+               <xref href="https://quay.io/repository/bamoe/canvas-dev-deployment-base" scope="external">Canvas Dev Deployment Base</xref>: <tt>quay.io/bamoe/canvas-dev-deployment-base:9.1.1-ibm-0003</tt>
+            </li>
+         </ul>
+         <note type="note">
+This image is used by default, but it can be changed to any other available image. If using another image, it’s recommended creating it based off of <tt>quay.io/bamoe/canvas-dev-deployment-base:9.1.1-ibm-0003</tt>, <xref href="create-custom-dev-deployment-image.html">more information here</xref>)
+</note>
+         <div conref="dev-deployments_deployment_tokens.dita">_deployment_tokens</div>
+         <div conref="dev-deployments_deployment_resources_requirements.dita">_deployment_resources_requirements</div>
+         <div conref="dev-deployments_post_deployment.dita">_post_deployment</div>
+      </section>
+      <section id="_how_dev_deployments_work">
+         <p>The "magic" that drives Dev Deployments depends on various parts working together in sync: BAMOE Canvas, your Kubernetes/OpenShift cluster, the container images, the upload service, etc.</p>
+         <p>Before any Dev Deployment can be made, a new Kubernetes or OpenShift cluster connection to BAMOE Canvas must be created. While doing so, it will automatically fetch all possible API endpoints and map them to their corresponding Kubernetes resource names; this way, it <i>knows</i> how to apply and manage different resources (such as Deployments, Ingresses, Routes, Services, etc.).</p>
+         <p>When you click <tt>Deploy</tt>, a lot has to happen behind the scenes so that a Dev Deployment happens. Here’s a basic step-by-step:</p>
+         <ol>
+            <li>BAMOE Canvas will zip all the files in the workspace being deployed (ignoring .git directories);</li>
+            <li>
+               <p>Then it will load the chosen deployment option (Custom Image or Kogito Quarkus Blank app) YAML files and modify them dynamically:</p>
+               <ul>
+                  <li>Applying the required patches to set BAMOE Canvas labels, annotations, and resource names;</li>
+                  <li>Applying patches related to the parameters set in the deployment modal (each parameter corresponds to a set of patches and tokens);</li>
+                  <li>Interpolate all tokens with their corresponding values, including parameters;</li>
+                  <li>Split the YAML files into multiple YAMLs, making one per resource kind.</li>
+               </ul>
+            </li>
+            <li>Using the Kubernetes resource name and the list of API endpoints saved, requests are made to the cluster to apply each resource YAML, saving the returned resource ID locally to be referenced later.</li>
+            <li>
+               <p>The cluster will initiate Pods, Services, and other resources. At the same time BAMOE Canvas will keep polling the cluster to find out whether the Deployment is healthy and ready, first by fetching the Deployment resource status, then, when healthy, polling the Dev Deployment Upload Service status to check if it’s ready to receive the upload.</p>
+               <ul>
+                  <li>If the Deployment resource is not healthy, BAMOE Canvas will keep polling its status whenever it tries to list Kubernetes resources and will show an error icon if the Deployment errors out or a loading icon if the Deployment is pending;</li>
+                  <li>If the Deployment is healthy, BAMOE Canvas will start polling the Dev Deployment Upload Service running inside the deployed containers to check if it’s ready to receive an upload;</li>
+                  <li>If the Dev Deployment Upload Service fails to respond after a pre-defined timeout, the Dev Deployment fails and is updated with an error icon.</li>
+               </ul>
+            </li>
+            <li>After reaching the "READY" status on the Dev Deployment Upload Service, BAMOE Canvas uploads the .zip file generated in Step 1 to the upload service;</li>
+            <li>The Dev Deployment Upload Service receives the .zip file and extracts it to the defined path (this path is set using the configured environment variables on the container). After the extraction is over, the service ends with a status code 0 and calls the following defined command (usually <tt>mvn quarkus:dev</tt> or whatever is defined in the Custom Image option parameter);</li>
+            <li>A quarkus application starts loading inside the container, while BAMOE Canvas starts polling the container to check if the quarkus app is ready;</li>
+            <li>
+               <p>When quarkus finishes loading, and the polling succeeds, BAMOE Canvas updates the Dev Deployment icon to a success icon and provides a link to the Dev Deployment endpoint, which can be either:</p>
+               <ul>
+                  <li>The Quarkus Swagger UI, if deployed via Custom Image or Kogito Quarkus Blank App options, without the DMN Form Webapp parameter;</li>
+                  <li>The DMN Form Webapp if the checkbox for it was checked when creating the deployment;</li>
+               </ul>
+            </li>
+            <li>Users can interact with the Dev Deployment and test/validate their decisions and processes; after that’s finished, it’s possible to delete a deployment by hovering over it in the Dev Deployments list and clicking the trash icon.</li>
+         </ol>
+      </section>
+      <section id="_limitations">
+         <ul>
+            <li>All files within the project are included in a Dev Deployment.
+If an error exists in any of the files, the Dev Deployment will not succeed.</li>
+         </ul>
+      </section>
+   </body>
+</topic>

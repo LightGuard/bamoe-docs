@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="proc-dmn-model-creating-multiples">
+   <title>Creating DMN models with multiple diagrams in IBM BAMOE Developer Tools for VS Code</title>
+   <body>
+      <p>For complex DMN models, you can use the IBM BAMOE DMN modeler in VSCode to design multiple DMN decision requirements diagrams (DRDs) that represent parts of the overall decision requirements graph (DRG) for the DMN decision model. In simple cases, you can use a single DRD to represent all of the overall DRG for the decision model, but in complex cases, a single DRD can become large and difficult to follow. Therefore, to better organize DMN decision models with many decision requirements, you can divide the model into smaller nested DRDs that constitute the larger central DRD representation of the overall DRG.</p>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>In your VSCode IDE, create or import a DMN file in the relevant folder of your IBM BAMOE project, typically in <tt>src/main/resources</tt>.</li>
+         <li>
+            <p>Open the new or imported DMN file to view the DRD in the IBM BAMOE DMN modeler, and begin designing or modifying the DRD using the DMN nodes in the left toolbar.</p>
+            <div>
+               <note type="note">
+                  <p>If the DRD does not open in the IBM BAMOE DMN modeler, ensure that you have installed and enabled the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                        <b>IBM BAMOE Developer Tools for VS Code</b>
+                     </xref>.</p>
+                  <p>If the IBM BAMOE DMN modeler opens only the XML source of the DMN file and displays an error message, review the reported errors and the DMN model file to ensure that all DMN elements are correctly defined.</p>
+               </note>
+            </div>
+         </li>
+         <li>
+            <p>For any DMN nodes that you want to define in a separate nested DRD, select the node, click the <b>DRD Actions</b> icon, and select from the available options.</p>
+            <div>
+               <fig>
+                  <title>DRD actions icon for subdividing a DRD</title>
+                  <image href="../images/dmn-drd-actions.png" placement="break">
+                     <alt>dmn drd actions</alt>
+                  </image>
+               </fig>
+               <p>The following options are available:</p>
+               <ul>
+                  <li>
+                     <b>Create</b>: Use this option to create a nested DRD where you can separately define the DMN components and diagram for the selected node.</li>
+                  <li>
+                     <b>Add to</b>: If you already created a nested DRD, use this option to add the selected node to an existing DRD.</li>
+                  <li>
+                     <b>Remove</b>: If the node that you selected is already within a nested DRD, use this option to remove the node from that nested DRD.</li>
+               </ul>
+               <p>After you create a nested DRD within your DMN decision model, the new DRD opens in a separate DRD canvas and the available DRD and components are listed in the <b>Decision Navigator</b> right menu. You can use the <b>Decision Navigator</b> menu to rename or remove a nested DRD.</p>
+               <fig>
+                  <title>Rename new nested DRD in the Decision Navigator menu</title>
+                  <image href="../images/dmn-drd-actions-rename.png" placement="break">
+                     <alt>dmn drd actions rename</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>In the separate canvas for the new nested DRD, design the flow and logic for all required components in this portion of the DMN model, as usual.</li>
+         <li>
+            <p>Continue adding and defining any other nested DRDs for your decision model and save the completed DMN file.</p>
+            <div>
+               <p>For example, the following DRD for a loan prequalification decision model contains all DMN components for the model without any nested DRDs. This example relies on the single DRD for all components and logic, resulting in a large and complex diagram.</p>
+               <fig>
+                  <title>Single DRD for loan prequalification</title>
+                  <image href="../images/dmn-example-drd.png" placement="break">
+                     <alt>dmn example drd</alt>
+                  </image>
+               </fig>
+               <p>Alternatively, by following the steps in this procedure, you can divide this example DRD into multiple nested DRDs to better organize the decision requirements, as shown in the following example:</p>
+               <fig>
+                  <title>Multiple nested DRDs for loan prequalification</title>
+                  <image href="../images/dmn-drd-multiple.png" placement="break">
+                     <alt>dmn drd multiple</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>Overview of front end ratio DRD</title>
+                  <image href="../images/dmn-drd-multiple-front-end.png" placement="break">
+                     <alt>dmn drd multiple front end</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>DRD for front end ratio</title>
+                  <image href="../images/dmn-drd-multiple-front-end-details.png" placement="break">
+                     <alt>dmn drd multiple front end details</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>Overview of credit score rating DRD</title>
+                  <image href="../images/dmn-drd-multiple-credit-score.png" placement="break">
+                     <alt>dmn drd multiple credit score</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>DRD for credit score rating</title>
+                  <image href="../images/dmn-drd-multiple-credit-score-details.png" placement="break">
+                     <alt>dmn drd multiple credit score details</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>Overview of back end ratio DRD</title>
+                  <image href="../images/dmn-drd-multiple-back-end.png" placement="break">
+                     <alt>dmn drd multiple back end</alt>
+                  </image>
+               </fig>
+               <fig>
+                  <title>DRD for back end ratio</title>
+                  <image href="../images/dmn-drd-multiple-back-end-details.png" placement="break">
+                     <alt>dmn drd multiple back end details</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+      </ol>
+   </body>
+</topic>

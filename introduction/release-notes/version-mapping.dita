@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="version-mapping">
+   <title>Version mapping</title>
+   <body>
+      <p>The following table displays the version mapping for BAMOE version 9.1.x:</p>
+      <table>
+         <title>Version Mapping for IBM BAMOE version 9.1.x</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="33.3334*"/>
+            <thead>
+               <row>
+                  <entry>Product Version</entry>
+                  <entry>BOM Version</entry>
+                  <entry>Maven Library Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>IBM BAMOE 9.1.0</p>
+                  </entry>
+                  <entry>
+                     <p>9.1.0-ibm-0001</p>
+                  </entry>
+                  <entry>
+                     <p>9.1.0-ibm-0001</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>IBM BAMOE 9.1.1</p>
+                  </entry>
+                  <entry>
+                     <p>9.1.1-ibm-0003</p>
+                  </entry>
+                  <entry>
+                     <p>9.1.1-ibm-0003</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The stateful process technology preview can be accessed via the product BOM and Maven library versions.</p>
+   </body>
+</topic>

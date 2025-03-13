@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="support">
+   <title>Support</title>
+   <body>
+      <section id="_support_lifecycle_policy">
+         <title>Support lifecycle policy</title>
+         <p>Business Automation Manager uses a continuous delivery support model to provide new functions and enhancements more frequently, along with security updates and defect fixes. For more information, see <xref href="https://www.ibm.com/support/pages/node/7007883" scope="external">IBM Business Automation Manager Open Editions 9.x Product Support Lifecycle</xref>.</p>
+      </section>
+      <section id="_troubleshooting">
+         <p>To enable the IBM Business Automation Manager Open Editions Support team (Support) to assist with your problem, you must collect documentation so that the Support team can diagnose your problem.
+Gathering the required documentation before you contact Support expedites the troubleshooting process and saves you time. Otherwise, you might be directed to collect this data after the case is opened to allow us to proceed with our investigation.</p>
+         <p>For more information on collecting troubleshooting data for IBM Business Automation Manager Open Editions, see <xref href="https://www.ibm.com/support/pages/collect-troubleshooting-data-ibm-business-automation-manager-open-editions-v9-release" scope="external">https://www.ibm.com/support/pages/collect-troubleshooting-data-ibm-business-automation-manager-open-editions-v9-release</xref>
+         </p>
+      </section>
+   </body>
+</topic>

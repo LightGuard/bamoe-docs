@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="dmn">
+   <title>DMN reference</title>
+   <body>
+      <section id="con-dmn-conformance-levels">
+         <title>DMN conformance levels</title>
+         <p>The DMN specification defines three incremental levels of conformance in a software implementation. A product that claims compliance at one level must also be compliant with any preceding levels. For example, a conformance level 3 implementation must also include the supported components in conformance levels 1 and 2. For the formal definitions of each conformance level, see the OMG <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+         <p>The following list summarizes the three DMN conformance levels:</p>
+         <dl>
+            <dlentry>
+               <dt>Conformance level 1</dt>
+               <dd>A DMN conformance level 1 implementation supports decision requirement diagrams (DRDs), decision logic, and decision tables, but decision models are not executable. Any language can be used to define the expressions, including natural, unstructured languages.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Conformance level 2</dt>
+               <dd>A DMN conformance level 2 implementation includes the requirements in conformance level 1, and supports Simplified Friendly Enough Expression Language (S-FEEL) expressions and fully executable decision models.</dd>
+            </dlentry>
+            <dlentry>
+               <dt>Conformance level 3</dt>
+               <dd>A DMN conformance level 3 implementation includes the requirements in conformance levels 1 and 2, and supports Friendly Enough Expression Language (FEEL) expressions, the full set of boxed expressions, and fully executable decision models.</dd>
+            </dlentry>
+         </dl>
+         <p>IBM BAMOE provides runtime support for DMN 1.1, 1.2, 1.3, 1.4 and 1.5 models at conformance level 3 and design support for DMN 1.2 (DMN classic editor) and 1.5 (DMN new editor) models at conformance level 3.
+You can design your DMN models with BAMOE Canvas or import existing DMN models into your IBM BAMOE projects for deployment and execution.
+Any DMN models that you import and open in the DMN editor, are converted to DMN 1.2 or 1.5 models.</p>
+         <p>The following table summarizes the design and runtime support for each DMN version in IBM BAMOE:</p>
+         <table>
+            <title>DMN support in IBM BAMOE</title>
+            <tgroup cols="6">
+               <colspec colname="col_1" colwidth="20*"/>
+               <colspec colname="col_2" colwidth="20*"/>
+               <colspec colname="col_3" colwidth="15*"/>
+               <colspec colname="col_4" colwidth="15*"/>
+               <colspec colname="col_5" colwidth="15*"/>
+               <colspec colname="col_6" colwidth="15*"/>
+               <tbody>
+                  <row>
+                     <entry morerows="1">
+                        <p>DMN version</p>
+                     </entry>
+                     <entry>
+                        <p>DMN engine support</p>
+                     </entry>
+                     <entry namest="col_3" nameend="col_4">
+                        <p>DMN classic editor support</p>
+                     </entry>
+                     <entry namest="col_4" nameend="col_5">
+                        <p>DMN new editor support</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Execution</p>
+                     </entry>
+                     <entry>
+                        <p>Open</p>
+                     </entry>
+                     <entry>
+                        <p>Save</p>
+                     </entry>
+                     <entry>
+                        <p>Open</p>
+                     </entry>
+                     <entry>
+                        <p>Save</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DMN 1.1</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DMN 1.2</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DMN 1.3</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DMN 1.4</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>DMN 1.5</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/bk_x.png" placement="inline">
+                              <alt>bk x</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <image href="../images/grn_check.png" placement="inline">
+                              <alt>grn check</alt>
+                           </image>
+                        </p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <p>In addition to all DMN conformance level 3 requirements, IBM BAMOE also includes enhancements and fixes to FEEL and DMN model components to optimize the experience of implementing DMN decision services with IBM BAMOE.</p>
+         <div conref="dmncon-dmn-drd.dita">con-dmn-drd</div>
+         <div conref="dmncon-dmn-feel.dita">con-dmn-feel</div>
+         <div conref="dmnref-dmn-feel-variable-function-names.dita">ref-dmn-feel-variable-function-names</div>
+      </section>
+      <section id="con-dmn-1.5">
+         <p>The BAMOE 9.1 Release introduce support for DMN v 1.5.</p>
+         <p>The following are the new features.</p>
+         <dl>
+            <dlentry>
+               <dt>Add support for negation of duration</dt>
+               <dd>Before this version, it was not possible to use the following declaration:</dd>
+            </dlentry>
+         </dl>
+         <codeblock>
+-duration("PT1H")
+</codeblock>
+         <dl>
+            <dlentry>
+               <dt>Add a new "list replace" function</dt>
+               <dd>Implemented the following specification:</dd>
+            </dlentry>
+         </dl>
+         <table>
+            <tgroup cols="4">
+               <colspec colname="col_1" colwidth="25*"/>
+               <colspec colname="col_2" colwidth="25*"/>
+               <colspec colname="col_3" colwidth="25*"/>
+               <colspec colname="col_4" colwidth="25*"/>
+               <thead>
+                  <row>
+                     <entry>Definitions</entry>
+                     <entry>Parameters</entry>
+                     <entry>Behaviour</entry>
+                     <entry>Examples</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>list replace(<i>list</i>, <i>position</i>, <i>newItem</i>)</p>
+                        <p>list replace(<i>list</i>, <i>match</i>, <i>newItem</i>)</p>
+                     </entry>
+                     <entry>
+                        <p>list, number or boolean function(<i>item</i>, <i>newItem</i>), any element including <i>null</i>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>return new list with <i>newItem</i> replaced at <i>position</i> (if <i>position</i> is a number) or return a new list where <i>newItem</i> is replaced at all positions where the <i>match</i> function returned <i>true</i>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>list replace( [2, 4, 7, 8], 3, 6) = [2, 4, 6, 8]</p>
+                        <p>list replace ( [2, 4, 7, 8], function(item, newItem) item &lt; newItem, 5) = [5, 5, 7, 8]</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <dl>
+            <dlentry>
+               <dt>Add support for iteration of date ranges</dt>
+               <dd>Implemented the following specification:</dd>
+            </dlentry>
+         </dl>
+         <p>
+            <i>An iteration context may either be an expression that returns a list of elements, or two expressions that return  integers connected by "..". </i>
+         </p>
+         <p>Examples of valid iteration contexts are:</p>
+         <codeblock>
+[…]
+
+@”2021-01-01”..@”2022-01-01”
+</codeblock>
+         <dl>
+            <dlentry>
+               <dt>Allow importing into the default namespace</dt>
+               <dd>Before this modification, it was not possible to import a DMN file into another DMN file, specifying an empty string in the name attribute for the import. With this feature, the following snippet become valid</dd>
+            </dlentry>
+         </dl>
+         <codeblock outputclass="language-xml">
+&lt;semantic:import xmlns:drools="http://www.drools.org/kie/dmn/1.1"
+                    xmlns:triso="http://www.trisotech.com/2015/triso/modeling"
+                    importType="http://www.omg.org/spec/DMN1-2Alpha/20160929/MODEL"
+                    namespace="http://www.trisotech.com/dmn/definitions/_f27bb64b-6fc7-4e1f-9848-11ba35e0df36"
+                    name="" /&gt;
+</codeblock>
+         <p>and all the definitions from the imported model get registered as belonging to the importing model.</p>
+         <dl>
+            <dlentry>
+               <dt>Add implicit type conversion of date to date and time when necessary</dt>
+               <dd>Implemented the following specification:</dd>
+            </dlentry>
+         </dl>
+         <p>
+            <i>In implicit type conversions, the data type is converted automatically without loss of information. There are several
+possible implicit type conversions:</i>
+         </p>
+         <ul>
+            <li>
+               <i>[…]</i>
+            </li>
+            <li>
+               <p>
+                  <i>from date to date and time: When the type of the expression is date and the target type is date and time, the expression is converted to a date time value in which the time of day is UTC midnight (00:00:00)</i>
+               </p>
+               <dl>
+                  <dlentry>
+                     <dt>Option to use alternative image for InputData</dt>
+                     <dd>Implemented the following specification:</dd>
+                  </dlentry>
+               </dl>
+            </li>
+         </ul>
+         <table>
+            <tgroup cols="2">
+               <colspec colname="col_1" colwidth="50*"/>
+               <colspec colname="col_2" colwidth="50*"/>
+               <thead>
+                  <row>
+                     <entry>Definition</entry>
+                     <entry>Behaviour</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>useAlternativeInputDataShape: Boolean [0..1]</p>
+                     </entry>
+                     <entry>
+                        <p>If the DMNShape depicts an Input Data element then it is represented either using the paper sheet symbol, harmonized with BPMN and CMMN notations (true) or using the backwards compatible oval symbol (false).</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <dl>
+            <dlentry>
+               <dt>Support new attribute typeConstraint in ItemDefinition</dt>
+               <dd>Implemented the following specification:</dd>
+            </dlentry>
+         </dl>
+         <table>
+            <tgroup cols="2">
+               <colspec colname="col_1" colwidth="50*"/>
+               <colspec colname="col_2" colwidth="50*"/>
+               <thead>
+                  <row>
+                     <entry>Definition</entry>
+                     <entry>Behaviour</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>typeConstraint: UnaryTests [0..1]</p>
+                     </entry>
+                     <entry>
+                        <p>This attribute is a UnaryTests that restricts the values in the base type that are allowed in this ItemDefinition. In case of a collection, it directly constrains the collection and is not projected on the collection elements.</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <p>These new feature allows an interesting use case, i.e. filtering a base type based on its value, and then filtering a collection of the above element based on size (or other attribute) of the  collection itself.</p>
+         <p>Example</p>
+         <codeblock outputclass="language-xml">
+&lt;dmn:itemDefinition label="tInterest" name="tInterest"&gt;
+      &lt;dmn:typeRef&gt;string&lt;/dmn:typeRef&gt;
+      &lt;dmn:typeConstraint &gt;
+        &lt;dmn:text&gt;"Golf","Computer","Hockey","Jogging"&lt;/dmn:text&gt;
+     &lt;/dmn:typeConstraint&gt;
+&lt;/dmn:itemDefinition&gt;
+&lt;dmn:itemDefinition isCollection="true" label="tInterests" name="tInterests"&gt;
+      &lt;dmn:typeRef&gt;tInterest&lt;/dmn:typeRef&gt;
+      &lt;dmn:typeConstraint &gt;
+       &lt;dmn:text&gt; count (?) = 1 &lt;/dmn:text&gt;
+     &lt;/dmn:typeConstraint&gt;
+&lt;/dmn:itemDefinition&gt;
+</codeblock>
+         <p>Note, that the <tt>allowedValues</tt> tag has been deprecated in the 1.5 DMN version.</p>
+         <p outputclass="thematic-break"/>
+         <p>For official DMN specifications, see the OMG <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+      </section>
+   </body>
+</topic>

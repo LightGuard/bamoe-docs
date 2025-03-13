@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="intro-editing-testing">
+   <title>Editing and testing business models</title>
+   <body>
+      <p>BAMOE provides an editing and testing environment to develop and test your DMN decisions and BPMN processes, that integrates with your Browser or with VS Code development environment.</p>
+      <p>This section describes how to use the editing and testing functionality:</p>
+      <ul>
+         <li>
+            <xref href="creating-new-projects.html">Creating new projects</xref> - describes how to create your new projects.</li>
+         <li>
+            <xref href="authoring-decisions.html">Authoring Decisions</xref> - describes how to use the New DMN Editor to edit your DMN 1.5 and differences with the classic DMN Editor.</li>
+         <li>
+            <xref href="running-decisions.html">Running Decisions</xref> - describes how to test your Decisions as you are developing them using the DMN Runner.</li>
+         <li>
+            <xref href="authoring-rules.html">Authoring Rules</xref> - describes how to create business rules with the DRL format.</li>
+         <li>
+            <xref href="authoring-scesim.html">Authoring Test Scenario</xref> - describes how to create scenario simulation models to verify created models</li>
+         <li>
+            <xref href="dmn.html">DMN reference</xref> - describes the DMN elements available in BAMOE</li>
+      </ul>
+   </body>
+</topic>

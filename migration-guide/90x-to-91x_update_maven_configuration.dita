@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_update_maven_configuration">
+   <title>Update Maven configuration</title>
+   <body>
+      <title>Update Maven configuration</title>
+      <p>
+         <xref href="http://maven.apache.org" scope="external">Apache Maven</xref> is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage the build, reporting and documentation of a project from a central piece of information.
+IBM Business Automation Manager Open Editions depends on Maven to build various types of deployable artifacts, such as decision service applications.
+For a quick start, see the <xref href="http://maven.apache.org/guides/getting-started/" scope="external">Maven Quick Start Guide</xref>.</p>
+      <p>Since BAMOE version 9.1.1 is based on Quarkus 3, the easiest route is to use the Quarkus Maven Plugin and adjust some of the details in the generated project to align it with BAMOE dependencies and plugins.
+You can read all about <b>Quarkus and Maven</b>
+         <xref href="https://quarkus.io/guides/maven-tooling" scope="external">here</xref>.</p>
+      <div conref="90x-to-91x_update_maven_settings.dita">_update_maven_settings</div>
+   </body>
+</topic>

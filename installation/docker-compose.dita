@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="docker-compose">
+   <title>Using Docker Compose</title>
+   <body>
+      <p>BAMOE Canvas and its related services can be run on a single machine using <tt>Docker Compose for BAMOE Canvas</tt>.</p>
+      <section id="_prerequisites">
+         <title>Prerequisites</title>
+         <p>You need Docker and Docker Compose to run the BAMOE Canvas.
+See <xref href="https://docs.docker.com/get-docker/" scope="external">Docker Installation</xref> and <xref href="https://docs.docker.com/compose/install/" scope="external">Compose Plugin Installation</xref> for more information.</p>
+         <p>The <tt>bamoe-9.1.x-docker-compose.zip</tt> can only be downloaded from IBM Passport Advantage, and you can find information on the <xref href="https://www.ibm.com/support/pages/node/7151078" scope="external">Support and Download Page</xref>.</p>
+      </section>
+      <section id="_run">
+         <p>To Run BAMOE Canvas with Docker Compose follow these steps:</p>
+         <ol>
+            <li>Extract the downloaded <tt>bamoe-9.1.x-docker-compose.zip</tt>.</li>
+            <li>In a terminal, navigate to the extracted folder: <tt>bamoe-9.1.x-canvas-docker-compose</tt>.</li>
+            <li>
+               <p>Run the command:</p>
+               <codeblock outputclass="language-shell">
+$ docker compose up
+</codeblock>
+            </li>
+         </ol>
+         <p>BAMOE Canvas will be available at <xref href="http://localhost:9090" scope="external">http://localhost:9090</xref>.</p>
+      </section>
+   </body>
+</topic>

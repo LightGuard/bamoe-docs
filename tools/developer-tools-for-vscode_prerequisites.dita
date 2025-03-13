@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_prerequisites">
+   <title>Prerequisites</title>
+   <body>
+      <title>Prerequisites</title>
+      <ul>
+         <li>BAMOE Developer Tools 9.1.1</li>
+         <li>VSCode (1.66.0+)</li>
+         <li>Language Support for Java™ by Red Hat (1.31+) VSCode extension</li>
+         <li>Your domain’s Java Classes;</li>
+         <li>The Activator, a Java class file (Activator.java) required to activate the functionality;</li>
+      </ul>
+   </body>
+</topic>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_creating_spreadsheet_decision_tables_for_your_ibm_bamoe_project">
+   <title>Creating spreadsheet decision tables for your IBM BAMOE project</title>
+   <body>
+      <p>Spreadsheet decision tables (XLS or XLSX) require two key areas that define rule data: a <tt>RuleSet</tt> area and a <tt>RuleTable</tt> area. The <tt>RuleSet</tt> area of the spreadsheet defines elements that you want to apply globally to all rules in the same package (not only the spreadsheet), such as a rule set name or universal rule attributes. The <tt>RuleTable</tt> area defines the actual rules (rows) and the conditions, actions, and other rule attributes (columns) that constitute that rule table within the specified rule set. A spreadsheet of decision tables can contain multiple <tt>RuleTable</tt> areas, but only one <tt>RuleSet</tt> area.</p>
+      <note type="important">
+For each IBM BAMOE project, try to include only one spreadsheet of decision tables, containing all necessary <tt>RuleTable</tt> definitions. Although you can include separate decision table spreadsheets, including multiple spreadsheets in the same project package can cause compilation errors from conflicting <tt>RuleSet</tt> or <tt>RuleTable</tt> attributes and is therefore not recommended.
+</note>
+      <p>Using the example in the previous section, <xref href="#spreadsheet_decision_table_example"/>, create a decision table from the spreadsheet.</p>
+      <p outputclass="title">
+         <b>Prerequisites</b>
+      </p>
+      <ul>
+         <li>You have <tt>org.kie.kogito:drools-decisiontables</tt> added to the <tt>pom.xml</tt> file of your IBM BAMOE project to enable decision tables for decision services:</li>
+      </ul>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>In a new XLS or XLSX spreadsheet, go to the second or third column and label a cell <tt>RuleSet</tt> (row 1 in example). Reserve the column or columns to the left for descriptive metadata (optional).</li>
+         <li>In the next cell to the right, enter a name for the <tt>RuleSet</tt>. This named rule set will contain all <tt>RuleTable</tt> rules defined in the rule package.</li>
+         <li>Under the <tt>RuleSet</tt> cell, define any rule attributes (one per cell) that you want to apply globally to all rule tables in the package. Specify attribute values in the cells to the right. For example, you can enter an <tt>Import</tt> label and in the cell to the right, specify relevant data objects from other packages that you want to import into the package for the decision table (in the format <tt>package.name.object.name</tt>).</li>
+         <li>Below the <tt>RuleSet</tt> area and in the same column as the <tt>RuleSet</tt> cell, skip a row and label a new cell <tt>RuleTable</tt> (row 7 in example) and enter a table name in the same cell. The name is used as the initial part of the name for all rules derived from this rule table, with the row number appended for distinction. You can override this automatic naming by inserting a <tt>NAME</tt> attribute column.</li>
+         <li>
+            <p>Use the next four rows to define the following elements as needed (rows 8-11 in example):</p>
+            <ul>
+               <li>
+                  <b>Rule attributes:</b> Conditions, actions, or other attributes.</li>
+               <li>
+                  <b>Object types:</b> The data objects to which the rule attributes apply. If the same object type applies to multiple columns, merge the object cells into one cell across multiple columns (as shown in the sample decision table), instead of repeating the object type in multiple cells. When an object type is merged, all columns below the merged range will be combined into one set of constraints within a single pattern for matching a single fact at a time. When an object is repeated in separate columns, the separate columns can create different patterns, potentially matching different or identical facts.</li>
+               <li>
+                  <b>Constraints:</b> Constraints on the object types.</li>
+               <li>
+                  <p>
+                     <b>Column label:</b> (Optional) Any descriptive label for the column, as a visual aid. Leave blank if unused.</p>
+                  <note type="note">
+As an alternative to populating both the object type and constraint cells, you can leave the object type cell or cells empty and enter the full expression in the corresponding constraint cell or cells. For example, instead of <tt>Order</tt> as the object type and <tt>itemsCount &gt; $1</tt> as a constraint (separate cells), you can leave the object type cell empty and enter <tt>Order( itemsCount &gt; $1 )</tt> in the constraint cell, and then do the same for other constraint cells.
+</note>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>After you have defined all necessary rule attributes (columns), enter values for each column as needed, row by row, to generate rules (rows 12-17 in example). Cells with no data are ignored (such as when a condition or action does not apply).</p>
+            <p>If you need to add more rule tables to this decision table spreadsheet, skip a row after the last rule in the previous table, label another <tt>RuleTable</tt> cell in the same column as the previous <tt>RuleTable</tt> and  <tt>RuleSet</tt> cells, and create the new table following the same steps in this section (rows 19-29 in example).</p>
+         </li>
+         <li>Save your XLS or XLSX spreadsheet to finish.</li>
+         <li>In your VSCode IDE, import the XLS or XLSX spreadsheet file in the relevant folder of your IBM BAMOE project, typically in <tt>src/main/resources</tt>.</li>
+      </ol>
+      <note type="note">
+Only the first worksheet in a spreadsheet workbook is processed as a decision table when you include the spreadsheet in your IBM BAMOE project. Each <tt>RuleSet</tt> name combined with the <tt>RuleTable</tt> name must be unique across all decision table files in the same package.
+</note>
+      <p>After you include the decision table in your IBM BAMOE project, the rules are interpreted as DRL rules like the following example, from the sample spreadsheet:</p>
+      <codeblock outputclass="language-drl">
+//row 12
+rule "Basic_12"
+salience 10
+  when
+    $order : /orders[ itemsCount &gt; 0, itemsCount &lt;= 3, deliverInDays == 1 ]
+  then
+    insert( new Charge( 35 ) );
+end
+</codeblock>
+      <note type="note">
+         <p>By default, any white space before or after values in decision table cells is removed before the decision table is processed by the decision engine. To retain white space that you use intentionally before or after values in cells, set the <tt>drools.trimCellsInDTable</tt> system property to <tt>false</tt> in the <tt>application.properties</tt> file of your IBM BAMOE project:</p>
+         <p outputclass="title">
+            <b>Enable white space in <tt>application.properties</tt>
+            </b>
+         </p>
+         <codeblock>
+drools.trimCellsInDTable=false
+</codeblock>
+         <p>You can also set this property as a start-up option when you build your IBM BAMOE project:</p>
+         <p outputclass="title">
+            <b>On Quarkus</b>
+         </p>
+         <codeblock>
+mvn compile quarkus:dev -Ddrools.trimCellsInDTable=false
+</codeblock>
+      </note>
+   </body>
+</topic>

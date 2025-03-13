@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ref-dmn-model-example">
+   <title>DMN model example</title>
+   <body>
+      <p>The following is a real-world DMN model example that demonstrates how you can use decision modeling to reach a decision based on input data, circumstances, and company guidelines. In this scenario, a flight from San Diego to New York is canceled, requiring the affected airline to find alternate arrangements for its inconvenienced passengers.</p>
+      <p>First, the airline collects the information necessary to determine how best to get the travelers to their destinations:</p>
+      <dl>
+         <dlentry>
+            <dt>Input data</dt>
+            <dd>
+               <ul>
+                  <li>List of flights</li>
+                  <li>List of passengers</li>
+               </ul>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Decisions</dt>
+            <dd>
+               <ul>
+                  <li>Prioritize the passengers who will get seats on a new flight</li>
+                  <li>Determine which flights those passengers will be offered</li>
+               </ul>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Business knowledge models</dt>
+            <dd>
+               <ul>
+                  <li>The company process for determining passenger priority</li>
+                  <li>Any flights that have space available</li>
+                  <li>Company rules for determining how best to reassign inconvenienced passengers</li>
+               </ul>
+            </dd>
+         </dlentry>
+      </dl>
+      <p>The airline then uses the DMN standard to model its decision process in the following decision requirements diagram (DRD) for determining the best rebooking solution:</p>
+      <fig>
+         <title>DRD for flight rebooking</title>
+         <image href="../images/dmn-passenger-rebooking-drd.png" placement="break">
+            <alt>dmn passenger rebooking drd</alt>
+         </image>
+      </fig>
+      <p>Similar to flowcharts, DRDs use shapes to represent the different elements in a process. Ovals contain the two necessary input data, rectangles contain the decision points in the model, and rectangles with clipped corners (business knowledge models) contain reusable logic that can be repeatedly invoked.</p>
+      <p>The DRD draws logic for each element from boxed expressions that provide variable definitions using FEEL expressions or data type values.</p>
+      <p>Some boxed expressions are basic, such as the following decision for establishing a prioritized waiting list:</p>
+      <fig>
+         <title>Boxed context expression example for prioritized wait list</title>
+         <image href="../images/dmn-context-expression-example.png" placement="break">
+            <alt>dmn context expression example</alt>
+         </image>
+      </fig>
+      <p>Some boxed expressions are more complex with greater detail and calculation, such as the following business knowledge model for reassigning the next delayed passenger:</p>
+      <fig>
+         <title>Boxed function expression for passenger reassignment</title>
+         <image href="../images/dmn-reassign-passenger.png" placement="break">
+            <alt>dmn reassign passenger</alt>
+         </image>
+      </fig>
+      <p>You can find the DMN source file for this decision model on <xref href="https://raw.githubusercontent.com/apache/incubator-kie-drools/8.40.0.Final/kie-dmn/kie-dmn-core/src/test/resources/org/kie/dmn/core/0019-flight-rebooking.dmn" scope="external">
+            <b>github</b>
+         </xref> .</p>
+   </body>
+</topic>

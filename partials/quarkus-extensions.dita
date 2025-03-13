@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="quarkus-extensions">
+   <title/>
+   <body>
+      <table>
+         <title>Quarkus Extensions</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="16.6666*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="50.0001*"/>
+            <thead>
+               <row>
+                  <entry>Extension Name</entry>
+                  <entry>Description</entry>
+                  <entry>Maven Snippet</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>kogito-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>Adds support for Quarkus</p>
+                  </entry>
+                  <entry>
+                     <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+    &lt;artifactId&gt;kogito-quarkus&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>drools-quarkus-rules</p>
+                  </entry>
+                  <entry>
+                     <p>Adds Quarkus support for Drools Rule Language (DRL)</p>
+                  </entry>
+                  <entry>
+                     <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.drools&lt;/groupId&gt;
+    &lt;artifactId&gt;drools-quarkus-rules&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>drools-quarkus-decisions</p>
+                  </entry>
+                  <entry>
+                     <p>Adds Quarkus support for Decision Modeling &amp; Notation (DMN)</p>
+                  </entry>
+                  <entry>
+                     <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.drools&lt;/groupId&gt;
+    &lt;artifactId&gt;drools-quarkus-decisions&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <note type="tip">
+         <p>You can utilize the following link to obtain more information regarding the various <xref href="https://quarkus.io/extensions/" scope="external">Quarkus Extensions</xref> availble to you.</p>
+      </note>
+      <note type="note">
+         <p>Some product dependencies, including extensions, <b>may</b> be renamed in the next release.</p>
+      </note>
+   </body>
+</topic>

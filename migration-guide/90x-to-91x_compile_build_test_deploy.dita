@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_compile_build_test_deploy">
+   <title>Compile, Build, Test, Deploy</title>
+   <body>
+      <p>You can follow the standard guidance on how to maintain your decision service project, including how to build using Maven and how to deploy to your target Kubernetes-based environment.
+This includes not only creating and publishing the new project to an enterprise GIT repository but also configuring your CI/CD pipeline to pull from GIT and performing a Maven build/test/deploy, etc.</p>
+      <note type="note">
+         <p>After completing the migration of the project, you might want to consider migrating your technical rules to use new language features, such as <tt>rule units</tt> and <tt>OOPATH syntax</tt>.
+Refer to <xref href="drl.html">Drools Rule Language Migration</xref> for information on migrating to the latest version of Drools Rule Language (DRL).</p>
+      </note>
+   </body>
+</topic>

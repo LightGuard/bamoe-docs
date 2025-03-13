@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_the_editor">
+   <title>The Editor</title>
+   <body>
+      <p>This section describes how to use the New DMN Editor.</p>
+      <fig>
+         <title>New DMN Editor</title>
+         <image href="../images/tools/authoringDecisions/new-editor-overview.png" placement="break">
+            <alt>720</alt>
+         </image>
+      </fig>
+      <p>The Diagram and Boxed Expression Editor can be accessed via the Editor tab (A).
+The data types editor can be accessed via the Data Types tab (B) and included models can be managed via the Included Models tab (C).</p>
+   </body>
+</topic>

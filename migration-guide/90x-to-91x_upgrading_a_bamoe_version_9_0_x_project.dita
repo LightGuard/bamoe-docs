@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_upgrading_a_bamoe_version_9_0_x_project">
+   <title>Upgrading a BAMOE version 9.0.x project</title>
+   <body>
+      <p>Upgrading a BAMOE version 9.0.x project to version 9.1.1 is straightforward.
+The project structure hasn’t changed, updates only need to be made to the project versions, some dependency names, and files.</p>
+      <ol>
+         <li>
+            <p>Upgrade the Quarkus version.</p>
+            <p>In the BAMOE version 9.0.x the Quarkus version was 2.16 and for version 9.1.1 it is 3.8.6.
+To make this upgrade, open the <tt>pom.xml</tt> file and do the following change:</p>
+            <codeblock outputclass="language-xml">
+ ---   &lt;quarkus-plugin.version&gt;2.16.10.Final&lt;/quarkus-plugin.version&gt;
+ +++   &lt;quarkus-plugin.version&gt;3.8.6&lt;/quarkus-plugin.version&gt;
+       &lt;quarkus.platform.artifact-id&gt;quarkus-bom&lt;/quarkus.platform.artifact-id&gt;
+       &lt;quarkus.platform.group-id&gt;io.quarkus&lt;/quarkus.platform.group-id&gt;
+ ---   &lt;quarkus.platform.version&gt;2.16.12.Final&lt;/quarkus.platform.version&gt;
+ +++   &lt;quarkus.platform.version&gt;3.8.6&lt;/quarkus.platform.version&gt;
+</codeblock>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Upgrade the BOM and Kogito versions.</p>
+            <p>Previously, the BAMOE version 9.0.x used the BOM version 9.0.1.Final and Kogito version 1.40.2.Final.
+Now, both versions are 9.1.1-ibm-0003.
+Update the following lines in your <tt>pom.xml</tt>:</p>
+            <codeblock outputclass="language-xml">
+       &lt;kogito.bom.artifact-id&gt;bamoe-bom&lt;/kogito.bom.artifact-id&gt;
+ ---   &lt;kogito.bom.version&gt;9.0.1.Final&lt;/kogito.bom.version&gt;
+ ---   &lt;version.org.kie.kogito&gt;1.40.2.Final&lt;/version.org.kie.kogito&gt;
+ +++   &lt;kogito.bom.version&gt;9.1.1-ibm-0003&lt;/kogito.bom.version&gt;
+ +++   &lt;version.org.kie.kogito&gt;9.1.1-ibm-0003&lt;/version.org.kie.kogito&gt;
+</codeblock>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Update the dependencies GAV.</p>
+            <p>In the BAMOE version 9.1.1 some dependencies had a slight name change, see section, 'Maven libraries mapping guide' in <xref href="../installation/upgrading.dita">Upgrading</xref> and update accordingly.</p>
+            <p>One of the renamed dependencies is the <tt>groupdId=org.kie.kogito</tt> and <tt>artifactId=kogito-quarkus</tt>, which was renamed to <tt>groupdId=org.jbpm</tt> and <tt>jbpm-with-drools-quarkus</tt>.</p>
+            <codeblock outputclass="language-xml">
+       &lt;dependency&gt;
+ ---     &lt;groupId&gt;org.kie.kogito&lt;/groupId&gt;
+ ---     &lt;artifactId&gt;kogito-quarkus&lt;/artifactId&gt;
+ +++     &lt;groupId&gt;org.jbpm&lt;/groupId&gt;
+ +++     &lt;artifactId&gt;jbpm-with-drools-quarkus&lt;/artifactId&gt;
+       &lt;/dependency&gt;
+</codeblock>
+            <p>Bear in mind that it is required to make changes to any parent <tt>pom.xml</tt> if applied, but this will not be covered here as it depends on your project setup.
+This ends the <tt>pom.xml</tt> changes, next, files that need changes</p>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Update the <tt>application.properties</tt> file.</p>
+            <p>BAMOE version 9.1.1 does not fully support the Quarkus Dev Services, due to that, it is required to disable this feature and to do that, add the following line to the <tt>src/main/resources/application.properties</tt> file:</p>
+            <codeblock>
+ +++ quarkus.devservices.enabled=false
+</codeblock>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Migrating the code to Quarkus 3.</p>
+            <p>A major Quarkus 3 change, is the usage of Jakarta EE 10, meaning that package imports also need to update from <tt>javax</tt> to <tt>jakarta</tt>.</p>
+            <p>This is simply achieved by replacing any <tt>javax</tt> instance over <tt>jarkarta</tt>, like the following:</p>
+            <codeblock>
+ --- import javax.inject.Named;
+ +++ import jakarta.inject.Named;
+</codeblock>
+            <note type="note">
+               <p>Refer <xref href="https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.0" scope="external">Quarkus v3 migration guide</xref> for any other change that is related to Quarkus.</p>
+            </note>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Build the project in the root folder:</p>
+            <codeblock outputclass="language-console">
+mvn clean package
+</codeblock>
+            <p>You might get Maven streaming text once again, and at the end of it you must have:</p>
+            <codeblock outputclass="language-console">
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.023 s
+[INFO] Finished at: 2024-06-11T17:09:00-03:00
+[INFO] ------------------------------------------------------------------------
+</codeblock>
+            <p>Now, you can start using your BAMOE version 9.1.1 project.</p>
+         </li>
+      </ol>
+   </body>
+</topic>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_auto_generated_knative_resources">
+   <title>Auto-generated Knative resources</title>
+   <body>
+      <title>Auto-generated Knative resources</title>
+      <p>The Knative Eventing add-on can generate Knative Eventing resources by inspecting your BPMN or Serverless Workflow files for event definitions.</p>
+      <p>To enable the auto-generation of Knative resources, add the following dependency to your project:</p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+  &lt;artifactId&gt;quarkus-kubernetes&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p>After adding the previous dependency, the add-on generates Knative Eventing resources to handle the events that are produced or consumed by your BPMN or Serverless Workflow resources on Knative Eventing platform.</p>
+      <p>For each consumed event, the add-on generates a <xref href="https://knative.dev/docs/eventing/broker/triggers/" scope="external">Knative Eventing Trigger</xref> as shown in the following example:</p>
+      <p outputclass="title">
+         <b>Example Knative <tt>Trigger</tt> custom resource for a IBM BAMOE service with <tt>Broker</tt> binding</b>
+      </p>
+      <codeblock outputclass="language-yaml">
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: travellers-trigger-process-knative-quickstart-quarkus
+spec:
+  broker: default
+  filter:
+    attributes:
+      type: travellers
+  subscriber:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: process-knative-quickstart-quarkus
+</codeblock>
+      <p>The <tt>Trigger</tt> resource requires a subscriber to receive the events that are routed by the <tt>Broker</tt>. In this case, the current IBM BAMOE service work as a subscriber, and the Knative Eventing add-on uses the IBM BAMOE service deployment, which is configured by Quarkus Kubernetes.</p>
+      <p>If a <tt>Broker</tt> is not specified, the Knative Eventing add-on generates a default <tt>InMemoryChannel</tt> as follows:</p>
+      <p outputclass="title">
+         <b>Example <tt>Broker</tt> custom resource for Knative Eventing with default <tt>InMemoryChannel</tt>
+         </b>
+      </p>
+      <codeblock outputclass="language-yaml">
+apiVersion: eventing.knative.dev/v1
+kind: Broker
+metadata:
+  name: default
+</codeblock>
+      <p>If a <tt>Broker</tt> is configured in the target namespace, you can specify the <tt>Broker</tt> using the following property:
+<tt>org.kie.kogito.addons.knative.eventing.broker=myKafkaBroker</tt>.</p>
+      <p>If the IBM BAMOE service contains any produced event definitions, the Knative Eventing add-on generates a <xref href="https://knative.dev/development/eventing/custom-event-source/sinkbinding/" scope="external">Knative Eventing <tt>SinkBinding</tt>
+         </xref>, or a <xref href="https://github.com/knative-sandbox/eventing-kogito#kogito-source" scope="external">Knative Eventing <tt>KogitoSource</tt>
+         </xref>. By default, the <tt>SinkBinding</tt> is generated, but you can change this behavior by setting <tt>org.kie.kogito.addons.knative.eventing.generate-kogito-source</tt> property to <tt>true</tt>.</p>
+      <p outputclass="title">
+         <b>Example <tt>SinkBinding</tt> custom resource for Knative Eventing</b>
+      </p>
+      <codeblock outputclass="language-yaml">
+apiVersion: sources.knative.dev/v1
+kind: SinkBinding
+metadata:
+  name: sb-process-knative-quickstart-quarkus
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+  subject:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: process-knative-quickstart-quarkus
+</codeblock>
+      <p outputclass="title">
+         <b>Example <tt>KogitoSource</tt> custom resource for Knative Eventing</b>
+      </p>
+      <codeblock outputclass="language-yaml">
+apiVersion: kogito.knative.dev/v1alpha1
+kind: KogitoSource
+metadata:
+  name: process-knative-quickstart-quarkus
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: default
+      namespace: ""
+  subject:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: process-knative-quickstart-quarkus
+</codeblock>
+      <p>The target deployment defined in the Quarkus Kubernetes plugin work as the subject for <tt>SinkBinding</tt> and <tt>KogitoSource</tt>. You can configure the <tt>sink</tt> using the application properties. By default, the generated <tt>Broker</tt> is defined as the <tt>sink</tt>.</p>
+      <p>The following table lists all the available properties for the Knative Eventing add-on:</p>
+      <table>
+         <title>IBM BAMOE Knative Eventing Add-on  properties</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="55.5555*"/>
+            <colspec colname="col_2" colwidth="22.2222*"/>
+            <colspec colname="col_3" colwidth="22.2223*"/>
+            <thead>
+               <row>
+                  <entry>Property</entry>
+                  <entry>Description</entry>
+                  <entry>Example value</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.sink.namespace</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property for set sink namespace</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>default</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.sink.name</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property to set sink name</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>my-sink</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.sink.api-version</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property to set Kubernetes API version of the sink</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>eventing.knative.dev/v1</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.sink.kind</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property to set Kubernetes resource kind of the sink</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>Broker</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.broker</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property to set name of the pre-defined Broker</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>myKafkaBroker</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.generate-kogito-source</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property to enable the generation of <tt>KogitoSource</tt> instead of <tt>SinkBinding</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>false</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>org.kie.kogito.addons.knative.eventing.auto-generate-broker</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Property to enable the generation of default in-memory Broker</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>For more information about the Knative Eventing add-on, see the following example applications:</p>
+      <ul>
+         <li>
+            <xref href="https://github.com/apache/incubator-kie-kogito-examples/tree/main/serverless-workflow-examples/serverless-workflow-order-processing" scope="external">Serverless Workflow Order Processing</xref>
+         </li>
+         <li>
+            <xref href="https://github.com/apache/incubator-kie-kogito-examples/tree/main/kogito-quarkus-examples/process-knative-quickstart-quarkus" scope="external">Process Knative Eventing</xref>
+         </li>
+      </ul>
+   </body>
+</topic>

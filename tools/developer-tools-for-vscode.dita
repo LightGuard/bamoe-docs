@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="developer-tools-for-vscode">
+   <title>Developer Tools for VS Code</title>
+   <body>
+      <p>BAMOE provides a useful VS Code Extension that bundles graphical Editors for BPMN, DMN files, and SCESIM files.
+The BAMOE Developer Tools extension can be downloaded from the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">VS Code Marketplace</xref>.</p>
+      <p>The bundled BPMN, DMN and Test Scenario Editors are made available through the KIE DMN Editor and KIE BPMN Editor extensions, and they include the same features that are available on BAMOE Canvas.
+Static file validation, DMN Runner, and Dev Deployments are not available for BAMOE Developer Tools, however it is possible to get a similar experience of DMN Runner with the Test Scenario Editor.
+For more information see below.</p>
+      <section id="_dmn_editor">
+         <title>DMN Editor</title>
+         <p>In BAMOE Developer Tools you can consume DMN files in the following ways:</p>
+         <ul>
+            <li>
+               <p>
+                  <b>New DMN Editor</b>:</p>
+               <image href="../images/developer-tools/dmn-editor-new.gif" placement="break">
+                  <alt>dmn editor new</alt>
+               </image>
+               <p>Since BAMOE 9.1.1 a new DMN Editor is available. That is implemented with a modern technologies stack and with native support of DMN 1.5 specifications. This new editor can open 1.2, 1.3, 1.4, and 1.5 DMN file versions, and it automatically saves them to DMN 1.5. If you are upgrading from a previous BAMOE version (e.g. 9.0.0 or 8.0.x), your DMN files will be automatically converted to DMN 1.5 version without any loss of logic.</p>
+            </li>
+            <li>
+               <p>
+                  <b>Classic DMN Editor</b>:</p>
+               <image href="../images/developer-tools/dmn-editor-classic.gif" placement="break">
+                  <alt>dmn editor classic</alt>
+               </image>
+               <p>This is the classic version of the DMN Editor inherited from BAMOE 8.0.x. This editor can open 1.1, 1.2, and 1.3 DMN file versions only, and it saves them to version 1.2.</p>
+               <note type="note">
+The Classic DMN Editor should be considered a deprecated tool. That means, no new feature will land in this editor version and it will be eventually removed in a future BAMOE version.
+</note>
+            </li>
+         </ul>
+         <p>The new Editor is currently set as the default choice for DMN assets. The steps to switch to the classic Editor are:</p>
+         <image href="../images/developer-tools/dmn-editor-switch-version.png" placement="break">
+            <alt>dmn editor switch version</alt>
+         </image>
+         <ol>
+            <li>Right-click on the currently opened DMN file tab</li>
+            <li>Select <tt>Reopen Editor with…​</tt>
+            </li>
+            <li>Select <tt>BAMOE DMN Editor (classic)</tt>
+            </li>
+            <li>In the same menu, it’s possible selecting <tt>Configure default editor for '*.dmn'…​</tt> to change the default editor in your local machine</li>
+         </ol>
+      </section>
+      <section id="_importing_dmn_data_types_from_java_classes">
+         <p>BAMOE Developer Tools allows you to create DMN Data Types directly from Java POJOs. This step-by-step guide aims to describe how effectively using it.</p>
+         <note type="note">
+This feature is currently available in the Classic DMN Editor only.
+</note>
+         <div conref="developer-tools-for-vscode_prerequisites.dita">_prerequisites</div>
+         <div conref="developer-tools-for-vscode_project_setup.dita">_project_setup</div>
+         <div conref="developer-tools-for-vscode_importing_your_java_classes_as_dmn_types.dita">_importing_your_java_classes_as_dmn_types</div>
+      </section>
+      <section id="_running_unit_tests_with_test_scenario">
+         <p>Running the unit test with Test scenarios enable you to validate the functionality of business decisions and business decision data during project development. Test Scenario models can be created and modified with VS Code Extension.</p>
+         <div conref="developer-tools-for-vscode_setup_and_creation_of_test_scenarios.dita">_setup_and_creation_of_test_scenarios</div>
+         <div conref="developer-tools-for-vscode_executing_the_test_scenario.dita">_executing_the_test_scenario</div>
+      </section>
+   </body>
+</topic>

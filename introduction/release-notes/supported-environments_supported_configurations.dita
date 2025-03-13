@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_supported_configurations">
+   <title>Supported configurations</title>
+   <body>
+      <title>Supported configurations</title>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>JAVA Virtual Machine</entry>
+                  <entry>Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>OPENJDK</p>
+                  </entry>
+                  <entry>
+                     <p>17</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Adoptium Open JDK</p>
+                  </entry>
+                  <entry>
+                     <p>17</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>IBM Semeru Runtime Open Edition</p>
+                  </entry>
+                  <entry>
+                     <p>17.0.11.0</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>GraalVM Community Edition for JDK *</p>
+                  </entry>
+                  <entry>
+                     <p>17</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>3.8.6</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>*GraalVM support is limited to native-image for native compilation.</p>
+   </body>
+</topic>

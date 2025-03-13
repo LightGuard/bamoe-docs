@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-decision-tables-hit-policies">
+   <title>Hit policies in DMN decision tables</title>
+   <body>
+      <title>Hit policies in DMN decision tables</title>
+      <p>Hit policies determine how to reach an outcome when multiple rules in a decision table match the provided input values. For example, if one rule in a decision table applies a sales discount to military personnel and another rule applies a discount to students, then when a customer is both a student and in the military, the decision table hit policy must indicate whether to apply one discount or the other (<b>Unique</b>, <b>First</b>) or both discounts (<b>Collect Sum</b>). You specify the single character of the hit policy (<b>U</b>, <b>F</b>, <b>C+</b>) in the upper-left corner of the decision table.</p>
+      <p>The following decision table hit policies are supported in DMN:</p>
+      <ul>
+         <li>
+            <b>Unique (U):</b> Permits only one rule to match. Any overlap raises an error.</li>
+         <li>
+            <b>Any (A):</b> Permits multiple rules to match, but they must all have the same output. If multiple matching rules do not have the same output, an error is raised.</li>
+         <li>
+            <b>Priority (P):</b> Permits multiple rules to match, with different outputs. The output that comes first in the output values list is selected.</li>
+         <li>
+            <b>First (F):</b> Uses the first match in rule order.</li>
+         <li>
+            <p>
+               <b>Collect (C+, C&gt;, C&lt;, C#):</b> Aggregates output from multiple rules based on an aggregation function.</p>
+            <ul>
+               <li>
+                  <b>Collect ( C ):</b> Aggregates values in an arbitrary list.</li>
+               <li>
+                  <b>Collect Sum (C+):</b> Outputs the sum of all collected values. Values must be numeric.</li>
+               <li>
+                  <b>Collect Min (C&lt;):</b> Outputs the minimum value among the matches. The resulting values must be comparable, such as numbers, dates, or text (lexicographic order).</li>
+               <li>
+                  <b>Collect Max (C&gt;):</b> Outputs the maximum value among the matches. The resulting values must be comparable, such as numbers, dates or text (lexicographic order).</li>
+               <li>
+                  <b>Collect Count (C#):</b> Outputs the number of matching rules.</li>
+            </ul>
+         </li>
+      </ul>
+   </body>
+</topic>

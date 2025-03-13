@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="release-notes-main">
+   <title>Release notes</title>
+   <body>
+      <p>The release notes contain information that is important for the successful installation and use of IBM Business Automation Manager Open Editions 9.1.x and its product modules and components.</p>
+      <ul>
+         <li>
+            <xref href="whats-new-9-1-1.dita">What’s new in 9.1.1</xref>
+         </li>
+         <li>
+            <xref href="whats-new-9-1-0.dita">What’s new in 9.1.0</xref>
+         </li>
+         <li>
+            <xref href="version-mapping-9-1-1.dita">Version mapping</xref>
+         </li>
+         <li>
+            <xref href="supported-environments.dita">Supported Environments</xref>
+         </li>
+         <li>
+            <xref href="fix-list.dita">Fix List</xref>
+         </li>
+         <li>
+            <xref href="known-limitations.dita">Known Limitations</xref>
+         </li>
+      </ul>
+   </body>
+</topic>

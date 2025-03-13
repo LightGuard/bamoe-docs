@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="create-custom-dev-deployment-image">
+   <title>Creating a custom Dev Deployment image</title>
+   <body>
+      <p>For convenience, one of the deployment options in BAMOE Canvas allows the user to input a custom image and a custom command to start the application once the upload is complete.</p>
+      <p>BAMOE Canvas expects a few things from a custom image to guarantee it can upload the project assets and manage the deployment on the Kubernetes/OpenShift cluster.</p>
+      <section id="_requirements">
+         <title>Requirements:</title>
+         <ol>
+            <li>Have the <xref href="dev-deployment-upload-service.html">Dev Deployment Upload Service</xref> binary installed and available globally, as BAMOE Canvas will override the default command from your image with <tt>dev-deployment-upload-service &amp;&amp; &lt;CUSTOM_COMMAND&gt;</tt> (<tt>&lt;CUSTOM_COMMAND&gt;</tt> is defined in the UI when deploying the image);</li>
+            <li>The image must expose port <tt>8080</tt>, and all services running on the container should listen to this port. This includes the <tt>dev-deployment-upload-service</tt>, which can be configured by setting the <tt>DEV_DEPLOYMENT__UPLOAD_SERVICE_PORT</tt> environment variable to <tt>8080</tt>;</li>
+            <li>After BAMOE Canvas uploads the assets to the <tt>dev-deployment-upload-service</tt> listening inside your image, and the service finishes unzipping and placing the files in the configured directory, it’s expected that an application will start and provide an endpoint <tt>/q/health</tt> that responds with <b>
+                  <tt>HTTP 200</tt>
+               </b> so that BAMOE Canvas can acknowledge that the application started successfully and is running;</li>
+         </ol>
+      </section>
+      <section id="_example_1_using_the_canvas_dev_deployment_base_image">
+         <p>The <tt>quay.io/bamoe/canvas-dev-deployment-base:9.1.1-ibm-0003</tt> image is used as a base since it already has the <tt>dev-deployment-upload-service</tt> pre-configured.</p>
+         <div conref="create-custom-dev-deployment-image_containerfile.dita">_containerfile</div>
+      </section>
+      <section id="_example_2_using_an_openjdk_base_image">
+         <p>Using the <tt>icr.io/appcafe/ibm-semeru-runtimes:open-17-jdk-ubi-minimal</tt> image as a base, create a Dev Deployment image that follows all the requirements listed above and results in a Quarkus app running with the project files uploaded by BAMOE Canvas.</p>
+         <div conref="create-custom-dev-deployment-image_containerfile_2.dita">_containerfile_2</div>
+      </section>
+      <section id="_using_the_custom_image_on_bamoe_canvas">
+         <p>For the following steps, assume the image tagged and pushed to <tt>quay.io/myUserName/myDevDeploymentImage:latest</tt>.</p>
+         <p>When creating a Dev Deployment on BAMOE Canvas, this modal will display:</p>
+         <fig>
+            <title>Deploy modal</title>
+            <image href="../images/tools/devDeployments/deployment-option-kogito-quarkus-blank-app.png" placement="break">
+               <alt>deployment option kogito quarkus blank app</alt>
+            </image>
+         </fig>
+         <p>By default, it uses the pre-configured <tt>Kogito Quarkus Blank App</tt> option.
+To use the custom image, open the dropdown and select <tt>Custom Image</tt>.</p>
+         <fig>
+            <title>Custom Image deployment option</title>
+            <image href="../images/tools/devDeployments/deployment-option-custom-image.png" placement="break">
+               <alt>deployment option custom image</alt>
+            </image>
+         </fig>
+         <p>Notice the <tt>Docker Image</tt> parameter; it must be changed to the custom image tag created (<tt>quay.io/myUserName/myDevDeploymentImage:latest</tt> in this example).</p>
+         <p>Also, notice the <tt>Command</tt> parameter; Its value is the command executed inside the <tt>$HOME_PATH/app</tt> directory after the upload step is finished.
+In other words, after the token interpolation is finished, the resulting command executed on the container will be <tt>dev-deployment-upload-service &amp;&amp; ./mvnw quarkus:dev</tt>.</p>
+         <p>This image does not provide the Maven binary globally, so it is not possible to call <tt>mvn</tt> directly. Instead, the image provides a Maven wrapper that can be called with <tt>./mvnw</tt> from the <tt>$HOME_PATH</tt> directory.</p>
+         <note type="important">
+            <p>When deploying to a local Kubernetes cluster configured via the Kubernetes Cluster Wizard from BAMOE Canvas, the <tt>Command</tt> will need a few more parameters for a Quarkus app:</p>
+            <p>
+               <tt>./mvnw quarkus:dev -Dquarkus.http.non-application-root-path=/${{ devDeployment.uniqueName }}/q -Dquarkus.http.root-path=/${{ devDeployment.uniqueName }}"</tt>
+            </p>
+            <p>When deploying to an OpenShift cluster, <tt>./mvnw quarkus:dev</tt> will work without any flags.</p>
+            <p>This is because the Ingress controller is configured to use sub-paths for each Dev Deployment instead of new subdomains on the Kubernetes cluster, verify that the Quarkus app conforms to these sub-paths.</p>
+         </note>
+      </section>
+   </body>
+</topic>

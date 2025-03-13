@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="version-mapping-v8">
+   <title/>
+   <body>
+      <table>
+         <title>Version Mapping for {PRODUCT} Version {VERSION_80}</title>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="25*"/>
+            <colspec colname="col_2" colwidth="25*"/>
+            <colspec colname="col_3" colwidth="25*"/>
+            <colspec colname="col_4" colwidth="25*"/>
+            <thead>
+               <row>
+                  <entry>IBM Product Version</entry>
+                  <entry>Red Hat Product Version (<i>maintenance only</i>)</entry>
+                  <entry>BOM Version</entry>
+                  <entry>Maven Library Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.0</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.0</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.0.redhat-00001</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00001</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.1</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.1</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.1.redhat-00001</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00003</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.2</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.2</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.2.redhat-00001</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00004</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.3</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.3</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.3.redhat-00002</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00006</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.4</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.4</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.4.redhat-00002</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00008</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.4-IF001</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.4</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.4.redhat-00003</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00014</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.5</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>RHPAM/RHDM 7.13.5</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.5.redhat-00001</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00017</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>IBM BAMOE 8.0.6</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>N/A</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>8.0.6.redhat-00006</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>7.67.2.Final-redhat-00025</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

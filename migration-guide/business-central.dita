@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="business-central">
+   <title>Migrating from Business Central to IBM BAMOE Developer Tools</title>
+   <body>
+      <section id="_overview">
+         <title>Overview</title>
+         <p>Business Central is the previous-generation web-based platform for authoring business automation assets such as data objects, rules, processes, cases and planning entities.
+It includes capabilities for monitoring, administration, and management of business automation assets.
+With the release of both IBM BAMOE Developer Tools and IBM BAMOE Canvas, most of the asset management capabilities were replaced or a different approach was taken.
+This section describes the migration of business assets created in Business Central so that developers can maintain them by using BAMOE Developer Tools, BAMOE Canvas or both.</p>
+      </section>
+      <section id="_prerequisites">
+         <p>The following tools are required to migrate from Business Central to BAMOE Developer Tools.
+It is assumed that you have a current version of Business Central running to export certain types of assets to their supported form in BAMOE:</p>
+         <ul>
+            <li>
+               <xref href="https://openjdk.org" scope="external">JDK 11</xref> or later is installed.</li>
+            <li>
+               <xref href="https://maven.apache.org" scope="external">Apache Maven 3.8.6</xref> or later is installed.</li>
+            <li>
+               <xref href="https://code.visualstudio.com/download" scope="external">Visual Studio Code IDE</xref> latest version</li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM BAMOE Developer Tools</xref> latest version of VS Code IDE extensions</li>
+         </ul>
+      </section>
+      <section id="_business_automation_assets_in_business_central">
+         <p>The following table focuses on business automation assets no longer supported in the new tools but available in Business Central.
+The table indicates how to manage assets in the absence of Business Central.</p>
+         <table>
+            <title>Business Central asset types</title>
+            <tgroup cols="5">
+               <colspec colname="col_1" colwidth="15.3846*"/>
+               <colspec colname="col_2" colwidth="7.6923*"/>
+               <colspec colname="col_3" colwidth="30.7692*"/>
+               <colspec colname="col_4" colwidth="23.0769*"/>
+               <colspec colname="col_5" colwidth="23.077*"/>
+               <thead>
+                  <row>
+                     <entry>Asset Name</entry>
+                     <entry>Asset Type</entry>
+                     <entry>Description</entry>
+                     <entry>Version 9.1.1 Supported Tools</entry>
+                     <entry>Additional Info.</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>Business Process</p>
+                     </entry>
+                     <entry>
+                        <p>Process (.bpmn)</p>
+                     </entry>
+                     <entry>
+                        <p>Modeled as Business Process &amp; Notation (BPMN) diagrams</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools<!-- break -->
+BAMOE Canvas</p>
+                     </entry>
+                     <entry>
+                        <p>Used for straight-through-processing (STP) as well as rule-flow</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Decision Model</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.dmn)</p>
+                     </entry>
+                     <entry>
+                        <p>Modeled as Decision Modeling &amp; Notation (DMN) diagrams</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools<!-- break -->
+BAMOE Canvas</p>
+                     </entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Technical Rule</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.drl)</p>
+                     </entry>
+                     <entry>
+                        <p>Drools Rule Language, used for technical rules</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Decision Table (Spreadsheet)</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.xls)</p>
+                     </entry>
+                     <entry>
+                        <p>DRL-based decision table, modeled as an Excel spreadsheet</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools<!-- break -->
+MS Excel Online</p>
+                     </entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Test Scenario</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.scesim)</p>
+                     </entry>
+                     <entry>
+                        <p>Test scenario used for decision unit testing. <i>Currently only DMN testing is available. DRL testing will be available in future.</i>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Data Object</p>
+                     </entry>
+                     <entry>
+                        <p>Model (.java)</p>
+                     </entry>
+                     <entry>
+                        <p>Java data object used by rules and processes</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry>
+                        <p>Define as separate Maven dependency project</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Global Variable(s)</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.drl)</p>
+                     </entry>
+                     <entry>
+                        <p>Vocabulary definition</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry>
+                        <p>Managed directly in .drl files</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Domain Specific Language Definition</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.dsl)</p>
+                     </entry>
+                     <entry>
+                        <p>Vocabulary definition</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Deprecated</b>
+                        </p>
+                     </entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Enumeration</p>
+                     </entry>
+                     <entry>
+                        <p>Model</p>
+                     </entry>
+                     <entry>
+                        <p>Vocabulary definition</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry>
+                        <p>Managed directly in .drl files</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Form</p>
+                     </entry>
+                     <entry>
+                        <p>Forms (.frm)</p>
+                     </entry>
+                     <entry>
+                        <p>Human Form</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Deprecated</b>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>New form builder in future release</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Guided Decision Table</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.gdst)</p>
+                     </entry>
+                     <entry>
+                        <p>Guided Decision Table</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Deprecated</b>
+                        </p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Export</b> from BC to Decision Table Spreadsheet (XLS)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Guided Decision Table Graph</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.gdst-set)</p>
+                     </entry>
+                     <entry>
+                        <p>Guided Decision Table Graph</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Deprecated</b>
+                        </p>
+                     </entry>
+                     <entry/>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Guided Rule</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.rdrl)</p>
+                     </entry>
+                     <entry>
+                        <p>Guided Technical Rule</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Copy</b> source from BC to new Technical Rule (.drl) file</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Guided Rule Template</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.template)</p>
+                     </entry>
+                     <entry>
+                        <p>Template for guided rules</p>
+                     </entry>
+                     <entry>
+                        <p>BAMOE Developer Tools</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Copy</b> source from BC to new Technical Rule (.drl) file</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Test Scenario (Legacy)</p>
+                     </entry>
+                     <entry>
+                        <p>Decision (.scenario)</p>
+                     </entry>
+                     <entry>
+                        <p>Legacy (guided) test scenario used for rule unit testing</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Deprecated</b>
+                        </p>
+                     </entry>
+                     <entry/>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+      <section id="_migration_of_deprecated_assets">
+         <p>Although all the guided editors are deprecated in IBM BAMOE version 9.1.1, it is possible to convert certain guided assets to their non-guided and supported forms.
+The following table indicates the mapping from guided to non-guided form:</p>
+         <table>
+            <title>Business Central guided asset types</title>
+            <tgroup cols="3">
+               <colspec colname="col_1" colwidth="25*"/>
+               <colspec colname="col_2" colwidth="37.5*"/>
+               <colspec colname="col_3" colwidth="37.5*"/>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>Asset Name &amp; Type</p>
+                     </entry>
+                     <entry>
+                        <p>Description</p>
+                     </entry>
+                     <entry>
+                        <p>v9 Non-Guided Form</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Guided Decision Table (.gdst)</p>
+                     </entry>
+                     <entry>
+                        <p>Guided Decision Table</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Export</b> from BC to Decision Table Spreadsheet (.xls)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Guided Rule (.rdrl)</p>
+                     </entry>
+                     <entry>
+                        <p>Technical Rule (.drl)</p>
+                     </entry>
+                     <entry>
+                        <p>
+                           <b>Copy</b> source from BC to new Technical Rule (.drl) file</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+      </section>
+      <section id="_how_to_copy_the_asset_source_from_business_central">
+         <p>It is important to be aware that all guided assets are Drools Rule Language (.drl) files under the covers.
+In most situations, a guided asset can be refactored into a non-guided asset by copying the source from the source tab in Business Central into a file with the file extension <tt>.drl</tt>.
+With that in mind, here is an example of how to accomplish this, using a <tt>Guided Rule</tt> as an example:</p>
+         <p>
+            <b>Examples</b>
+         </p>
+         <fig>
+            <title>Guided Rule in Business Central</title>
+            <image href="../images/bc-example-guided-rule.png" placement="break">
+               <alt>Example Guided Rule in Business Central</alt>
+            </image>
+         </fig>
+         <p>As you can see, this is the default tab <tt>(Model)</tt> in Business Central’s guided rule editor.
+If you navigate to the <tt>Source</tt> tab, you can see that the guided rule is an editor view on top of a standard <tt>technical rule</tt> written using <tt>Drools Rule Language (DLR)</tt>, as in the following example:</p>
+         <fig>
+            <title>Guided Rule in Business Central (Source Tab)</title>
+            <image href="../images/bc-example-guided-rule-source.png" placement="break">
+               <alt>Example Guided Rule in Business Central</alt>
+            </image>
+         </fig>
+         <p>To turn this rule into a non-guided form so that it can be modified by BAMOE Developer Tools, follow these steps:</p>
+         <ol>
+            <li>Copy the contents of the rule in the <tt>Source</tt> tab.</li>
+            <li>Create a new text file, using proper naming conventions, and paste the contents from the <tt>Source</tt> tab into the new file.</li>
+            <li>Give this file an extension of <tt>.drl</tt>.</li>
+            <li>Add this file to the <tt>src/main/resources</tt> folder of your Maven project.</li>
+         </ol>
+         <note type="note">
+            <p>Some guided rules, when authored with the guided rule editor, create additional rule attributes which may or may not continue to be relevant to your rule execution pattern.
+Examples of these types of attributes are <tt>salience</tt>, <tt>dialect</tt>, <tt>no-loop</tt>, &amp; <tt>lock-on-active</tt>.  While these attributes play a unique role in guided rules, they may impact the overall behavior of your ruleset.</p>
+         </note>
+         <p>At this point you are free to modify the new <tt>technical rule</tt> to your liking, such as updating to use <tt>rule units</tt>, using <tt>OOPATH syntax</tt> vs <tt>mvel</tt>, etc.</p>
+      </section>
+      <section id="_how_to_export_the_asset_from_business_central">
+         <p>Guided Decision Tables are a wizard-led alternative to uploaded decision table spreadsheets for defining business rules in a tabular format.
+With guided decision tables, you are led by a UI-based wizard in Business Central that helps you define rule attributes, metadata, conditions, and actions based on specified data objects in your project.
+After you create the guided decision tables, the rules you defined are compiled into Drools Rule Language (DRL) rules as with all other rule assets.</p>
+         <p>Since the <tt>Guided Decision Table</tt> editor in Business Central is deprecated, users will need to export guided decision tables to Excel format.
+Here is an example of how to do this using a <tt>Guided Decision Table</tt> as an example:</p>
+         <p>
+            <b>Examples</b>
+         </p>
+         <fig>
+            <title>Guided Decision Table in Business Central</title>
+            <image href="../images/bc-example-guided-dt.png" placement="break">
+               <alt>Example Guided Decision Table in Business Central</alt>
+            </image>
+         </fig>
+         <p>In order to turn this decision table into a non-guided form so that it can be modified by BAMOE Developer Tools, follow these steps:</p>
+         <ol>
+            <li>Convert to XLS using the Business Central option on the button bar.</li>
+            <li>Select the newly created <tt>.xls</tt> file in the Project Explorer.</li>
+            <li>Select one of the <tt>Download</tt> options on the button bar.</li>
+            <li>Add this file to the <tt>src/main/resources</tt> folder of your Maven project.</li>
+         </ol>
+         <p>As you can see in the diagram, this is the default tab <tt>(Model)</tt> in Business Central’s guided decision table editor.
+If you navigate over to the <tt>Source</tt> tab, you will quickly see that the guided decision table is simply an editor view on top of a standard <tt>technical rule</tt> written using <tt>Drools Rule Language (DLR)</tt>, as in the following example:</p>
+         <fig>
+            <title>Guided Decision Table in Business Central (Source Tab)</title>
+            <image href="../images/bc-example-guide-dt-source.png" placement="break">
+               <alt>Example Guided Decision Table in Business Central</alt>
+            </image>
+         </fig>
+         <p>At this point, you can choose to either take the same approach as with guided rules or to export the table to Excel format simply by clicking a button <i>(<b>Convert to XLS</b>)</i>, as in the following example:</p>
+         <fig>
+            <title>Exporting a Guided Decision Table in Business Central</title>
+            <image href="../images/bc-example-guided-dt-export.png" placement="break">
+               <alt>Exporting a Guided Decision Table in Business Central</alt>
+            </image>
+         </fig>
+         <p>After the table is converted to XLS format, the new file is added to the Business Central <tt>Project Explorer</tt> view.</p>
+         <fig>
+            <title>Converted Guided Decision Table in Business Central</title>
+            <image href="../images/bc-example-guided-dt-export-navigator.png" placement="break">
+               <alt>Converting a Guided Decision Table in Business Central</alt>
+            </image>
+         </fig>
+         <p>Select the converted file and choose one of the Download buttons in Business Central, which downloads the converted spreadsheet file to your local machine.
+You can add this file to the src/main/resources folder of your Maven project.</p>
+         <fig>
+            <title>Converted Guided Decision Table in Business Central</title>
+            <image href="../images/bc-example-guided-dt-export-download.png" placement="break">
+               <alt>Exporting a Guided Decision Table in Business Central</alt>
+            </image>
+         </fig>
+         <note type="note">
+            <p>Guided decision tables are, under the covers, a collection of technical rules generated using .DRL syntax.
+The number of rows in a decision table will equal the number of individual technical rules generated, one for each row.
+Rules make use of <tt>salience</tt> in order to orchestrate the execution of each <tt>row</tt> of the decision table.
+It is possible to replace a decision table directly with technical rules vs. exporting to Excel format, provided you follow the pattern that the rules were generated to.</p>
+         </note>
+      </section>
+   </body>
+</topic>

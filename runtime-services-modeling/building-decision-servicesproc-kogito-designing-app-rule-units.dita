@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="proc-kogito-designing-app-rule-units">
+   <title>Using DRL rule units as an alternative decision service</title>
+   <body>
+      <title>Using DRL rule units as an alternative decision service</title>
+      <p>As an alternative to using Decision Model and Notation (DMN) to define this example decision service, you can also use a Drools Rule Language (DRL) file implemented as a rule unit.</p>
+      <p>A DRL rule unit is a module for rules and a unit of execution. A rule unit collects a set of rules with the declaration of the type of facts that the rules act on. A rule unit also serves as a unique namespace for each group of rules. A single rule base can contain multiple rule units. You typically store all the rules for a unit in the same file as the unit declaration so that the unit is self-contained.</p>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>
+            <p>In the <tt>src/main/resources</tt> folder of your example IBM BAMOE project, instead of using a DMN file, add the following <tt>PersonRules.drl</tt> file:</p>
+            <div>
+               <p outputclass="title">
+                  <b>Example <tt>PersonRules</tt> DRL file</b>
+               </p>
+               <codeblock>
+package org.acme
+unit PersonRules;
+
+import org.acme.Person;
+
+rule isAdult
+	when
+		$person: /person[ age &gt; 18 ]
+	then
+    modify($person) {
+    	setAdult(true)
+    };
+end
+</codeblock>
+               <p>This example rule determines that any person who is older than 18 is classified as an adult. The rule file also declares that the rule belongs to the rule unit <tt>PersonRules</tt>. This is the rule unit that you define as part of the business rule task in the example BPMN process. When you build the project, the rule unit is generated and associated with the DRL file.</p>
+               <p>The rule also defines the condition using OOPath notation. OOPath is an object-oriented syntax extension to XPath for navigating through related elements while handling collections and filtering constraints.</p>
+               <p>You can also rewrite the same rule condition in a more explicit form using the traditional rule pattern syntax, as shown in the following example:</p>
+               <p outputclass="title">
+                  <b>Example <tt>PersonRules</tt> DRL file using traditional notation</b>
+               </p>
+               <codeblock>
+package org.acme
+unit PersonRules;
+
+import org.acme.Person;
+
+rule isAdult
+	when
+		$person: Person(age &gt; 18) from person
+	then
+    modify($person) {
+    	setAdult(true)
+    };
+end
+</codeblock>
+            </div>
+         </li>
+         <li>In the <tt>src/main/resources</tt> folder, use the IBM BAMOE BPMN modeler in VSCode to open the <tt>PersonProcess.bpmn2</tt> process diagram that you created.</li>
+         <li>
+            <p>Select the <tt>Evaluate person</tt> business rule task and modify the following properties:</p>
+            <ul>
+               <li>
+                  <p>
+                     <b>Implementation/Execution</b>: Set the following values:</p>
+                  <ul>
+                     <li>
+                        <b>Rule Language</b>: <tt>DRL</tt> (instead of <tt>DMN</tt>)</li>
+                     <li>
+                        <p>
+                           <b>Rule Flow Group</b>: <tt>unit:org.acme.PersonRules</tt>
+                        </p>
+                        <p>This rule unit syntax in the <b>Rule Flow Group</b> field specifies that you are using the <tt>org.acme.PersonRules</tt> rule unit instead of a traditional rule flow group. This is the rule unit that you referenced in the example DRL file. When you build the project, the business process implicitly declares the rule unit as part of the business rule task to execute the DRL file.</p>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <b>Data Assignments</b>: Open the assignment settings and change the data input <b>Name</b> to <tt>person</tt> (instead of <tt>Person</tt>). This accommodates the input variable syntax required by the DRL file.</li>
+            </ul>
+         </li>
+         <li>Select the connector that connects the exclusive gateway to the end event and for the <b>Implementation/Execution</b> property, verify that the <b>Condition Expression</b> is set to <tt>Java</tt> and change the condition to <tt>return person.isAdult();</tt>.</li>
+         <li>Select the connector that connects the exclusive gateway to the user task and for the <b>Implementation/Execution</b> property, verify that the <b>Condition Expression</b> is set to <tt>Java</tt> and change the condition <tt>return ! person.isAdult();</tt>.</li>
+         <li>Save the process file to update the model.</li>
+      </ol>
+   </body>
+</topic>

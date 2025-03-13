@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="intro-tools">
+   <title>Available tools</title>
+   <body>
+      <p>This section describes the tools available for authoring business models.</p>
+      <ul>
+         <li>
+            <xref href="canvas.html">BAMOE Canvas</xref> - provides you with introductory information on BAMOE Canvas.</li>
+         <li>
+            <xref href="developer-tools-for-vscode.html">BAMOE Developer Tools for VS Code</xref> - introduces any specific information on editing and executing your Decisions and Workflows in the Developer Tools for VS Code version.</li>
+         <li>
+            <xref href="importing-existing-projects.html">Importing existing projects</xref> - describes how to import your existing models from different sources to edit, test and execute them using BAMOE tools.</li>
+         <li>
+            <xref href="applying-accelerators.html">Applying Accelerators</xref> - describes the Accelerators (project templates) that are provided by BAMOE Canvas out of the box facilitating the development and control of your existing Decisions and Workflow.</li>
+         <li>
+            <xref href="working-with-git.html">Working with Git</xref> - describes how BAMOE Canvas streamlines the usage of Git to store and managed your Decisions and Workflows.</li>
+         <li>
+            <xref href="creating-dev-deployments.html">Creating Dev Deployments</xref> - describes how to connect to a local or remote Kubernetes instance (or a remote OpenShift instance) to execute your Decisions and Workflows for development purposes only.</li>
+         <li>
+            <xref href="connecting-accounts.html">Connecting accounts</xref> - describes how to configure connections to your existing Git and Cloud accounts to manage and execute your Decisions and Workflows.</li>
+      </ul>
+   </body>
+</topic>

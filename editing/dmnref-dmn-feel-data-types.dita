@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ref-dmn-feel-data-types">
+   <title>Data types in FEEL</title>
+   <body>
+      <title>Data types in FEEL</title>
+      <p>Friendly Enough Expression Language (FEEL) supports the following data types:</p>
+      <ul>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#number" scope="external">Numbers</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#string" scope="external">Strings</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#boolean" scope="external">Boolean values</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#date" scope="external">Dates</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#time" scope="external">Time</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#date-and-time" scope="external">Date and time</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#days-and-time-duration" scope="external">Days and time duration</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#years-and-month-duration" scope="external">Years and months duration</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#function" scope="external">Functions</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#context" scope="external">Contexts</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#range-or-interval" scope="external">Ranges (or intervals)</xref>
+         </li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/#list" scope="external">Lists</xref>
+         </li>
+      </ul>
+      <note type="note">
+The DMN specification currently does not provide an explicit way of declaring a variable as a <tt>function</tt>, <tt>context</tt>, <tt>range</tt>, or <tt>list</tt>, but IBM BAMOE extends the DMN built-in types to support variables of these types.
+</note>
+      <p>The following list describes each data type:</p>
+      <dl>
+         <dlentry>
+            <dt>Numbers</dt>
+            <dd>
+               <p>Numbers in FEEL are based on the <xref href="http://ieeexplore.ieee.org/document/4610935/" scope="external">IEEE 754-2008</xref> Decimal 128 format, with 34 digits of precision. Internally, numbers are represented in Java as <xref href="https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html" scope="external">
+                     <tt>BigDecimals</tt>
+                  </xref> with <tt>MathContext DECIMAL128</tt>. FEEL supports only one number data type, so the same type is used to represent both integers and floating
+point numbers.</p>
+               <div>
+                  <p>FEEL numbers use a dot (<tt>.</tt>) as a decimal separator. FEEL does not support <tt>-INF</tt>, <tt>+INF</tt>, or <tt>NaN</tt>. FEEL uses
+<tt>null</tt> to represent invalid numbers.</p>
+                  <p>IBM BAMOE extends the DMN specification and supports additional number notations:</p>
+                  <ul>
+                     <li>
+                        <b>Scientific:</b> You can use scientific notation with the suffix <tt>e&lt;exp&gt;</tt> or <tt>E&lt;exp&gt;</tt>. For example, <tt>1.2e3</tt> is the same as writing the expression <tt>1.2*10**3</tt>, but is a literal instead of an expression.</li>
+                     <li>
+                        <b>Hexadecimal:</b> You can use hexadecimal numbers with the prefix <tt>0x</tt>. For example, <tt>0xff</tt> is the same as the decimal number <tt>255</tt>. Both uppercase and lowercase letters are supported. For example, <tt>0XFF</tt> is the same as <tt>0xff</tt>.</li>
+                     <li>
+                        <b>Type suffixes:</b> You can use the type suffixes <tt>f</tt>, <tt>F</tt>, <tt>d</tt>, <tt>D</tt>, <tt>l</tt>, and <tt>L</tt>. These suffixes are ignored.</li>
+                  </ul>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Strings</dt>
+            <dd>
+               <p>Strings in FEEL are any sequence of characters delimited by double quotation marks.</p>
+               <div>
+                  <p outputclass="title">
+                     <b>Example</b>
+                  </p>
+                  <codeblock>
+"John Doe"
+</codeblock>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Boolean values</dt>
+            <dd>FEEL uses three-valued boolean logic, so a boolean logic expression may have values <tt>true</tt>, <tt>false</tt>, or <tt>null</tt>.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Dates</dt>
+            <dd>
+               <p>Date literals are not supported in FEEL, but you can use the built-in <tt>date()</tt> function to construct date values. Date strings in FEEL follow the format defined in the <xref href="https://www.w3.org/TR/xmlschema-2/#date" scope="external">XML Schema Part 2: Datatypes</xref> document. The format is <tt>"YYYY-MM-DD"</tt> where <tt>YYYY</tt> is the year with four digits, <tt>MM</tt> is the number of the month with two digits, and <tt>DD</tt> is the number of the day.</p>
+               <div>
+                  <p>Example:</p>
+                  <codeblock>
+date( "2017-06-23" )
+</codeblock>
+                  <p>Date objects have time equal to <tt>"00:00:00"</tt>, which is midnight. The dates are considered to be local, without a timezone.</p>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Time</dt>
+            <dd>
+               <p>Time literals are not supported in FEEL, but you can use the built-in <tt>time()</tt> function to construct time values. Time strings in FEEL follow the format defined in the <xref href="https://www.w3.org/TR/xmlschema-2/#time" scope="external">XML Schema Part 2: Datatypes</xref> document. The format is <tt>"hh:mm:ss[.uuu][(-)hh:mm]"` where `hh` is the hour of the day (from `00` to `23`), `mm` is the minutes in the hour, and `ss` is the number of seconds in the minute. Optionally, the string may define the number of milliseconds (`uuu`) within the second and contain a positive (`</tt>) or negative (<tt>-</tt>) offset from UTC time to define its timezone. Instead of using an offset, you can use the letter <tt>z</tt> to represent the UTC time, which is the same as an offset of <tt>-00:00</tt>. If no offset is defined, the time is considered to be local.</p>
+               <div>
+                  <p>Examples:</p>
+                  <codeblock>
+time( "04:25:12" )
+time( "14:10:00+02:00" )
+time( "22:35:40.345-05:00" )
+time( "15:00:30z" )
+</codeblock>
+                  <p>Time values that define an offset or a timezone cannot be compared to local times that do not define an offset or a timezone.</p>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Date and time</dt>
+            <dd>
+               <p>Date and time literals are not supported in FEEL, but you can use the built-in <tt>date and time()</tt> function to construct date and time values. Date and time strings in FEEL follow the format defined in the <xref href="https://www.w3.org/TR/xmlschema-2/#dateTime" scope="external">XML Schema Part 2: Datatypes</xref> document. The format is <tt>"&lt;date&gt;T&lt;time&gt;"</tt>, where <tt>&lt;date&gt;</tt> and <tt>&lt;time&gt;</tt> follow the prescribed XML schema formatting, conjoined by <tt>T</tt>.</p>
+               <div>
+                  <p>Examples:</p>
+                  <codeblock>
+date and time( "2017-10-22T23:59:00" )
+date and time( "2017-06-13T14:10:00+02:00" )
+date and time( "2017-02-05T22:35:40.345-05:00" )
+date and time( "2017-06-13T15:00:30z" )
+</codeblock>
+                  <p>Date and time values that define an offset or a timezone cannot be compared to local date and time values
+that do not define an offset or a timezone.</p>
+                  <note type="important">
+If your implementation of the DMN specification does not support spaces in the XML schema, use the keyword <tt>dateTime</tt> as a synonym of <tt>date and time</tt>.
+</note>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Days and time duration</dt>
+            <dd>
+               <p>Days and time duration literals are not supported in FEEL, but you can use the built-in <tt>duration()</tt> function to construct days and time duration values. Days and time duration strings in FEEL follow the format defined in the <xref href="https://www.w3.org/TR/xmlschema-2/#duration" scope="external">XML Schema Part 2: Datatypes</xref> document, but are restricted to only days, hours, minutes and seconds. Months and years are not supported.</p>
+               <div>
+                  <p>Examples:</p>
+                  <codeblock>
+duration( "P1DT23H12M30S" )
+duration( "P23D" )
+duration( "PT12H" )
+duration( "PT35M" )
+</codeblock>
+                  <note type="important">
+If your implementation of the DMN specification does not support spaces in the XML schema, use the keyword <tt>dayTimeDuration</tt> as a synonym of <tt>days and time duration</tt>.
+</note>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Years and months duration</dt>
+            <dd>
+               <p>Years and months duration literals are not supported in FEEL, but you can use the built-in <tt>duration()</tt> function to construct days and time duration values. Years and months duration strings in FEEL follow the format defined in the <xref href="https://www.w3.org/TR/xmlschema-2/#duration" scope="external">XML Schema Part 2: Datatypes</xref> document, but are restricted to only years and months. Days, hours, minutes, or seconds are not supported.</p>
+               <div>
+                  <p>Examples:</p>
+                  <codeblock>
+duration( "P3Y5M" )
+duration( "P2Y" )
+duration( "P10M" )
+duration( "P25M" )
+</codeblock>
+                  <note type="important">
+If your implementation of the DMN specification does not support spaces in the XML schema, use the keyword <tt>yearMonthDuration</tt> as a synonym of <tt>years and months duration</tt>.
+</note>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Functions</dt>
+            <dd>
+               <p>FEEL has <tt>function</tt> literals (or anonymous functions) that you can use to create functions. The DMN specification currently does not provide an explicit way of declaring a variable as a <tt>function</tt>, but IBM BAMOE extends the DMN built-in types to support variables of functions.</p>
+               <div>
+                  <p>Example:</p>
+                  <codeblock>
+function(a, b) a + b
+</codeblock>
+                  <p>In this example, the FEEL expression creates a function that adds the parameters <tt>a</tt> and <tt>b</tt> and returns the result.</p>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Contexts</dt>
+            <dd>
+               <p>FEEL has <tt>context</tt> literals that you can use to create contexts. A <tt>context</tt> in FEEL is a list of key and value pairs, similar to maps in languages like Java. The DMN specification currently does not provide an explicit way of declaring a variable as a <tt>context</tt>, but IBM BAMOE extends the DMN built-in types to support variables of contexts.</p>
+               <div>
+                  <p>Example:</p>
+                  <codeblock>
+{ x : 5, y : 3 }
+</codeblock>
+                  <p>In this example, the expression creates a context with two entries, <tt>x</tt> and <tt>y</tt>, representing a coordinate in a chart.</p>
+                  <p>In DMN 1.2, another way to create contexts is to create an item definition that contains the list of keys as attributes, and then declare the variable as having that item definition type.</p>
+                  <p>The IBM BAMOE DMN API supports DMN <tt>ItemDefinition</tt> structural types in a <tt>DMNContext</tt> represented in two ways:</p>
+                  <ul>
+                     <li>User-defined Java type: Must be a valid JavaBeans object defining properties and getters for each of the components in the DMN <tt>ItemDefinition</tt>. If necessary, you can also use the <tt>@FEELProperty</tt> annotation for those getters representing a component name which would result in an invalid Java identifier.</li>
+                     <li>
+                        <tt>java.util.Map</tt> interface: The map needs to define the appropriate entries, with the keys corresponding to the component name in the DMN <tt>ItemDefinition</tt>.</li>
+                  </ul>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Ranges (or intervals)</dt>
+            <dd>
+               <p>FEEL has <tt>range</tt> literals that you can use to create ranges or intervals. A <tt>range</tt> in FEEL is a value that defines a lower and an upper bound, where either can be open or closed. The DMN specification currently does not provide an explicit way of declaring a variable as a <tt>range</tt>, but IBM BAMOE extends the DMN built-in types to support variables of ranges.</p>
+               <div>
+                  <p>The syntax of a range is defined in the following formats:</p>
+                  <codeblock>
+range          := interval_start endpoint '..' endpoint interval_end
+interval_start := open_start | closed_start
+open_start     := '(' | ']'
+closed_start   := '['
+interval_end   := open_end | closed_end
+open_end       := ')' | '['
+closed_end     := ']'
+endpoint       := expression
+</codeblock>
+                  <p>The expression for the endpoint must return a comparable value, and the lower bound endpoint must be lower than the upper bound endpoint.</p>
+                  <p>For example, the following literal expression defines an interval between <tt>1</tt> and <tt>10</tt>, including the boundaries (a closed interval on both endpoints):</p>
+                  <codeblock>
+[ 1 .. 10 ]
+</codeblock>
+                  <p>The following literal expression defines an interval between 1 hour and 12 hours, including the lower boundary (a closed interval), but excluding the upper boundary (an open interval):</p>
+                  <codeblock>
+[ duration("PT1H") .. duration("PT12H") )
+</codeblock>
+                  <p>You can use ranges in decision tables to test for ranges of values, or use ranges in simple literal expressions. For example, the following literal expression returns <tt>true</tt> if the value of a variable <tt>x</tt> is between <tt>0</tt> and <tt>100</tt>:</p>
+                  <codeblock>
+x in [ 1 .. 100 ]
+</codeblock>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Lists</dt>
+            <dd>
+               <p>FEEL has <tt>list</tt> literals that you can use to create lists of items. A <tt>list</tt> in FEEL is represented by a comma-separated list of values enclosed in square brackets. The DMN specification currently does not provide an explicit way of declaring a variable as a <tt>list</tt>, but IBM BAMOE extends the DMN built-in types to support variables of lists.</p>
+               <div>
+                  <p>Example:</p>
+                  <codeblock>
+[ 2, 3, 4, 5 ]
+</codeblock>
+                  <p>All lists in FEEL contain elements of the same type and are immutable. Elements in a list can be accessed by index, where the first element is <tt>1</tt>. Negative indexes can access elements starting from the end of the list so that <tt>-1</tt> is the last element.</p>
+                  <p>For example, the following expression returns the second element of a list <tt>x</tt>:</p>
+                  <codeblock>
+x[2]
+</codeblock>
+                  <p>The following expression returns the second-to-last element of a list <tt>x</tt>:</p>
+                  <codeblock>
+x[-2]
+</codeblock>
+                  <p>Elements in a list can also be counted by the function <tt>count</tt>, which uses the list of elements as the parameter.</p>
+                  <p>For example, the following expression returns <tt>4</tt>:</p>
+                  <codeblock>
+count([ 2, 3, 4, 5 ])
+</codeblock>
+               </div>
+            </dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

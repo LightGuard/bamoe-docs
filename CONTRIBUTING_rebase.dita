@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_rebase">
+   <title>Rebase</title>
+   <body>
+      <note type="warning">
+         <p>Rebasing should <b>ONLY</b> be performed on your own feature branches and <b>ONLY</b> before a pull request has been submitted.
+<b>NEVER</b> after a pull request has been created.</p>
+      </note>
+      <p>
+         <xref href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing" scope="external">Rebasing</xref> is essentially taking your changes in a branch, saving them, merging something new into the branch, then applying those same changes on top of the merge.
+It creates different commits and commit ids and can really mess with history of published branches.
+For simplicity both for yourself and others, don’t use rebasing.
+A preferred alternative is to merge the other branch into your feature branch and push the whole thing together in one pull request.</p>
+   </body>
+</topic>

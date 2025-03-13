@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ref-dmn-designer-nav">
+   <title>IBM BAMOE DMN modeler navigation and properties</title>
+   <body>
+      <p>The IBM BAMOE DMN modeler provides the following additional features to help you navigate through the components and properties of decision requirements diagrams (DRDs).</p>
+      <dl>
+         <dlentry>
+            <dt>DMN decision and diagram views</dt>
+            <dd>
+               <p>In the upper-right corner of the DMN modeler, select the <b>Decision Navigator</b> view to navigate between the decision components, graphs, and boxed expressions of a selected DRD:</p>
+               <div>
+                  <fig>
+                     <title>Decision Navigator view</title>
+                     <image href="../images/dmn-designer-nav-view.png" placement="break">
+                        <alt>dmn designer nav view</alt>
+                     </image>
+                  </fig>
+                  <image href="../images/dmn-designer-nav-view2.png" placement="break">
+                     <alt>dmn designer nav view2</alt>
+                  </image>
+                  <note type="note">
+The DRD components from any DMN models included in the DMN file (in the <b>Included Models</b> tab) are also listed in the <b>Decision Components</b> panel for the DMN file.
+</note>
+                  <p>In the upper-right corner of the DMN modeler, select the <b>Preview</b> icon to view an elevated preview of the DRD:</p>
+                  <fig>
+                     <title>Diagram preview</title>
+                     <image href="../images/dmn-designer-preview.png" placement="break">
+                        <alt>dmn designer preview</alt>
+                     </image>
+                  </fig>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>DRD properties and design</dt>
+            <dd>
+               <p>In the upper-right corner of the DMN modeler, select the <b>Properties</b> icon to modify the identifying information, data types, and appearance of a selected DRD, DRD node, or boxed expression cell:</p>
+               <div>
+                  <fig>
+                     <title>DRD node properties</title>
+                     <image href="../images/dmn-designer-properties.png" placement="break">
+                        <alt>dmn designer properties</alt>
+                     </image>
+                  </fig>
+                  <p>To view the properties of the entire DRD, click the DRD canvas background instead of a specific node.</p>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>DRD search</dt>
+            <dd>
+               <p>In the upper-right corner of the DMN modeler, use the search bar to search for text that appears in your DRD. The search feature is especially helpful in complex DRDs with many nodes:</p>
+               <fig>
+                  <title>DRD search</title>
+                  <image href="../images/dmn-designer-search.png" placement="break">
+                     <alt>dmn designer search</alt>
+                  </image>
+               </fig>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>DMN decision service details</dt>
+            <dd>
+               <p>Select a decision service node in the DMN designer to view additional properties, including <b>Input Data</b>, <b>Encapsulated Decisions</b>, and <b>Output Decisions</b> in the <b>Properties</b> panel.</p>
+               <fig>
+                  <title>Decision Service details</title>
+                  <image href="../images/dmn-decision-service-details.png" placement="break">
+                     <alt>dmn decision service details</alt>
+                  </image>
+               </fig>
+               <note type="important">
+END AUTHORING ^ ^?
+</note>
+            </dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

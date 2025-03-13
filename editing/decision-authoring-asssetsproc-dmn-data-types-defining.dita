@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="proc-dmn-data-types-defining">
+   <title>Creating custom data types for DMN boxed expressions in the IBM BAMOE DMN modeler</title>
+   <body>
+      <p>In DMN boxed expressions in the IBM BAMOE DMN modeler, data types determine the structure of the data that you use within an associated table, column, or field in the boxed expression. You can use default DMN data types (such as String, Number, Boolean) or you can create custom data types to specify additional fields and constraints that you want to implement for the boxed expression values.</p>
+      <p>Custom data types that you create for a boxed expression can be simple or structured:</p>
+      <ul>
+         <li>
+            <b>Simple</b> data types have only a name and a type assignment. Example: <tt>Age (number)</tt>.</li>
+         <li>
+            <b>Structured</b> data types contain multiple fields associated with a parent data type. Example: A single type <tt>Person</tt> containing the fields <tt>Name (string)</tt>, <tt>Age (number)</tt>, <tt>Email (string)</tt>.</li>
+      </ul>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>
+            <p>In your VSCode IDE, open the DMN file to view the decision requirements diagram (DRD) in the IBM BAMOE DMN modeler.</p>
+            <div>
+               <note type="note">
+                  <p>If the DRD does not open in the IBM BAMOE DMN modeler, ensure that you have installed and enabled the <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                        <b>IBM BAMOE Developer Tools for VS Code</b>
+                     </xref>.</p>
+                  <p>If the IBM BAMOE DMN modeler opens only the XML source of the DMN file and displays an error message, review the reported errors and the DMN model file to ensure that all DMN elements are correctly defined.</p>
+               </note>
+            </div>
+         </li>
+         <li>In the DMN modeler canvas, select a decision node or business knowledge model for which you want to define the data types and click the <b>Edit</b> icon to open the DMN boxed expression editor.</li>
+         <li>
+            <p>If the boxed expression is for a decision node that is not yet defined, click the undefined table to select the type of boxed expression you want to use, such as a boxed literal expression, boxed context expression, decision table, or other DMN boxed expression.</p>
+            <fig>
+               <title>Selecting the logic type for a decision node</title>
+               <image href="../images/dmn-decision-boxed-expression-options.png" placement="break">
+                  <alt>dmn decision boxed expression options</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Click the cell for the table header, column header, or parameter field (depending on the boxed expression type) for which you want to define the data type and click <b>Manage</b> to go to the <b>Data Types</b> page where you can create a custom data type.</p>
+            <div>
+               <fig>
+                  <title>Managing data types for a column header value</title>
+                  <image href="../images/dmn-manage-data-types.png" placement="break">
+                     <alt>dmn manage data types</alt>
+                  </image>
+               </fig>
+               <p>You can also set and manage custom data types for a specified decision node or business knowledge model node by selecting the <b>Properties</b> icon in the upper-right corner of the DMN modeler:</p>
+               <fig>
+                  <title>Managing data types in decision requirements diagram (DRD) properties</title>
+                  <image href="../images/dmn-manage-data-types1a.png" placement="break">
+                     <alt>dmn manage data types1a</alt>
+                  </image>
+               </fig>
+               <p>The data type that you define for a specified cell in a boxed expression determines the structure of the data that you use within that associated table, column, or field in the boxed expression.</p>
+               <p>In this example, an output column <b>Credit Score Rating</b> for a DMN decision table defines a set of custom credit score ratings based on an applicant’s credit score.</p>
+            </div>
+         </li>
+         <li>
+            <p>On the <b>Data Types</b> page, click <b>New Data Type</b> to add a new data type.</p>
+            <div>
+               <p>For this example, click <b>New Data Type</b> and create a <b>Credit_Score_Rating</b> data type as a <tt>string</tt>:</p>
+               <fig>
+                  <title>Adding a new data type</title>
+                  <image href="../images/dmn-custom-data-type-add.png" placement="break">
+                     <alt>dmn custom data type add</alt>
+                  </image>
+               </fig>
+               <p>If the data type requires a list of items, enable the <b>List</b> setting.</p>
+            </div>
+         </li>
+         <li>
+            <p>Click <b>Add Constraints</b>, select <b>Enumeration</b> from the drop-down options, and add the following constraints:</p>
+            <div>
+               <ul>
+                  <li>
+                     <tt>"Excellent"</tt>
+                  </li>
+                  <li>
+                     <tt>"Good"</tt>
+                  </li>
+                  <li>
+                     <tt>"Fair"</tt>
+                  </li>
+                  <li>
+                     <tt>"Poor"</tt>
+                  </li>
+                  <li>
+                     <tt>"Bad"</tt>
+                  </li>
+               </ul>
+               <fig>
+                  <title>Adding constraints to the new data type</title>
+                  <image href="../images/dmn-custom-data-type-constraints.png" placement="break">
+                     <alt>dmn custom data type constraints</alt>
+                  </image>
+               </fig>
+               <p>For information about constraint types and syntax requirements for the specified data type, see the <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+            </div>
+         </li>
+         <li>Click <b>OK</b> to save the constraints and click the check mark to the right of the data type to save the data type.</li>
+         <li>
+            <p>Return to the <b>Credit Score Rating</b> decision table, click the <b>Credit Score Rating</b> column header, set the data type to this new custom data type, and define the rule values for that column with the rating constraints that you specified.</p>
+            <div>
+               <fig>
+                  <title>Decision table for credit score rating</title>
+                  <image href="../images/dmn-decision-table-example1a.png" placement="break">
+                     <alt>dmn decision table example1a</alt>
+                  </image>
+               </fig>
+               <p>In the DMN decision model for this scenario, the <b>Credit Score Rating</b> decision flows into the following <b>Loan Prequalification</b> decision that also requires custom data types:</p>
+               <fig>
+                  <title>Decision table for loan prequalification</title>
+                  <image href="../images/dmn-manage-data-types-blank.png" placement="break">
+                     <alt>dmn manage data types blank</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>Continuing with this example, return to the <b>Data Types</b> window, click <b>New Data Type</b>, and create a <b>Loan_Qualification</b> data type as a <tt>Structure</tt> with no constraints.</p>
+            <div>
+               <p>When you save the new structured data type, the first sub-field appears so that you can begin defining nested data fields in this parent data type. You can use these sub-fields in association with the parent structured data type in boxed expressions, such as nested column headers in decision tables or nested table parameters in context or function expressions.</p>
+               <p>For additional sub-fields, select the addition icon next to the <b>Loan_Qualification</b> data type.</p>
+            </div>
+         </li>
+         <li>
+            <p>For this example, under the structured <b>Loan_Qualification</b> data type, add a <b>Qualification</b> field with <tt>"Qualified"</tt> and <tt>"Not Qualified"</tt> enumeration constraints, and a <b>Reason</b> field with no constraints. Add also a simple <b>Back_End_Ratio</b> and a <b>Front_End_Ratio</b> data type, both with <tt>"Sufficient"</tt> and <tt>"Insufficient"</tt> enumeration constraints.</p>
+            <div>
+               <p>Click the check mark to the right of each data type that you create to save your changes.</p>
+               <fig>
+                  <title>Adding nested data types with constraints</title>
+                  <image href="../images/dmn-manage-data-types-structured2.png" placement="break">
+                     <alt>dmn manage data types structured2</alt>
+                  </image>
+               </fig>
+            </div>
+         </li>
+         <li>
+            <p>Return to the decision table and, for each column, click the column header cell, set the data type to the new corresponding custom data type, and define the rule values as needed for the column with the constraints that you specified, if applicable.</p>
+            <fig>
+               <title>Decision table for loan prequalification</title>
+               <image href="../images/dmn-decision-table-example3.png" placement="break">
+                  <alt>dmn decision table example3</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+      <p>For boxed expression types other than decision tables, you follow these guidelines similarly to navigate the boxed expression tables and define custom data types as needed.</p>
+      <p>For example, the following boxed function expression uses custom <tt>tCandidate</tt> and <tt>tProfile</tt> structured data types to associate data for online dating compatibility:</p>
+      <fig>
+         <title>Boxed function expression for online dating compatibility</title>
+         <image href="../images/dmn-manage-data-types-structured3.png" placement="break">
+            <alt>dmn manage data types structured3</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Custom data type definitions for online dating compatibility</title>
+         <image href="../images/dmn-manage-data-types-structured3a.png" placement="break">
+            <alt>dmn manage data types structured3a</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Parameter definitions with custom data types for online dating compatibility</title>
+         <image href="../images/dmn-manage-data-types-structured3b.png" placement="break">
+            <alt>dmn manage data types structured3b</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_b_data_types">
+   <title>B. Data types</title>
+   <body>
+      <p>The data types tab is where all custom data types of the DMN model are placed.
+The New DMN Editor brings a brand new experience for managing custom data types.
+The following two images show a model without custom data types and the next are the data types of the DMN sample.</p>
+      <fig>
+         <title>Empty data types tab</title>
+         <image href="../images/tools/authoringDecisions/new-editor-data-types-empty.png" placement="break">
+            <alt>new editor data types empty</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Sample data types tab</title>
+         <image href="../images/tools/authoringDecisions/new-editor-data-types-sample.png" placement="break">
+            <alt>new editor data types sample</alt>
+         </image>
+      </fig>
+      <div conref="authoring-decisionsadding-a-data-type.dita">adding-a-data-type</div>
+   </body>
+</topic>

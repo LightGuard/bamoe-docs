@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_limitations">
+   <title>Limitations</title>
+   <body>
+      <p>Regardless of the number of entitlements obtained to IBM Business Automation Manager Open Editions, the entitlement to IBM Robotic Process Automation components is limited to:</p>
+      <ul>
+         <li>
+            <b>IBM Robotic Process Automation Environment</b>: 1 Virtual Server</li>
+         <li>
+            <b>IBM Robotic Process Automation Unattended Bot Agent</b>: 1 Concurrent Connection</li>
+      </ul>
+      <p>Usage of IBM Robotic Process Automation is only permitted in traditional installations and does not inlcude container-based installations.</p>
+      <p>You will require separate entitlement to IBM Robotic Process Automation if you need additional entitlements.</p>
+   </body>
+</topic>

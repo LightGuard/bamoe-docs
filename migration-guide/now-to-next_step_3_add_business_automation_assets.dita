@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_step_3_add_business_automation_assets">
+   <title>Step 3: Add Business Automation Assets</title>
+   <body>
+      <p>If your project is migrated from a previous version of the product, you can add the business automation files from the previous project to the <tt>src/main/resources</tt> folder of the new project by copying the files.
+If you need to create a new file, use <tt>File : New File</tt> option from VS Code, making sure to specify the file extension to associate the new file with the appropriate editor.</p>
+   </body>
+</topic>

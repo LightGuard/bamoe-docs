@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="creating-new-projects">
+   <title>Creating new projects</title>
+   <body>
+      <section id="con-kogito-modelers">
+         <title>IBM BAMOE BPMN and DMN modelers</title>
+         <p>IBM BAMOE provides the following extensions or applications that you can use to design Business Process Model and Notation (BPMN) process models and Decision Model and Notation (DMN) decision models for your IBM BAMOE services using graphical modelers.</p>
+         <ul>
+            <li>
+               <b>BAMOE Canvas</b>: (Recommended) Enables you to work with Decisions and Workflows, directly in the browser. See the <xref href="../tools/canvas.html">Canvas</xref> chapter for further details.</li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">
+                  <b>IBM BAMOE Developer Tools for VS Code</b>
+               </xref>: Enables you to view and design BPMN and DMN models in Visual Studio Code (VSCode). See the <xref href="../tools/developer-tools-for-vscode.dita">VSCode extension</xref> chapter for further details.</li>
+         </ul>
+         <p>From the Home page, you can create Decisions or Workflows, starting from scratch, or from a Sample provided by BAMOE Canvas.</p>
+         <fig>
+            <title>Create section at the Home page of BAMOE Canvas</title>
+            <image href="../images/tools/newProject/canvas-create-project.png" placement="break">
+               <alt>Create section at the Home page of BAMOE Canvas</alt>
+            </image>
+         </fig>
+         <p>Once you select one of the two, you’ll navigate automatically to a new project, containing just the one file you just created.
+Let’s start with a new Decision.</p>
+         <fig>
+            <title>Untitled Decision created from the “Create” section at the Home page of BAMOE Canvas</title>
+            <image href="../images/tools/newProject/canvas-empty-dmn-editor.png" placement="break">
+               <alt>Untitled Decision created from the “Create” section at the Home page of BAMOE Canvas</alt>
+            </image>
+         </fig>
+         <p>There are a lot of elements on this page, they will all be covered in this document, but let’s simplify things a little and talk about what controls are common to Decisions and Workflows first.</p>
+         <fig>
+            <title>Editor page on BAMOE Canvas with highlighted common elements for Decisions and Workflows</title>
+            <image href="../images/tools/newProject/canvas-dmn-single-file-workspace-overview.png" placement="break">
+               <alt>Editor page on BAMOE Canvas with highlighted common elements to Decisions and Workflows</alt>
+            </image>
+         </fig>
+         <ol>
+            <li>
+               <b>File switcher</b> → Here you can rename the current file.
+Click on the arrow to display other files in your project.
+You can search for files and even see their image previews.
+You can also see the status of changes made to your files and revert those changes to files individually.</li>
+            <li>
+               <b>File status indicator</b> → Non-clickable visual indicators that show the persistence status of your file.</li>
+            <li>
+               <b>Accelerator select</b> → Allows you to apply a predefined template to your project, accelerating the creation of a runnable project powered by Kogito.</li>
+            <li>
+               <b>New file menu</b> → Lets you add new files to your project.
+From here, you can create empty Decisions and Workflows, a new Decision or Workflow sample, import from a URL, or upload from your computer.
+Note that when importing from a URL, only individual files can be imported.</li>
+            <li>
+               <b>Kebab menu</b> → Additional operations.
+From here you can create a new commit in your project or delete your file.</li>
+            <li>
+               <b>“Problems” tab</b> → Lets you see what’s wrong with your file, both statically and when running it.
+More on running Decisions in the <xref href="../editing/running-decisions.dita">Running Decisions</xref> section.</li>
+         </ol>
+         <p>From here, you can make this currently one-file project into a more complex one.
+Let’s do that by creating another file using the “New file menu”. You’ll see that there are new controls available on the screen.
+Let’s look at them and see what they do.</p>
+         <fig>
+            <title>Editor page on BAMOE Canvas with highlighted common elements for Decisions and Workflows, for multi-file projects</title>
+            <image href="../images/tools/newProject/canvas-multi-file-workspace-overview.png" placement="break">
+               <alt>Editor page on BAMOE Canvas with highlighted common elements to Decisions and Workflows, for multi-file projects</alt>
+            </image>
+         </fig>
+         <ol>
+            <li>
+               <b>Back to Home page button</b> → Clicking this button will navigate back to the “Home page”.</li>
+            <li>
+               <b>Git authentication select →</b> Here you can select what account to use when performing Git operations.
+More on that at <xref href="../tools/working-with-git.dita">Working with Git</xref>
+            </li>
+            <li>
+               <b>Repository type label →</b> Non-clickable label that tells you some information about your repository.
+Possible values are “Ephemeral” — meaning that this repository is not synced to any remote Git repository, and only exists in your browser. “Repository” — meaning this repository is linked to a GitHub, Bitbucket, or GitLab repository, and “Git repository” — meaning this repository is linked to a remote Git repository from an unknown Git provider.</li>
+            <li>
+               <b>Repository name →</b> This is the name of your repository.
+You can click this element to rename it.
+This is specific to BAMOE Canvas, and will not change the remote repository name if you change it.
+To change the name of your remote Git repository, go directly to the Git provider website, like GitHub.</li>
+            <li>
+               <b>Repository status indicator</b> → Tells you the status of your repository.
+The green check means that your local copy of your repository is synced with the latest reference you downloaded from your linked remote Git repository.
+In Git terms, that would mean HEAD and origin are the same.
+Note that it doesn’t mean that you have the latest changes made to the remote Git repository.
+To make sure you’re synced, you need to do a Sync operation.
+<i>M</i> means “Modified”, and means that you have made changes since your last Commit.
+More on all of that at <xref href="../tools/working-with-git.dita">Working with Git</xref>. You can click this element to see all the changes you made to your repository since your last Commit and revert them all, if you want.
+To revert changes to individual files, use the “File switcher”.</li>
+         </ol>
+         <p>Now that you’re familiar with the elements of BAMOE Canvas, you can jump to <xref href="../editing/authoring-decisions.dita">Authoring Decisions</xref> or <xref href="../editing/authoring-workflows.dita">Authoring Workflows</xref> to start authoring Decisions and Workflows to create a Business Automation project. <xref href="../tools/applying-accelerators.dita">Applying Accelerators</xref> can also be interesting if you’re starting a new project directly from BAMOE Canvas.</p>
+      </section>
+   </body>
+</topic>

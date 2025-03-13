@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_events_add_on">
+   <title>IBM BAMOE events add-on</title>
+   <body>
+      <p>The events add-on provides a default implementation in supported target platforms for EventEmitter and EventReceiver interfaces. You can use EventEmitter and EventReceiver interfaces to enable messaging by process, serverless workflow events, and event decision handling.</p>
+      <div conref="building-decision-services_implementing_message_payload_decorator.dita">_implementing_message_payload_decorator</div>
+   </body>
+</topic>

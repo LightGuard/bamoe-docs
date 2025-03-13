@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_openshift_install">
+   <title>OpenShift install</title>
+   <body>
+      <p>First, you may need to get the default OpenShift domain for your routes with the following command:</p>
+      <codeblock outputclass="language-shell">
+$ oc get ingresses.config cluster --output jsonpath={.spec.domain}
+</codeblock>
+      <p>If you do not have access rights to this configuration, try creating a dummy Route resource and checking its domain.</p>
+      <codeblock outputclass="language-shell">
+$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version={VERSION} --untar
+$ helm install my-bamoe-canvas ./canvas-helm-chart --values ./canvas-helm-chart/values-openshift.yaml --set global.openshiftRouteDomain="&lt;YOUR_OCP_ROUTE_DOMAIN&gt;"
+</codeblock>
+   </body>
+</topic>

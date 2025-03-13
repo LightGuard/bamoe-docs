@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="known-limitations">
+   <title>Known limitations</title>
+   <body>
+      <p>Before you use IBM Business Automation Manager Open Editions, see the known limitations. When possible, workarounds will be included with the limitations.</p>
+      <ul>
+         <li>KIE Tools</li>
+         <li>Technology preview stateful process</li>
+         <li>BAMOE Maven repository image</li>
+         <li>Standalone editors</li>
+      </ul>
+      <p>Table 1. KIE Tools</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Limitation</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Form Generation: Issue in using Array field type</p>
+                  </entry>
+                  <entry>
+                     <p>For Quarkus-based <xref href="https://incubator.apache.org/projects/kie.html" scope="external">Apache Kie</xref> projects, the forms can not currently display Array field types by default.
+For more information, see <xref href="https://github.com/apache/incubator-kie-issues/issues/1313" scope="external">issue</xref>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Form Generation: Missing support for the form generation inputs</p>
+                  </entry>
+                  <entry>
+                     <p>Currently, the <b>Form Generation Tool</b> only allows as an input the json schemas generated in a kogito app, which means, as a previous step we need a kogito app locally compiled.
+For more information, see <xref href="https://github.com/apache/incubator-kie-issues/issues/1315" scope="external">issue</xref>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>jBPM Quarkus Dev UI: Wrong behaviors on the Error notification in Start Process Form component</p>
+                  </entry>
+                  <entry>
+                     <p>If we try to start a process instance in the <tt>jbpm-quarkus-devui</tt> and something goes wrong after submitting the form, it shows an error dialog providing some feedback to the user.
+For more information, see <xref href="https://github.com/apache/incubator-kie-issues/issues/1314" scope="external">issue</xref>.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>BAMOE canvas cannot import files from Github using the raw URL, '/:org/:repo/refs/heads/:tree/:path*'.</p>
+                  </entry>
+                  <entry>
+                     <p>Due to the Github API change, the raw URL does not work. Use the URL, '/:org/:repo/:tree/:path*' to import files from Github, see <xref href="https://www.ibm.com/mysupport/aCIKe000000XfIg" scope="external">issue</xref>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>Table 2. Technology preview stateful process</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Limitation</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Authentication not supported</p>
+                  </entry>
+                  <entry>
+                     <p>The management console does not support authentication for basic task inbox management capabilities when it is used with the technology preview for stateful processes.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>Table 3. BAMOE version 9.1.0 Maven repository image</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Limitation</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Container runs on port 80</p>
+                  </entry>
+                  <entry>
+                     <p>The container is configured to run the httpd service on port 80. This is an issue when deploying it to restrictive Kubernetes clusters (such as OpenShift) which restrict the usage of ports &lt; 1024 except when made by a Service Account with elevated privileges (for example, any uid permission on OpenShift). To workaround this, build your own container image.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>Table 4. BAMOE version 9.1.1 Standalone editors</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Limitation</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Standalone BPMN and DMN classic editors: The standalone editors examples show some minor issues</p>
+                  </entry>
+                  <entry>
+                     <p>* Read-only not applied to process variable tags. It can be edited even if a BPMN diagram is set to read-only in the standalone classic BPMN editor.</p>
+                     <p>* Incorrect reference of state-control. Though BPMN is mentioned in the top toolbar with buttons for loading files, it refers to DMN.</p>
+                     <p>* Read-only not applied to boxed expressions as it can be edited even if a DMN diagram is set to read-only in the standalone classic DMN editor.</p>
+                     <p>See <xref href="https://www.ibm.com/mysupport/aCIKe000000XfJo" scope="external">issue</xref>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

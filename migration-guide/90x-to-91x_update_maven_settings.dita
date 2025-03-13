@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_update_maven_settings">
+   <title>Update Maven settings</title>
+   <body>
+      <title>Update Maven settings</title>
+      <p>On the IBM BAMOE version 9.0.x the dependencies were hosted on the <xref href="https://central.sonatype.com/search?q=bamoe" scope="external">Maven Central</xref>.
+Now the dependencies are distributed with a container image or a zip file.
+Refer to BAMOE version 9.1.1 <xref href="../installation/configure-maven.dita">Maven configuration</xref>.</p>
+   </body>
+</topic>

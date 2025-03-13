@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_addons">
+   <title>Addons</title>
+   <body>
+      <dl>
+         <dlentry>
+            <dt>Jobs</dt>
+            <dd>allows the execution of timed events. In the case of BPMN and workflows it is required for timers, deadlines, and notifications.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Data Audit</dt>
+            <dd>allows the inspection of what happened during workflow execution. It should be able to replay the process. The system stores all diff event data comming from events.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Data Index</dt>
+            <dd>allows the last snapshot of the process state to be queried. The workflow engine sends diff events and data index computes the last state by merging current data with the diff event data.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Human Task</dt>
+            <dd>subsystem that allows human tasks to be executed. It provides a lifecycle internally. This should not be confused with a user task node in the workflow. The user task node uses this subsystem to implement user tasks.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

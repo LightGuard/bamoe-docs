@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_the_task_console_to_interact_with_user_tasks">
+   <title>Using the Task Console to interact with user tasks</title>
+   <body>
+      <p>You can use the Task Console to view and interact with user tasks in BAMOE process services.
+You can run the Task Console for local BAMOE services or add it to your BAMOE infrastructure on OpenShift.</p>
+      <p outputclass="title">
+         <b>Prerequisites</b>
+      </p>
+      <ul>
+         <li>A BAMOE Data Index Service instance is configured and running for your BAMOE service.
+The Data Index Service enables the Task Console to access stored tasks and process data.
+The Data Index Service requires Infinispan or MongoDB persistence and Apache Kafka messaging for your BAMOE service.</li>
+         <li>
+            <p>The <tt>application.properties</tt> file of your BAMOE project contains the following system properties for the location where the BAMOE service is deployed, such as <tt>http://localhost:8080</tt>, and for Quarkus Cross-Origin Resource Sharing (CORS) support.</p>
+            <p outputclass="title">
+               <b>Application properties for REST URLs</b>
+            </p>
+            <codeblock>
+kogito.service.url=http://<i>HOST</i>:<i>PORT</i>
+quarkus.http.cors=true
+</codeblock>
+         </li>
+      </ul>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <p>In a command terminal, enter the following command to run the Task Console:</p>
+      <div>
+         <p outputclass="title">
+            <b>Running the Task Console</b>
+         </p>
+         <codeblock>
+$ docker run -p 8280:8080 quay.io/bamoe/task-console:9.1.1-ibm-0003
+</codeblock>
+         <note type="note">
+            <p>The default port for the Task Console is 8080, but this example specifies port 8280 to avoid conflicts with the example BAMOE service running at port 8080.</p>
+            <p>Also, the Task Console uses the default Data Index Service port 8180.
+If you modified this port in your Data Index Service instance, you can set the new Data Index URL using the <tt>RUNTIME_TOOLS_TASK_CONSOLE_DATA_INDEX_ENDPOINT</tt> environment variable like:</p>
+            <codeblock>
+$ docker run -e RUNTIME_TOOLS_TASK_CONSOLE_DATA_INDEX_ENDPOINT=http:/_HOST_:_PORT_/graphql -p 8280:8080 quay.io/bamoe/task-console:9.1.1-ibm-0003
+</codeblock>
+         </note>
+         <p>If your BAMOE project has a custom task lifecycle that defines custom states, you can use the following environment
+variables to configure the Task Console to use those states and show them in the filters:</p>
+         <ul>
+            <li>
+               <tt>RUNTIME_TOOLS_TASK_CONSOLE_KOGITO_TASK_STATES_LIST</tt>: Comma-separated list of values containing all the states that you want to show in the Task Console.
+Without this property, the Task Console shows the default lifecycle states <tt>Ready</tt>, <tt>Reserved</tt>, <tt>Completed</tt>, <tt>Aborted</tt>, and <tt>Skipped</tt>.</li>
+            <li>
+               <tt>RUNTIME_TOOLS_TASK_CONSOLE_KOGITO_TASK_ACTIVE_STATES_LIST</tt>: Comma-separated list of values containing the active task states.
+These states are used in the <b>Task Inbox</b> default filter. Without this property, the default active states are <tt>Ready</tt> and <tt>Reserved</tt>.</li>
+         </ul>
+         <p outputclass="title">
+            <b>Configuring custom task states for the Task Console</b>
+         </p>
+         <codeblock>
+$ docker run -e RUNTIME_TOOLS_TASK_CONSOLE_KOGITO_TASK_STATES_LIST=Started,Pending,Finished,Cancelled -e RUNTIME_TOOLS_TASK_CONSOLE_KOGITO_TASK_ACTIVE_STATES_LIST=Started,Pending -p 8280:8080 quay.io/bamoe/task-console:9.1.1-ibm-0003
+</codeblock>
+         <fig>
+            <title>Task Console</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console.png" placement="break">
+               <alt>Image of Kogito Task Console</alt>
+            </image>
+         </fig>
+         <p>In this example, the Task Console displays data for the <tt>kogito-travel-agency</tt> extended example application in the <xref href="../getting-started/examples.html">list of example applications</xref>.</p>
+         <p>The <b>Task Inbox</b> page lists the available user tasks that you can interact with.
+You can use the upper toolbar options to filter the tasks or use the column headers to sort the tasks as needed.
+You can also search for tasks by the full name or by partial name, such as <tt>Apply</tt>.</p>
+         <fig>
+            <title>Tasks assigned to the current user</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console-inbox.png" placement="break">
+               <alt>Image of the tasks assigned to the current user</alt>
+            </image>
+         </fig>
+         <fig>
+            <title>Available task status filters</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console-filters-status.png" placement="break">
+               <alt>Image of status filtering on *Task Inbox*</alt>
+            </image>
+         </fig>
+         <fig>
+            <title>Applied filters</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console-filters.png" placement="break">
+               <alt>Image of status and names filtering on *Task Inbox*</alt>
+            </image>
+         </fig>
+         <p>Select a task name to view task details and interact with the task:</p>
+         <fig>
+            <title>Task details</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console-details-page.png" placement="break">
+               <alt>Image of *Task Details* page</alt>
+            </image>
+         </fig>
+         <p>Depending on the current phase of the selected task, you can select from the available actions for that task, such as <b>Abort</b>, <b>Release</b>, <b>Skip</b>, or <b>Complete</b>, to move the task to the next phase.</p>
+         <p>For additional task details, you can select <b>View details</b>. This panel lists the task ID, state, owner, related process instance ID, and other helpful information about the task.</p>
+         <fig>
+            <title>Task details panel</title>
+            <image href="../images/runtime-services-modeling/kogito-task-console-details-expanded.png" placement="break">
+               <alt>Image of task details panel</alt>
+            </image>
+         </fig>
+      </div>
+   </body>
+</topic>

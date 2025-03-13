@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ilmt-track-bamlcns-metrictool">
+   <title>Tracking license use in ILMT</title>
+   <body>
+      <p>IBM® License Metric Tool generates reports to help you maintain compliance with your Virtual Processor Core (VPC) subcapacity license terms.
+License Metric Tool (ILMT) can calculate VPC consumption only when software identification tags exist and are activated by the customer.</p>
+      <p>See the section, <xref href="https://www.ibm.com/support/pages/downloading-ibm-license-metric-tool-92" scope="external">License Metric Tool with disconnected scanners to install on Linux or Windows</xref> on the page, for guidelines on how to obtain and install ILMT.</p>
+      <section id="_using_and_configuring_bamoe_ilmt_libraries">
+         <title>Using and Configuring BAMOE ILMT Libraries</title>
+         <p>License Metric Tool automatically detects the following IBM Business Automation Manager Open Editions 9.1.1 release chargeable components that are part of the product:</p>
+         <table>
+            <tgroup cols="2">
+               <colspec colname="col_1" colwidth="50*"/>
+               <colspec colname="col_2" colwidth="50*"/>
+               <thead>
+                  <row>
+                     <entry>Chargeable Software Components</entry>
+                     <entry>Library</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>IBM Process Automation Manager Open Edition</p>
+                     </entry>
+                     <entry>
+                        <p>ilmt-compliance-quarkus-pamoe</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>IBM Decision Manager Open Edition</p>
+                     </entry>
+                     <entry>
+                        <p>ilmt-compliance-quarkus-dmoe</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <p>The respective libraries use the system variable SWIDTAG_DIR to determine the directory for creating a swidtag file. If the SWIDTAG_DIR variable is set, the library uses the specified directory for swidtag file creation.
+If the SWIDTAG_DIR is not set, the library defaults to the home directory of the hosting application.</p>
+         <p>It is important to note that if the SWIDTAG_DIR environment variable contains invalid content or an invalid path, the hosting application fails to deploy.</p>
+         <p>The swidtag file is an XML file content based on ISO/IEC 19770-2:2015 specification.
+Following is an example of the swidtag file content:</p>
+         <codeblock outputclass="language-xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;SoftwareIdentity name="IBM Decision Manager Open Edition" tagId="ibm.com-3d9d28f19d0f45fda113c07fb481e3ea-9.0.0" version="9.0.0" versionScheme="multipartnumeric" xml:lang="en" xmlns="http://standards.iso.org/iso/19770/-2/2015/schema.xsd" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.iso.org/iso/19770/-2/2015-current/schema.xsd schema.xsd"&gt;
+    &lt;Meta persistentId="3d9d28f19d0f45fda113c07fb481e3ea"/&gt;
+    &lt;Meta generator="4-1-20210113"/&gt;
+    &lt;Entity name="IBM" regid="ibm.com" role="licensor tagCreator softwareCreator"/&gt;
+&lt;/SoftwareIdentity&gt;
+</codeblock>
+      </section>
+   </body>
+</topic>

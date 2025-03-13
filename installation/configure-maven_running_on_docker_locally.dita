@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_running_on_docker_locally">
+   <title>Running on Docker locally</title>
+   <body>
+      <p>Start by loading the <tt>tar.gz</tt> file or pulling the image from Quay.io:</p>
+      <ul>
+         <li>
+            <p>
+               <b>bamoe-9.1.1-maven-repository-image.tar.gz</b>
+            </p>
+            <codeblock outputclass="language-shell">
+docker image load --input bamoe-9.1.1-maven-repository-image.tar.gz
+</codeblock>
+         </li>
+         <li>
+            <p>
+               <b>quay.io/bamoe/maven-repository:9.1.1-ibm-0003</b>
+            </p>
+            <div>
+               <codeblock outputclass="language-shell">
+docker pull quay.io/bamoe/maven-repository:9.1.1-ibm-0003
+</codeblock>
+               <p>Run the image mapping its port:</p>
+               <codeblock outputclass="language-shell">
+docker run -d -p &lt;PORT&gt;:8080 quay.io/bamoe/maven-repository:9.1.1-ibm-0003
+</codeblock>
+               <p>Replace &lt;PORT&gt; with the port that you want the container to be mapped to on your host.</p>
+            </div>
+         </li>
+      </ul>
+      <p>You can verify the repository is running by accessing the repository in your browser at <tt>http://localhost:&lt;PORT&gt;/com/ibm/bamoe</tt>.</p>
+   </body>
+</topic>

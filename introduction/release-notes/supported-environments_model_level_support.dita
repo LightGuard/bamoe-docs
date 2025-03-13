@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_model_level_support">
+   <title>Model level support</title>
+   <body>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Language</entry>
+                  <entry>Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>DMN</p>
+                  </entry>
+                  <entry>
+                     <p>1.5</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>BPMN</p>
+                  </entry>
+                  <entry>
+                     <p>2.0</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

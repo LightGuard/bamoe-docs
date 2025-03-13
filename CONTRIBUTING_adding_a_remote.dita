@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_adding_a_remote">
+   <title>Adding a remote</title>
+   <body>
+      <title>Adding a remote</title>
+      <p>The standard convention for git is to call the first repository cloned <tt>origin</tt>.
+The <tt>origin</tt> in this guide will be your own fork.
+This name can be changed, however, it is out of the scope for this contributing guide.
+The second repository that should be added to your local repository is called <tt>upstream</tt>.
+This should be the <tt>ibm/bamoe-docs</tt> repository.</p>
+      <p outputclass="title">
+         <b>Adding a remote via CLI</b>
+      </p>
+      <codeblock outputclass="language-bash">
+git remote add upstream &lt;repository url&gt;
+</codeblock>
+      <p>Adding a remote in VS Code is done by:</p>
+      <ol>
+         <li>Clicking the ellipsis menu on the ending right side of the cloned repository.</li>
+         <li>Navigating to the "Remote" section.</li>
+         <li>Clicking on the "Add Remote…​" menu entry</li>
+      </ol>
+      <fig>
+         <title>VS Code Adding a Remote repository</title>
+         <image href="images/contributing/vscode-repo-add-remote.png" placement="break">
+            <alt>vscode repo add remote</alt>
+         </image>
+      </fig>
+      <p>You will then be presented with a similar dropdown to supply a repository name and URL as when you originally cloned.</p>
+      <fig>
+         <title>VS Code Add remote dialog</title>
+         <image href="images/contributing/vscode-repo-add-remote-dialog.png" placement="break">
+            <alt>vscode repo add remote dialog</alt>
+         </image>
+      </fig>
+      <p>When working within VS Code, it is recommended to have VS Code periodically sync or fetch the upstream repository so your local copy is kept up to date.</p>
+      <fig>
+         <title>VS Code periodically running git fetch</title>
+         <image href="images/contributing/vscode-repo-git-fetch.png" placement="break">
+            <alt>vscode repo git fetch</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

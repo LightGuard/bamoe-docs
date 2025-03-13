@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_a_diagram">
+   <title>A. Diagram</title>
+   <body>
+      <p>When you open the diagram for the first time, there are a few components to become familiar with.</p>
+      <fig>
+         <title>New DMN Editor diagram overview</title>
+         <image href="../images/tools/authoringDecisions/new-editor-diagram-overview.png" placement="break">
+            <alt>720</alt>
+         </image>
+      </fig>
+      <ol>
+         <li>
+            <p>The editor empty state.</p>
+            <p>The New DMN Editor empty state enables you to easily bootstrap a new model via two options: by
+creating a Decision node with a Decision Table or by creating a Decision with an Input Data node.</p>
+         </li>
+         <li>
+            <p>The node Palette which enables you to create:</p>
+            <ol>
+               <li>Decision Requirements Graph (DRG) nodes</li>
+               <li>Artifact nodes</li>
+               <li>All DRG nodes</li>
+               <li>External nodes</li>
+            </ol>
+         </li>
+         <li>The DRD dropdown which enables you to change the currently open DRD, rename it, or change its properties.</li>
+         <li>The properties panel of the selected element.</li>
+         <li>The overlay panel, with customizable style and visualization properties.</li>
+         <li>The auto layout button, to help you organize your DRD.</li>
+         <li>The canvas properties, where you can control the zoom or what you are visualizing.</li>
+      </ol>
+      <p>More about these functionalities are explained in the following sections.</p>
+      <div conref="authoring-decisions_1_empty_state.dita">_1_empty_state</div>
+      <div conref="authoring-decisions_2_palette.dita">_2_palette</div>
+      <div conref="authoring-decisions_nodes.dita">_nodes</div>
+      <div conref="authoring-decisions_3_drd.dita">_3_drd</div>
+      <div conref="authoring-decisions_4_properties_panel.dita">_4_properties_panel</div>
+      <div conref="authoring-decisions_5_overlay_properties.dita">_5_overlay_properties</div>
+      <div conref="authoring-decisions_6_autolayout_beta.dita">_6_autolayout_beta</div>
+      <div conref="authoring-decisions_7_visualization_controls.dita">_7_visualization_controls</div>
+   </body>
+</topic>

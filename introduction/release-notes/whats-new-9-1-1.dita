@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="whats-new-9-1-1">
+   <title>What’s new in version 9.1.1</title>
+   <body>
+      <p>This version includes new standalone editors and some changes to the technology stack as well as providing critical security and known issue fixes.</p>
+      <section id="_standalone_editors">
+         <title>Standalone editors</title>
+         <p>You can embedd the Standalone BPMN and DMN Editors in your application. The same editors used in both BAMOE Canvas and BAMOE Developer Tools for VS Code are available as standalone Javascript libraries that can be imported into any frontend web application. They are available in two separate libraries that can be installed from <xref href="https://www.npmjs.com/org/ibm" scope="external">npm</xref> or downloaded from Passport advantage, see <xref href="https://www.ibm.com/support/pages/node/7151078" scope="external">BAMOE 9.1 Download Document</xref>:</p>
+         <ul>
+            <li>@ibm/bamoe-standalone-bpmn-and-dmn-editors-classic : The classic DMN and BPMN Editors</li>
+            <li>@ibm/bamoe-standalone-dmn-editor : The new DMN Editor</li>
+         </ul>
+         <p>For more information on using the editors, see <xref href="../../tools/editors-libraries.dita">DMN and BPMN Editors JavaScript Libraries</xref>
+         </p>
+      </section>
+      <section id="_modernized_technology_stack">
+         <p>The following new versions are supported for the technology stack:</p>
+         <ul>
+            <li>IBM Semeru Runtime Open Edition - 17.0.11.0</li>
+            <li>Quarkus - 3.8.6</li>
+            <li>Red Hat Enterprise Linux (RHEL) - 9.4</li>
+            <li>OpenShift Container Platform - 4.15</li>
+            <li>Kubernetes - 1.30</li>
+            <li>Google Chrome - Latest release</li>
+            <li>PostgreSQL - 16.4</li>
+         </ul>
+      </section>
+      <section id="_system_requirements">
+         <p>You can find the supported configurations in the following link: <xref href="supported-environments.dita">Supported Environments</xref>
+         </p>
+      </section>
+      <section id="_download_documents">
+         <p>For more information on IBM Business Automation Manager Open Editions version 9.1.1 download document, see <xref href="https://www.ibm.com/support/pages/node/7151078" scope="external">BAMOE 9.1 Download Document</xref>.</p>
+      </section>
+   </body>
+</topic>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ref-dmn-feel-variable-function-names">
+   <title>Variable and function names in FEEL</title>
+   <body>
+      <p>Unlike many traditional expression languages, Friendly Enough Expression Language (FEEL) supports spaces and a few special characters as part of variable and function names. A FEEL name must start with a <tt>letter</tt>, <tt>?</tt>, or <tt>_</tt> element. The unicode letter characters are also allowed. Variable names cannot start with a language keyword, such as <tt>and</tt>, <tt>true</tt>, or <tt>every</tt>. The remaining characters in a variable name can be any of the starting characters, as well as <tt>digits</tt>, white spaces, and special characters such as <tt>+</tt>, <tt>-</tt>, <tt>/</tt>, <tt>*</tt>, <tt>'</tt>, and <tt>.</tt>.</p>
+      <p>For example, the following names are all valid FEEL names:</p>
+      <ul>
+         <li>Age</li>
+         <li>Birth Date</li>
+         <li>Flight 234 pre-check procedure</li>
+      </ul>
+      <p>Several limitations apply to variable and function names in FEEL:</p>
+      <dl>
+         <dlentry>
+            <dt>Ambiguity</dt>
+            <dd>The use of spaces, keywords, and other special characters as part of names can make FEEL ambiguous. The ambiguities are resolved in the context of the expression, matching names from left to right. The parser resolves the variable name as the longest name matched in scope. You can use <tt>( )</tt> to disambiguate names if necessary.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Spaces in names</dt>
+            <dd>
+               <p>The DMN specification limits the use of spaces in FEEL names. According to the DMN specification, names can contain multiple spaces but not two consecutive spaces.</p>
+               <div>
+                  <p>In order to make the language easier to use and avoid common errors due to spaces, IBM BAMOE removes the limitation on the use of consecutive spaces. IBM BAMOE supports variable names with any number of consecutive spaces, but normalizes them into a single space. For example, the variable references <tt>First Name</tt> with one space and <tt>First  Name</tt> with two spaces are both acceptable in IBM BAMOE.</p>
+                  <p>IBM BAMOE also normalizes the use of other white spaces, like the non-breakable white space that is common in web pages, tabs, and line breaks. From a IBM BAMOE FEEL engine perspective, all of these characters are normalized into a single white space before processing.</p>
+               </div>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>The keyword <tt>in</tt>
+            </dt>
+            <dd>The keyword <tt>in</tt> is the only keyword in the language that cannot be used as part of a variable name. Although the specifications allow the use of keywords in the middle of variable names, the use of <tt>in</tt> in variable names conflicts with the grammar definition of <tt>for</tt>, <tt>every</tt> and <tt>some</tt> expression constructs.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

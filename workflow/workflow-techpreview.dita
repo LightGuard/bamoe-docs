@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="workflow-techpreview">
+   <title>Technology preview: Developing process services</title>
+   <body>
+      <p>Stateful business process services are introduced as a technology preview in IBM BAMOE 9.1.1. The functionality available in a technology preview is not supported in a production system and should only be used to discover and test in a development environment. If you encounter problems with the functionality you can contact IBM support in the usual way.</p>
+      <p>This section includes all the information you need to get started with the technology preview.</p>
+      <ul>
+         <li>
+            <xref href="overview.html">Overview stateful processes</xref> - provides you with the introductory information on the stateful process service.</li>
+         <li>
+            <xref href="gs-stateful-processes.html">Getting started with process automation</xref> - explains how to set-up and access the technology preview, walking you through an example of a stateful hiring process.</li>
+         <li>
+            <xref href="workflow-with-bpmn.html">Authoring business processes with BPMN</xref> - documents the new BPMN support provided in BAMOE to support stateful processes.</li>
+         <li>
+            <xref href="../tools/form-generation-tool.html">Form Generation tool</xref> - describes how to use the Form generation tool to generate the web forms needed for process execution.</li>
+         <li>
+            <xref href="deploying-process-services.html">Architecture components and deployment</xref> - provides more detail on the architecture and components of stateful processes including how to use the components.</li>
+         <li>
+            <xref href="consoles.html">Interacting with processes and tasks using Consoles</xref> - describes how the BAMOE Management Console can be used to view and manage available BAMOE services.</li>
+      </ul>
+   </body>
+</topic>

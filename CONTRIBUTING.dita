@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="CONTRIBUTING">
+   <title>Contributing Guide</title>
+   <body>
+      <p>Jason Porter jporter@ibm.com</p>
+      <p>The documentation found in this repository is written in Asciidoc.
+While many tools will work with Asciidoc, as it is purely text, the recommended setup can be done using only VS Code and a small set of extensions.
+Below, you will find the recommended setup, as well as some conventions that are being used in this repository.</p>
+      <section id="_tool_setup">
+         <title>Tool Setup</title>
+         <p>Visual Studio Code (available at <xref href="https://code.visualstudio.com" scope="external">https://code.visualstudio.com</xref>), known colloquially as VS Code, is a simple code editor.
+On its own, it will work fine, however, you can improve your experience by adding the Asciidoc extension.
+Adding this extension will provide you with syntax highlighting, live preview, and snippets.</p>
+         <fig>
+            <title>VS Code AsciiDoc extension</title>
+            <image href="images/contributing/vscode-asciidoc-extension.png" placement="break">
+               <alt>AsciiDoc VS Code Extension</alt>
+            </image>
+         </fig>
+         <p>This extension can be installed by visiting <xref href="https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode" scope="external">https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode</xref>, by using the "Quick Open" and pasting <tt>ext install asciidoctor.asciidoctor-vscode</tt>, or by using the built-in extension browser within VS Code.</p>
+         <p>There are other extensions which can provide additional insight or aid in the contribution process, but they are not required.
+These extensions are "GitHub Pull Requests and Issues" and "GitLens."
+Of those two, "GitHub Pull Requests" is more helpful than "GitLens."</p>
+      </section>
+      <section id="_git_workflow">
+         <p>The BAMOE Documentation in this repository utilizes feature or topic branches for work.
+You can read more about those at <xref href="https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow" scope="external">Git feature branch workflow</xref> by Atlassian and <xref href="https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows" scope="external">Branching Workflows</xref> on the main git website.</p>
+         <p>Essentially, this means all work should be done on its own feature branch.
+The quick and dirty way of doing this is to simply create a new git branch from the <tt>main</tt> (or other version branch i.e. 9.x, 10.x, etc.).
+On the command line, this can be accomplished by running <tt>git checkout &lt;base branch name&gt;</tt> followed by <tt>git checkout -b &lt;name of new branch&gt;</tt>.
+Other tools have different ways of create a branch.
+Later in this guide, the way of doing this using VS Code will be explained and demonstrated.</p>
+         <div conref="CONTRIBUTING_forking.dita">_forking</div>
+         <div conref="CONTRIBUTING_cloning_locally.dita">_cloning_locally</div>
+         <div conref="CONTRIBUTING_rebase.dita">_rebase</div>
+         <div conref="CONTRIBUTING_pushing.dita">_pushing</div>
+         <div conref="CONTRIBUTING_pull_request.dita">_pull_request</div>
+         <div conref="CONTRIBUTING_merging.dita">_merging</div>
+      </section>
+      <section id="_conventions">
+         <div conref="CONTRIBUTING_screenshots.dita">_screenshots</div>
+      </section>
+   </body>
+</topic>

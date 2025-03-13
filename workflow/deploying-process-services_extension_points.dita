@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_extension_points">
+   <title>Extension Points</title>
+   <body>
+      <p>Some extensions depend on the runtime and others do not.</p>
+      <dl>
+         <dlentry>
+            <dt>
+               <tt>org.kogito.kie.app.audit.spi.DataAuditContextFactory</tt>
+            </dt>
+            <dd>depends on the runtime and enables the creation of the context needed by a particular implementation.</dd>
+         </dlentry>
+      </dl>
+      <p>The following extension points do not depend on the runtime:</p>
+      <dl>
+         <dlentry>
+            <dt>
+               <tt>org.kie.kogito.app.audit.spi.DataAuditStore</tt>
+            </dt>
+            <dd>stores the data in particular way.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>org.kie.kogito.app.audit.spi.GraphQLSchemaQuery&lt;T&gt;</tt>
+            </dt>
+            <dd>enables execution of a GraphQL query.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>org.kie.kogito.app.audit.spi.GraphQLSchemaQueryProvider</tt>
+            </dt>
+            <dd>enables the subsystem to identify additional queries provided by the end user.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

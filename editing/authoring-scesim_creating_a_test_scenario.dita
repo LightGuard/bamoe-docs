@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_creating_a_test_scenario">
+   <title>Creating a Test Scenario</title>
+   <body>
+      <p>Create <tt>PersonDecisions.dmn</tt> file under <tt>src/main/resources</tt> directory.
+Its content is available at <xref href="../getting-started/business-rule-microservice.dita#example-person-decisions-dmn">Example PersonDecisions DMN file</xref> section.
+This will be the first model that will tested using a <tt>.scesim</tt> file.</p>
+      <p>Then, in the <tt>src/test/resources</tt> directory, create a new file with the <tt>.scesim</tt> extension.</p>
+      <image href="../images/developer-tools/scesim-file-creation.png" placement="break">
+         <alt>scesim file creation</alt>
+      </image>
+      <p>For this example, the test scenario file corresponds to a <tt>PersonDecisions.dmn</tt> model in the IBM BAMOE project:</p>
+      <p>The test scenario modeler automatically generates a scenario template based on the available DMN data types and fields that you defined in the DMN model.</p>
+      <p>The <b>GIVEN</b> columns specify input conditions based on the corresponding decision service.
+The <b>EXPECT</b> column specifies the expected results of the decision service based on the defined <b>GIVEN</b> conditions.
+Each row in the table is a defined scenario with example values for the <b>GIVEN</b> and <b>EXPECT</b> definitions to test the decision logic of the corresponding decision service.</p>
+      <p>You can right-click the relevant header cells to insert or delete columns as needed to modify the table structure. You can also select the relevant header cells to modify or insert data objects from the <b>Test Tools</b> panel in the right toolbar.</p>
+      <p>Modify the generated test scenario header cells and specified data objects as needed to design the test scenario template. Many of the header cell values might already be defined for you.</p>
+      <p>Use the following resources in the right toolbar of the test scenario modeler to help you design your test scenario header cells:</p>
+      <ul>
+         <li>
+            <b>Settings</b>: Use this panel to change the target <b>DMN model</b> selection if needed or to select the option to <b>Skip this simulation during the test</b>. This skip option excludes this test scenario file from being run when you run all test scenario files in the IBM BAMOE project. If you update these settings, you must save, close, and reopen the test scenario file for the changes to take effect.</li>
+         <li>
+            <b>Test Tools</b>: Use this panel to select and insert the data objects for a selected header cell. These data objects come from the target DMN model specified in the <b>Settings</b> toolbar option.</li>
+         <li>
+            <b>Scenario Cheatsheet</b>: Use this panel to review supported test scenario table actions, syntax, and other options.</li>
+      </ul>
+      <p>For this example, the test scenario file defines the following parameters:</p>
+      <ul>
+         <li>
+            <b>GIVEN</b>: The first header cell (instance) is set to the <b>Person</b> data object and the subheader cells (properties) are set to the <b>Age</b> and <b>Name</b> data objects. Any other generated columns under <b>GIVEN</b> are deleted.</li>
+         <li>
+            <b>EXPECT</b>: The first header cell (instance) is set to the <b>isAdult</b> data object and the subheader cell (property) is set to the <b>value</b> data object. Any other generated columns under <b>EXPECT</b> are deleted.</li>
+      </ul>
+      <fig>
+         <title>Example test scenario header cells</title>
+         <image href="../images/test-scenarios/kogito-test-scenario-example-person-headers-create.png" placement="break">
+            <alt>Image of test scenario template</alt>
+         </image>
+      </fig>
+      <p>In row 1, create a test scenario with values for the <b>GIVEN</b> and <b>EXPECT</b> definitions to test the decision logic of the corresponding decision service.</p>
+      <p>For this example, the test scenario specifies the following values:</p>
+      <ul>
+         <li>
+            <b>Scenario description</b>: <tt>Is an adult</tt>
+         </li>
+         <li>
+            <p>
+               <b>GIVEN</b>: Set the following values:</p>
+            <ul>
+               <li>
+                  <b>Person</b> → <b>Age</b>: <tt>20</tt>
+               </li>
+               <li>
+                  <b>Person</b> → <b>Name</b>: <tt>John Quark</tt>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <b>EXPECT</b>: Set the following value:</p>
+            <ul>
+               <li>
+                  <b>isAdult</b> → <b>value</b>: <tt>true</tt>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p>The corresponding <tt>PersonDecisions.dmn</tt> model in this example contains an <tt>isAdult</tt> DMN decision that determines that persons with more than 18 years of age are adults. This example test scenario tests whether the person John Quark with 20 years of age is correctly identified by the <tt>isAdult</tt> DMN decision as an adult (<tt>true</tt>), based on the decision logic.</p>
+      <p>Right-click any cell in row 1 and select <b>Insert row below</b> to create additional test scenarios as needed.</p>
+      <p>For this example, a second test scenario in row 2 specifies the following values:</p>
+      <ul>
+         <li>
+            <b>Scenario description</b>: <tt>Is underage</tt>
+         </li>
+         <li>
+            <p>
+               <b>GIVEN</b>: Set the following values:</p>
+            <ul>
+               <li>
+                  <b>Person</b> → <b>Age</b>: <tt>15</tt>
+               </li>
+               <li>
+                  <b>Person</b> → <b>Name</b>: <tt>Jenny Quark</tt>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <b>EXPECT</b>: Set the following value:</p>
+            <ul>
+               <li>
+                  <b>isAdult</b> → <b>value</b>: <tt>false</tt>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p>This example scenario tests whether the person Jenny Quark with 15 years of age is correctly identified by the <tt>isAdult</tt> DMN decision as not an adult (<tt>false</tt>), based on the decision logic.</p>
+      <div>
+         <ol>
+            <li>Continue adding test scenarios as needed to complete the test scenario file.</li>
+         </ol>
+      </div>
+      <p>The following test scenario file is the completed <tt>PersonDecisionsTest.scesim</tt> test scenario example:</p>
+      <fig>
+         <title>Example test scenarios for <tt>PersonDecisions</tt> DMN decision logic</title>
+         <image href="../images/test-scenarios/kogito-test-scenario-example-person.png" placement="break">
+            <alt>Image of PersonDecisionsTest test scenario</alt>
+         </image>
+      </fig>
+      <p>This example test scenario file tests the decision logic for the following <tt>PersonDecisions.dmn</tt> model in the IBM BAMOE project. This DMN model determines whether a specified person is an adult or is underage.</p>
+      <fig>
+         <title>Example <tt>PersonDecisions</tt> DMN decision requirements diagram (DRD)</title>
+         <image href="../images/test-scenarios/kogito-dmn-example-person.png" placement="break">
+            <alt>Image of PersonDecisions decision diagram</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Example DMN boxed expression for <tt>isAdult</tt> decision</title>
+         <image href="../images/test-scenarios/kogito-dmn-example-person-logic.png" placement="break">
+            <alt>Image of PersonDecisions decision table</alt>
+         </image>
+      </fig>
+      <p>If you plan to use the same value for a <b>GIVEN</b> input condition in all test scenario rows in the file, you can use the <b>Background</b> tab to define the global header cell and value definitions and exclude the column from the test scenario table template. The <b>GIVEN</b> input conditions in the <b>Background</b> page are treated as background data for the table and are applied to all test scenarios listed.</p>
+      <p>For example, if the previous test scenario example requires the same value for the person <tt>Age</tt> in all test scenarios, you can define the <tt>Age</tt> value in the <b>Background</b> page and exclude that column from the test scenario table template. In this case, the <tt>Age</tt> is set to <tt>20</tt> for all test scenarios.</p>
+      <fig>
+         <title>Example test scenarios with repeated value for <tt>Age</tt>
+         </title>
+         <image href="../images/test-scenarios/kogito-test-scenario-example-person-background.png" placement="break">
+            <alt>Image of test scenario template</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Example background definition of repeated value for <tt>Age</tt>
+         </title>
+         <image href="../images/test-scenarios/kogito-test-scenario-example-person-background2.png" placement="break">
+            <alt>Image of test scenario template</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Modified test scenario template with excluded <tt>Age</tt> column</title>
+         <image href="../images/test-scenarios/kogito-test-scenario-example-person-background3.png" placement="break">
+            <alt>Image of test scenario template</alt>
+         </image>
+      </fig>
+      <p>The following test scenario file is a more advanced <tt>TrafficViolationTest.scesim</tt> test scenario example:</p>
+      <fig>
+         <title>Example test scenarios for <tt>Traffic Violation</tt> DMN decision logic</title>
+         <image href="../images/test-scenarios/kogito-test-scenario-example-traffic-violation.png" placement="break">
+            <alt>Image of TrafficViolationTest test scenario</alt>
+         </image>
+      </fig>
+      <p>This example test scenario file tests the decision logic for the following <tt>Traffic Violation.dmn</tt> model in the IBM BAMOE project. This DMN model determines fine amounts and driver suspension for traffic violations.</p>
+      <fig>
+         <title>Example <tt>Traffic Violation</tt> DMN decision requirements diagram (DRD)</title>
+         <image href="../images/test-scenarios/kogito-dmn-example-traffic-violation.png" placement="break">
+            <alt>Image of Traffic Violation decision diagram</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Example DMN boxed expression for <tt>Fine</tt> decision</title>
+         <image href="../images/test-scenarios/kogito-dmn-example-traffic-violation-fine.png" placement="break">
+            <alt>Image of Fine decision table</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>Example DMN boxed expression for <tt>Should the driver be suspended?</tt> decision</title>
+         <image href="../images/test-scenarios/kogito-dmn-example-traffic-violation-suspension.png" placement="break">
+            <alt>Image of Should the driver be suspended? context expression</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

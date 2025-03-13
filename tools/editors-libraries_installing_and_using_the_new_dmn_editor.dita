@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_installing_and_using_the_new_dmn_editor">
+   <title>Installing and using the new DMN Editor</title>
+   <body>
+      <title>Installing and using the new DMN Editor</title>
+      <p>Follow these steps to install the new DMN Editor</p>
+      <ol>
+         <li>
+            <p>Add the library to the project’s <tt>package.json</tt>:</p>
+            <codeblock outputclass="language-shell">
+npm install @ibm/@ibm/bamoe-standalone-dmn-editor@9.1.1
+</codeblock>
+         </li>
+         <li>
+            <p>Import the editor library to a JavaScript file with the following statement:</p>
+            <codeblock outputclass="language-javascript">
+import * as NewDmnEditor from "@ibm/bamoe-standalone-dmn-editor/dist"
+</codeblock>
+         </li>
+         <li>
+            <p>Add a 'div' element for the Editor in the HTML; the library uses this 'div' as a container to load an iFrame with the Editor’s resources:</p>
+            <codeblock outputclass="language-html">
+&lt;div id="new-dmn-editor-container"/&gt;
+</codeblock>
+         </li>
+         <li>
+            <p>Load the Editor by passing the reference to the <tt>div</tt> container as follows:</p>
+            <codeblock outputclass="language-javascript">
+const newDmnEditor = NewDmnEditor.open({
+ container: document.getElementById("new-dmn-editor-container")
+ initialFileNormalizedPosixPathRelativeToTheWorkspaceRoot: "model.dmn"
+ initialContent: Promise.resolve("")
+ readOnly: false
+ origin: "*"
+ onError: () =&gt; {}
+ resources: new Map([])
+});
+</codeblock>
+         </li>
+      </ol>
+      <p>Where the following table describes the parameters:</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="25*"/>
+            <colspec colname="col_2" colwidth="25*"/>
+            <colspec colname="col_3" colwidth="25*"/>
+            <colspec colname="col_4" colwidth="25*"/>
+            <thead>
+               <row>
+                  <entry>Parameter</entry>
+                  <entry>Description</entry>
+                  <entry>Required/Optional</entry>
+                  <entry>Examples</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>container</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Specifies the HTML element that the Editor is appended to.</p>
+                  </entry>
+                  <entry>
+                     <p>Mandatory</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>initialFileNormalizedPosixPathRelativeToTheWorkspaceRoot</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Specifies the POSIX path relative to the workspace root which is <tt>/</tt> by default, including the file name. The path is useful for locating the file in the workspace, especially in relation to other resources (defined by the <tt>resources</tt> parameters).</p>
+                  </entry>
+                  <entry>
+                     <p>Mandatory</p>
+                  </entry>
+                  <entry>
+                     <p>* <tt>model.dmn</tt>
+                     </p>
+                     <p>* <tt>myPath/model.dmn</tt>
+                     </p>
+                     <p>* <tt>parent/child/filename.dmn</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>initialContent</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Accepts a Promise that resolves to the contents of a .dmn file. It can be an empty.</p>
+                  </entry>
+                  <entry>
+                     <p>Mandatory</p>
+                  </entry>
+                  <entry>
+                     <p>* <tt>Promise.resolve("")</tt>
+                     </p>
+                     <p>* <tt>Promise.resolve("&lt;DMN_CONTENT_DIRECTLY_HERE&gt;")</tt>
+                     </p>
+                     <p>* <tt>fetch("MyDecision.dmn").then(content ⇒ content.text())</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>readOnly</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>You can use <tt>false</tt> for content edition and <tt>true</tt> for read-only mode, where the editor does not allow changes. Default is  <tt>false</tt>.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>origin</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>If accessing the application via the <tt>file://</tt> protocol, it defaults to <tt>*</tt>; otherwise, it defaults to <tt>window.location.origin</tt>.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>onError</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Accepts a function that is called when the Editor encounters an error at any moment. This parameter defaults to () ⇒ {}).</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>resources</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter defaults to an empty Map; Map of resources that will be provided for the Editor. For instance, this parameter can be used to provide included models for the DMN Editor. Each entry in the map has the resource POSIX path (similar to the <tt>initialFileNormalizedPosixPathRelativeToTheWorkspaceRoot</tt> parameter) as the key and an object that contains the <tt>contentType</tt> (<tt>text</tt> or <tt>binary</tt>), and the resource <tt>content</tt> (Promise similar to the <tt>initialContent</tt> parameter) as its value. The resources are located in a parent directory (in relation to the current content path, defined by the <tt>initialFileNormalizedPosixPathRelativeToTheWorkspaceRoot</tt>) which will not be listed to be used as an Included Model.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry>
+                     <p>* <tt>resources: new Map([["types.dmn", { contentType: "text", content: Promise.resolve("&lt;DMN_CONTENTS_HERE&gt;")}], […​], […​]])</tt>
+                     </p>
+                     <p>* <tt>resources: new Map([["/types/typeA.dmn", { contentType: "text", content: Promise.resolve("&lt;DMN_CONTENTS_HERE&gt;")}], ["/extras/decision.dmn", { contentType: "text", content: Promise.resolve("&lt;DMN_CONTENTS_HERE&gt;")}], […​]])</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <note type="note">
+The <tt>initialFileNormalizedPosixPathRelativeToTheWorkspaceRoot</tt> parameter is only available for the new DMN Editor. The classic editors do not have the concept of relative paths, so every mapped resource is available.
+</note>
+      <p>The returned object (<tt>newDmnEditor</tt>) will contain the following methods needed to manipulate the Editor:</p>
+      <dl>
+         <dlentry>
+            <dt>
+               <tt>getContent(): Promise&lt;string&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the Editor’s content.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>setContent(normalizedPosixPathRelativeToTheWorkspaceRoot: string, content: string): Promise&lt;void&gt;</tt>
+            </dt>
+            <dd>Sets the content of the editor. The returning Promise will be rejected if setting the content fails.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getPreview(): Promise&lt;string&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that resolves to the SVG string of the current diagram.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>subscribeToContentChanges(callback: (isDirty: boolean) ⇒ void): (isDirty: boolean) ⇒ void</tt>
+            </dt>
+            <dd>Setup a callback function that is automatically called on every content change in the Editor. It returns the same function that needs to be used for unsubscription.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>unsubscribeToContentChanges(callback: (isDirty: boolean) ⇒ void): void</tt>
+            </dt>
+            <dd>Unsubscribes the callback function from being called when the content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>markAsSaved(): void</tt>
+            </dt>
+            <dd>Resets the editor state by signaling that the content is saved. It also fires the subscribed callbacks for content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>undo(): void</tt>
+            </dt>
+            <dd>Undo the last change in the Editor. It will also fire the subscribed callbacks of content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>redo(): void</tt>
+            </dt>
+            <dd>Redo the last undone change in the Editor. It will also fire the subscribed callbacks of content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>close(): void</tt>
+            </dt>
+            <dd>Closes the Editor.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>envelopeApi: MessageBusClientApi&lt;KogitoEditorEnvelopeApi&gt;</tt>
+            </dt>
+            <dd>An Advanced Editor API.</dd>
+         </dlentry>
+      </dl>
+      <note type="note">
+As of now, the new DMN Editor does not expose the <tt>canvas</tt> property.
+</note>
+   </body>
+</topic>

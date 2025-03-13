@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="notices">
+   <title>Notices</title>
+   <body>
+      <p>These legal notices pertain to the IBM Business Automation Manager Open Editions product and its documentation.</p>
+      <p>This information was developed for products and services offered in the US. This material might be available from IBM in other languages. However, you may be required to own a copy of the product or product version in that language in order to access it.</p>
+      <p>IBM may not offer the products, services, or features discussed in this document in other countries. Consult your local IBM representative for information on the products and services currently available in your area. Any reference to an IBM product, program, or service is not intended to state or imply that only that IBM product, program, or service may be used. Any functionally equivalent product, program, or service that does not infringe any IBM intellectual property right may be used instead. However, it is the user’s responsibility to evaluate and verify the operation of any third party product, program, or service.</p>
+      <p>IBM may have patents or pending patent applications covering subject matter described in this document. The furnishing of this document does not grant you any license to these patents. You can send license inquiries, in writing, to:</p>
+      <p>IBM Director of Licensing
+IBM Corporation
+North Castle Drive, MD-NC119
+Armonk, NY 10504-1785
+US</p>
+      <p>For license inquiries regarding double-byte character set (DBCS) information, contact the IBM Intellectual Property Department in your country or send inquiries, in writing, to:</p>
+      <p>Intellectual Property Licensing
+Legal and Intellectual Property Law
+IBM Japan Ltd.
+19-21, Nihonbashi-Hakozakicho, Chuo-ku
+Tokyo 103-8510, Japan</p>
+      <p>INTERNATIONAL BUSINESS MACHINES CORPORATION PROVIDES THIS PUBLICATION "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Some jurisdictions do not allow disclaimer of express or implied warranties in certain transactions, therefore, this statement may not apply to you.</p>
+      <p>This information could include technical inaccuracies or typographical errors. Changes are periodically made to the information herein; these changes will be incorporated in new editions of the publication. IBM may make improvements and/or changes in the product(s) and/or the program(s) described in this publication at any time without notice.</p>
+      <p>Any references in this information to third party websites are provided for convenience only and do not in any manner serve as an endorsement of those websites. The materials at those websites are not part of the materials for this IBM product and use of those websites is at your own risk.</p>
+      <p>IBM may use or distribute any of the information you provide in any way it believes appropriate without incurring any obligation to you.</p>
+      <p>Licensees of this program who wish to have information about it for the purpose of enabling: (i) the exchange of information between independently created programs and other programs (including this one) and (ii) the mutual use of the information which has been exchanged, should contact:</p>
+      <p>IBM Director of Licensing
+IBM Corporation
+North Castle Drive, MD-NC119
+Armonk, NY 10504-1785
+US</p>
+      <p>Such information may be available, subject to appropriate terms and conditions, including in some cases, payment of a fee.</p>
+      <p>The licensed program described in this document and all licensed material available for it are provided by IBM under terms of the IBM Customer Agreement, IBM International Program License Agreement or any equivalent agreement between us.</p>
+      <p>The performance data discussed herein is presented as derived under specific operating conditions. Actual results may vary.</p>
+      <p>Information concerning third party products was obtained from the suppliers of those products, their published announcements or other publicly available sources. IBM has not tested those products and cannot confirm the accuracy of performance, compatibility or any other claims related to third party products. Questions on the capabilities of third party products should be addressed to the suppliers of those products.</p>
+      <p>Statements regarding IBM’s future direction or intent are subject to change or withdrawal without notice, and represent goals and objectives only.</p>
+      <p>This information contains examples of data and reports used in daily business operations. To illustrate them as completely as possible, the examples include the names of individuals, companies, brands, and products. All of these names are fictitious and any similarity to actual people or business enterprises is entirely coincidental.</p>
+      <p>
+         <b>COPYRIGHT LICENSE:</b>
+      </p>
+      <p>This information contains sample application programs in source language, which illustrate programming techniques on various operating platforms. You may copy, modify, and distribute these sample programs in any form without payment to IBM, for the purposes of developing, using, marketing or distributing application programs conforming to the application programming interface for the operating platform for which the sample programs are written. These examples have not been thoroughly tested under all conditions. IBM, therefore, cannot guarantee or imply reliability, serviceability, or function of these programs. The sample programs are provided "AS IS", without warranty of any kind. IBM shall not be liable for any damages arising out of your use of the sample programs.</p>
+      <section id="_trademarks">
+         <title>Trademarks</title>
+         <p>IBM, the IBM logo, ibm.com are trademarks or registered trademarks of International Business Machines Corp., registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the web at <xref href="http://www.ibm.com/legal/copytrade.shtml" scope="external">Copyright and trademark information</xref>.</p>
+         <p>Red Hat®, JBoss®, OpenShift®, Fedora®, Hibernate®, Ansible®, CloudForms®, RHCA®, RHCE®, RHCSA®, Ceph®, and Gluster® are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the United States and other countries.</p>
+         <p>The registered trademark Linux® is used pursuant to a sublicense from the Linux Foundation, the exclusive licensee of Linus Torvalds, owner of the mark on a world­wide basis.</p>
+         <p>Microsoft, Windows, Windows NT, and the Windows logo are trademarks of Microsoft Corporation in the United States, other countries, or both.</p>
+         <p>UNIX is a registered trademark of The Open Group in the United States and other countries.</p>
+         <p>VMware, the VMware logo, VMware Cloud Foundation, VMware Cloud Foundation Service, VMware vCenter Server, and VMware vSphere are registered trademarks or trademarks of VMware, Inc. or its subsidiaries in the United States and/or other jurisdictions.</p>
+      </section>
+      <section id="_terms_and_conditions">
+         <div conref="notices_personal_use.dita">_personal_use</div>
+         <div conref="notices_commercial_use.dita">_commercial_use</div>
+         <div conref="notices_rights.dita">_rights</div>
+      </section>
+   </body>
+</topic>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="adding-a-data-type">
+   <title>Adding a data type</title>
+   <body>
+      <title>Adding a data type</title>
+      <p>On the empty data types tab the New DMN Editor gives us the possibility to create data types in two ways.
+To create a custom data type from scratch, use the "Create a custom data type" (<b>1</b>) option.
+To paste a custom data type, you need to have one saved on your clipboard, and then click into the "Paste data type" (<b>2</b>).</p>
+      <fig>
+         <title>Empty data types tab overview</title>
+         <image href="../images/tools/authoringDecisions/new-editor-data-types-overview.png" placement="break">
+            <alt>new editor data types overview</alt>
+         </image>
+      </fig>
+      <p>Clicking on the "Create a custom data type" will open the data type editor where you can start creating your custom data type.</p>
+      <fig>
+         <title>Creating a new data type</title>
+         <image href="../images/tools/authoringDecisions/new-editor-data-types-empty-create.gif" placement="break">
+            <alt>new editor data types empty create</alt>
+         </image>
+      </fig>
+      <p>A model with at least one custom data type will show a different view.
+The following image shows all its elements.</p>
+      <fig>
+         <title>Empty data types tab overview</title>
+         <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-overview.png" placement="break">
+            <alt>new editor data types with types overview</alt>
+         </image>
+      </fig>
+      <ol>
+         <li>Filter → It filters the custom data type list (<b>4</b>), showing only the custom data types that match the filter text.</li>
+         <li>
+            <p>Add button → Clicking on the add button, a new custom data type will be created.</p>
+            <fig>
+               <title>Adding data type</title>
+               <image href="../images/tools/authoringDecisions/new-editor-data-types-new.png" width="300px" placement="break">
+                  <alt>new editor data types new</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>Add options → Gives the possibility to paste a custom data type that was previously copied to the clipboard.</p>
+            <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-paste-dropdown.png" width="300px" placement="break">
+               <alt>new editor data types with types paste dropdown</alt>
+            </image>
+         </li>
+         <li>Custom data type list → Shows a list of all custom data types of the current and external models.</li>
+         <li>Name → The custom data type name.
+is validated for uniqueness, ensuring that a custom data type cannot be renamed using a name already being used by another data type.</li>
+         <li>
+            <p>Custom data type options → Provides the option to delete or copy the data type to the clipboard.
+Also, it shows the custom data type id.</p>
+            <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-type-options.png" width="300px" placement="break">
+               <alt>new editor data types with types type options</alt>
+            </image>
+         </li>
+         <li>Description → Provides the option to write a more detailed description of the custom data type.</li>
+         <li>Is Collection → Change the custom data type to a collection.</li>
+         <li>
+            <p>Is Struct → Change the custom data type to a struct.
+By making this change, it will show off the struct properties.</p>
+            <fig>
+               <title>Struct data type without properties</title>
+               <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-struct-empty-overview.png" width="720p" placement="break">
+                  <alt>new editor data types with types struct empty overview</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+      <ol>
+         <li>
+            <p>Adds a new property to the struct data type.
+A structure with properties will have a few more elements to pay attention to.</p>
+            <fig>
+               <title>Struct data type without properties</title>
+               <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-struct-overview.png" width="720p" placement="break">
+                  <alt>new editor data types with types struct overview</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+      <ol>
+         <li>Adds a new property to the struct, but now we have an additional button on the bottom of the list.</li>
+         <li>For nested structs, this button will add a new property to the nested struct.</li>
+         <li>The properties' names.</li>
+         <li>The nested properties name.</li>
+         <li>Tells if the struct properties are nested structs.</li>
+         <li>The type of the struct property.</li>
+         <li>Tells if the struct properties are collections.</li>
+         <li>
+            <p>The struct properties constraints.
+By clicking on it, it will open the property data type, enabling you to edit it.
+By opening the struct property, navigation appears on top of it, making it easier to access and visualize the hierarchy.</p>
+            <fig>
+               <title>Struct property navigation</title>
+               <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-struct-nested-properties.png" width="720px" placement="break">
+                  <alt>new editor data types with types struct nested properties</alt>
+               </image>
+            </fig>
+         </li>
+         <li>
+            <p>The struct property options.
+We have the option to open a detailed view of the property.
+The "Extract data type" option creates a new custom data type with the property name.
+The copy, cut, and remove are straightforward.</p>
+            <fig>
+               <title>Struct property options</title>
+               <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-struct-property-options.png" width="300px" placement="break">
+                  <alt>new editor data types with types struct property options</alt>
+               </image>
+            </fig>
+         </li>
+         <li>Expand all nested structs.</li>
+         <li>Collapse all nested structs.</li>
+      </ol>
+      <ol>
+         <li>
+            <p>Adds a new property by pasting a custom data type from the clipboard.</p>
+            <fig>
+               <title>Struct data type without properties</title>
+               <image href="../images/tools/authoringDecisions/new-editor-data-types-with-types-struct-paste.png" width="300px" placement="break">
+                  <alt>new editor data types with types struct paste</alt>
+               </image>
+            </fig>
+         </li>
+      </ol>
+      <ol>
+         <li>Base type → The base type of the custom data type.
+Its options are the base, custom, and external data types.</li>
+         <li>Constraint → The base type constraints.
+We have the expression constraint which accepts a FEEL expression, the enumeration which creates a list of possible values, and the range which creates a range of possible values.
+The last two create the equivalent FEEL expression as well.
+Depending on the base type, the enumeration and range will not be available.</li>
+      </ol>
+   </body>
+</topic>

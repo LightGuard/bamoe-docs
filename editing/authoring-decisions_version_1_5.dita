@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_version_1_5">
+   <title>version 1.5</title>
+   <body>
+      <p>The new DMN Editor supports new FEEL Functions, changes to the DRD and some general changes related to DMN 1.5.</p>
+      <dl>
+         <dlentry>
+            <dt>FEEL Functions</dt>
+            <dd>The <tt>list replace</tt> function and the scientific notation for numbers are available.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>DRD</dt>
+            <dd>A DRD option to provide an alternative representation of the Input Data node, which is more visually coherent with the BPMN model
+Changing the DRD option affects all Input Data nodes on the DRD.
+More about this in the DRD section.</dd>
+         </dlentry>
+      </dl>
+      <fig>
+         <title>alternative Input Data node representation</title>
+         <image href="../images/tools/authoringDecisions/overview-1.5-alternative-input-data-node.png" width="150" placement="break">
+            <alt>overview 1.5 alternative input data node</alt>
+         </image>
+      </fig>
+      <dl>
+         <dlentry>
+            <dt>General</dt>
+            <dd>
+               <dl>
+                  <dlentry>
+                     <dt>Import to default namespace</dt>
+                     <dd>
+                        <p>Adds the possibility to import a new DMN into the default namespace.
+This removes the necessity to give a name to the external model, enabling you to compose a complex model with multiple small models.</p>
+                     </dd>
+                  </dlentry>
+               </dl>
+            </dd>
+         </dlentry>
+      </dl>
+      <p>One of the missing functionalities on the Classic DMN Editor is the visual representation of nodes that have missing dependencies on the current DRD.</p>
+      <p>In the new DMN editor You can have multiple DRDs and not necessarily import all nodes.
+This visual representation helps to show the missing requirements in the current DRD.</p>
+      <fig>
+         <title>DRD1 with a Person node as dependency of the My Decision node</title>
+         <image href="../images/tools/authoringDecisions/overview-missing-functionalities-ellipsis-1.png" width="300" placement="break">
+            <alt>overview missing functionalities ellipsis 1</alt>
+         </image>
+      </fig>
+      <fig>
+         <title>DRD2 with the My Decision node without the Person dependency.</title>
+         <image href="../images/tools/authoringDecisions/overview-missing-functionalities-ellipsis-2.png" width="300" placement="break">
+            <alt>overview missing functionalities ellipsis 2</alt>
+         </image>
+      </fig>
+      <p outputclass="thematic-break"/>
+   </body>
+</topic>

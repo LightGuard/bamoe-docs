@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="authoring-rules">
+   <title>Authoring rules</title>
+   <body>
+      <p>IBM BAMOE supports several assets that you can use to define business decisions for your decision service. Each decision-authoring asset has different advantages, and you might prefer to use one or a combination of multiple assets depending on your goals and needs.</p>
+      <p>The following table highlights the main decision-authoring assets supported in IBM BAMOE projects to help you decide or confirm the best method for defining decisions in your decision service.</p>
+      <table>
+         <title>Decision-authoring assets supported in IBM BAMOE</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="25*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <colspec colname="col_3" colwidth="25*"/>
+            <thead>
+               <row>
+                  <entry>Asset</entry>
+                  <entry>Highlights</entry>
+                  <entry>Authoring tools</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Decision Model and Notation (DMN) models</p>
+                  </entry>
+                  <entry>
+                     <ul>
+                        <li>Are decision models based on a notation standard defined by the Object Management Group (OMG)</li>
+                        <li>Use graphical decision requirements diagrams (DRDs) that represent part or all of the overall decision requirements graph (DRG) to trace business decision flows</li>
+                        <li>Use an XML schema that allows the DMN models to be shared between DMN-compliant platforms</li>
+                        <li>Support Friendly Enough Expression Language (FEEL) to define decision logic in DMN decision tables and other DMN boxed expressions</li>
+                        <li>Can be integrated efficiently with Business Process Model and Notation (BPMN) process models</li>
+                        <li>Are optimal for creating comprehensive, illustrative, and stable decision flows</li>
+                     </ul>
+                  </entry>
+                  <entry>
+                     <p>BAMOE Canvas or other DMN-compliant editor</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Spreadsheet decision tables</p>
+                  </entry>
+                  <entry>
+                     <ul>
+                        <li>Are XLS or XLSX spreadsheet decision tables that you can upload into BAMOE Canvas</li>
+                        <li>Support template keys and values for creating rule templates</li>
+                        <li>Are optimal for creating rules in decision tables already managed outside of BAMOE Canvas</li>
+                        <li>Have strict syntax requirements for rules to be compiled properly when uploaded</li>
+                     </ul>
+                  </entry>
+                  <entry>
+                     <p>Spreadsheet editor</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>DRL rules</p>
+                  </entry>
+                  <entry>
+                     <ul>
+                        <li>Are individual rules that you define directly in <tt>.drl</tt> text files</li>
+                        <li>Provide the most flexibility for defining rules and other technicalities of rule behavior</li>
+                        <li>Can be created in certain standalone environments and integrated with IBM BAMOE</li>
+                        <li>Are optimal for creating rules that require advanced DRL options</li>
+                        <li>Have strict syntax requirements for rules to be compiled properly</li>
+                     </ul>
+                  </entry>
+                  <entry>
+                     <p>Integrated development environment (IDE)</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <section id="_drl_drools_rule_language_rules">
+         <title>DRL (Drools Rule Language) rules</title>
+         <p>DRL (Drools Rule Language) rules are business rules that you define directly in <tt>.drl</tt> text files. These DRL files are the source in which all other rule assets in BAMOE Canvas are ultimately rendered. You can create and manage DRL files within the BAMOE Canvas interface, or create them externally as part of a Maven or Java project using Red Hat CodeReady Studio or another integrated development environment (IDE). A DRL file can contain one or more rules that define at a minimum the rule conditions (<tt>when</tt>) and actions (<tt>then</tt>).</p>
+         <p>DRL files consist of the following components:</p>
+         <p outputclass="title">
+            <b>Components in a DRL file</b>
+         </p>
+         <codeblock>
+package
+
+import
+
+function  // Optional
+
+query  // Optional
+
+declare   // Optional
+
+global   // Optional
+
+rule "rule name"
+    // Attributes
+    when
+        // Conditions
+    then
+        // Actions
+end
+
+rule "rule2 name"
+
+...
+</codeblock>
+         <p>The following example DRL rule determines the age limit in a loan application decision service:</p>
+         <p outputclass="title">
+            <b>Example rule for loan application age limit</b>
+         </p>
+         <codeblock>
+rule "Underage"
+  salience 15
+  agenda-group "applicationGroup"
+  when
+    $application : LoanApplication()
+    Applicant( age &lt; 21 )
+  then
+    $application.setApproved( false );
+    $application.setExplanation( "Underage" );
+end
+</codeblock>
+         <p>A DRL file can contain single or multiple rules, queries, and functions, and can define resource declarations such as imports, globals, and attributes that are assigned and used by your rules and queries. The DRL package must be listed at the top of a DRL file and the rules are typically listed last. All other DRL components can follow any order.</p>
+         <p>Each rule must have a unique name within the rule package. If you use the same rule name more than once in any DRL file in the package, the rules fail to compile. Always enclose rule names with double quotation marks (<tt>rule "rule name"</tt>) to  prevent possible compilation errors, especially if you use spaces in rule names.</p>
+         <p>All data objects related to a DRL rule must be in the same project package as the DRL file in BAMOE Canvas. Assets in the same package are imported by default. Existing assets in other packages can be imported with the DRL rule.</p>
+      </section>
+      <section id="_using_spreadsheet_decision_tables_in_ibm_bamoe_services">
+         <p>As a developer of business decisions, you can define business rules in a tabular format in spreadsheet decision tables and then include the spreadsheet file in your IBM BAMOE project. These rules are compiled into Drools Rule Language (DRL) for the decision service in your project.</p>
+         <div conref="authoring-rules_spreadsheet_decision_tables.dita">_spreadsheet_decision_tables</div>
+         <div conref="authoring-rules_decision_table_use_case.dita">_decision_table_use_case</div>
+         <div conref="authoring-rules_creating_spreadsheet_decision_tables_for_your_ibm_bamoe_project.dita">_creating_spreadsheet_decision_tables_for_your_ibm_bamoe_project</div>
+         <div conref="authoring-rules_ruleset_definitions.dita">_ruleset_definitions</div>
+         <div conref="authoring-rules_ruletable_definitions.dita">_ruletable_definitions</div>
+         <div conref="authoring-rules_additional_rule_attributes_for_ruleset_or_ruletable_definitions.dita">_additional_rule_attributes_for_ruleset_or_ruletable_definitions</div>
+      </section>
+   </body>
+</topic>

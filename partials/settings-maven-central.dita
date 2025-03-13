@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="settings-maven-central">
+   <title/>
+   <body>
+      <p>
+         <b>Example Maven settings.xml for {PRODUCT} v{VERSION}</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;profile&gt;
+    &lt;id&gt;maven-central&lt;/id&gt;
+    &lt;activation&gt;
+        &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
+    &lt;/activation&gt;
+
+    &lt;repositories&gt;
+        &lt;repository&gt;
+            &lt;id&gt;maven-central&lt;/id&gt;
+            &lt;name&gt;Maven Central&lt;/name&gt;
+            &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
+            &lt;layout&gt;default&lt;/layout&gt;
+            &lt;releases&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/releases&gt;
+            &lt;snapshots&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/snapshots&gt;
+        &lt;/repository&gt;
+    &lt;/repositories&gt;
+
+    &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+            &lt;id&gt;maven-central&lt;/id&gt;
+            &lt;name&gt;Maven Central&lt;/name&gt;
+            &lt;url&gt;http://repo1.maven.org/maven2&lt;/url&gt;
+            &lt;layout&gt;default&lt;/layout&gt;
+            &lt;releases&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/releases&gt;
+            &lt;snapshots&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/snapshots&gt;
+        &lt;/pluginRepository&gt;
+    &lt;/pluginRepositories&gt;
+&lt;/profile&gt;
+</codeblock>
+   </body>
+</topic>

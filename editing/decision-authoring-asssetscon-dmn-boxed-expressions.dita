@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-boxed-expressions">
+   <title>DMN decision logic in boxed expressions</title>
+   <body>
+      <title>DMN decision logic in boxed expressions</title>
+      <p>Boxed expressions in DMN are tables that you use to define the underlying logic of decision nodes and business knowledge models in a decision requirements diagram (DRD). Some boxed expressions can contain other boxed expressions, but the top-level boxed expression corresponds to the decision logic of a single DRD artifact. While DRDs represent the flow of a DMN decision model, boxed expressions define the actual decision logic of individual nodes. DRDs and boxed expressions together form a complete and functional DMN decision model.</p>
+      <p>The following are the types of DMN boxed expressions:</p>
+      <ul>
+         <li>
+            <xref href="#con-dmn-decision-tables"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-literal-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-context-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-relation-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-function-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-invocation-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-list-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-conditional-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-for-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-every-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-some-expressions"/>
+         </li>
+         <li>
+            <xref href="#con-dmn-filter-expressions"/>
+         </li>
+      </ul>
+      <p>All Friendly Enough Expression Language (FEEL) expressions that you use in your boxed expressions must conform to the FEEL syntax requirements in the OMG <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</p>
+      <div conref="decision-authoring-asssetscon-dmn-decision-tables.dita">con-dmn-decision-tables</div>
+      <div conref="decision-authoring-asssetscon-dmn-literal-expressions.dita">con-dmn-literal-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-context-expressions.dita">con-dmn-context-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-relation-expressions.dita">con-dmn-relation-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-function-expressions.dita">con-dmn-function-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-invocation-expressions.dita">con-dmn-invocation-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-list-expressions.dita">con-dmn-list-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-conditional-expressions.dita">con-dmn-conditional-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-for-expressions.dita">con-dmn-for-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-every-expressions.dita">con-dmn-every-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-some-expressions.dita">con-dmn-some-expressions</div>
+      <div conref="decision-authoring-asssetscon-dmn-filter-expressions.dita">con-dmn-filter-expressions</div>
+   </body>
+</topic>

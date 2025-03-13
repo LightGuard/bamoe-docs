@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_jobs_service">
+   <title>Jobs Service</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.schedulerChunkInMinutes</p>
+                  </entry>
+                  <entry>
+                     <p>The current chunk size in minutes the scheduler handles.
+Used to keep a limited number of jobs scheduled in the in-memory scheduler.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>10</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.loadJobIntervalInMinutes</p>
+                  </entry>
+                  <entry>
+                     <p>The interval the jobs loading method runs to fetch the persisted jobs from the repository.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>10</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.loadJobFromCurrentTimeIntervalInMinutes</p>
+                  </entry>
+                  <entry>
+                     <p>The interval used to determine when the next run to fetch jobs.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>60</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.maxIntervalLimitToRetryMillis</p>
+                  </entry>
+                  <entry>
+                     <p>Maximum amount of time (in milliseconds) the jobs service will be retrying a job.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>6000</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.backoffRetryMillis</p>
+                  </entry>
+                  <entry>
+                     <p>Delay, in milliseconds, between retries when a job execution fails and must be retried.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>1000</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.forceExecuteExpiredJobs</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle used to allow and force a job with expirationTime in the past to be executed immediately.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.forceExecuteExpiredJobsOnServiceStart</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle used to allow jobs that where timed-out when the jobs service was down to be fired immediately at the jobs service next startup.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.loadJobRetries</p>
+                  </entry>
+                  <entry>
+                     <p>Number of retries configured for the periodic jobs loading procedure.
+Every time the procedure is started this value is considered.</p>
+                  </entry>
+                  <entry>
+                     <p>int</p>
+                  </entry>
+                  <entry>
+                     <p>3</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jobs-service.loadJobErrorStrategy</p>
+                  </entry>
+                  <entry>
+                     <p>Error strategy to apply when the periodic jobs loading procedure has exceeded the jobLoadReties.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>NONE</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

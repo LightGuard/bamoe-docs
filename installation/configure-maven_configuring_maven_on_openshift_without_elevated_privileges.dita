@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_configuring_maven_on_openshift_without_elevated_privileges">
+   <title>Configuring Maven on OpenShift without elevated privileges</title>
+   <body>
+      <p>If you cannot run the container with elevated privileges, follow these instructions to build a version that does not require the elevated privileges.</p>
+      <ol>
+         <li>Download the <b>bamoe-9.1.x-maven-repository.zip</b> file.</li>
+         <li>Unzip the file into a directory and <tt>cd</tt> into it.</li>
+         <li>
+            <p>Create a Dockerfile with the following contents:</p>
+            <codeblock outputclass="language-docker">
+# Use the latest Red Hat UBI minimal image as a parent image
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.3
+
+# Arguments for configuring the port
+ARG MAVEN_REPO_PORT=8080
+ARG MAVEN_REPO_FOLDER
+
+# Install required packages: httpd and unzip, clean up after installation
+RUN microdnf --disableplugin=subscription-manager -y install httpd \
+  &amp;&amp; microdnf --disableplugin=subscription-manager clean all
+
+# Apache configuration adjustments
+RUN echo "Mutex posixsem" &gt;&gt; /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "s/Listen 80/Listen $MAVEN_REPO_PORT/g" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "s/#ServerName www.example.com:80/ServerName 127.0.0.1:$MAVEN_REPO_PORT/g" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "/ServerName 127.0.0.1:$MAVEN_REPO_PORT/a Header set Content-Security-Policy \"frame-ancestors 'self';\"" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "s/Options Indexes FollowSymLinks/Options +Indexes +FollowSymLinks/" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "$ a ServerTokens Prod" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "$ a ServerSignature Off" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; sed -i "\$ a &lt;Directory \"/var/www/html\"&gt;\n    Options +Indexes +FollowSymLinks\n    AllowOverride None\n    Require all granted\n    IndexOptions FancyIndexing SuppressDescription SuppressHTMLPreamble SuppressLastModified SuppressSize NameWidth=* SuppressColumnSorting SuppressIcon SuppressRules\n    HeaderName /header.html\n    ReadmeName /readme.html\n&lt;/Directory&gt;" /etc/httpd/conf/httpd.conf \
+  &amp;&amp; chgrp -R 0 /var/log/httpd /var/run/httpd /var/www/html \
+  &amp;&amp; chmod -R g=u /var/log/httpd /var/run/httpd /var/www/html
+
+COPY --chown=1000:1000 $MAVEN_REPO_FOLDER /var/www/html/
+
+# Remove the default welcome page to avoid conflicts
+RUN rm -rf /etc/httpd/conf.d/welcome.conf
+
+# Expose the configured port
+EXPOSE $MAVEN_REPO_PORT
+
+# Change to a non root user
+USER 1000
+
+# Start httpd when the container launches
+CMD ["httpd", "-D", "FOREGROUND"]
+</codeblock>
+         </li>
+         <li>
+            <p>Create an ImageStream</p>
+            <codeblock outputclass="language-shell">
+oc apply -f - &lt;&lt;EOF
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: bamoe-maven-repository-image
+spec:
+  lookupPolicy:
+    local: true
+EOF
+</codeblock>
+         </li>
+         <li>
+            <p>Create an Image Build on OpenShift</p>
+            <codeblock outputclass="language-shell">
+oc apply -f - &lt;&lt;EOF
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: bamoe-maven-repository-image
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: bamoe-maven-repository-image:9.1.1-ibm-0003
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+      buildArgs:
+       - name: MAVEN_REPO_FOLDER
+         value: ./bamoe-maven-repository-zip-9.1.1-ibm-0003
+  source:
+    type: Binary
+    binary: {}
+  resources:
+    limits:
+      memory: 4Gi
+EOF
+</codeblock>
+         </li>
+         <li>
+            <p>Start the build</p>
+            <codeblock outputclass="language-shell">
+oc start-build --from-dir=. bamoe-maven-repository-image --follow
+</codeblock>
+         </li>
+         <li>
+            <p>Create the Deployment, Service, and Route for the built image</p>
+            <codeblock outputclass="language-shell">
+oc new-app --image-stream bamoe-maven-repository-image:9.1.1-ibm-0003 --name bamoe-maven-repo
+oc create route edge --service=bamoe-maven-repo
+</codeblock>
+         </li>
+         <li>
+            <p>Get the Maven repository URL to be used in the settings.xml configuration:</p>
+            <codeblock outputclass="language-shell">
+oc get route bamoe-maven-repo --output jsonpath={.spec.host}
+</codeblock>
+         </li>
+      </ol>
+   </body>
+</topic>

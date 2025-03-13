@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_mail_add_on">
+   <title>IBM BAMOE mail add-on</title>
+   <body>
+      <p>The mail add-on is used to send emails in a process project. To use the mail add-on, add the following code to the <tt>pom.xml</tt> file of your project:</p>
+      <p outputclass="title">
+         <b>Quarkus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.jbpm&lt;/groupId&gt;
+  &lt;artifactId&gt;jbpm-addons-quarkus-mail&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+   </body>
+</topic>

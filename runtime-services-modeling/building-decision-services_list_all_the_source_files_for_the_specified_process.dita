@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_list_all_the_source_files_for_the_specified_process">
+   <title>List all the source files for the specified process</title>
+   <body>
+      <title>List all the source files for the specified process</title>
+      <ul>
+         <li>
+            <p>GET: <tt>/management/processes/{processId}/sources</tt>
+            </p>
+            <ul>
+               <li>
+                  <p>parameters:</p>
+                  <ul>
+                     <li>processId: process identifier</li>
+                  </ul>
+               </li>
+               <li>
+                  <p>output:</p>
+                  <ul>
+                     <li>JSON with related source files URIs</li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p outputclass="title">
+         <b>Example: to list the source files for the process with id <tt>petstore_http</tt>, you can use the following command:</b>
+      </p>
+      <codeblock outputclass="language-bash">
+$ curl -X 'GET' \
+  'http://localhost:8080/management/processes/petstore_http/sources' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Basic c2NvdHQ6amIwc3M='
+</codeblock>
+      <p outputclass="title">
+         <b>Output</b>
+      </p>
+      <codeblock outputclass="language-json">
+[
+  {
+    "uri": "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v2.0/json/petstore-simple.json"
+  },
+  {
+    "uri": "/sources/org/kie/kogito/examples/petstore_http.sw.json"
+  }
+]
+</codeblock>
+   </body>
+</topic>

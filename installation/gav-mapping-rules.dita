@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="gav-mapping-rules">
+   <title/>
+   <body>
+      <table>
+         <title>Rules Related Mapping for BAMOE Version 9.1.x</title>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="42.8571*"/>
+            <colspec colname="col_2" colwidth="28.5714*"/>
+            <colspec colname="col_3" colwidth="28.5715*"/>
+            <thead>
+               <row>
+                  <entry>Description</entry>
+                  <entry>9.0.x Name</entry>
+                  <entry>9.1.x Name</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>KIE Add-On for processing events on Rules (DRL) based projects</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-addons-quarkus-events-rules</p>
+                  </entry>
+                  <entry>
+                     <p>org.drools:drools-addons-quarkus-events-rules</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Add Kogito decision (DMN) capabilities - Include Drools DMN engine</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-quarkus-decisions</p>
+                  </entry>
+                  <entry>
+                     <p>org.drools:drools-quarkus-decisions</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>Add Kogito rules (DRL) capabilities - Include Drools engine</p>
+                  </entry>
+                  <entry>
+                     <p>org.kie.kogito:kogito-quarkus-rules</p>
+                  </entry>
+                  <entry>
+                     <p>org.drools:drools-quarkus-rules</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-validation">
+   <title>Configurable DMN validation in IBM BAMOE</title>
+   <body>
+      <p>By default, the IBM BAMOE CodeGen component uses the <tt>kogito.decisions.validation=ENABLED</tt> configuration to perform pre-compilation validation of DMN model assets and to perform DMN decision table static analysis.</p>
+      <p>When this configuration is enabled, IBM BAMOE performs the following DMN validations:</p>
+      <ul>
+         <li>DMN model files are verified against the DMN specification XSD schema to ensure that the files are valid XML and compliant with the specification.</li>
+         <li>The pre-compilation analysis is performed for the DMN model to ensure that the basic semantic is aligned with the DMN specification.</li>
+         <li>DMN decision tables are statically analyzed for gaps or overlaps and to ensure that the semantic of the decision table follows best practices.</li>
+      </ul>
+      <p>Any DMN validation error causes the IBM BAMOE CodeGen build to fail and errors are reported accordingly, as shown in the following example:</p>
+      <fig>
+         <title>DMN validation errors</title>
+         <image href="../images/kogito-dmn-validation-con-error.png" placement="break">
+            <alt>Image of DMN validation errors</alt>
+         </image>
+      </fig>
+      <p>You can modify the default DMN validation and DMN decision table analysis behavior to ignore errors during the project build, or you can disable this default behavior completely, as shown in the following examples:</p>
+      <p outputclass="title">
+         <b>Default configuration for DMN validation and decision table analysis</b>
+      </p>
+      <codeblock>
+kogito.decisions.validation=ENABLED
+</codeblock>
+      <p outputclass="title">
+         <b>Configuration to validate DMN models and DMN decision tables but ignore errors</b>
+      </p>
+      <codeblock>
+kogito.decisions.validation=IGNORE
+</codeblock>
+      <p outputclass="title">
+         <b>Configuration to disable all DMN validation</b>
+      </p>
+      <codeblock>
+kogito.decisions.validation=DISABLED
+</codeblock>
+      <note type="note">
+If you enter an unrecognized <tt>kogito.decisions.validation</tt> configuration flag, all pre-compilation validation features are disabled and the IBM BAMOE CodeGen emits related log messages.
+</note>
+   </body>
+</topic>

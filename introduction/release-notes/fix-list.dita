@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="fix-list">
+   <title>Fix lists</title>
+   <body>
+      <section id="_fix_lists">
+         <title>Fix lists</title>
+         <p>For the list of fixes included in version 9.1.0, see <xref href="https://www.ibm.com/support/pages/node/7157125" scope="external">Fix list for IBM BAMOE 9.1.0</xref>.</p>
+         <p>For the list of fixes that are fixed in version 9.1.1, see <xref href="https://www.ibm.com/support/pages/node/7171492" scope="external">Fix list for IBM BAMOE 9.1.1</xref>.</p>
+      </section>
+   </body>
+</topic>

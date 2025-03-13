@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="feel">
+   <title>FEEL reference</title>
+   <body>
+      <p>Please see the <xref href="https://kiegroup.github.io/dmn-feel-handbook/#dmn-feel-handbook" scope="external">DMN FEEL Handbook</xref> for the complete reference.</p>
+   </body>
+</topic>

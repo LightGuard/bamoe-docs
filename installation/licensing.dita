@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="licensing">
+   <title>Licensing Guide</title>
+   <body>
+      <note type="note">
+         <p>This License Guide provides supplementary information to assist you in deploying the Program(s) you have licensed from IBM through your purchased entitlement. Your license agreement (such as the <i>IBM International Program License Agreement</i> (IPLA) or equivalent and its transaction documents, including the License Information for IBM Business Automation Manager Open Editions) is the sole and complete agreement between you and IBM regarding use of the IBM Business Automation Manager Open Editions).</p>
+      </note>
+      <p>If you are not familiar with the concepts of how licensing works for IBM software, see the <xref href="https://www.ibm.com/about/software-licensing/us-en/licensing/basics" scope="external">Licensing Basics</xref>, <xref href="https://www.ibm.com/about/software-licensing/us-en/licensing/essentials" scope="external">Essential Elements</xref>, and <xref href="https://www.ibm.com/about/software-licensing/us-en" scope="external">Licensing &amp; Compliance</xref> pages.</p>
+      <p>This licensing guide covers the following topics.</p>
+      <ul>
+         <li>
+            <p>Licensing Overview</p>
+            <ul>
+               <li>Licensing for Disaster Recovery or Backup</li>
+               <li>Supporting Program: IBM Robotic Process Automation</li>
+            </ul>
+         </li>
+         <li>License Metrics</li>
+         <li>License Reporting</li>
+         <li>Accessing the software</li>
+      </ul>
+      <section id="_licensing_overview">
+         <title>Licensing Overview</title>
+         <p>IBM Business Automation Manager Open Editions is available to clients who have entitlement through purchasing part numbers from IBM directly, or through IBM business partners.</p>
+         <p>IBM offers IBM Business Automation Manager Open Editions license subscriptions<fn>For additional information on the IBM Software Subscription and Support License refer to the <xref href="https://www.ibm.com/software/passportadvantage/licensing.html" scope="external">Passport Advantage Licensing Overview</xref>
+            </fn>.</p>
+         <p>Different part numbers are available for purchase depending on your usage pattern and the capabilities of IBM Business Automation Manager Open Editions that are required. You can choose from the following components:</p>
+         <ul>
+            <li>
+               <xref href="https://www.ibm.com/products/business-automation-manager-open-editions/decision-manager" scope="external">IBM Decision Manager Open Edition</xref>
+            </li>
+            <li>
+               <xref href="https://www.ibm.com/products/business-automation-manager-open-editions/process-automation-manager" scope="external">IBM Process Automation Manager Open Edition</xref>
+            </li>
+         </ul>
+         <p>More information on the capabilities and components of IBM Business Automation Manager Open Editions can be found in the <xref href="https://www.ibm.com/docs/en/ibamoe/9.1.x?topic=overview-key-components" scope="external">overview of components</xref>.</p>
+         <note type="note">
+            <p>The different product components are available for evaluation on a single-user workstation in a development environment, through the <xref href="https://ibm.biz/bamoe-developer-program" scope="external">IBM Developer Program for Open Editions</xref>.</p>
+            <p>If you decide to go further in deploying solutions,  proper entitlements are required as described by the license terms.</p>
+         </note>
+         <p>For both components, IBM Decision Manager Open Edition and IBM Process Automation Manager Open Edition, clients can expect the following:</p>
+         <ul>
+            <li>The different parts reflect different levels of entitlement for product capabilities.</li>
+            <li>Subscription includes entitlements to run the purchased components in containers or virtual machines.</li>
+            <li>This solution is currently not available as a Software as a Service (SaaS) offering.</li>
+            <li>While active, the subscription entitles clients to use and receive support for the commercially available releases.</li>
+            <li>While maintaining at least one active subscription, each and every active instance or installation of the software requires active subscriptions.</li>
+         </ul>
+         <div conref="licensing_licensing_for_disaster_recovery_or_backup.dita">_licensing_for_disaster_recovery_or_backup</div>
+         <div conref="licensing_supporting_program_ibm_robotic_process_automation.dita">_supporting_program_ibm_robotic_process_automation</div>
+      </section>
+      <section id="_license_metrics">
+         <p>IBM Business Automation Manager Open Editions offerings are licensed on a capacity basis. Clients purchase entitlements for the number of Virtual Processor Cores (VPCs) that will be used by the software (IBM Decision Manager Open Edition and/or IBM Process Automation Manager Open Edition).</p>
+         <p>Virtual processor core (VPC) is a unit of measurement that is used to determine the licensing cost of IBM products. When you license a virtual machine (VM), VPC is based on the number of virtual cores that are assigned to the VM. One VPC license is required for every core that is available to the IBM program.</p>
+         <p>In short, IBM Business Automation Manager Open Editions deployments are licensed by <b>Virtual Processor Core (VPC)</b>, where generally, 1 VPC = 1 physical core or 1 virtual core.</p>
+         <p>Regarding the usage of the product in association with the entitled number of VPCs:</p>
+         <ul>
+            <li>Active subscriptions allow product deployments into as many environments as clients choose, as long as they do not exceed the total number of VPCs they have purchased.</li>
+            <li>The number of entitlements must cover the highest expected usage of VPCs during peak periods.</li>
+            <li>Clients are responsible for ensuring they do not exceed their deployment entitlement.</li>
+         </ul>
+         <p>Additional information, can be found at <xref href="https://www.ibm.com/software/passportadvantage/about_software_licensing.html" scope="external">IBM Licensing Metrics</xref>.</p>
+      </section>
+      <section id="_license_reporting">
+         <p>The IBM License Metric Tool (ILMT) tracks which software programs are installed on particular physical hardware. ILMT provides reports that can be presented to IBM when compliance around entitlement capacity is requested. The tool can also be used to track installations in VMs entitled under VPCs.</p>
+         <p>When installing IBM Business Automation Manager Open Editions in <b>containers</b>:</p>
+         <ul>
+            <li>The container size specifies the CPU-limit of the container. This is reported as the deployment size of the container instance for IBM Business Automation Manager Open Editions. If no CPU-limit is set for the container, then the reported size of the container is set to be the size of the worker node where the container instance is deployed.</li>
+            <li>Container deployments of the product components must use IBM License Service to report on their deployment for licensing usage.The IBM License Service needs to be deployed on Kubernetes. For more information see <xref href="ilmt-track-bamlcns-kubernetes.dita">Tracking BAMOE License use Kubernetes</xref>
+            </li>
+         </ul>
+         <p>When installing IBM Business Automation Manager Open Editions in <b>Virtual Machines (VMs)</b>:</p>
+         <ul>
+            <li>the size of the Virtual Machine will determine the size that needs to be entitled. Licensing is unaffected if multiple other products are deployed in the same Virtual Machine.</li>
+            <li>Deployments in Virtual Machines need to use IBM License Management Tool (ILMT) or other approved tools for tracking deployments in sub-capacity environments.</li>
+            <li>For additional information on how ILMT tracks deployments of VPC metrics in Virtual Machines, refer to the <xref href="https://www.ibm.com/docs/en/license-metric-tool?topic=metrics-virtual-processor-core-vpc" scope="external">Documentation for License Metric Tool - Virtual processor core (VPC)</xref>.</li>
+         </ul>
+         <p>IBM clients are responsible for:</p>
+         <ul>
+            <li>Deploying and configuring IBM Business Automation Manager Open Editions in line with their license entitlement.</li>
+            <li>Ensuring container deployments are reporting correctly to IBM License Service.</li>
+            <li>Ensuring that if installing into virtual machines, that ILMT or other tools are correctly configured to track installations.</li>
+         </ul>
+      </section>
+      <section id="_accessing_the_software">
+         <p>There are no activation keys for using IBM Business Automation Manager Open Editions.</p>
+         <p>To access the product purchased, clients should log in to IBM Passport Advantage and download the product install images they want to use.</p>
+         <p>IBM Business Automation Manager Open Editions offers downloadable resources for installing on-premise and certified container images for deployment into supported Kubernetes environments.</p>
+         <p>Available supporting programs are also available for download from Passport Advantage.</p>
+      </section>
+   </body>
+</topic>

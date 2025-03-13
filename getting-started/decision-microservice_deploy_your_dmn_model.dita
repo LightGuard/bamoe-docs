@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_deploy_your_dmn_model">
+   <title>Deploy your DMN model</title>
+   <body>
+      <ol>
+         <li>
+            <p>After you’ve setup your credentials click on "Deploy" (<b>1</b>) and click on the DMN model name (<b>2</b>).</p>
+            <image href="../images/bamoe-canvas-deploy.png" placement="break">
+               <alt>Deploy</alt>
+            </image>
+         </li>
+         <li>
+            <p>Your new deployment will appear in the "Dev Deployments" (<b>1</b>) dropdown. It will take about 30 seconds to be ready, and a green check will appear. Click on your deployment (<b>2</b>).</p>
+            <image href="../images/bamoe-canvas-deployments.png" placement="break">
+               <alt>Deployments</alt>
+            </image>
+         </li>
+         <li>
+            <p>A new window will appear with the equivalent form of your DMN. You can share the deployed URL with everyone who has access to your cluster.</p>
+            <image href="../images/bamoe-canvas-deployed.png" placement="break">
+               <alt>Deployed</alt>
+            </image>
+         </li>
+      </ol>
+   </body>
+</topic>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="90x-to-91x">
+   <title>Migrating to IBM Business Automation Manager Open Editions version 9.1</title>
+   <body>
+      <p>This section describes the migration of existing version 9.0.x applications to version 9.1.1 of IBM Business Automation Manager Open Editions.</p>
+      <section id="_prerequisites">
+         <title>Prerequisites</title>
+         <p>The following tools are required to migrate to BAMOE version 9.1.1:</p>
+         <ul>
+            <li>
+               <xref href="https://openjdk.org" scope="external">JDK 17</xref> or later is installed.</li>
+            <li>
+               <xref href="https://maven.apache.org" scope="external">Apache Maven 3.9.6</xref> or later is installed.</li>
+            <li>
+               <xref href="https://code.visualstudio.com/download" scope="external">Visual Studio Code IDE</xref> latest version</li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM BAMOE Developer Tools</xref> latest version of VS Code IDE extensions</li>
+         </ul>
+      </section>
+      <section id="_procedure">
+         <p>This section describes the process to migrate your projects from version 9.0.x to 9.1.1. Before you start, ensure that you have installed or updated all prerequisite tools.</p>
+         <p>This migration guide will show two ways of migrating your project. The first, by creating a new project from scratch and moving your existing assets to it.
+The second, by updating an existing BAMOE version 9.0.x project.
+You will start by setting up the Maven configuration.</p>
+         <div conref="90x-to-91x_update_maven_configuration.dita">_update_maven_configuration</div>
+         <div conref="90x-to-91x_creating_a_new_project_from_scracth.dita">_creating_a_new_project_from_scracth</div>
+         <div conref="90x-to-91x_upgrading_a_bamoe_version_9_0_x_project.dita">_upgrading_a_bamoe_version_9_0_x_project</div>
+         <div conref="90x-to-91x_compile_build_test_deploy.dita">_compile_build_test_deploy</div>
+      </section>
+   </body>
+</topic>

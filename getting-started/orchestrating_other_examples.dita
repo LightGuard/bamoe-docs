@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_other_examples">
+   <title>Other examples</title>
+   <body>
+      <p>For more IBM BAMOE examples that use decisions orchestrated by processes, see the following example applications which are included in the <xref href="../getting-started/examples.dita">examples package</xref>:</p>
+      <ul>
+         <li>
+            <tt>process-business-rules-quarkus</tt>: An example project that shows the use of business rules and processes</li>
+         <li>
+            <tt>process-decisions-rest-quarkus</tt>: An example project that shows the usage of decisions within processes. The project focuses on how to integrate decisions in a remote way using REST APIs where they can be deployed and decoupled from the process service.</li>
+         <li>
+            <tt>process-decisions-rules-quarkus</tt>: An example project that shows the usage of decisions within processes. The project focuses on integrating decisions in an embedded way using Business Rule Tasks where they must be deployed together with the process.
+<tt>process-error-handling</tt>: A usage scenario of the Error Handling Strategy</li>
+      </ul>
+   </body>
+</topic>

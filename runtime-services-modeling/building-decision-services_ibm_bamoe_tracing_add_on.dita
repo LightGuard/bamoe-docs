@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_tracing_add_on">
+   <title>IBM BAMOE tracing add-on</title>
+   <body>
+      <p>The Tracing add-on provides Decision model and notation (DMN) services tracing capability.</p>
+      <p>To use the Tracing add-on, add the following code to the <tt>pom.xml</tt> file of your project:</p>
+      <p outputclass="title">
+         <b>Quarkus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-tracing-decision&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+   </body>
+</topic>

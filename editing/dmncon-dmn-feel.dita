@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-feel">
+   <title>Rule expressions in FEEL</title>
+   <body>
+      <p>Friendly Enough Expression Language (FEEL) is an expression language defined by the Object Management Group (OMG) DMN specification. FEEL expressions define the logic of a decision in a DMN model. FEEL is designed to facilitate both decision modeling and execution by assigning semantics to the decision model constructs. FEEL expressions in decision requirements diagrams (DRDs) occupy table cells in boxed expressions for decision nodes and business knowledge models.</p>
+      <p>For more information about FEEL in DMN, see:</p>
+      <ul>
+         <li>The OMG <xref href="https://www.omg.org/spec/DMN" scope="external">Decision Model and Notation specification</xref>.</li>
+         <li>
+            <xref href="https://kiegroup.github.io/dmn-feel-handbook/" scope="external">DMN FEEL Handbook</xref>
+         </li>
+      </ul>
+      <div conref="dmnref-dmn-feel-data-types.dita">ref-dmn-feel-data-types</div>
+   </body>
+</topic>

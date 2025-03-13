@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_messaging">
+   <title>Messaging</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.messaging.as-cloudevents</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle used to enable Cloud Events.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.addon.cloudevents.kafka.kogito_incoming_stream</p>
+                  </entry>
+                  <entry>
+                     <p>Kafka topic to listen to use for incoming CloudEvents.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.addon.cloudevents.kafka.kogito_outgoing_stream</p>
+                  </entry>
+                  <entry>
+                     <p>Kafka topic to post to use for outgoing CloudEvents.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.jackson.fail-on-empty-bean</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle if Jackson will fail on an empty bean.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>false</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.addon.messaging.incoming.defaultName</p>
+                  </entry>
+                  <entry>
+                     <p>Incoming channel default name.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>kogito_incoming_stream</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.addon.messaging.outgoing.defaultName</p>
+                  </entry>
+                  <entry>
+                     <p>Outgoing channel default name.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>kogito_outgoing_stream</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

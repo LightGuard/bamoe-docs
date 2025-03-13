@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_definitions">
+   <title>Definitions</title>
+   <body>
+      <title>Definitions</title>
+      <dl>
+         <dlentry>
+            <dt>transport</dt>
+            <dd>the medium used to transfer a message between client component and job service. The transport can be http, kafka or in-vm.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>sink</dt>
+            <dd>is the client endpoint callback.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>storage</dt>
+            <dd>is the persistence tier of the jobs being current scheduled.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>Job service</dt>
+            <dd>it the main component containing the logic of scheduling a job and storing data.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

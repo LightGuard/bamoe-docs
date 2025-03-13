@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="examples">
+   <title>Example applications</title>
+   <body>
+      <p>A number of samples, or example applications are shipped with IBM BAMOE in the file, <tt>bamoe-9.1.1-examples.zip</tt>.
+Below is a list of these examples with a brief description of each. In the documentation you will find references to these examples which refer to your local installation of the example source and README files.</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Title</entry>
+                  <entry>Description</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>decisiontable-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A rule service to validate LoanApplication fact. Rules are written as a decision table.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-15-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A basic starting empty project to get started</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-drools-quarkus-metrics</p>
+                  </entry>
+                  <entry>
+                     <p>This example demonstrates how to enable and consume the runtime metrics monitoring feature in Kogito.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-event-driven-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>This example demonstrates the capability of the Kogito Event-Driven Decisions AddOn: to enable, when included as dependency of a simple DMN service, to trigger evaluations of its models and receive the corresponding results via specific CloudEvents.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-knative-quickstart-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project that deals with "Traffic Violation" DMN model. It illustrates how easy it is to make the Kogito decisions to work with Knative Eventing.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-listener-dtable</p>
+                  </entry>
+                  <entry>
+                     <p>An extension of the example dmn-quarkus-listener, focusing on semantic asynchronous evaluation of AfterEvaluateDecisionTableEvent(s) using Quarkus capabilities.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-listener-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A simple DMN service to evaluate a traffic violation, with the addition of some DMN listeners.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-multiple-models-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A simple DMN service to evaluate different models (traffic violation, habitability) with also importing feature (traffic violation).</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A simple DMN service to evaluate a traffic violation.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>dmn-resource-jar-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A simple DMN service to evaluate a model (traffic violation) that is imported from a different jar.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>jbpm-compact-architecture-example</p>
+                  </entry>
+                  <entry>
+                     <p>This example showcases a basic implementation of the Hiring process that drives a Candidate through different interviews until he gets hired.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito-travel-agency</p>
+                  </entry>
+                  <entry>
+                     <p>During this workshop we will create a software system for a startup travel agency called Kogito Travel Agency. It will be build incrementally where each version will be a separate folder.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-business-rules-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A basic business rules and processes example using DRL and the business rules task.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-decisions-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>This is an example project that shows the usage of decisions within processes. Decisions can be expressed in different domains or assets, such as DMN and DRL. The focus here is to show how to integrate decisions in an embedded way using Business Rule Task where they must be deployed together with the process, in the same application.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-decisions-rest-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>The focus here is to show how to integrate decisions in a remote way using REST APIs where they can be deployed decoupled from the process service, for instance, in different microservices with its build and deployment pipelines.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-decisions-rules-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>This is an example project that shows the usage of decisions within processes. Decisions can be expressed in different domains or assets, such as DMN and DRL. The focus here is to show how to integrate decisions in an embedded way using Business Rule Task where they must be deployed together with the process, in the same application. Contains additional validations.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-error-handling</p>
+                  </entry>
+                  <entry>
+                     <p>A simple usage scenario of the Error Handling Strategy.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-kafka-avro-multi-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>An example dealing with traveler processing rules integrating Kafka topics using the Avro format.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-kafka-multi-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>An example dealing with traveler processing rules integrating Kafka topics using the json format.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-kafka-quickstart-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project that deals with traveller processing carried by rules. It illustrates how easy it is to make the Kogito processes and rules to work with Apache Kafka.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-monitoring-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>This example demonstrates how to enable and consume the runtime metrics monitoring feature in Kogito with processes.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-postgresql-persistence-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project that processes deals for travellers, it utilizes PostgreSQL as durable storage.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-rest-service-call-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project that processes users in the system. It’s main purpose is to to call external REST service to load a given user by its username.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-rest-workitem-multi-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>This example contains a BPMN that performs two consecutive REST invocations using RestWorkItemHandler, an alternative declarative approach to service programatic calls.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-rest-workitem-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project that processes users in the system. It’s main purpose is to to call external REST service to load a given user by its username.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-saga-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>Service to demonstrate how to implement Saga pattern based on BPMN process with Kogito.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-scripts-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project is the simplest hello world kind of example, it accepts input and replies with hello message.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-service-calls-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project that processes travellers in the system. It’s main purpose is to illustrate local service invocation.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-usertasks-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project shows very typical user task orchestration.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-usertasks-with-security-oidc-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project shows very typical user task orchestration, and demonstrates integration with OpenID Connect.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>process-usertasks-with-security-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>A quickstart project shows very typical user task orchestration, and demonstrates integration with Quarkus Security addon.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>rules-legacy-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A simple rule service to validate LoanApplication fact. An injectable KieRuntimeBuilder is generated, so you can create Drools v7 KieBase and KieSession out of it.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>rules-legacy-scesim-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A simple rule service to validate Hello fact and testing it using Scenario Simulation.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>rules-quarkus-helloworld</p>
+                  </entry>
+                  <entry>
+                     <p>A minimal hello world rule service.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>ruleunit-event-driven-quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>This example demonstrates the capability of the Kogito Event-Driven Rules AddOn: to enable, when included as dependency of a simple service containing DRL files, to trigger evaluations of its queries and receive the corresponding results via specific CloudEvents.</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>ruleunit-quarkus-example</p>
+                  </entry>
+                  <entry>
+                     <p>A simple rule service to validate LoanApplication fact. REST endpoints are generated from query rules. You can insert LoanApplication facts and query a result via the REST endpoints. Rule resources are assembled as a RuleUnit.</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

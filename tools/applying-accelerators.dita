@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="applying-accelerators">
+   <title>Using Accelerators</title>
+   <body>
+      <p>Accelerators are project templates that can be applied to existing DMN Decisions and BPMN Workflows and PMML Scorecards, enabling these artifacts to be embedded in BAMOE projects for enhanced development control.
+BAMOE Canvas provides a set of useful default accelerators, including Quarkus (DMN) Accelerator and Quarkus (Full) Accelerator.</p>
+      <p>When an accelerator is selected from the "Apply Accelerator" dropdown, a label will be displayed on the project.</p>
+      <fig>
+         <title>“Accelerator label” shown for a multi-file project</title>
+         <image href="../images/tools/image20.png" placement="break">
+            <alt>“Accelerator label” shown for a multi-file project</alt>
+         </image>
+      </fig>
+      <p>Successfully applying an accelerator creates a <tt>.kie-sandbox</tt> directory at the workspace root.
+This directory will have an <tt>accelerator.yaml</tt> file, which contains all information necessary for the apply operation.
+The file indicates that an accelerator was applied to the workspace and should not be removed.
+Clicking on the Accelerator label will open a dialog that shows the <tt>accelerator.yaml</tt> information.</p>
+      <fig>
+         <title>“Accelerator modal” shown for a multi-file project</title>
+         <image href="../images/tools/image26.png" placement="break">
+            <alt>“Accelerator dialog for a multi-file project</alt>
+         </image>
+      </fig>
+      <note type="note">
+         <p>Do not modify the content of the <tt>accelerator.yaml</tt> file as it may mislead users.</p>
+      </note>
+      <p>You can add custom accelerators for configurations that are common to all new Business Automation projects within an organization, making them available in BAMOE Canvas for all users in your organization. For more information see <xref href="../installation/canvas.dita">Installing Canvas</xref>.</p>
+   </body>
+</topic>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="drl">
+   <title>Migrating to the latest version of DRL</title>
+   <body>
+      <p>When migrating to IBM Business Automation Manager Open Editions v 9.1.1 you may be faced with the task of migrating your technical rules, which are currently represented by <b>Drools Rule Language</b> (DRL) files.</p>
+      <section id="_overview">
+         <title>Overview</title>
+         <p>This section describes how to migrate your technical rules to make use of the new features of Drools Rule Language (DRL) Version 8.0.
+Note that while BAMOE v 9.1.1 is partly based on Drools Rule Language version 8.0, it still supports the previous version’s language APIs and syntax.
+Hence, it might not be necessary to migrate your rules, except in the case of a new language feature that you want to use.</p>
+      </section>
+      <section id="_prerequisites">
+         <p>The following tools are required to migrate to BAMOE v 9.1.1:</p>
+         <ul>
+            <li>
+               <xref href="https://openjdk.org" scope="external">JDK 17</xref> or later is installed.</li>
+            <li>
+               <xref href="https://maven.apache.org" scope="external">Apache Maven 3.9.6</xref> or later is installed.</li>
+            <li>
+               <xref href="https://code.visualstudio.com/download" scope="external">Visual Studio Code IDE</xref> latest version</li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM BAMOE Developer Tools</xref> latest version of VS Code IDE extensions</li>
+         </ul>
+      </section>
+      <section id="_maven_dependencies">
+         <p>Drools Version 6 or early Drools Version 7 projects have <tt>pom.xml</tt> dependencies like the following:</p>
+         <codeblock outputclass="language-xml">
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+        &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+        &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</codeblock>
+         <p>Drools Version 7.45.0 introduced <tt>drools-engine</tt> and <tt>drools-engine-classic</tt> as aggregator dependencies.
+As of Drools Version 8.0, the dependencies <tt>drools-engine-classic</tt> and <tt>drools-mvel</tt> are <b>deprecated</b>. Hence, use <tt>drools-engine</tt> as in the following example:</p>
+         <codeblock outputclass="language-xml">
+&lt;/dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-engine&lt;/artifactId&gt;
+        &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+</codeblock>
+         <p>Drools Version 8.0 includes module refactoring and hence it might be difficult to collect the dependencies.
+The aggregator dependency definitely helps.</p>
+      </section>
+      <section id="_rule_units">
+         <p>As introduced earlier, using <tt>Rule Units</tt> are <i>
+               <b>a recommended style</b>
+            </i> for implementing rules in Drools Version 8.0.
+It requires modifications to your codebase.
+If you are developing cloud-native applications, Rule Units are <i>
+               <b>recommended</b>
+            </i>, as they are supported by Kogito.
+Rule units represent a declarative approach to partitioning a rules set into smaller units by binding different data sources to those units and orchestrating the execution of an individual unit.
+A rule unit is an aggregate of data sources, global variables, and rules.</p>
+         <p>To utilize Rule Units, add the following dependency, which is required for using Rule Unit APIs:</p>
+         <codeblock outputclass="language-xml">
+&lt;/dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.drools&lt;/groupId&gt;
+        &lt;artifactId&gt;drools-ruleunits-engine&lt;/artifactId&gt;
+        &lt;version&gt;${version.org.drools}&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+</codeblock>
+         <p>For the related Java API usage in Drools Version 7, you can create a <tt>KieSession</tt> from rule assets, and insert facts and fire rules as in the following example:</p>
+         <p outputclass="title">
+            <b>Traditional DRL API</b>
+         </p>
+         <codeblock outputclass="language-java">
+KieServices ks = KieServices.Factory.get();
+KieContainer kcontainer = ks.getKieClasspathContainer();
+KieBase kbase = kcontainer.getKieBase();
+KieSession ksession = kbase.newKieSession();
+try {
+    ksession.insert(new Measurement("color", "red"));
+    ksession.insert(new Measurement("color", "green"));
+    ksession.fireAllRules();
+} finally {
+    ksession.dispose();
+}
+</codeblock>
+         <p>However, by using the Rule Unit APIs, the resulting Java snippet is displayed as follows:</p>
+         <p outputclass="title">
+            <b>Rule Unit API</b>
+         </p>
+         <codeblock outputclass="language-java">
+MeasurementUnit measurementUnit = new MeasurementUnit();
+RuleUnitInstance&lt;MeasurementUnit&gt; instance = RuleUnitProvider.get().createRuleUnitInstance(measurementUnit);
+
+try {
+    measurementUnit.getMeasurements().add(new Measurement("color", "red"));
+    measurementUnit.getMeasurements().add(new Measurement("color", "green"));
+    instance.fire();
+} finally {
+    instance.dispose();
+}
+</codeblock>
+         <p>In Rule Unit, instantiate <tt>RuleUnitInstance</tt> instead of <tt>KieSession</tt>. Add facts to <tt>DataSource</tt> property instead of <tt>insert</tt>. Generic KIE API calls (for example, KieServices, KieContainer, KieBase …​ ) are not required anymore.
+Define one more class Unit instead.</p>
+         <p outputclass="title">
+            <b>Rule Unit Java Class</b>
+         </p>
+         <codeblock outputclass="language-java">
+public class MeasurementUnit implements RuleUnitData {
+
+    private final DataStore&lt;Measurement&gt; measurements;
+    private final Set&lt;String&gt; controlSet = new HashSet&lt;&gt;();
+
+    public MeasurementUnit() {
+        this(DataSource.createStore());
+    }
+
+    public MeasurementUnit(DataStore&lt;Measurement&gt; measurements) {
+        this.measurements = measurements;
+    }
+
+    public DataStore&lt;Measurement&gt; getMeasurements() {
+        return measurements;
+    }
+
+    public Set&lt;String&gt; getControlSet() {
+        return controlSet;
+    }
+}
+</codeblock>
+         <p>This Rule Unit class, associates rules (DRL) and inserted facts (DataSource) to help you manage the relationship.
+In addition to the API, the DRL syntax style also changes from traditional DRL, as displayed in the following example:</p>
+         <p outputclass="title">
+            <b>Traditional DRL</b>
+         </p>
+         <codeblock outputclass="language-drl">
+global java.util.Set controlSet;
+
+rule "will execute per each Measurement having ID color"
+when
+	Measurement( id == "color", $colorVal : val )
+then
+	controlSet.add($colorVal);
+end
+</codeblock>
+         <p outputclass="title">
+            <b>Rule Unit DRL</b>
+         </p>
+         <codeblock outputclass="language-drl">
+unit MeasurementUnit;
+
+rule "will execute per each Measurement having ID color"
+when
+	/measurements[ id == "color", $colorVal : val ]
+then
+	controlSet.add($colorVal);
+end
+</codeblock>
+         <p>Initially, declare a <tt>unit</tt> and do not set it as <tt>global</tt> because <tt>controlSet</tt> is a field of <tt>MeasurementUnit</tt>.
+Traditional global usage becomes the Unit’s field.
+In addition, the main difference is that the <tt>OOPath notation</tt> is in the left hand side (LHS) of the rule.
+It is described in detail at Rule conditions in DRL.
+You must change from the class name (Measurement) to the DataSource property name in the Unit class (measurements).</p>
+         <p>In addition, you need to take care of the insert in the right hand side (RHS) of the rule.
+The <tt>insert</tt> method inserts a fact into a DEFAULT entry-point, but in Rule Unit use cases, you must specify a DataSource where you want to insert the fact.
+Hence, you must call <tt>DataStore.add</tt> or <tt>DataStream.append</tt> instead of insert.</p>
+         <p outputclass="title">
+            <b>Traditional DRL</b>
+         </p>
+         <codeblock outputclass="language-drl">
+rule "Insert another Measurement"
+when
+	Measurement( id == "color", $colorVal : val )
+then
+	insert(new Measurement("monochrome", "false"));
+end
+</codeblock>
+         <p outputclass="title">
+            <b>Rule Unit DRL</b>
+         </p>
+         <codeblock outputclass="language-drl">
+unit MeasurementUnit;
+
+rule "Insert another Measurement"
+when
+	/measurements[ id == "color", $colorVal : val ]
+then
+	measurements.add(new Measurement("monochrome", "false"));
+end
+</codeblock>
+         <note type="note">
+            <p>You need not rewrite, update, modify and delete because they work for a fact in its DataSource as expected.
+These changes are not negligible, but not difficult to implement either.</p>
+         </note>
+      </section>
+      <section id="_migration_from_non_executable_model_to_executable_model">
+         <p>The <tt>drools-engine-classic</tt> and <tt>drools-mvel</tt> dependencies execute rules with <b>non executable model</b>, and <tt>drools-engine</tt> with <b>executable model</b>.
+You can use the executable model to pre-compile so that at runtime, the sessions are easier to create, basically by speeding up the entire rule execution process.
+In general, from an external perspective, rule evaluation and rule consequence execution results are expected to be the same by using either the non-executable model or the executable model.
+You may however encounter a few edge cases during compile time or runtime.
+If you find any issues, report them.</p>
+         <div conref="drl_invalid_cast.dita">_invalid_cast</div>
+         <div conref="drl_generics_support.dita">_generics_support</div>
+         <div conref="drl_invalid_coercion.dita">_invalid_coercion</div>
+      </section>
+   </body>
+</topic>

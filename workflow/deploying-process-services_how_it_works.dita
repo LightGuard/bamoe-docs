@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_how_it_works">
+   <title>How it works</title>
+   <body>
+      <title>How it works</title>
+      <fig>
+         <title>Graphical view of the Job service flow</title>
+         <image href="../images/job_service.png" placement="break">
+            <alt>job service</alt>
+         </image>
+      </fig>
+      <p>When a client invokes the job service, the client component sends a message through the transport tier containing the information required to call back the sink once the job times out.
+Once the request reaches the job service it creates the job internally, and stores the data on job status in the storage.
+When the job times out, the component calls the sink (either in-vm or via http request) to signal to the client.</p>
+      <div conref="deploying-process-services_definitions.dita">_definitions</div>
+   </body>
+</topic>

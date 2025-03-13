@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="nav">
+   <title>IBM Business Automation Manager Open Edition</title>
+   <body>
+      <ul>
+         <li>
+            <p>
+               <xref href="introduction/intro.html">Introduction</xref>
+            </p>
+            <ul>
+               <li>
+                  <p>
+                     <xref href="introduction/release-notes/release-notes-main.html">Release notes</xref>
+                  </p>
+                  <ul>
+                     <li>
+                        <xref href="introduction/release-notes/whats-new-9-1-1.html">What’s new in 9.1.1</xref>
+                     </li>
+                     <li>
+                        <xref href="introduction/release-notes/whats-new-9-1-0.html">What’s new in 9.1.0</xref>
+                     </li>
+                     <li>
+                        <xref href="introduction/release-notes/version-mapping.html">Version mapping</xref>
+                     </li>
+                     <li>
+                        <xref href="introduction/release-notes/supported-environments.html">Supported environments</xref>
+                     </li>
+                     <li>
+                        <xref href="introduction/release-notes/fix-list.html">Fix list</xref>
+                     </li>
+                     <li>
+                        <xref href="introduction/release-notes/known-limitations.html">Known limitations</xref>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <p>
+                     <xref href="introduction/brief-overview.html">Overview</xref>
+                  </p>
+                  <ul>
+                     <li>
+                        <xref href="introduction/what-is-bamoe.html">About IBM Business Automation Manager Open Editions</xref>
+                     </li>
+                     <li>
+                        <xref href="introduction/components.html">Key components</xref>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <xref href="getting-started/getting-started.html">Getting started</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="getting-started/project-setup.html">Initial project setup and walkthrough</xref>
+               </li>
+               <li>
+                  <xref href="getting-started/examples.html">Example applications</xref>
+               </li>
+               <li>
+                  <xref href="getting-started/decision-microservice.html">Decision microservice in 15 minutes</xref>
+               </li>
+               <li>
+                  <xref href="getting-started/business-rule-microservice.html">Business rules microservice in 15 minutes</xref>
+               </li>
+               <li>
+                  <xref href="getting-started/orchestrating.html">Orchestrating decisions and rules in 15 minutes</xref>
+               </li>
+               <li>
+                  <xref href="getting-started/deploying-to-openshift.html">Deploying a BAMOE application to OpenShift using Quarkus</xref>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <xref href="installation/installation.html">Installing</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="installation/configure-maven.html">Configuring Maven with BAMOE binaries</xref>
+               </li>
+               <li>
+                  <p>
+                     <xref href="installation/canvas.html">Canvas</xref>
+                  </p>
+                  <ul>
+                     <li>
+                        <xref href="installation/docker-compose.html">Using Docker Compose</xref>
+                     </li>
+                     <li>
+                        <xref href="installation/kie-helm-charts.html">Using Helm charts</xref>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <xref href="installation/developer-tools-for-vscode.html">Developer Tools for VS Code</xref>
+               </li>
+               <li>
+                  <p>
+                     <xref href="installation/ilmt-overview.html">Licenses and tracking usage</xref>
+                  </p>
+                  <ul>
+                     <li>
+                        <xref href="installation/licensing.html">License Guide</xref>
+                     </li>
+                     <li>
+                        <xref href="installation/ilmt-track-bamlcns-metrictool.html">Tracking License use in ILMT</xref>
+                     </li>
+                     <li>
+                        <xref href="installation/ilmt-track-bamlcns-kubernetes.html">Tracking license use in Kubernetes</xref>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <p>
+                     <xref href="installation/upgrading.html">Upgrading</xref>
+                  </p>
+                  <ul>
+                     <li>
+                        <xref href="installation/gav-mapping-rules.html">Drools Maven mappings</xref>
+                     </li>
+                     <li>
+                        <xref href="installation/gav-mapping-process.html">jBPM Maven mappings</xref>
+                     </li>
+                     <li>
+                        <xref href="installation/gav-mapping-kogito.html">Kogito Maven mappings</xref>
+                     </li>
+                     <li>
+                        <xref href="installation/gav-mapping-kie.html">KIE Maven mappings</xref>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <xref href="workflow/workflow-techpreview.html">Technology preview: Developing process services</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="workflow/overview.html">Overview stateful processes</xref>
+               </li>
+               <li>
+                  <xref href="workflow/gs-stateful-processes.html">Getting started with process automation</xref>
+               </li>
+               <li>
+                  <xref href="workflow/workflow-with-bpmn.html">Authoring business processes with BPMN</xref>
+               </li>
+               <li>
+                  <xref href="tools/form-generation-tool.html">Form Generation tool</xref>
+               </li>
+               <li>
+                  <xref href="workflow/deploying-process-services.html">Components of a process service</xref>
+               </li>
+               <li>
+                  <xref href="workflow/consoles.html">Interacting with processes and tasks using Consoles</xref>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>
+               <xref href="tools/intro-tools.html">Available tools</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="tools/canvas.html">Canvas</xref>
+               </li>
+               <li>
+                  <xref href="tools/developer-tools-for-vscode.html">Developer Tools for VS Code</xref>
+               </li>
+               <li>
+                  <xref href="tools/importing-existing-projects.html">Importing existing projects</xref>
+               </li>
+               <li>
+                  <xref href="tools/applying-accelerators.html">Applying accelerators</xref>
+               </li>
+               <li>
+                  <xref href="tools/working-with-git.html">Working with Git</xref>
+               </li>
+               <li>
+                  <p>
+                     <xref href="tools/dev-deployments.html">Dev Deployments</xref>
+                  </p>
+                  <ul>
+                     <li>
+                        <xref href="tools/dev-deployment-upload-service.html">Dev Deployment Upload Service</xref>
+                     </li>
+                     <li>
+                        <xref href="tools/create-custom-dev-deployment-image.html">Creating a custom Dev Deployment image</xref>
+                     </li>
+                  </ul>
+               </li>
+               <li>
+                  <xref href="tools/connecting-accounts.html">Connecting to accounts</xref>
+               </li>
+               <li>
+                  <xref href="tools/editors-libraries.html">DMN and BPMN Editors Javascript Libraries</xref>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <ul>
+         <li>
+            <p>
+               <xref href="editing/intro-editing-testing.html">Editing and testing business models</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="editing/creating-new-projects.html">Creating new projects</xref>
+               </li>
+               <li>
+                  <xref href="editing/authoring-decisions.html">Authoring decisions</xref>
+               </li>
+               <li>
+                  <xref href="editing/running-decisions.html">Running decisions</xref>
+               </li>
+               <li>
+                  <xref href="editing/authoring-rules.html">Authoring rules</xref>
+               </li>
+               <li>
+                  <xref href="editing/authoring-scesim.html">Authoring test scenarios</xref>
+               </li>
+               <li>
+                  <xref href="editing/dmn.html">DMN reference</xref>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <ul>
+         <li>
+            <p>
+               <xref href="runtime-services-modeling/runtime-services-modeling.html">Building, deploying, executing and monitoring services</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="runtime-services-modeling/building-decision-services.html">Building decision services</xref>
+               </li>
+               <li>
+                  <xref href="runtime-services-modeling/services-execution.html">Service execution</xref>
+               </li>
+               <li>
+                  <xref href="runtime-services-modeling/monitoring-services.html">Service monitoring</xref>
+               </li>
+               <li>
+                  <xref href="runtime-services-modeling/dmn-decisions-embedded-java-mode.html">DMN decisions execution in embedded Java mode</xref>
+               </li>
+               <li>
+                  <xref href="runtime-services-modeling/drl-rules-embedded-java-mode.html">DRL rule execution in embedded Java mode</xref>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <ul>
+         <li>
+            <p>
+               <xref href="migration-guide/migration-guide.html">Migration guide</xref>
+            </p>
+            <ul>
+               <li>
+                  <xref href="https://access.redhat.com/documentation/en-us/red_hat_process_automation_manager/7.0/html/migrating_from_red_hat_jboss_bpm_suite_6.4_to_red_hat_process_automation_manager_7.0/migration-overview-con.html">Red Hat version 6 to 7</xref>
+               </li>
+               <li>
+                  <xref href="migration-guide/redhat-to-ibm.html">Red Hat version 7 to BAMOE 8.0</xref>
+               </li>
+               <li>
+                  <xref href="migration-guide/now-to-next.html">BAMOE version 8.0 to 9.0</xref>
+               </li>
+               <li>
+                  <xref href="migration-guide/90x-to-91x.html">BAMOE version 9.0 to 9.1</xref>
+               </li>
+               <li>
+                  <xref href="migration-guide/business-central.html">Business Central</xref>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <ul>
+         <li>
+            <xref href="support/support.html">Support</xref>
+         </li>
+         <li>
+            <xref href="support/notices.html">Notices</xref>
+         </li>
+      </ul>
+   </body>
+</topic>

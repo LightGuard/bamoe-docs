@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="release-notes">
+   <title>Release notes</title>
+   <body>
+      <p>Highlights, new features, removed components, and differences between IBM BAMOE 8.0.x and 9.1.1:</p>
+      <section id="_components">
+         <title>Components</title>
+         <ul>
+            <li>
+               <p>Runtimes</p>
+               <ul>
+                  <li>Decision Service</li>
+                  <li>
+                     <p>Observability</p>
+                     <ul>
+                        <li>Auditability (Metrics)</li>
+                        <li>Tracing via Kafka</li>
+                     </ul>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+      <section id="_new_components">
+         <ul>
+            <li>
+               <p>IBM Business Automation Manager Open Editions Canvas</p>
+               <ul>
+                  <li>
+                     <p>Accelerators</p>
+                     <ul>
+                        <li>Work with individual assets or full projects</li>
+                        <li>Simple projects visualization</li>
+                        <li>Easy branch management</li>
+                        <li>
+                           <p>Share</p>
+                           <ul>
+                              <li>download full projects</li>
+                              <li>individual decision files (DMN)</li>
+                              <li>svgs</li>
+                              <li>or obtain an embeddable version of your decision</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <p>Improved Collaboration</p>
+                     <ul>
+                        <li>Support for GitHub, GitHub Enterprise, Bitbucket Cloud</li>
+                        <li>
+                           <p>Seamless git integration</p>
+                           <ul>
+                              <li>connect</li>
+                              <li>clone (public and private repositories)</li>
+                              <li>pull</li>
+                              <li>push</li>
+                              <li>commit with custom messages</li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <p>Decision Test capabilities</p>
+                     <ul>
+                        <li>Automatically generated forms</li>
+                        <li>Export for</li>
+                     </ul>
+                  </li>
+                  <li>
+                     <p>One-click deploy (Dev/test purposes)</p>
+                     <ul>
+                        <li>OpenShift environments</li>
+                        <li>Kubernetes</li>
+                     </ul>
+                  </li>
+                  <li>Run on containerized environments with new product image</li>
+               </ul>
+            </li>
+            <li>
+               <p>IBM Business Automation Manager Open Editions Developer Tools</p>
+               <ul>
+                  <li>Available on the marketplace</li>
+               </ul>
+            </li>
+            <li>Runtime support for DMN 1.4</li>
+            <li>Accelerators</li>
+            <li>
+               <p>Upstream-first</p>
+               <ul>
+                  <li>Upstream certified versions available through new IBM Bills Of Material (dependency management)</li>
+               </ul>
+            </li>
+            <li>
+               <p>Cloud</p>
+               <ul>
+                  <li>Helm Charts</li>
+               </ul>
+            </li>
+         </ul>
+      </section>
+      <section id="_deprecated">
+         <ul>
+            <li>Red Hat Business Automation VSCode Bundle</li>
+         </ul>
+      </section>
+      <section id="_removed_components">
+         <ul>
+            <li>OpenShift Business Automation Operator</li>
+            <li>Business Central</li>
+            <li>KIE Server</li>
+            <li>Smart Router</li>
+            <li>Process Instance Migration Tool</li>
+            <li>Dashbuilder Runtime</li>
+            <li>Process Migration Service</li>
+            <li>OpenShift Images</li>
+         </ul>
+      </section>
+      <section id="_unsupported_community">
+         <ul>
+            <li>Embeddable editors</li>
+            <li>
+               <xref href="https://chrome.google.com/webstore/detail/bpmn-dmn-test-scenario-ed/mgkfehibfkdpjkfjbikpchpcfimepckf" scope="external">
+                  <b>Apache KIE™ BPMN, DMN &amp; Test Scenario Editors for GitHub Chrome Extension</b>
+               </xref>
+            </li>
+         </ul>
+      </section>
+      <section id="_versions">
+         <ul>
+            <li>Kogito 1.40.0.Final</li>
+            <li>Jakarta EE 9</li>
+            <li>Quarkus 2.16.7.Final</li>
+         </ul>
+      </section>
+      <section id="_decision_service_extensions">
+         <ul>
+            <li>org.kie.kogito</li>
+         </ul>
+      </section>
+      <section id="_unsupported_capabilities_on_9_0">
+         <ul>
+            <li>Stateful Processes</li>
+         </ul>
+      </section>
+   </body>
+</topic>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="form-generation-tool">
+   <title>Form Generation tool</title>
+   <body>
+      <p>The <b>Form Generation Tool</b> generates the web forms needed for the execution of processes (workflows).</p>
+      <section id="_tool_installation">
+         <title>Tool Installation</title>
+         <p>Download <b>Form Generation Tool</b> zip file available at <xref href="https://www.ibm.com/support/pages/node/7151078" scope="external">https://www.ibm.com/support/pages/node/7151078</xref>.
+The zip file contains three binary files of the same tool for multiple operating systems.
+Please choose the binary file according your operating system and extract it into desired destination.
+Then please make sure the binary file is executable.</p>
+         <p outputclass="title">
+            <b>Make sure the binary file is executable - linux example</b>
+         </p>
+         <codeblock outputclass="language-bash">
+chmod a+x form-generation-cli-linux
+</codeblock>
+      </section>
+      <section id="_form_generation">
+         <p>You can generate forms using the <b>Form Generation Tool</b> for any Workflow that requires input data.
+However, for this documentation, we will use existing <xref href="https://incubator.apache.org/projects/kie.html" scope="external">Apache Kie</xref>
+            <b>jbpm-compact-architecture-example</b> project available at <xref href="https://www.ibm.com/support/pages/node/7151078" scope="external">https://www.ibm.com/support/pages/node/7151078</xref>.
+You will find more example projects in this zip file, however <b>jbpm-compact-architecture-example</b> requires the minimal effort to see forms in the action.
+Or you can use your own project.</p>
+         <p>Browsing the linked examples, you may notice the projects use Maven.
+So when Maven builds an <xref href="https://incubator.apache.org/projects/kie.html" scope="external">Apache Kie</xref> project, Kie generates JSON schemas to represent the data models for both Workflows and User Tasks.
+The <b>Form Generation Tool</b> then locates those JSON Schemas in the project and, taking advantage of the Uniforms APIs, processes them and generates static forms as a resource in the project <tt>src/main/resources/forms</tt> folder.</p>
+         <p>
+            <b>Generation Prerequisities</b>
+         </p>
+         <ul>
+            <li>Make sure your <xref href="https://incubator.apache.org/projects/kie.html" scope="external">Apache Kie</xref> project has been compiled, otherwise the CLI won’t be able to find all the form schemas.</li>
+         </ul>
+         <p>Once the <b>Form Generation Tool</b> binary file is extracted and executable you can start the <b>Form Generation Tool</b> from your command line.</p>
+         <p outputclass="title">
+            <b>Start the binary file - linux example</b>
+         </p>
+         <codeblock outputclass="language-bash">
+./form-generation-cli-linux
+</codeblock>
+         <p>This will start a wizard to help you generate the forms:</p>
+         <p>First, set the path to your <xref href="https://incubator.apache.org/projects/kie.html" scope="external">Apache KIE</xref> project.
+This example will use <b>jbpm-compact-architecture-example</b>.</p>
+         <codeblock outputclass="language-bash">
+Kogito Form Generation CLI
+===========================
+
+This tool will help you generate forms for the Processes and User Tasks in your Kogito Projects.
+The tool will search for the User Tasks JSON schemas generated in your project, so make sure the project is build.
+The generated forms will be stored as resources in your project (in src/main/resources/forms folder).
+
+? Type your Kogito Project path:---&gt; /path/to/my/projects/jbpm-compact-architecture-example &lt;---
+</codeblock>
+         <p>Select one of the available Form types (Patternfly or Bootstrap 4).
+Select Bootstrap 4.
+Use the arrow keys to change the selection.</p>
+         <codeblock outputclass="language-bash">
+? Select the Form type:
+  patternfly
+❯ bootstrap
+</codeblock>
+         <p>Confirm Selection, type <b>Y</b>, to start the Form Generation process.</p>
+         <codeblock outputclass="language-bash">
+Current selection:
+Project path: /path/to/my/projects/jbpm-compact-architecture-example
+Form type: bootstrap
+
+? Do you want to continue? (Y/n) Y
+</codeblock>
+         <note type="note">
+            <p>Currently there is an issue for the <tt>Array</tt> type.
+You will probably spot similar warning between log messages.
+This is a known and reported <xref href="https://github.com/apache/incubator-kie-issues/issues/1313" scope="external">issue</xref>.</p>
+            <p>
+               <tt>Unsupported field type: Array</tt>
+            </p>
+         </note>
+         <p>Once the generation is done, browse to <tt>/path/to/my/projects/jbpm-compact-architecture-example/src/main/resources/forms</tt> folder.</p>
+         <codeblock outputclass="language-bash">
+ls /path/to/my/projects/jbpm-compact-architecture-example/src/main/resources/forms/
+
+hiring.config
+hiring.html
+hiring_HRInterview.config
+hiring_HRInterview.html
+hiring_ITInterview.config
+hiring_ITInterview.html
+</codeblock>
+         <div conref="form-generation-tool_form_type.dita">_form_type</div>
+         <div conref="form-generation-tool_form_config.dita">_form_config</div>
+      </section>
+      <section id="_form_devui">
+         <p>For Quarkus-based <xref href="https://incubator.apache.org/projects/kie.html" scope="external">Apache Kie</xref> projects, you can use and test them by using the <b>jBPM Quarkus DevUI</b> extension.</p>
+         <p>To do so, just add the following dependency in your project <tt>pom.xml</tt>:</p>
+         <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jbpm&lt;/groupId&gt;
+    &lt;artifactId&gt;jbpm-quarkus-devui&lt;/artifactId&gt;
+    &lt;version&gt;9.1.x-ibm-0001&lt;/version&gt;
+&lt;/dependency&gt;
+</codeblock>
+         <p>Where 'x' is the product version.
+NOTE: This is already done for <b>jbpm-compact-architecture-example</b>.</p>
+         <p>And start the project in Dev mode with the command:</p>
+         <codeblock outputclass="language-bash">
+mvn clean -Pdevelopment quarkus:dev
+</codeblock>
+         <p>Then, in your browser, navigate to:</p>
+         <codeblock outputclass="language-bash">
+http://localhost:8080/q/dev-ui/extensions
+</codeblock>
+         <note type="note">
+            <p>Currently <b>jbpm-compact-architecture-example</b> contains one wrong dependency that needs to be removed.
+Please remove <tt>org.jbpm:jbpm-quarkus-devui-bom</tt> from the project <tt>pom.xml</tt>.
+For more information, see <xref href="../introduction/release-notes/known-limitations.dita">Known limitations</xref>.</p>
+         </note>
+         <p>On the displayed page, find this card and click <b>Forms</b>.</p>
+         <fig>
+            <title>jBPM Quarkus Dev UI Card</title>
+            <image href="../images/tools/jbpm-runtime-tools-quarkus-dev-ui.png" placement="break">
+               <alt>jBPM Quarkus Dev UI Card</alt>
+            </image>
+         </fig>
+         <p>Now you should see a list of all available forms that we listed via the command line earlier in this documentation.</p>
+         <fig>
+            <title>Forms list</title>
+            <image href="../images/tools/forms.png" placement="break">
+               <alt>Forms list</alt>
+            </image>
+         </fig>
+         <p>Choosing a form will present the option to adjust it.
+Continue with the <b>hiring</b> form.
+Click on it to open it.
+Now you see two tabs: <b>Source</b> and <b>Connections</b>.</p>
+         <div conref="form-generation-tool_source.dita">_source</div>
+         <div conref="form-generation-tool_connections.dita">_connections</div>
+      </section>
+   </body>
+</topic>

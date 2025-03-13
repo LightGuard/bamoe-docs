@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_the_data_audit_add_on">
+   <title>Using the Data audit add-on</title>
+   <body>
+      <p>You need to add two different dependencies to your project  for a collocated service.</p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+	  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+	  &lt;artifactId&gt;kie-addons-&lt;runtime&gt;-data-audit&lt;/artifactId&gt;
+	  &lt;version&gt;${version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+	  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+	  &lt;artifactId&gt;kie-addons-&lt;runtime&gt;-data-audit-jpa&lt;/artifactId&gt;
+	  &lt;version&gt;${version}&lt;/version&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p>The first dependency is related how to you want to deploy it. In this case it is deployed as a collocated/embedded service.
+The second dependency specifies the implementation you want to use.</p>
+      <p>Each implementation might require additional dependencies. In this case a driver may be required to use a Java Persistence API (JPA) implementation.</p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+	  &lt;groupId&gt;io.quarkus&lt;/groupId&gt;
+	  &lt;artifactId&gt;quarkus-jdbc-h2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p>No additional configuration is required besides the default datasource use by the application already.</p>
+   </body>
+</topic>

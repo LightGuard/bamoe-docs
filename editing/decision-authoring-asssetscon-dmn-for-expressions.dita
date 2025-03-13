@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="con-dmn-for-expressions">
+   <title>Boxed for expressions</title>
+   <body>
+      <p>A boxed for offers a visual representation of an iterator statement.
+For the <tt>for</tt> loop, the right part of the <tt>for</tt> displays the iterator variable name.
+The second row holds an expression representing the collection that will be iterated over.
+The expression in the <tt>in</tt> row must resolve to a collection.
+The last row contains the expression that will process each element of the collection.</p>
+      <p>The example below is an alternative way of producing list similar as <xref href="#approved-credit-score-agency-list-example"/>.</p>
+      <fig>
+         <title>Iterator expression of Approved credit score agencies</title>
+         <image href="../images/runtime-services-modeling/dmn-iterator-expression.png" placement="break">
+            <alt>dmn iterator expression</alt>
+         </image>
+      </fig>
+      <note type="note">
+This feature was introduced as part of the IBM BAMOE 9.1 and DMN 1.5 releases.
+</note>
+   </body>
+</topic>

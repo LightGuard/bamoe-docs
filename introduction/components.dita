@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="components">
+   <title>Key components</title>
+   <body>
+      <p>IBM Business Automation Manager Open Editions is a developer-first technology that offers a highly customizable set-up and solution. BAMOE is developed using well-known technologies, specifications, and open standards.</p>
+      <p>The design of an automation solution, including the components that are part of the application lifecycle, can be easily be adapted to different scenarios. The modular structure of the solution allows for custom, lightweight deployment units that efficiently use computational resources by including only what is needed.
+This approach is possible with BAMOE version 9.1 through the architectural design of the solution, which allows the creation of solutions targeting the automation of decisions, business rules, straight-through processes, and long-running business processes.</p>
+      <p>Services designed to address particular domain business problems can improve team performance and simplify the application lifecycle from development to deployment.
+An automation solution with IBM BAMOE includes:</p>
+      <ul>
+         <li>Development tools</li>
+         <li>Process and decision services: Java applications that deliver one or more automation capabilities.</li>
+         <li>Additional components and supporting tools: to accelerate development, simplify installation of product components on cloud platforms, and to add a developer-friendly UI to support process management capabilities.</li>
+      </ul>
+      <p>These are the building blocks that are used to design applications to address the following requirements:</p>
+      <p>
+         <b>Decision Automation</b>
+      </p>
+      <p>Decisions can be automated using one of the three following technologies:</p>
+      <ol>
+         <li>Decision Model and Notation (DMN): An open-standard designed to simplify the automation of repeatable rules by business users.</li>
+         <li>Decisions tables in Excel: A common approach for automating simpler types of business rules based on tables written on <tt>.xls</tt> format.</li>
+         <li>Technical business rules: By using Drools Rules Language (DRL), developers rely on maximum flexibility to automate rules.</li>
+      </ol>
+      <p>
+         <b>Process Automation (BPMN)</b>
+      </p>
+      <p>Automated processes may be one of the following:</p>
+      <ul>
+         <li>Straight-through process: Executed from start to end without human interaction, with no persistence of state.</li>
+         <li>Business process: covers a larger set of needs, such as long-running processes, human-driven workflows, timer-based process events, task audibility, storage of business key performance indicators (KPIs), and other scenarios involving data persistence.</li>
+      </ul>
+      <p>
+         <b>Process and Decision Automation</b>
+      </p>
+      <p>More complex scenarios can be implemented through the orchestration of business decisions to combine intelligent processes with automated decisions. They can easily be combined whatever the chosen approach (DMN/XLS/DMN), providing a unified experience and the seamless use of data across different business assets. This is possible despite each asset type using a specific data representation paradigm:</p>
+      <ul>
+         <li>
+            <tt>process variables</tt> in processes</li>
+         <li>
+            <tt>data types</tt> in decisions</li>
+         <li>
+            <tt>facts</tt> in business rules</li>
+      </ul>
+      <note type="important">
+         <p>The stateful process automation feature is a technology preview in IBM BAMOE version 9.1.0 and 9.1.1. For more information, see <xref href="../workflow/overview.html">Stateful processs overview</xref>.</p>
+      </note>
+      <section id="_components_overview">
+         <title>Components overview</title>
+         <p>When you design an automation service each capability has a set of required and optional components. The following sections list the product components:</p>
+         <p>
+            <b>Development</b>
+         </p>
+         <ul>
+            <li>
+               <xref href="../tools/canvas.dita">BAMOE Canvas</xref>
+            </li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM BAMOE Developer Tools for VS Code</xref>
+            </li>
+            <li>
+               <xref href="../tools/form-generation-tool.dita">Form Generation Tool</xref>
+            </li>
+         </ul>
+         <p>
+            <b>Execution</b>
+         </p>
+         <ul>
+            <li>Decision and Rules Engine</li>
+            <li>Process Engine</li>
+         </ul>
+         <p>
+            <b>Process Management</b>
+         </p>
+         <ul>
+            <li>Management Console</li>
+            <li>Task Console</li>
+         </ul>
+         <p>For more information see <xref href="../workflow/consoles.html">Interacting with processes and tasks using Consoles</xref>
+         </p>
+         <p>
+            <b>Automation add-ons</b>
+         </p>
+         <ul>
+            <li>Human tasks</li>
+            <li>Integration</li>
+            <li>Data persistence</li>
+            <li>Data auditing</li>
+            <li>Jobs and asynchronous services execution</li>
+            <li>Observability with metrics decision and process services</li>
+         </ul>
+         <p>For more information, see <xref href="../workflow/overview.dita">Overview stateful process</xref> and  <xref href="../runtime-services-modeling/runtime-services-modeling.dita">Service monitoring with Prometheus and Grafana</xref>.</p>
+      </section>
+   </body>
+</topic>

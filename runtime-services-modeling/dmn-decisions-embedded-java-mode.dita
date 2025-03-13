@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="dmn-decisions-embedded-java-mode">
+   <title>DMN decisions execution in embedded Java mode</title>
+   <body>
+      <p>You can create or import DMN files in your Drools project using the <xref href="../tools/authoring-decisions.dita">DMN Editor</xref>.</p>
+      <p>After you implement your DMN files in your Drools project, you can execute the DMN decision service by instantiating a <xref href="https://github.com/apache/incubator-kie-drools/blob/999-20240521/kie-api/src/main/java/org/kie/api/runtime/KieContainer.java" scope="external">
+            <tt>KieContainer</tt>
+         </xref>.
+It very similar to <xref href="drl-rules-embedded-java-mode.dita">DRL Rules Execution in Embedded Java mode</xref>.</p>
+      <p>A <tt>KieContainer</tt> is local when the knowledge assets are either embedded directly into the calling program or are physically pulled in using Apache Maven dependencies for the KJAR.
+You typically embed knowledge assets directly into a project if there is a tight relationship between the version of the code and the version of the DMN definition.</p>
+      <section id="_pom_xml">
+         <title>pom.xml</title>
+         <p>In your client application, add the following dependencies to the relevant classpath of your Java project:</p>
+         <codeblock outputclass="language-xml">
+&lt;!-- Required for the DMN runtime API --&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-dmn-core&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+         <p>Instead of specifying a Drools <tt>&lt;version&gt;</tt> for individual dependencies, consider adding the Drools bill of materials (BOM) dependency to dependencyManagement section of your project <tt>pom.xml</tt> file.
+When you add the BOM files, the correct versions of transitive dependencies from the provided Apache Maven repositories are included in the project.</p>
+         <p outputclass="title">
+            <b>Example BOM dependency</b>
+         </p>
+         <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-dmn-bom&lt;/artifactId&gt;
+  &lt;version&gt;9.1.x-ibm-0001&lt;/version&gt;
+  &lt;scope&gt;import&lt;/scope&gt;
+  &lt;type&gt;pom&lt;/type&gt;
+&lt;/dependency&gt;
+</codeblock>
+      </section>
+      <section id="_kiecontainer">
+         <p>It is a common entry point for an execution of all KIE assets.
+<tt>KieContainer</tt> determines where to search for KIE assets that will be loaded into our application.</p>
+         <p>In this example all assets from the <tt>src/main/resources</tt> will be loaded into our application.</p>
+         <p outputclass="title">
+            <b>Create a KieContainer from classpath</b>
+         </p>
+         <codeblock outputclass="language-java">
+KieServices kieServices = KieServices.Factory.get();
+
+KieContainer kieContainer = kieServices.getKieClasspathContainer();
+</codeblock>
+         <p>In this example all assets from the given Apache Maven dependency (<tt>org.acme:my-kjar:1.0.0</tt>) will be loaded into our application.</p>
+         <p outputclass="title">
+            <b>Create a KieContainer from ReleaseId</b>
+         </p>
+         <codeblock outputclass="language-java">
+KieServices kieServices = KieServices.Factory.get();
+
+ReleaseId releaseId = kieServices.newReleaseId("org.acme", "my-kjar", "1.0.0");
+KieContainer kieContainer = kieServices.newKieContainer(releaseId);
+</codeblock>
+      </section>
+      <section id="_dmnmodel">
+         <p>To execute a DMN Decision we need to know the DMN model namespace and model name.
+Both can be found in the properties panel of the DMN Editor.
+In this example we use namespace and model name from the <xref href="#_complete_example"/>.</p>
+         <p outputclass="title">
+            <b>Obtain DMNRuntime from the KIE container and a reference to the DMN model to be evaluated, by using the model namespace and modelName</b>
+         </p>
+         <codeblock outputclass="language-java">
+DMNRuntime dmnRuntime = KieRuntimeFactory.of(kieContainer.getKieBase()).get(DMNRuntime.class);
+
+String namespace = "https://kie.org/dmn/_C83DFD16-A42A-46BE-A843-370444580E0F";
+String modelName = "loan-application-age-limit";
+
+DMNModel dmnModel = dmnRuntime.getModel(namespace, modelName);
+</codeblock>
+      </section>
+      <section id="_dmncontext">
+         <p>
+            <tt>DMNContext</tt> is a holder for the input values.
+It should contain a value for each corresponding <tt>InputData</tt> node of or DMN model.
+In this example, <tt>"Applicant"</tt> and <tt>"Application"</tt> are <tt>InputData</tt> nodes from the <xref href="#_complete_example"/>.</p>
+         <p outputclass="title">
+            <b>Prepare data for the DMN Model execution</b>
+         </p>
+         <codeblock outputclass="language-java">
+DMNContext dmnContext = dmnRuntime.newContext();
+dmnContext.set("Applicant", new Applicant("#0001", 20));
+dmnContext.set("Application", new LoanApplication("#0001"));
+</codeblock>
+      </section>
+      <section id="_dmnresult">
+         <p>In the example below we execute the DMN model and consequently we iterate its results.
+We should be able to see results for all <tt>Decision</tt> nodes of the given DMN Model.</p>
+         <p outputclass="title">
+            <b>Execute the DMN Model</b>
+         </p>
+         <codeblock outputclass="language-java">
+DMNResult dmnResult = dmnRuntime.evaluateAll(dmnModel, dmnContext);
+
+for (DMNDecisionResult dr : dmnResult.getDecisionResults()) {
+    System.out.println(
+        "Decision: '" + dr.getDecisionName() + "', " +
+        "Result: " + dr.getResult());
+}
+</codeblock>
+         <p>For executing <xref href="#_complete_example"/> model, we should see output like below.</p>
+         <codeblock outputclass="language-bash">
+Decision: 'Approvement', Result: {approved=false, explanation=Underage}
+</codeblock>
+      </section>
+      <section id="_complete_example">
+         <p>Can be found as <xref href="https://github.com/bamoe/bamoe-docs-source-code-examples/tree/9.1.x/decisions-embedded-mode-example" scope="external">decisions-embedded-mode-example</xref>.</p>
+      </section>
+   </body>
+</topic>

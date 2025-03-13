@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_installing_and_using_the_classic_dmn_and_bpmn_editors">
+   <title>Installing and using the classic DMN and BPMN Editors</title>
+   <body>
+      <title>Installing and using the classic DMN and BPMN Editors</title>
+      <p>Installing and using each Editor is the same, as they are built to expose the same generic API to set and get content, export preview SVGs, undo and redo edits, and more. Follow these steps to install the editors:</p>
+      <ol>
+         <li>
+            <p>Add the following library to the project’s <tt>package.json</tt>:</p>
+            <codeblock outputclass="language-shell">
+npm install @ibm/bamoe-standalone-bpmn-and-dmn-editors-classic@9.1.1
+</codeblock>
+         </li>
+         <li>
+            <p>Import each Editor to a JavaScript file with the following statements:</p>
+            <codeblock outputclass="language-javascript">
+import * as BpmnEditor from "@ibm/bamoe-standalone-bpmn-and-dmn-editors-classic/dist/bpmn"
+import * as DmnEditor from "@ibm/bamoe-standalone-bpmn-and-dmn-editors-classic/dist/dmn"
+</codeblock>
+         </li>
+         <li>
+            <p>Add a 'div' element for the Editor in the HTML; the library uses this 'div' as a container to load an iFrame with the Editor’s resources:</p>
+            <codeblock outputclass="language-html">
+&lt;div id="bpmn-editor-container"/&gt;
+&lt;div id="dmn-editor-container"/&gt;
+</codeblock>
+         </li>
+         <li>
+            <p>Load each Editor by passing the reference to the respective <tt>div</tt> container as follows:</p>
+            <codeblock outputclass="language-javascript">
+const bpmnEditor = BpmnEditor.open({
+ container: document.getElementById("bpmn-editor-container")
+ initialContent: Promise.resolve("")
+ readOnly: false
+ origin: "*"
+ onError: () =&gt; {}
+ resources: new Map([])
+});
+
+const dmnEditor = DmnEditor.open({
+ container: document.getElementById("dmn-editor-container")
+ initialContent: Promise.resolve("")
+ readOnly: false
+ origin: "*"
+ onError: () =&gt; {}
+ resources: new Map([])
+});
+</codeblock>
+         </li>
+      </ol>
+      <p>Where the following table describes the parameters:</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="25*"/>
+            <colspec colname="col_2" colwidth="25*"/>
+            <colspec colname="col_3" colwidth="25*"/>
+            <colspec colname="col_4" colwidth="25*"/>
+            <thead>
+               <row>
+                  <entry>Parameter</entry>
+                  <entry>Description</entry>
+                  <entry>Required/Optional</entry>
+                  <entry>Examples</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>container</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Specifies the HTML element that the Editor is appended to.</p>
+                  </entry>
+                  <entry>
+                     <p>Mandatory</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>initialContent</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Accepts a Promise that resolves to the contents of a .bpmn file for the BPMN Editor or the contents of a .dmn file for the DMN Editor. It can be an empty.</p>
+                  </entry>
+                  <entry>
+                     <p>Mandatory</p>
+                  </entry>
+                  <entry>
+                     <p>* <tt>Promise.resolve("")</tt>
+                     </p>
+                     <p>* <tt>Promise.resolve
+("&lt;BPMN_OR_DMN_CONTENT_DIRECTLY_HERE&gt;")</tt>
+                     </p>
+                     <p>* <tt>fetch("MyBpmnFile.bpmn").then(content ⇒ content.text())</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>readOnly</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>You can use <tt>false</tt> for content edition and <tt>true</tt> for read-only mode, where the editor does not allow changes. Default is  <tt>true</tt>.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>origin</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>If accessing the application via the <tt>file://</tt> protocol, it defaults to <tt>*</tt>; otherwise, it defaults to <tt>window.location.origin</tt>.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>onError</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>Accepts a function that is called when the Editor encounters an error at any  moment. This parameter defaults to () ⇒ {}).</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>
+                        <tt>resources</tt>
+                     </p>
+                  </entry>
+                  <entry>
+                     <p>This parameter defaults to an empty Map; Map of resources that will be provided for the Editor. For instance, this parameter can be used to provide included models for the DMN Editor or Work Item Definitions for the BPMN Editor. Each entry in the map has the resource name as the key and an object that contains the <tt>contentType</tt>(<tt>text</tt> or <tt>binary</tt>), and the resource <tt>content</tt>(Promise similar to the <tt>initialContent</tt> parameter) as its value.</p>
+                  </entry>
+                  <entry>
+                     <p>Optional</p>
+                  </entry>
+                  <entry>
+                     <p>* <tt>resources: new Map([["myWid.wid", { contentType: "text", content: Promise.resolve("&lt;WID_CONTENTS_HERE&gt;")}], […​], […​]])</tt>
+                     </p>
+                     <p>* <tt>resources: new Map([["types.dmn", { contentType: "text", content: Promise.resolve("&lt;DMN_CONTENTS_HERE&gt;")}], […​], […​]])</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>The returned objects, (<tt>bpmnEditor</tt> and <tt>dmnEditor</tt>) will contain the following methods needed to manipulate the Editor:</p>
+      <dl>
+         <dlentry>
+            <dt>
+               <tt>getContent(): Promise&lt;string&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that resolves to the Editor’s BPMN or DMN content.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>setContent(normalizedPosixPathRelativeToTheWorkspaceRoot: string, content: string): Promise&lt;void&gt;</tt>
+            </dt>
+            <dd>Sets the content of the editor. The returning Promise will be rejected if setting the content fails.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getPreview(): Promise&lt;string&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that resolves to the SVG string of the current diagram.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>subscribeToContentChanges(callback: (isDirty: boolean) ⇒ void): (isDirty: boolean) ⇒ void</tt>
+            </dt>
+            <dd>Setup a callback function that is automatically called on every content change in the Editor. It returns the same function that needs to be used for unsubscription.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>unsubscribeToContentChanges(callback: (isDirty: boolean) ⇒ void): void</tt>
+            </dt>
+            <dd>Unsubscribes the callback function from being called when the content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>markAsSaved(): void</tt>
+            </dt>
+            <dd>Resets the editor state by signaling that the content is saved. It also fires the subscribed callbacks for content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>undo(): void</tt>
+            </dt>
+            <dd>Undo the last change in the Editor. It will also fire the subscribed callbacks of content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>redo(): void</tt>
+            </dt>
+            <dd>Redo the last undone change in the Editor. It will also fire the subscribed callbacks of content changes.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>close(): void</tt>
+            </dt>
+            <dd>Closes the Editor.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>envelopeApi: MessageBusClientApi&lt;KogitoEditorEnvelopeApi&gt;</tt>
+            </dt>
+            <dd>An Advanced Editor API.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>canvas</tt>
+            </dt>
+            <dd>An API that exposes the following methods to manipulate the canvas:</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getNodeIds(): Promise&lt;string[]&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the ID attributes of all nodes displayed in the editor canvas.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getBackgroundColor(uuid: string): Promise&lt;string&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the background color of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>setBackgroundColor(uuid: string, backgroundColor: string): Promise&lt;void&gt;</tt>
+            </dt>
+            <dd>Sets the background color of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getBorderColor(uuid: string): Promise&lt;string&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the border color of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>setBorderColor(uuid: string, borderColor: string): Promise&lt;void&gt;</tt>
+            </dt>
+            <dd>Sets the border color of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getLocation(uuid: string): Promise&lt;number[]&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the canvas location of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getAbsoluteLocation(uuid: string): Promise&lt;number[]&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the window location of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>getDimensions(uuid: string): Promise&lt;number[]&gt;</tt>
+            </dt>
+            <dd>Returns a Promise that contains the dimensions of a node with the provided UUID.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>applyState(uuid: string, state: string): Promise&lt;void&gt;</tt>
+            </dt>
+            <dd>Applies state to a node given the UUID [None, Selected, Highlight, Invalid].</dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>centerNode(uuid: string): Promise&lt;void&gt;</tt>
+            </dt>
+            <dd>Centers node on the viewable Canvas.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

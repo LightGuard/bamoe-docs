@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_management_console_application">
+   <title>Management Console application</title>
+   <body>
+      <p>Management Console consists of the following tabs that allow you to interact with your process instances and data:</p>
+      <ul>
+         <li>
+            <b>Process Instances</b>: Use this tab to find process and subprocess instances by status or business key</li>
+         <li>
+            <b>Jobs</b>: Use this tab to view a list of available jobs to filter jobs by status and perform actions for individual jobs, such as view details, reschedule, or cancel.</li>
+      </ul>
+      <fig>
+         <title>Management Console</title>
+         <image href="../images/runtime-services-modeling/kogito-management-console.png" placement="break">
+            <alt>Image of Kogito Management Console</alt>
+         </image>
+      </fig>
+      <p>In this example, the Management Console displays data for the <tt>kogito-travel-agency</tt> extended example application in the <xref href="../getting-started/examples.html">list of example applications</xref>.</p>
+      <div conref="consoles_process_instances.dita">_process_instances</div>
+      <div conref="consolescon-jobs-management.dita">con-jobs-management</div>
+   </body>
+</topic>

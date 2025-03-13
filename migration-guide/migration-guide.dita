@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="migration-guide">
+   <title>Migration guide</title>
+   <body>
+      <p>IBM Business Automation Manager Open Editions, also known as IBM BAMOE, is a cloud-native business automation technology for building cloud-ready business applications.
+IBM BAMOE is optimized for a hybrid cloud environment and adapts to your domain and tooling needs.</p>
+      <p>IBM Business Automation Manager Open Editions version 9.1.1 is based soley on the upstream community project known as <xref href="https://kie.org/about/" scope="external">Apache KIE</xref>, which stands for <tt>Knowledge Is Everything</tt>.
+The Apache KIE Community is a home for leading Open Source projects that play a role in delivering solutions around Business Automation and Artificial Intelligence in the cloud.</p>
+      <p>The <xref href="https://kogito.kie.org/" scope="external">Apache KIE Kogito</xref> initiative is the next generation of business automation platforms focused on cloud-native development, deployment, and execution.
+Kogito comprises the battle-tested modules of the Apache KIE group: <tt>Apache KIE Drools</tt> and <tt>Apache KIE jBPM</tt>.</p>
+      <p>The core objective of IBM BAMOE’s implementation of Kogito-based microservices is to help you mold a set of decisions into your own domain-specific cloud-native set of services.
+As a developer of business automation applications, you can use IBM BAMOE version 9.1.1 to build cloud-native applications that adapt to your business domain and tooling.</p>
+      <section id="_overview">
+         <title>Overview</title>
+         <p>This section describes how to migrate your existing business automation applications and platforms to the most recent version of IBM Business Automation Manager Open Editions.
+The supported upgrade process is from the previous version to the current version.
+If you are migrating from an older version, you must follow the migration steps to upgrade to each intermediate version, as documented.
+Depending on the complexity of your installation, you might want IBM® Services to participate in your project.
+If so, contact your IBM service representative.</p>
+         <p>The following topics are covered in this chapter:</p>
+         <ul>
+            <li>
+               <xref href="https://access.redhat.com/documentation/en-us/red_hat_process_automation_manager/7.0/html/migrating_from_red_hat_jboss_bpm_suite_6.4_to_red_hat_process_automation_manager_7.0/migration-overview-con.html">Red Hat version 6 to version 7</xref> for migration from Red Hat JBoss BPM Suite version 6 to version 7 of the former Red Hat offerings of Red Hat Process Automation Manager and/or Red Hat Decision Manager.</li>
+            <li>
+               <xref href="redhat-to-ibm.html">Red Hat version 7 to IBM BAMOE version 8.0.x</xref> for migration from the former Red Hat offerings <i>(Red Hat Process Automation Manager and/or Red Hat Decision Manager)</i> to IBM’s various enterprise releases of IBM Decision Manager Open Edition (DMOE) and/or IBM Process Automation Manager Open Edition (PAMOE).</li>
+            <li>
+               <xref href="now-to-next.html">IBM BAMOE version 8.0.x to IBM BAMOE version 9.0.x</xref> for migration from IBM Business Automation Manager Open Editions version 8.0.x to IBM Business Automation Manager Open Editions version 9.0.x.</li>
+            <li>
+               <xref href="90x-to-91x.html">IBM BAMOE version 9.0.x to IBM BAMOE version 9.1.1</xref> for migration from IBM Business Automation Manager Open Editions version 9.0.x to IBM Business Automation Manager Open Editions version 9.1.1.</li>
+            <li>
+               <xref href="business-central.html">Business Central</xref> for migration from Business Central to IBM BAMOE Developer Tools.</li>
+         </ul>
+      </section>
+      <section id="_prerequisites">
+         <ul>
+            <li>
+               <xref href="https://openjdk.org" scope="external">JDK 11</xref> or later is installed.</li>
+            <li>
+               <xref href="https://maven.apache.org" scope="external">Apache Maven 3.8.6</xref> or later is installed.</li>
+            <li>
+               <xref href="https://code.visualstudio.com/download" scope="external">Visual Studio Code IDE</xref> latest version</li>
+            <li>
+               <xref href="https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools" scope="external">IBM BAMOE Developer Tools</xref> latest version of VS Code IDE extensions</li>
+         </ul>
+      </section>
+   </body>
+</topic>

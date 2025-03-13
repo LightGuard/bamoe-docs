@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="workflow-with-bpmn">
+   <title>Authoring business processes with BPMN</title>
+   <body>
+      <p>This section lists the newly supported Business Process Model And Notation (BPMN) elements in the technology preview and describes how to use them in the Canvas workflow editor.</p>
+      <section id="_supported_bpmn_process_elements">
+         <title>Supported BPMN process elements</title>
+         <p>As this technology preview provides persistence to support stateful process execution, all BPMN elements that go through an idle state are supported.</p>
+         <table>
+            <tgroup cols="3">
+               <colspec colname="col_1" colwidth="33.3333*"/>
+               <colspec colname="col_2" colwidth="33.3333*"/>
+               <colspec colname="col_3" colwidth="33.3334*"/>
+               <thead>
+                  <row>
+                     <entry>Element</entry>
+                     <entry>Type</entry>
+                     <entry>SDescription</entry>
+                  </row>
+               </thead>
+               <tbody>
+                  <row>
+                     <entry>
+                        <p>Intermediate Message</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes idle time till a message is provided</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Intermediate Signal</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes idle time till a signal is provided</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Intermediate Timer</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes idle time till timer times out</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Human Task Node</p>
+                     </entry>
+                     <entry>
+                        <p>Activity</p>
+                     </entry>
+                     <entry>
+                        <p>Calls human task subsystem and waits till human completes the task</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Human Task Notification</p>
+                     </entry>
+                     <entry>
+                        <p>HT Event</p>
+                     </entry>
+                     <entry>
+                        <p>Notifications HT</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Human Task Deadline</p>
+                     </entry>
+                     <entry>
+                        <p>HT Event</p>
+                     </entry>
+                     <entry>
+                        <p>Deadline notifications</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Boundary Event Message</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes branch a path in an ongoing activity execution when a message is reaches it (might cancel or not)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Boundary Event Signal</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Boundary Event Signal</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Boundary Event Timer</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes branch a path in an ongoing activity execution when a timer timesout (might cancel or not)</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Start Event Message</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes to start an execution of a workflow when a message reaches the engine</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Start Event Signal</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes to start an execution of a workflow when a signal reaches the engine</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>Event Gateway</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Causes several waiting at the same time</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>AdHoc Tasks</p>
+                     </entry>
+                     <entry>
+                        <p>Activity</p>
+                     </entry>
+                     <entry>
+                        <p>Allows triggering tasks when there is no incoming connections</p>
+                     </entry>
+                  </row>
+                  <row>
+                     <entry>
+                        <p>AdHoc Subprocess</p>
+                     </entry>
+                     <entry>
+                        <p>Event</p>
+                     </entry>
+                     <entry>
+                        <p>Allows triggering a subprocess when there is no incoming connection to a subprocess</p>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+         </table>
+         <p>For more information about BPMN, see the <xref href="https://www.omg.org/spec/BPMN/2.0/About-BPMN" scope="external">Object Management Group (OMG) Business Process Model and Notation 2.0 specification</xref>.</p>
+      </section>
+      <section id="_authoring_processes_in_bamoe_canvas">
+         <p>Process authoring on BAMOE Canvas happens inside the Editor page for Workflow, where you can edit and validate BPMN files.</p>
+         <p>Let’s start by describing the elements present in the BPMN Editor.</p>
+         <fig>
+            <title>Editor page for a Workflow on BAMOE Canvas with highlighted elements of the BPMN Editor</title>
+            <image href="../images/tools/image5.jpg" placement="break">
+               <alt>image5</alt>
+            </image>
+         </fig>
+         <ol>
+            <li>
+               <b>Node palette</b> → From here you can select node types and their variations.</li>
+            <li>
+               <p>
+                  <b>Side panel strip</b> → Lets you select which side panel you want to toggle.
+From top to bottom, those are the available panels:</p>
+               <ol>
+                  <li>Properties → Lets you manage the properties of a Workflow element.</li>
+                  <li>Navigator → Displays a minimap with the diagram of your Workflow and a list of all elements present on it.</li>
+               </ol>
+            </li>
+            <li>
+               <b>Keyboard shortcuts panel toggle →</b> Clicking here toggles a panel with information about keyboard shortcuts available in the BPMN Editor.</li>
+         </ol>
+         <p>Toggling the Problems tab lets you see static validation errors that BAMOE Canvas reports while you’re developing your Workflows.</p>
+         <p>Developing Workflows through BPMN files is a complex subject and has many intricacies that are beyond the scope of this document.
+For more information, see BPMN-specific material, <xref href="https://www.omg.org/spec/BPMN/2.0.2/PDF" scope="external">BPMN specification</xref>.</p>
+         <div conref="workflow-with-bpmn_invoking_a_decision_from_a_workflow.dita">_invoking_a_decision_from_a_workflow</div>
+      </section>
+   </body>
+</topic>

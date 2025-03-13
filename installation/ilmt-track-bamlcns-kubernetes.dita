@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="ilmt-track-bamlcns-kubernetes">
+   <title>Tracking license use in Kubernetes</title>
+   <body>
+      <section id="_prerequisites">
+         <title>Prerequisites</title>
+         <p>Follow the <xref href="https://www.ibm.com/docs/en/cloud-paks/foundational-services/3.23?topic=software-installing-license-service-stand-alone" scope="external">procedure</xref> to install the License Service for stand-alone software.</p>
+         <note type="note">
+The link directs you to the instructions on installing the standalone version of IBM License Service included in the IBM Cloud Pak™ Foundational Services. It is important to note that the BAMOE is not part of IBM Cloud Pak™.
+</note>
+      </section>
+      <section id="_tracking_bamoe_license">
+         <p>After installing BAMOE Canvas and its dependencies following the installation tutorial, run the following commands depending on where BAMOE Canvas was installed.</p>
+         <ul>
+            <li>
+               <p>OpenShift</p>
+               <codeblock outputclass="language-shell">
+oc patch deployment &lt;bamoe-canvas_deployment_name&gt; -p \
+  '{"spec": {"template":{"metadata":{"annotations":{"productID":"46b14c7f2f894218a7879b3f6416024f", "productName": "IBM Decision Manager Open Edition", "productMetric": "VIRTUAL_PROCESSOR_CORE", "productChargedContainers": "All"}}}} }'
+</codeblock>
+            </li>
+            <li>
+               <p>Kubernetes</p>
+               <codeblock outputclass="language-shell">
+kubectl patch deployment &lt;bamoe-canvas_deployment_name&gt; -p \
+  '{"spec": {"template":{"metadata":{"annotations":{"productID":"46b14c7f2f894218a7879b3f6416024f", "productName": "IBM Decision Manager Open Edition", "productMetric": "VIRTUAL_PROCESSOR_CORE", "productChargedContainers": "All"}}}} }'
+</codeblock>
+               <p>Where <tt>bamoe-canvas_deployment_name</tt> is the name of the Deployment resource created when you installed BAMOE Canvas.</p>
+            </li>
+            <li>
+               <p>Alternative</p>
+               <p>If you have installed BAMOE Canvas by using <tt>yaml</tt> resources, the deployment resource must be edited to add the following lines:</p>
+               <codeblock outputclass="language-yaml">
+spec:
+  ...
+  template:
+    metadata:
+      annotations:
+        productID: "46b14c7f2f894218a7879b3f6416024f"
+        productName: "IBM Decision Manager Open Edition"
+        productMetric: "VIRTUAL_PROCESSOR_CORE"
+        productChargedContainers: "All"
+</codeblock>
+            </li>
+         </ul>
+      </section>
+   </body>
+</topic>

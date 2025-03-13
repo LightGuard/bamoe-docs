@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_data_mapping_between_a_process_and_decisions">
+   <title>Data mapping between a process and decisions</title>
+   <body>
+      <p>To map the data between a process and decisions, you can align all the attribute names in a Java class, which are used as process variables. If the names of the attributes contain spaces or the names of the attributes are not following Java conventions, then you can use <xref href="https://github.com/FasterXML/jackson" scope="external">Jackson</xref> annotations. The Jackson annotations align the process variables with the data types of the DMN model. For example, in the traffic violations project, the <tt>Violation</tt> class is mapped with the <tt>speedLimit</tt> attribute using the <tt>@JsonProperty</tt> annotation. Therefore, the <tt>speedLimit</tt> attribute can be integrated with the <tt>Violation</tt> data type defined in the DMN model.</p>
+      <p>Violation class defined in the Traffic Violations example:</p>
+      <codeblock outputclass="language-java">
+public class Violation {
+
+    @JsonProperty("Code")
+    private String code;
+
+    @JsonProperty("Date")
+    private Date date;
+
+    @JsonProperty("Type")
+    private String type;
+
+    @JsonProperty("Speed Limit")
+    private BigDecimal speedLimit;
+
+    @JsonProperty("Actual Speed")
+    private BigDecimal actualSpeed;
+
+    //Getters / Setters
+}
+</codeblock>
+      <fig>
+         <title>Violation data type in DMN</title>
+         <image href="../images/violation-dmn-data-types.png" placement="break">
+            <alt>Image of violation data type in DMN</alt>
+         </image>
+      </fig>
+      <p>When the driver information is fetched, an external call to a service task is performed to retrieve the driver information from the database. In this case, the service task implementation is performed using the <tt>DriverService</tt> class. In the Data Assignments, <tt>driverId</tt> is defined as an input variable and <tt>driver</tt> is defined as an output variable, consisting of the driver information.</p>
+      <p>Fetching the driver information leads to the license validation task, which represents the task of calling a DRL service.</p>
+      <fig>
+         <title>License validation task (DRL)</title>
+         <image href="../images/license-validation-drl-businessrule.png" placement="break">
+            <alt>Image of license validation task (DRL)</alt>
+         </image>
+      </fig>
+      <p>The properties that are required to be set for the DRL service task include <tt>Rule Language</tt>, which must be set as <tt>DRL</tt> and the <tt>Rule Flow Group</tt>. You can set the value of <tt>Rule Flow Group</tt> using the following format:</p>
+      <codeblock>
+unit: + [the FQCN of the Rule Unit Data class]
+</codeblock>
+      <p>For example:</p>
+      <codeblock>
+unit:org.kie.kogito.traffic.LicenseValidationService
+</codeblock>
+      <p>In this case, the <tt>driver</tt> variable contains the license validation information.</p>
+      <fig>
+         <title>License validation task data assignments</title>
+         <image href="../images/license-validation-dmn-businessrule-data.png" placement="break">
+            <alt>Image of license validation task data assignments</alt>
+         </image>
+      </fig>
+      <p>Similar to the license validation task, the traffic violation task represents the task of calling a DMN service.</p>
+      <fig>
+         <title>Traffic violation task (DMN)</title>
+         <image href="../images/traffic-violation-dmn-businessrule.png" placement="break">
+            <alt>Image of traffic violation task (DMN)</alt>
+         </image>
+      </fig>
+      <p>The properties that are required to be set for the DMN service task include <tt>Rule Language</tt>, which must be set as <tt>DMN</tt>. Also, you must set the values for <tt>Namespace</tt> and DMN Model Name` properties as defined in the DMN model, such as <tt>TrafficViolation.dmn</tt>. For example, you can set the following values:</p>
+      <ul>
+         <li>Rule Language: <tt>DMN</tt>
+         </li>
+         <li>Namespace: <tt>https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF</tt>
+         </li>
+         <li>DMN Model Name: <tt>Traffic Violation</tt>
+         </li>
+      </ul>
+      <p>The input for the traffic violation task includes <tt>Driver</tt> and <tt>Violation</tt> variables, and the output includes <tt>Suspended</tt> and <tt>Fine</tt> in the Data Assignment property.</p>
+      <fig>
+         <title>Traffic Violation Task data assignment</title>
+         <image href="../images/traffic-violation-dmn-businessrule-data.png" placement="break">
+            <alt>Image of Traffic Violation Task data assignment</alt>
+         </image>
+      </fig>
+      <p>In both cases, whether the driver is suspended or not, the related information is logged in the console.</p>
+   </body>
+</topic>

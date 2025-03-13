@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="canvas">
+   <title>Canvas</title>
+   <body>
+      <p>BAMOE Canvas enables you to work with Decisions and Workflows, directly in your browser.
+It integrates with Git repositories and Cloud providers for a familiar and convenient development experience.
+It is based on the open source <xref href="https://sandbox.kie.org/" scope="external">KIE Sandbox</xref>, a project from the <xref href="https://www.kie.org/" scope="external">KIE community</xref>.</p>
+      <p>Unlike most web applications, BAMOE Canvas does not feature its own authentication mechanism, and instead you authenticate through your Git and Cloud providers. BAMOE Canvas communicates directly with the providers to save your decisions and processes in the Cloud, or to deploy them during development.</p>
+      <p>BAMOE Canvas stores all data on locally on your machine inside your browser, only connecting to a Git repository or Cloud provider to push your Decisions and Workflows to a remote repository or to deploy them to the Cloud.
+If you close your tab or restart your computer all changes made on BAMOE Canvas are persisted in your disk and are available when you open BAMOE Canvas.</p>
+      <p>On BAMOE Canvas, Decisions are <xref href="https://www.omg.org/dmn/" scope="external">DMN</xref> files, and Workflows are <xref href="https://www.omg.org/bpmn/" scope="external">BPMN</xref> files.
+Both are open source standards defined by <xref href="https://www.omg.org/" scope="external">OMG</xref>.</p>
+   </body>
+</topic>
