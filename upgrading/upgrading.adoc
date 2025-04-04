@@ -1,40 +1,155 @@
+= Upgrading from 9.0.x
+
 include::../partials/attributes.adoc[]
-= Migrating to {PRODUCT_LONG} version 9.1
 
-This section describes the migration of existing version {VERSION_90x} applications to version {VERSION} of {PRODUCT_LONG}.
 
-== Prerequisites
+You can upgrade your existing business automation applications and platforms to the most recent version of {PRODUCT_LONG}. If you are upgrading from an older version, you must follow the steps to upgrade to each intermediate version, as documented. Depending on the complexity of your installation, you might want IBM(R) Services to participate in your project. If so, contact your IBM service representative.
 
-The following tools are required to migrate to {PRODUCT_SHORT} version {VERSION}:
+If you want to know more on how to upgrade from version {VERSION_80} to version {VERSION_90X}, see https://ibmdocs-test.dcs.ibm.com/docs/en/ibamoe/9.0.x?topic=upgrading[Upgrading]
 
-include::../partials/91x-prerequisites.adoc[]
+//The above link to Upgrade has to be changed to external site during release 
 
-== Procedure
+This guide will walk you through upgrading your:
 
-This section describes the process to migrate your projects from version {VERSION_90X} to {VERSION}. Before you start, ensure that you have installed or updated all prerequisite tools.
+* {PRODUCT_SHORT} development environment installation with {MVN_REPO}, {CANVAS}, {DEV_TOOLS}, and {FORM_GENERATION_TOOL}.
 
-This migration guide will show two ways of migrating your project. The first, by creating a new project from scratch and moving your existing assets to it.
-The second, by updating an existing BAMOE version {VERSION_90X} project.
-You will start by setting up the Maven configuration.
+* {PRODUCT_SHORT} project(s)
 
-=== Update Maven configuration
+* {PRODUCT_SHORT} production environment installation with Management and Task console, and upgraded versions of your {PRODUCT_SHORT} projects.
+
+If you are using the {VERSION_90X} technology preview for stateful Workflows, you will find instructions on what to do to migrate your stateful workflow projects in xref:#migrate-tech-preview[this section].
+
+//Remember to change the technology preview link after creating the topic.
+
+== Step 1: Download product archives
+
+Start by downloading the product archives from either {PRODUCT_FIX_CENTRAL_PAGE_LINK}[IBM Fix Central] which requires an active support subscription to {PRODUCT}, or via the {DEV_PROGRAM_PAGE_LINK}[IBM Business Automation Manager Open Editions Developer Program]. For more information, see https://www.ibm.com/support/pages/node/7151078[BAMOE 9.1 Download Document].
+
+== Step 2: Upgrade your {PRODUCT_SHORT} development environment installation
+
+When you upgrade your {PRODUCT_SHORT} development environment, you must upgrade {MVN_REPO}, {CANVAS}, {DEV_TOOLS} and {FORM_GENERATION_TOOL}. 
+
+=== Upgrade {MVN_REPO}
 
 {MAVEN_SITE_URL_BASE}[Apache Maven] is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage the build, reporting and documentation of a project from a central piece of information.
 {PRODUCT_LONG} depends on Maven to build various types of deployable artifacts, such as decision service applications.
-For a quick start, see the {MAVEN_SITE_URL_GETTING_STARTED}[Maven Quick Start Guide].  
+For a quick start, see the {MAVEN_SITE_URL_GETTING_STARTED}[Maven Quick Start Guide].
 
 Since {PRODUCT_SHORT} version {VERSION} is based on Quarkus 3, the easiest route is to use the Quarkus Maven Plugin and adjust some of the details in the generated project to align it with {PRODUCT_SHORT} dependencies and plugins.
 You can read all about **Quarkus and Maven** https://quarkus.io/guides/maven-tooling[here].
 
-==== Update Maven settings
 On the {PRODUCT} version {VERSION_90x} the dependencies were hosted on the https://central.sonatype.com/search?q=bamoe[Maven Central].
 Now the dependencies are distributed with a container image or a zip file.
-Refer to {PRODUCT_SHORT} version {VERSION} xref:../installation/configure-maven.adoc[Maven configuration].
+For more information, see {PRODUCT_SHORT} version {VERSION} xref:../installation/configure-maven.adoc[Maven configuration].
+
+It is recommended using the https://docs.openshift.com/container-platform/4.16/applications/deployments/route-based-deployment-strategies.html#deployments-blue-green_route-based-deployment-strategies[blue-green deployment strategy] for Maven artifacts to be available for both your current version and {PRODUCT_SHORT} version {VERSION_91X}.
+
+If you are using the {MVN_REPO} `.zip` instead of {MVN_REPO} container images, simply extract the contents of {MVN_REPO} `.zip` version {VERSION_91X} to your local Maven repository.
+
+In case you have installed {MVN_REPO} in a Maven Repository Manager such as Artifactory or Nexus, follow the steps in xref:../installation/configure-maven.adoc[Installing → {MVN_REPO}] to install the new {MVN_REPO} version {VERSION_91X}.
+
+=== Upgrade {CANVAS}
+
+Before you update {CANVAS}, save your existing projects to the browser.
+
+The {VERSION_91X} version of {CANVAS} is a drop in replacement for the {VERSION_90X} version (see xref:../installation/installation.adoc[Installing → {CANVAS}]). The projects you saved to your browser before the upgrade can simply be opened after installing the new version. 
+
+If you prefer to install a parallel version using https://docs.openshift.com/container-platform/4.16/applications/deployments/route-based-deployment-strategies.html#deployments-blue-green_route-based-deployment-strategies[blue-green deployment strategies] you can import projects into the newly installed version (see xref:../tools/importing-existing-projects.adoc[Importing existing projects]) as long as the DNS domains between installations are different. If the DNS domains between installations are the same, your imported projects automatically show up in the new installation when you open it in your browser.
+
+[NOTE]
+====
+If you have customized your previous {CANVAS} installation, remember to apply the same Environment Variables to the new installation. The same applies for customized container images for {CANVAS} Dev Deployments.
+====
+
+=== Upgrade {DEV_TOOLS}
+
+{DEV_TOOLS} versions are managed by the Extension update mechanism in VS Code. You can set automatic update or manage it manually when notified. Because of version differences in the models supported by the BPMN, DMN, and Test Scenario editors it is recommended to choose when you upgrade to avoid issues when running models in services that have not been upgraded when the tools are upgraded.
+
+See xref:../tools/developer-tools-for-vscode.adoc[{DEV_TOOLS}].
+
+[NOTE]
+====
+After upgrading, the New DMN Editor will be opened automatically when you first access it in Canvas or Developer tools for VS Code.
+Existing DMN files (any version) can be opened directly in the editor. For more information, see xref:../editing/authoring-decisions.adoc[Authoring decisions].
+====
+
+=== Upgrade {FORM_GENERATION_TOOL}
+
+This tool is required for workflow execution. If the {FORM_GENERATION_TOOL} is already present, uninstall and re-install using steps available in xref:../tools/form-generation-tool.adoc[Form generation tool].
+
+== Step 3: Upgrade your {PRODUCT} project(s)
+
+{PRODUCT} project(s) can be upgraded in two ways, by:
+
+* Updating an existing BAMOE version {VERSION_90X} project with its artifacts by changing the Maven dependencies. 
+
+* Creating a new project from scratch and moving your existing assets to it.
+
+The following tools are required to upgrade your {PRODUCT_SHORT} version {VERSION}:
+
+- https://openjdk.org[JDK 17] is installed.
+- https://maven.apache.org[Apache Maven 3.9.6] or later is installed.
+- https://code.visualstudio.com/download[Visual Studio Code IDE] latest version installed.
+- https://marketplace.visualstudio.com/items?itemName=IBM.bamoe-developer-tools[IBM {DEV_TOOLS}] latest version of VS Code IDE extensions
+- Upgraded {PRODUCT_SHORT} development environment installation with {MVN_REPO} @ {IMAGE_VERSION_911}.
+- Quarkus version {QUARKUS_VERSION} or later is installed.
+
+[NOTE]
+====
+After completing the upgrade of your {PRODUCT_SHORT} project, you might want to consider upgrading your business Rules.
+====
+
+== Step 3a: Upgrade {PRODUCT_SHORT} project(s) on version {VERSION_90X}
+
+Once your development environment installation is upgraded, it is straightforward to upgrade your project(s) on {PRODUCT_SHORT} {VERSION_90x} to {PRODUCT_SHORT} version {VERSION_91x}.
+
+The project structure is not changed, updates only need to be made to the dependencies versions, some dependency names, and files.
+
+[WARNING]
+====
+If you come across some difficulties when trying to upgrade your existing {PRODUCT_SHORT} projects, you are recommended to create a new project following xref:#step-3b[Step 3b: Upgrade {PRODUCT_SHORT} projects on versions {VERSION_90X}].
+====
+
+[start=1]
+. Upgrade the Quarkus version in the project POM file to the currently supported version `3.8.6`:
 
 
-=== Creating a new project from scratch
+[start=2]
+. Upgrade the BAMOE BOM in the project POM file to {BOM_VERSION_920}:
++
+[source,xml,subs="+attributes"]
+----
+<dependency>
+  <groupId>com.ibm.bamoe</groupId>
+  <artifactId>bamoe-bom</artifactId>
+  <version>{BOM_VERSION}</version>
+  <type>pom</type>
+  <scope>import</scope>
+</dependency>
+----
 
-Now that you have Maven properly configured, you can create a new Maven project to migrate your existing business automation assets to the new {PRODUCT_SHORT} version {VERSION}.
+[start=3]
+. Update the `application.properties` file.
++
+{PRODUCT_SHORT} version {VERSION} does not fully support the Quarkus Dev Services and hence it is required to disable this feature by adding the following line to the `src/main/resources/application.properties` file:
+
++
+[source,diff]
+----
+ +++ quarkus.devservices.enabled=false
+----
+
+[NOTE]
+====
+Refer https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.0[Quarkus v3 migration guide] for any other change that is related to Quarkus.
+====
+
+
+
+
+== Step 3a: Creating a new project from scratch
+
+Now that you have the Maven configured, you can create a new Maven project to upgrade your existing business automation assets to the new {PRODUCT_SHORT} version {VERSION}.
 There are several ways to create Maven projects; this approach uses a published Maven plugin.
 
 [start=1]
@@ -139,8 +254,6 @@ When a bill of materials (BOM) is used, it is not necessary to specify the versi
 During the course of your Maven dependency update, if you encounter any dependencies that are not included in the bill of materials (BOM) please report it to IBM to be resolved.
 ====
 
-
-
 See xref:../introduction/release-notes/version-mapping.adoc[version mapping for {PRODUCT_SHORT} version {VERSION_91X}].
 
 [start=5]
@@ -184,8 +297,7 @@ Depending on the project files you may be required to add other dependencies.
 [start=7]
 . Disable Quarkus Dev Services.
 +
-Currently, the Quarkus Dev Services is not fully supported, meaning that it should be disabled.
-To do so, add the following line in the `src/main/resources/application.properties` file:
+Currently, the Quarkus Dev Services is not fully supported and hence it is required to disable this feature by adding the following line to the `src/main/resources/application.properties` file:
 + 
 [source]
 ----
@@ -200,7 +312,7 @@ quarkus.devservices.enabled=false
 mvn clean package
 ----
 +
-You might get Maven streaming text once again, and at the end of it you must have:
+You might get Maven streaming text once again, and at the end of it you will see:
 +
 [source,console]
 ----
@@ -220,13 +332,13 @@ The choice of extensions determines the imported behavior of the project includi
 [start=9]
 . Add and update Business Automation assets
 +
-After the project is generated, you must see a project structure in VS Code, similar to the following diagram:
+After the project is generated, you will see a project structure in VS Code, similar to the following diagram:
 +
 .Example Maven Project in VS Code
 image::maven-project.png[Example Maven Project in VS Code]
 +
 As you can see from the figure, a Maven compliant project is generated, including all of the standard folders typically found in a Maven project.
-The most significant folder is the `resources` folder, which is where new or migrated business automation asset files must be stored.
+The most significant folder is the `resources` folder, which is where new or upgraded business automation asset files must be stored.
 Examples of supported business automation assets are:
 +
 - Decision Model & Notation (DMN) Models (.dmn)
@@ -279,13 +391,18 @@ You might get Maven streaming text once again, and at the end of it you must hav
 +
 Now you can start using your {PRODUCT_SHORT} version {VERSION} project.
 
-=== Upgrading a {PRODUCT_SHORT} version {VERSION_90x} project
+==== Add Business Automation Assets
+
+If your project is upgraded from a previous version of the product, you can add the business automation files from the previous project to the `src/main/resources` folder of the new project by copying the files.
+If you need to create a new file, use `File : New File` option from VS Code, making sure to specify the file extension to associate the new file with the appropriate editor.
+
+== Step 3b: Upgrading a version {VERSION_90x} project
 
 Upgrading a {PRODUCT_SHORT} version {VERSION_90x} project to version {VERSION} is straightforward.
-The project structure has not changed, updates only need to be made to the project versions, some dependency names, and files.
+The project structure is not changed, updates only need to be made to the project versions, some dependency names, and files.
 
 [start=1]
-. Upgrade the Quarkus version.
+. Upgrade the Quarkus version in the project POM file
 +
 In the {PRODUCT_SHORT} version {VERSION_90x} the Quarkus version was 2.16 and for version {VERSION} it is 3.8.6.
 To make this upgrade, open the `pom.xml` file and do the following change:
@@ -333,13 +450,13 @@ One of the renamed dependencies is the `groupdId=org.kie.kogito` and `artifactId
        </dependency>
 ----
 +
-Bear in mind that it is required to make changes to any parent `pom.xml` if applied, but this will not be covered here as it depends on your project setup.
-This ends the `pom.xml` changes, next, files that need changes
+Depending on your project setup you may also need to make changes to a parent `pom.xml`if it exists. This is not covered here.
 
 [start=4]
 . Update the `application.properties` file.
 +
-{PRODUCT_SHORT} version {VERSION} does not fully support the Quarkus Dev Services, due to that, it is required to disable this feature and to do that, add the following line to the `src/main/resources/application.properties` file:
+{PRODUCT_SHORT} version {VERSION} does not fully support the Quarkus Dev Services and hence it is required to disable this feature by adding the following line to the `src/main/resources/application.properties` file:
+
 +
 [source]
 ----
@@ -347,7 +464,7 @@ This ends the `pom.xml` changes, next, files that need changes
 ----
 
 [start=5]
-. Migrating the code to Quarkus 3.
+. Upgrading the code to Quarkus 3.
 +
 A major Quarkus 3 change, is the usage of Jakarta EE 10, meaning that package imports also need to update from `javax` to `jakarta`.
 +
@@ -372,7 +489,7 @@ Refer https://github.com/quarkusio/quarkus/wiki/Migration-Guide-3.0[Quarkus v3 m
 mvn clean package
 ----
 +
-You might get Maven streaming text once again, and at the end of it you must have:
+You might get Maven streaming text once again, and at the end you will see:
 +
 [source,console]
 ----
@@ -384,15 +501,31 @@ You might get Maven streaming text once again, and at the end of it you must hav
 [INFO] ------------------------------------------------------------------------
 ----
 +
-Now, you can start using your {PRODUCT_SHORT} version {VERSION} project.
-
-=== Compile, Build, Test, Deploy
-
-You can follow the standard guidance on how to maintain your decision service project, including how to build using Maven and how to deploy to your target Kubernetes-based environment.
-This includes not only creating and publishing the new project to an enterprise GIT repository but also configuring your CI/CD pipeline to pull from GIT and performing a Maven build/test/deploy, etc.
 
 [NOTE]
 ====
-After completing the migration of the project, you might want to consider migrating your technical rules to use new language features, such as `rule units` and `OOPATH syntax`.
-Refer to xref:drl.html[Drools Rule Language Migration] for information on migrating to the latest version of Drools Rule Language (DRL).
+After completing the upgrade of the project, you might want to consider upgrading your technical rules to use new language features, such as `rule units` and `OOPATH syntax`.
+Refer to xref:drl.html[Drools Rule Language Migration] for information on upgrading to the latest version of Drools Rule Language (DRL).
 ====
+
+Now, you can start using your {PRODUCT_SHORT} version {VERSION} project.
+
+== Step 5: Update your runtime environment
+
+You need to update your business service and management and task console. 
+
+You can follow the standard guidance on how to maintain your business service project, including how to build using Maven and how to deploy to your target Kubernetes-based environment.
+This includes not only creating and publishing the new project to an enterprise GIT repository but also configuring your CI/CD pipeline to pull from GIT and performing a Maven build/test/deploy, etc.
+
+To update your management and task console installation, see xref:../workflow/consoles.adoc[consoles].
+
+=== Maven libraries mapping guide
+
+With the transition of the KIE projets to the Apache Software Foundation (ASF), it has become necessary to rename a number of Maven modules.  The following table(s) describe the changes to the Maven GAV (GroupID/ArtifactID/Version) that happened in {VERSION_910}:
+
+The general guidelines are:
+
+* xref:../upgrading/gav-mapping-rules.adoc[Drools Maven mappings] for anything related to rules or decisions.
+* xref:../upgrading/gav-mapping-process.adoc[jBPM Maven mappings] for anything related to BPMN-based stateless/stateful processes.
+* xref:../upgrading/gav-mapping-kogito.adoc[Kogito Maven mappings] for anything related to infrastructure or extended services.
+* xref:../upgrading/gav-mapping-kie.adoc[KIE Maven mappings] for anything else that does not fall into the above categories.
