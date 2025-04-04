@@ -13,6 +13,21 @@
     <xsl:strip-space elements="*" />
     <xsl:preserve-space elements="codeblock pre screen" />
 
+    <!-- set the language for the topic -->
+    <xsl:template match="/topic">
+        <topic id="{@id}" xml:lang="en-us">
+            <xsl:copy>
+                <xsl:apply-templates select="node()" />
+            </xsl:copy>
+        </topic>
+    </xsl:template>
+
+    <!-- body/title isn't necessary -->
+    <xsl:template match="//body/title" />
+
+    <!-- Some of our files have body/style, it isn't appropriate for dita -->
+    <xsl:template match="//body/style" />
+
     <!-- Fix up any xref links that reference adoc documents
          since adoc will not be used after the dita conversion -->
     <xsl:template match="//xref[contains(@href, '.adoc')]">
@@ -20,16 +35,13 @@
     </xsl:template>
 
     <!--
-        Sections cannot be nested in DITA, but you can do a content reference.
-        This splits out the nested section into its own topic file and creates a conref in the original document.
+        Sections cannot be nested in DITA. This splits out the nested section into its own topic file.
         The new subsection file will be created alongside the original with the id of the current topic and the
         subsection concatenated together.
     -->
     <xsl:template match="/topic/body/section//section">
         <xsl:variable name="sub-section-filename" select="concat(ancestor::topic/@id, @id, $file-extension)" />
-        <div conref="{$sub-section-filename}">
-            <xsl:value-of select="@id" />
-        </div>
+        <!-- We are removing the content from the main document and putting it into a new one -->
         <xsl:result-document href="{$sub-section-filename}" format="sub-section">
             <topic id="{@id}">
                 <xsl:copy-of select="title" />
