@@ -56,7 +56,7 @@ jobs:
       # '-b' flag tells asciidoctor to use it for the conversion. The '-D' flag
       # specifies an output directory.
       - name: "Convert adoc files to dita"
-        run: find . -name '*.adoc' -print0 | xargs -0 asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation
+        run: find . -name '*.adoc' -print0 | xargs -0 bundle exec asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation
 
       # Some of the converted DITA files are not valid files (nested sections currently, could be other reasons)
       # loop through all the .dita files and run them through the XSLT to fix them.
