@@ -58,6 +58,10 @@ jobs:
       - name: "Convert adoc files to dita"
         run: find . -name 'vendor' -prune -o -name '*.adoc' -print0 | xargs -0 bundle exec asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation -a 'toc=macro'
 
+      # The ditamaps need to be copied over after the asciidoc conversation
+      - name: "Copy ditamaps to the final location"
+        run: cd temp-generation; rsync -avhR --include '*.ditamap' --include '*/' --exclude '*' ./ generated-dita; cd ..  
+
       # Some of the converted DITA files are not valid files (nested sections currently, could be other reasons)
       # loop through all the .dita files and run them through the XSLT to fix them.
       - name: "Execute xslt on dita files"
@@ -66,10 +70,6 @@ jobs:
             baseFile=$(echo "$dita" | sed 's/temp-generation\///g');
             node_modules/.bin/xslt3 -xsl:breakout-subsections.xslt -s:"$dita" -o:"generated-dita/$baseFile"
           done
-
-      # The ditamaps need to be copied over after the asciidoc conversation
-      - name: "Copy ditamaps to the final location"
-        run: cd temp-generation; rsync -avhR --include '*.ditamap' --include '*/' --exclude '*' ./ generated-dita; cd ..
 
       - name: "Commit to generated branch"
       # {github.ref_name} for branch
