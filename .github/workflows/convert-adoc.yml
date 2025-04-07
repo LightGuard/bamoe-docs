@@ -49,14 +49,14 @@ jobs:
       # location using the same structure. rsync makes this really easy and pretty quick.
       # However, we don't want any of the git files, github files, or other build related files included.
       - name: "Copy non-adoc files to output directory"
-        run: rsync -zarv --exclude="*.adoc" --exclude=".git" --exclude=".github" --exclude "vendor" --exclude "vendor/*" --exclude "node_modules" --exclude "node_modules/*" --exclude "package.json" --exclude "package.lock" --exclude "Gemfile*" . generated-dita
+        run: rsync -zarv --exclude="*.adoc" --exclude=".git" --exclude=".github" --exclude "vendor" --exclude "vendor/*" --exclude ".bundle" --exclude ".bundle/*" --exclude "node_modules" --exclude "node_modules/*" --exclude "package.json" --exclude "package.lock" --exclude "Gemfile*" . generated-dita
 
       # The dita-topic converter was already downloaded and installed above.
       # Using the '-r' flag instructs asciidoctor to include it and the 
       # '-b' flag tells asciidoctor to use it for the conversion. The '-D' flag
       # specifies an output directory.
       - name: "Convert adoc files to dita"
-        run: find . -name '*.adoc' -print0 | xargs -0 bundle exec asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation
+        run: find . -name '*.adoc' -print0 | xargs -0 bundle exec asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation -a 'toc=macro'
 
       # Some of the converted DITA files are not valid files (nested sections currently, could be other reasons)
       # loop through all the .dita files and run them through the XSLT to fix them.
