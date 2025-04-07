@@ -60,7 +60,7 @@ jobs:
 
       # The ditamaps need to be copied over after the asciidoc conversation
       - name: "Copy ditamaps to the final location"
-        run: cd temp-generation; rsync -avhR --include '*.ditamap' --include '*/' --exclude '*' ./ generated-dita; cd ..  
+        run: cd temp-generation; rsync -avhR --include '*.ditamap' --include '*/' --exclude '*' ./ ../generated-dita; cd ..  
 
       # Some of the converted DITA files are not valid files (nested sections currently, could be other reasons)
       # loop through all the .dita files and run them through the XSLT to fix them.
