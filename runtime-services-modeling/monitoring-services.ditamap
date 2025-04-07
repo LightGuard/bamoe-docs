@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="monitoring-services_ditamap">
+<title>Service monitoring with Prometheus and Grafana</title>
+<topicref href="monitoring-services.dita">
+<topicref href="monitoring-services_replacing_ibm_bamoe_services_truststores.dita">
+</topicref>
+<topicref href="monitoring-services_enabling_prometheus_metrics_monitoring_in_ibm_bamoe.dita">
+<topicref href="monitoring-services_grafana_dashboards_for_default_metrics_in_ibm_bamoe.dita">
+</topicref>
+<topicref href="monitoring-services_custom_grafana_dashboards_in_ibm_bamoe.dita">
+</topicref>
+<topicref href="monitoring-services_disabling_grafana_dashboards_generation_in_ibm_bamoe.dita">
+</topicref>
+</topicref>
+</topicref>
+</map>

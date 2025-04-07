@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="deploying-to-openshift_ditamap">
+<title>Deploying to OpenShift using Quarkus</title>
+<topicref href="deploying-to-openshift.dita">
+<topicref href="deploying-to-openshift_build_and_deploy_on_openshift.dita">
+</topicref>
+<topicref href="deploying-to-openshift_build_locally_with_docker_and_automatically_deploy_on_openshift.dita">
+</topicref>
+<topicref href="deploying-to-openshift_build_locally_with_docker_and_create_manual_deployment_on_openshift.dita">
+</topicref>
+</topicref>
+</map>

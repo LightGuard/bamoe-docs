@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="workflow-with-bpmn_ditamap">
+<title>Authoring business processes with BPMN</title>
+<topicref href="workflow-with-bpmn.dita">
+<topicref href="workflow-with-bpmn_invoking_a_decision_from_a_workflow.dita">
+</topicref>
+</topicref>
+</map>

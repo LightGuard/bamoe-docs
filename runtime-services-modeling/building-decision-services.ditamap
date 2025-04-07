@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="building-decision-services_ditamap">
+<title>Building decision services</title>
+<topicref href="building-decision-services.dita">
+<topicref href="building-decision-services_ibm_bamoe_messaging_add_on.dita">
+<topicref href="building-decision-services_providing_a_key_for_a_kafka_record.dita">
+</topicref>
+<topicref href="building-decision-services_customizing_message_format.dita">
+</topicref>
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_decision_model_and_notation_dmn_event_driven_add_on.dita">
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_knative_eventing_add_on.dita">
+<topicref href="building-decision-services_auto_generated_knative_resources.dita">
+</topicref>
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_mail_add_on.dita">
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_events_add_on.dita">
+<topicref href="building-decision-services_implementing_message_payload_decorator.dita">
+</topicref>
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_monitoring_add_on.dita">
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_process_event_add_on.dita">
+</topicref>
+<topicref href="building-decision-services_ibm_bamoe_tracing_add_on.dita">
+</topicref>
+<topicref href="building-decision-servicessource-files-add-on.dita">
+<topicref href="building-decision-services_list_all_the_source_files_for_the_specified_process.dita">
+</topicref>
+<topicref href="building-decision-services_download_the_specified_source_file.dita">
+</topicref>
+</topicref>
+<topicref href="building-decision-servicesproc-kogito-designing-app-rule-units.dita">
+</topicref>
+</topicref>
+</map>

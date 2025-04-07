@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="gs-stateful-processes_ditamap">
+<title>Getting started with process automation</title>
+<topicref href="gs-stateful-processes.dita">
+<topicref href="gs-stateful-processes_create_process_variables.dita">
+</topicref>
+<topicref href="gs-stateful-processes_define_workflow_elements.dita">
+</topicref>
+<topicref href="gs-stateful-processes_adjust_properties_and_add_process_variables.dita">
+</topicref>
+</topicref>
+</map>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="whats-new-9-1-1_ditamap">
+<title>What&#8217;s new in version 9.1.1</title>
+<topicref href="whats-new-9-1-1.dita">
+<topicref href="whats-new-9-1-1_standalone_editors.dita">
+</topicref>
+<topicref href="whats-new-9-1-1_modernized_technology_stack.dita">
+</topicref>
+</topicref>
+</map>

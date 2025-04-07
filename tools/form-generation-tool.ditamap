@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="form-generation-tool_ditamap">
+<title>Form Generation tool</title>
+<topicref href="form-generation-tool.dita">
+<topicref href="form-generation-tool_form_type.dita">
+</topicref>
+<topicref href="form-generation-tool_form_config.dita">
+</topicref>
+<topicref href="form-generation-tool_source.dita">
+</topicref>
+<topicref href="form-generation-tool_connections.dita">
+</topicref>
+</topicref>
+</map>

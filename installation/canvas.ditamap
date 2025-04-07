@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="canvas_ditamap">
+<title>BAMOE Canvas</title>
+<topicref href="canvas.dita">
+<topicref href="canvas_configuring_extended_services.dita">
+</topicref>
+<topicref href="canvas_configuring_cors_proxy.dita">
+</topicref>
+<topicref href="canvas_configuring_canvas.dita">
+</topicref>
+</topicref>
+</map>

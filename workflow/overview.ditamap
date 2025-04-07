@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="overview_ditamap">
+<title>Overview stateful processes</title>
+<topicref href="overview.dita">
+<topicref href="overview_system.dita">
+</topicref>
+<topicref href="overview_addons.dita">
+</topicref>
+<topicref href="overview_required_deployments.dita">
+</topicref>
+</topicref>
+</map>

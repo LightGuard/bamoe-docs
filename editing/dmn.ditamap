@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="dmn_ditamap">
+<title>DMN reference</title>
+<topicref href="dmn.dita">
+<topicref href="dmncon-dmn-drd.dita">
+</topicref>
+<topicref href="dmncon-dmn-feel.dita">
+<topicref href="dmnref-dmn-feel-data-types.dita">
+</topicref>
+</topicref>
+<topicref href="dmnref-dmn-feel-variable-function-names.dita">
+</topicref>
+</topicref>
+</map>

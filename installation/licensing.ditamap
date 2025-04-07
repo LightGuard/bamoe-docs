@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="licensing_ditamap">
+<title>Licensing Guide</title>
+<topicref href="licensing.dita">
+<topicref href="licensing_licensing_for_disaster_recovery_or_backup.dita">
+</topicref>
+<topicref href="licensing_supporting_program_ibm_robotic_process_automation.dita">
+<topicref href="licensing_included_components.dita">
+</topicref>
+<topicref href="licensing_limitations.dita">
+</topicref>
+</topicref>
+</topicref>
+</map>

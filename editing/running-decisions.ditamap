@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="running-decisions_ditamap">
+<title>Running decisions</title>
+<topicref href="running-decisions.dita">
+<topicref href="running-decisions_reusing_logic_decision_service.dita">
+</topicref>
+</topicref>
+</map>

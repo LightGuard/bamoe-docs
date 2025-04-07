@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="whats-new-9-1-0_ditamap">
+<title>What&#8217;s new in version 9.1.0</title>
+<topicref href="whats-new-9-1-0.dita">
+<topicref href="whats-new-9-1-0_modernized_technology_stack.dita">
+</topicref>
+<topicref href="whats-new-9-1-0_transition_to_downstream_build.dita">
+</topicref>
+<topicref href="whats-new-9-1-0_helm_chart.dita">
+</topicref>
+<topicref href="whats-new-9-1-0_technology_preview_stateful_process_services.dita">
+</topicref>
+<topicref href="whats-new-9-1-0_new_dmn_editor.dita">
+</topicref>
+<topicref href="whats-new-9-1-0_samples_package.dita">
+</topicref>
+</topicref>
+</map>

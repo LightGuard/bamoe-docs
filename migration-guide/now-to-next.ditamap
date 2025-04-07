@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="now-to-next_ditamap">
+<title>Migrating to IBM Business Automation Manager Open Editions version 9.0</title>
+<topicref href="now-to-next.dita">
+<topicref href="now-to-next_step_1_update_maven_configuration.dita">
+<topicref href="now-to-next_update_maven_settings.dita">
+</topicref>
+</topicref>
+<topicref href="now-to-next_step_2_generate_a_new_maven_project_using_apache_maven.dita">
+</topicref>
+<topicref href="now-to-next_step_3_add_business_automation_assets.dita">
+</topicref>
+<topicref href="now-to-next_step_4_compile_build_test_deploy.dita">
+</topicref>
+</topicref>
+</map>

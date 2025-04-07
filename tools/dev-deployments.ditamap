@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="dev-deployments_ditamap">
+<title>Dev Deployments</title>
+<topicref href="dev-deployments.dita">
+<topicref href="dev-deployments_deployment_tokens.dita">
+</topicref>
+<topicref href="dev-deployments_deployment_resources_requirements.dita">
+</topicref>
+<topicref href="dev-deployments_post_deployment.dita">
+</topicref>
+</topicref>
+</map>

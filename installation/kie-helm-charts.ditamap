@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="kie-helm-charts_ditamap">
+<title>Using Helm charts</title>
+<topicref href="kie-helm-charts.dita">
+<topicref href="kie-helm-charts_default_install.dita">
+</topicref>
+<topicref href="kie-helm-charts_minikube_install.dita">
+</topicref>
+<topicref href="kie-helm-charts_kubernetes_install.dita">
+</topicref>
+<topicref href="kie-helm-charts_openshift_install.dita">
+</topicref>
+</topicref>
+</map>

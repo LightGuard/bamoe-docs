@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="orchestrating_ditamap">
+<title>Orchestrating a decision service through a process</title>
+<topicref href="orchestrating.dita">
+<topicref href="orchestrating_processes_in_traffic_violation_example.dita">
+</topicref>
+<topicref href="orchestrating_decisions_in_traffic_violation_example.dita">
+</topicref>
+<topicref href="orchestrating_data_mapping_between_a_process_and_decisions.dita">
+</topicref>
+<topicref href="orchestrating_running_your_project.dita">
+</topicref>
+<topicref href="orchestrating_other_examples.dita">
+</topicref>
+</topicref>
+</map>

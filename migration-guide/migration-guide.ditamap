@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="migration-guide_ditamap">
+<title>Migration guide</title>
+<topicref href="migration-guide.dita">
+</topicref>
+</map>

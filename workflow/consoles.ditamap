@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="consoles_ditamap">
+<title>Interacting with processes and tasks using Consoles</title>
+<topicref href="consoles.dita">
+<topicref href="consoles_configuration.dita">
+</topicref>
+<topicref href="consoles_using_the_management_console_to_manage_process_instances.dita">
+</topicref>
+<topicref href="consoles_management_console_application.dita">
+<topicref href="consoles_process_instances.dita">
+</topicref>
+<topicref href="consolescon-jobs-management.dita">
+</topicref>
+</topicref>
+<topicref href="consoles_enabling_management_console_security.dita">
+</topicref>
+<topicref href="consoles_task_console_docker_image.dita">
+<topicref href="consoles_configuration_2.dita">
+</topicref>
+</topicref>
+<topicref href="consoles_using_the_task_console_to_interact_with_user_tasks.dita">
+</topicref>
+<topicref href="consoles_enabling_task_console_security.dita">
+</topicref>
+</topicref>
+</map>

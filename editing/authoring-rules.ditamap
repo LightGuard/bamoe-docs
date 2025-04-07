@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="authoring-rules_ditamap">
+<title>Authoring rules</title>
+<topicref href="authoring-rules.dita">
+<topicref href="authoring-rules_spreadsheet_decision_tables.dita">
+</topicref>
+<topicref href="authoring-rules_decision_table_use_case.dita">
+</topicref>
+<topicref href="authoring-rules_creating_spreadsheet_decision_tables_for_your_ibm_bamoe_project.dita">
+</topicref>
+<topicref href="authoring-rules_ruleset_definitions.dita">
+</topicref>
+<topicref href="authoring-rules_ruletable_definitions.dita">
+</topicref>
+<topicref href="authoring-rules_additional_rule_attributes_for_ruleset_or_ruletable_definitions.dita">
+</topicref>
+</topicref>
+</map>

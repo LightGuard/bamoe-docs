@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="configuration_ditamap">
+<title>Configuration Reference</title>
+<topicref href="configuration.dita">
+<topicref href="configuration_global_properties.dita">
+</topicref>
+<topicref href="configuration_engine_specific_properties.dita">
+<topicref href="configuration_decision_engine_properties.dita">
+</topicref>
+<topicref href="configuration_persistence_engine_properties.dita">
+</topicref>
+<topicref href="configuration_process_engine_properties.dita">
+</topicref>
+<topicref href="configuration_rules_engine_properties.dita">
+</topicref>
+<topicref href="configuration_workflow_engine_properties.dita">
+</topicref>
+</topicref>
+<topicref href="configuration_additional_configuration_properties.dita">
+<topicref href="configuration_flyway.dita">
+</topicref>
+<topicref href="configuration_job_related.dita">
+</topicref>
+<topicref href="configuration_events.dita">
+</topicref>
+<topicref href="configuration_devservices.dita">
+</topicref>
+<topicref href="configuration_messaging.dita">
+</topicref>
+<topicref href="configuration_security.dita">
+</topicref>
+<topicref href="configuration_data_index.dita">
+</topicref>
+<topicref href="configuration_jobs_service.dita">
+</topicref>
+</topicref>
+</topicref>
+</map>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="drl_ditamap">
+<title>Migrating to the latest version of DRL</title>
+<topicref href="drl.dita">
+<topicref href="drl_invalid_cast.dita">
+</topicref>
+<topicref href="drl_generics_support.dita">
+</topicref>
+<topicref href="drl_invalid_coercion.dita">
+</topicref>
+</topicref>
+</map>

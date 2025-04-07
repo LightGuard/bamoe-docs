@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="CONTRIBUTING_ditamap">
+<title>Contributing Guide</title>
+<topicref href="CONTRIBUTING.dita">
+<topicref href="CONTRIBUTING_forking.dita">
+</topicref>
+<topicref href="CONTRIBUTING_cloning_locally.dita">
+<topicref href="CONTRIBUTING_adding_a_remote.dita">
+</topicref>
+</topicref>
+<topicref href="CONTRIBUTING_rebase.dita">
+</topicref>
+<topicref href="CONTRIBUTING_pushing.dita">
+</topicref>
+<topicref href="CONTRIBUTING_pull_request.dita">
+</topicref>
+<topicref href="CONTRIBUTING_merging.dita">
+</topicref>
+<topicref href="CONTRIBUTING_screenshots.dita">
+</topicref>
+</topicref>
+</map>

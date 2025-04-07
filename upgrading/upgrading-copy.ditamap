@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="upgrading-copy_ditamap">
+<title>Upgrading from 9.0.x</title>
+<topicref href="upgrading-copy.dita">
+<topicref href="upgrading-copy_updating_bamoe_canvas.dita">
+</topicref>
+<topicref href="upgrading-copy_updating_ibm_bamoe_developer_tools_for_vs_code.dita">
+</topicref>
+<topicref href="upgrading-copy_updating_form_generation_tool.dita">
+</topicref>
+<topicref href="upgrading-copy_add_business_automation_assets.dita">
+</topicref>
+<topicref href="upgrading-copy_maven_libraries_mapping_guide.dita">
+</topicref>
+</topicref>
+</map>

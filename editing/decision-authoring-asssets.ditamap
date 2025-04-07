@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="decision-authoring-asssets_ditamap">
+<title>DMN and Decision Authoring assets</title>
+<topicref href="decision-authoring-asssets.dita">
+<topicref href="decision-authoring-asssetscon-dmn-boxed-expressions.dita">
+<topicref href="decision-authoring-asssetscon-dmn-decision-tables.dita">
+<topicref href="decision-authoring-asssetscon-dmn-decision-tables-hit-policies.dita">
+</topicref>
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-literal-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-context-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-relation-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-function-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-invocation-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-list-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-conditional-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-for-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-every-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-some-expressions.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-filter-expressions.dita">
+</topicref>
+</topicref>
+<topicref href="decision-authoring-asssetsref-dmn-model-example.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-validation.dita">
+</topicref>
+<topicref href="decision-authoring-asssetsproc-dmn-logic-defining.dita">
+</topicref>
+<topicref href="decision-authoring-asssetsproc-dmn-data-types-defining.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-included-models.dita">
+<topicref href="decision-authoring-asssetsproc-dmn-included-models-dmn.dita">
+</topicref>
+<topicref href="decision-authoring-asssetsproc-dmn-included-models-pmml.dita">
+</topicref>
+</topicref>
+<topicref href="decision-authoring-asssetsproc-dmn-model-creating-multiples.dita">
+</topicref>
+<topicref href="decision-authoring-asssetscon-dmn-documentation.dita">
+</topicref>
+<topicref href="decision-authoring-asssetsref-dmn-designer-nav.dita">
+</topicref>
+</topicref>
+</map>

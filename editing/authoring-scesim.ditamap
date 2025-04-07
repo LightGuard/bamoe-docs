@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="authoring-scesim_ditamap">
+<title>Authoring test scenarios</title>
+<topicref href="authoring-scesim.dita">
+<topicref href="authoring-scesim_project_setup.dita">
+<topicref href="authoring-scesim_cloning_the_example_project.dita">
+</topicref>
+<topicref href="authoring-scesim_setup_any_project.dita">
+</topicref>
+</topicref>
+<topicref href="authoring-scesim_creating_a_test_scenario.dita">
+</topicref>
+<topicref href="authoring-scesim_defining_list_values_in_test_scenarios.dita">
+</topicref>
+<topicref href="authoring-scesimref-test-scenarios-supported-feel-data-types_{context}.dita">
+</topicref>
+</topicref>
+</map>

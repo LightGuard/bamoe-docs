@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="90x-to-91x_ditamap">
+<title>Migrating to IBM Business Automation Manager Open Editions version 9.1</title>
+<topicref href="90x-to-91x.dita">
+<topicref href="90x-to-91x_update_maven_configuration.dita">
+<topicref href="90x-to-91x_update_maven_settings.dita">
+</topicref>
+</topicref>
+<topicref href="90x-to-91x_creating_a_new_project_from_scratch.dita">
+</topicref>
+<topicref href="90x-to-91x_upgrading_a_bamoe_version_9_0_x_project.dita">
+</topicref>
+<topicref href="90x-to-91x_compile_build_test_deploy.dita">
+</topicref>
+</topicref>
+</map>

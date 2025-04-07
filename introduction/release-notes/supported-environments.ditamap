@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="supported-environments_ditamap">
+<title>Supported environments</title>
+<topicref href="supported-environments.dita">
+<topicref href="supported-environments_supported_configurations.dita">
+</topicref>
+<topicref href="supported-environments_tested_configurations.dita">
+</topicref>
+<topicref href="supported-environments_tested_integrations.dita">
+</topicref>
+<topicref href="supported-environments_decision_services_support.dita">
+</topicref>
+<topicref href="supported-environments_supported_configurations_2.dita">
+</topicref>
+<topicref href="supported-environments_tested_configurations_2.dita">
+</topicref>
+<topicref href="supported-environments_tested_integrations_2.dita">
+</topicref>
+<topicref href="supported-environments_decision_services_support_2.dita">
+</topicref>
+<topicref href="supported-environments_supported_runtimes.dita">
+</topicref>
+<topicref href="supported-environments_model_level_support.dita">
+</topicref>
+</topicref>
+</map>

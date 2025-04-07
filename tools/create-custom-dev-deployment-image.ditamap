@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="create-custom-dev-deployment-image_ditamap">
+<title>Creating a custom Dev Deployment image</title>
+<topicref href="create-custom-dev-deployment-image.dita">
+<topicref href="create-custom-dev-deployment-image_containerfile.dita">
+</topicref>
+<topicref href="create-custom-dev-deployment-image_containerfile_2.dita">
+</topicref>
+</topicref>
+</map>

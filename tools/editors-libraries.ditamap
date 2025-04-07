@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="editors-libraries_ditamap">
+<title>DMN and BPMN Editors JavaScript Libraries</title>
+<topicref href="editors-libraries.dita">
+<topicref href="editors-libraries_installing_and_using_the_classic_dmn_and_bpmn_editors.dita">
+</topicref>
+<topicref href="editors-libraries_installing_and_using_the_new_dmn_editor.dita">
+</topicref>
+</topicref>
+</map>

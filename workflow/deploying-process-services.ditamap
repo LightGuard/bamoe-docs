@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="deploying-process-services_ditamap">
+<title>Components of a process service</title>
+<topicref href="deploying-process-services.dita">
+<topicref href="deploying-process-services_how_it_works.dita">
+<topicref href="deploying-process-services_definitions.dita">
+</topicref>
+</topicref>
+<topicref href="deploying-process-services_using_the_job_service_add_on.dita">
+</topicref>
+<topicref href="deploying-process-services_querying.dita">
+<topicref href="deploying-process-services_example_1.dita">
+</topicref>
+<topicref href="deploying-process-services_example_2.dita">
+</topicref>
+</topicref>
+<topicref href="deploying-process-services_java_persistence_api_jpa_implementation.dita">
+</topicref>
+<topicref href="deploying-process-services_extension_points.dita">
+</topicref>
+<topicref href="deploying-process-services_using_the_data_audit_add_on.dita">
+</topicref>
+<topicref href="deploying-process-services_querying_2.dita">
+</topicref>
+<topicref href="deploying-process-services_using_the_data_index_add_on.dita">
+</topicref>
+</topicref>
+</map>

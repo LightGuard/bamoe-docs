@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="configure-maven_ditamap">
+<title>Configuring Maven with BAMOE binaries</title>
+<topicref href="configure-maven.dita">
+<topicref href="configure-maven_deploying_to_openshift.dita">
+</topicref>
+<topicref href="configure-maven_configuring_maven_on_openshift_without_elevated_privileges.dita">
+</topicref>
+<topicref href="configure-maven_deploying_to_a_kubernetes_cluster.dita">
+<topicref href="configure-maven_using_the_tar_gz_included_in_the_distribution.dita">
+</topicref>
+<topicref href="configure-maven_using_quay_io_hosted_version.dita">
+</topicref>
+</topicref>
+<topicref href="configure-maven_running_on_docker_locally.dita">
+</topicref>
+<topicref href="configure-maven_configure_maven_with_the_container_image_url.dita">
+</topicref>
+</topicref>
+</map>

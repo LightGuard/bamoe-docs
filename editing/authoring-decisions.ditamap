@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="authoring-decisions_ditamap">
+<title>Authoring decisions</title>
+<topicref href="authoring-decisions.dita">
+<topicref href="authoring-decisions_version_1_3.dita">
+</topicref>
+<topicref href="authoring-decisions_version_1_4.dita">
+</topicref>
+<topicref href="authoring-decisions_version_1_5.dita">
+</topicref>
+<topicref href="authoring-decisions_the_editor.dita">
+</topicref>
+<topicref href="authoring-decisions_a_diagram.dita">
+<topicref href="authoring-decisions_1_empty_state.dita">
+</topicref>
+<topicref href="authoring-decisions_2_palette.dita">
+</topicref>
+<topicref href="authoring-decisions_nodes.dita">
+<topicref href="authoring-decisions_decision_service.dita">
+</topicref>
+<topicref href="authoring-decisions_unknown_node.dita">
+</topicref>
+</topicref>
+<topicref href="authoring-decisions_3_drd.dita">
+</topicref>
+<topicref href="authoring-decisions_4_properties_panel.dita">
+</topicref>
+<topicref href="authoring-decisions_5_overlay_properties.dita">
+</topicref>
+<topicref href="authoring-decisions_6_autolayout_beta.dita">
+</topicref>
+<topicref href="authoring-decisions_7_visualization_controls.dita">
+</topicref>
+</topicref>
+<topicref href="authoring-decisions_b_data_types.dita">
+<topicref href="authoring-decisionsadding-a-data-type.dita">
+</topicref>
+</topicref>
+<topicref href="authoring-decisionsincluded-models.dita">
+<topicref href="authoring-decisions_using_nodes_from_an_included_model.dita">
+</topicref>
+</topicref>
+</topicref>
+</map>

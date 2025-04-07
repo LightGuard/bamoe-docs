@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="what-is-bamoe_ditamap">
+<title>About IBM Business Automation Manager Open Editions</title>
+<topicref href="what-is-bamoe.dita">
+<topicref href="what-is-bamoe_domain_specific_flexibility.dita">
+</topicref>
+<topicref href="what-is-bamoe_developer_centered_experience.dita">
+</topicref>
+</topicref>
+</map>

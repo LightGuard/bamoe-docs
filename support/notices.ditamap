@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map id="notices_ditamap">
+<title>Notices</title>
+<topicref href="notices.dita">
+<topicref href="notices_personal_use.dita">
+</topicref>
+<topicref href="notices_commercial_use.dita">
+</topicref>
+<topicref href="notices_rights.dita">
+</topicref>
+</topicref>
+</map>
