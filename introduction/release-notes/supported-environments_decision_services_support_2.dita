@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_decision_services_support_2">
+   <title>Decision services support</title>
+   <body>
+      <p>Decision services are supported as long as they run in production on an OpenShift Container Platform version in Full or Maintenance support in the Stable and EUS channels of OpenShift.</p>
+      <p>Any fixes, patches, and CVEs in BAMOE are provided only until the next BAMOE release.</p>
+   </body>
+</topic>

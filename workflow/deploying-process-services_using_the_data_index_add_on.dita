@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_the_data_index_add_on">
+   <title>Using the Data Index add-on</title>
+   <body>
+      <p>Use the Data Index add-on to enable Quarkus to use in-vm transport tier. The same dependency is used to specify the storage of the Data index and the transport tier simultaneously.</p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kogito-addons-quarkus-data-index-postgresql&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+   </body>
+</topic>

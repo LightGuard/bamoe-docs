@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_globals">
+   <title>Globals</title>
+   <body>
+      <title>Globals</title>
+      <p>Globals are named objects that are made visible to the Drools rule engine, but in a way that is fundamentally different from the one for facts: changes in the object backing a global do not trigger reevaluation of rules.
+Still, globals are useful for providing static information, as an object offering services that are used in the RHS of a rule, or as a means to return objects from the Drools rule engine.
+When you use a global on the LHS of a rule, make sure it is immutable, or, at least, do not expect changes to have any effect on the behavior of your rules.</p>
+      <p>A global must be declared in a rules file, then it needs to be backed up with a Java object.</p>
+      <codeblock>
+global java.util.List list
+</codeblock>
+      <p>With the <tt>KieBase</tt> now aware of the global identifier and its type, it is now possible to call <tt>ksession.setGlobal()</tt> with the global's name and an object, for any session, to associate the object with the global.
+Failure to declare the global type and identifier in DRL code will result in an exception being thrown from this call.</p>
+      <codeblock outputclass="language-java">
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+kieSession.setGlobal("list", list);
+</codeblock>
+      <p>Make sure to set any global before it is used in the evaluation of a rule.
+Otherwise a <tt>NullPointerException</tt> will be thrown.</p>
+   </body>
+</topic>

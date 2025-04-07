@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_additional_configuration_properties">
+   <title>Additional Configuration Properties</title>
+   <body>
+      <p>There are other additional configuration properties within IBM BAMOE.
+These include properties from addons or integrations.</p>
+   </body>
+</topic>

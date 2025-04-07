@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="whats-changed" xml:lang="en-us">
+   <topic>
+      <title>What’s Changed</title>
+      <body>
+         <section id="_overview">
+            <title>Overview</title>
+            <p>With the transition of the KIE projets to the Apache Software Foundation (ASF), it has become necessary to rename a number of Maven modules.  The following table(s) describe the changes to the Maven GAV (GroupID/ArtifactID/Version) in 9.1.1:</p>
+            <p>The general guidelines are:</p>
+            <ul>
+               <li>
+                  <xref href="../../partials/gav-mapping-rules.dita">Drools</xref> for anything related to rules or decisions.</li>
+               <li>
+                  <xref href="../../partials/gav-mapping-process.dita">jBPM</xref> for anything related to BPMN-based stateless/stateful processes.</li>
+               <li>
+                  <xref href="../../partials/gav-mapping-kogito.dita">Kogito</xref> for anything related to infrastructure or extended services.</li>
+               <li>
+                  <xref href="../../partials/gav-mapping-kie.dita">KIE</xref> for anything else that does not fall into the above categories.</li>
+            </ul>
+         </section>
+      </body>
+   </topic>
+</topic>

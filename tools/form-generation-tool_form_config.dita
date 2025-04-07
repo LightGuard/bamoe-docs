@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_form_config">
+   <title>Form Config</title>
+   <body>
+      <p>Each generated form, both <b>patternfly</b> and <b>bootstrap</b>, has a corresponding <b>.config</b> file.
+Such config files contain schema information about the object that the form is generated for.
+Furthermore, the goal of this <b>.config</b> file is to load additional scripts and styles.</p>
+      <p>For the <b>patternfly</b> forms, by default, no additional scripts or styles are loaded.</p>
+      <p>For the <b>bootstrap</b> forms, by default, we load <tt>bootstrap@4.0.0</tt> styles and <tt>jquery@3.2.1</tt> scripts.</p>
+   </body>
+</topic>

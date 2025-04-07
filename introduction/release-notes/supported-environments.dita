@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="supported-environments" xml:lang="en-us">
+   <topic>
+      <title>Supported environments</title>
+      <body>
+         <p>This section summarizes the tested and supported configurations available for BAMOE 9.1.x. Support is available for any issues you identify while using the functionality provided in the product in production or development, physical or virtual environments, and depending on your subscription agreement. For any supplementary details, in particular for patch releases, you can see the <xref href="https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=1EA3BE2E21944FDABF4A432FD818E438" scope="external">IBM Support site link</xref>.</p>
+         <p>A supported configuration includes the application containers, the JVM version families and their corresponding Operating Systems.</p>
+         <section id="_bamoe_9_1_1">
+            <title>BAMOE 9.1.1</title>
+            <p>This section summarizes the tested and supported configurations available for BAMOE 9.1.1.</p>
+         </section>
+         <section id="_bamoe_9_1_0">
+            <p>This section summarizes the tested and supported configurations available for BAMOE 9.1.0.</p>
+         </section>
+      </body>
+   </topic>
+</topic>

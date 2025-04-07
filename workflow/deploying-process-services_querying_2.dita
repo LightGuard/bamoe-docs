@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_querying_2">
+   <title>Querying</title>
+   <body>
+      <title>Querying</title>
+      <p>Data index support queries through graphQL (basic.schema.graphqls). For using the endpoint you just need to explore in your deployment the URI:</p>
+      <codeblock>
+http://localhost:8080/&lt;root path&gt;/graphql-ui/
+</codeblock>
+      <p>to start working with the queries defined by the schema aforementioned.</p>
+   </body>
+</topic>

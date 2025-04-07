@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_security">
+   <title>Security</title>
+   <body>
+      <p>Security for a User Task executed through a REST endpoint uses the user/group query parameters to generate the user identity (username and roles) that is used during task operation.
+However, there are times when a superuser needs to "impersonate" a different user.
+For example, an admin completing a blocked task on behalf of another user.
+These two configuration properties enable this "impersonating" to happen.</p>
+      <p>Firstly, the <tt>kogito.security.auth.enabled</tt> proper must be set to true.
+Next, IBM BAMOE will check the roles, configured by the <tt>kogito.security.auth.impersonation.allowed-for-roles</tt>, that are allowed to be impersonated.
+This overrides the previously described user identity with the security context.</p>
+      <p>Roles are defined within the identity provider used by the current application.</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.security.auth.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle Enabling the application security context when resolving current User Identity.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>false</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.security.auth.impersonation.allowed-for-roles</p>
+                  </entry>
+                  <entry>
+                     <p>Comma-separated list of roles that allow identity impersonation when resolving the actual User Identity.</p>
+                     <p>These roles should be configured in the Identity Provider the runtime is configured to use.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

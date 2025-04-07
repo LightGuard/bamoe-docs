@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_upgrade_bamoe_canvas">
+   <title>Upgrade BAMOE Canvas</title>
+   <body>
+      <p>Before you update BAMOE Canvas, save your existing projects to the browser.</p>
+      <p>The 9.1.x version of BAMOE Canvas is a drop in replacement for the 9.0.x version (see <xref href="../installation/installation.dita">Installing → BAMOE Canvas</xref>). The projects you saved to your browser before the upgrade can simply be opened after installing the new version.</p>
+      <p>If you prefer to install a parallel version using <xref href="https://docs.openshift.com/container-platform/4.16/applications/deployments/route-based-deployment-strategies.html#deployments-blue-green_route-based-deployment-strategies" scope="external">blue-green deployment strategies</xref> you can import projects into the newly installed version (see <xref href="../tools/importing-existing-projects.dita">Importing existing projects</xref>) as long as the DNS domains between installations are different. If the DNS domains between installations are the same, your imported projects automatically show up in the new installation when you open it in your browser.</p>
+      <note type="note">
+         <p>If you have customized your previous BAMOE Canvas installation, remember to apply the same Environment Variables to the new installation. The same applies for customized container images for BAMOE Canvas Dev Deployments.</p>
+      </note>
+   </body>
+</topic>

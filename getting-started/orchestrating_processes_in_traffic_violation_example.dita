@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_processes_in_traffic_violation_example">
+   <title>Processes in traffic violation example</title>
+   <body>
+      <title>Processes in traffic violation example</title>
+      <p>In the traffic violations project, the interactions with the defined decisions are executed using the decision engine. Also, the information that is required to execute the decision evaluation must be defined in the <b>Data Assignments</b> property of the business rule task.</p>
+      <note type="note">
+The ID property of a process is used in the REST endpoint generation, which refers to the path that is used to interact with the process.
+</note>
+      <p>Also, the classes in the process are used to define the Plain Old Java Objects (POJOs) that enable the interaction between the process and decisions. The process classes include <tt>Violation</tt>, <tt>Driver</tt>, <tt>Fine</tt>.</p>
+   </body>
+</topic>

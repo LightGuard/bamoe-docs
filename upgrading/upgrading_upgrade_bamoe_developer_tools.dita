@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_upgrade_bamoe_developer_tools">
+   <title>Upgrade BAMOE Developer Tools</title>
+   <body>
+      <p>BAMOE Developer Tools versions are managed by the Extension update mechanism in VS Code. You can set automatic update or manage it manually when notified. Because of version differences in the models supported by the BPMN, DMN, and Test Scenario editors it is recommended to choose when you upgrade to avoid issues when running models in services that have not been upgraded when the tools are upgraded.</p>
+      <p>See <xref href="../tools/developer-tools-for-vscode.dita">BAMOE Developer Tools</xref>.</p>
+      <note type="note">
+         <p>After upgrading, the New DMN Editor will be opened automatically when you first access it in Canvas or Developer tools for VS Code.
+Existing DMN files (any version) can be opened directly in the editor. For more information, see <xref href="../editing/authoring-decisions.dita">Authoring decisions</xref>.</p>
+      </note>
+   </body>
+</topic>

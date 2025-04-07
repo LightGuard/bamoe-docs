@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_upgrade_form_generation_tool">
+   <title>Upgrade Form Generation Tool</title>
+   <body>
+      <p>This tool is required for workflow execution. If the Form Generation Tool is already present, uninstall and re-install using steps available in <xref href="../tools/form-generation-tool.dita">Form generation tool</xref>.</p>
+   </body>
+</topic>

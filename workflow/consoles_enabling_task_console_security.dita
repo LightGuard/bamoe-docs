@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_enabling_task_console_security">
+   <title>Enabling Task Console security</title>
+   <body>
+      <p>For security, Task Console relies on <xref href="https://www.keycloak.org/" scope="external">Keycloak</xref> solution for authentication.
+Once a user is authenticated, Task Console uses bearer tokens to communicate with other BAMOE services.</p>
+      <note type="important">
+By default, To enable security it is required to run Management Console in "PROD" mode.
+</note>
+      <p outputclass="title">
+         <b>Prerequisites</b>
+      </p>
+      <ul>
+         <li>You have a <xref href="https://www.keycloak.org/" scope="external">Keycloak</xref> server running.</li>
+      </ul>
+      <note type="important">
+Ensure that you log in to the administration console of the Keycloak, navigate to the respective client configuration, and add correct URLs of different applications.
+For easier configuration, you can add <b>*</b>  in the <b>Web Origins</b>, however, it can cause security issues.
+You can also add the origin URLs as a parameter to the <b>Web Origins</b>, which can prevent the issues related to <tt>Access-Control-Allow-Origin</tt>.
+</note>
+      <image href="../images/runtime-services-modeling/kogito-consoles-keycloak-config.png" placement="break">
+         <alt>Image of client config in keycloak server</alt>
+      </image>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <p>In a command terminal, enter the following command to run the Task Console:</p>
+      <p outputclass="title">
+         <b>Run the Task Console with security enabled</b>
+      </p>
+      <codeblock>
+$ docker run -e RUNTIME_TOOLS_TASK_CONSOLE_KOGITO_ENV_MODE=PROD
+  -e KOGITO_CONSOLES_KEYCLOAK_URL=http://localhost:8480/auth
+  -e KOGITO_CONSOLES_KEYCLOAK_REALM=kogito
+  -e KOGITO_CONSOLES_KEYCLOAK_CLIENT_ID=kogito-console-react
+  -p 8280:8080 quay.io/bamoe/task-console:9.1.1-ibm-0003
+</codeblock>
+   </body>
+</topic>

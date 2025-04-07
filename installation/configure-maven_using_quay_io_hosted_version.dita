@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_quay_io_hosted_version">
+   <title>Using Quay.io hosted version</title>
+   <body>
+      <p>In this case, not much needs to be done, just set an env var with the image URL</p>
+      <codeblock outputclass="language-shell">
+export BAMOE_MAVEN_REPOSITORY_IMAGE=quay.io/bamoe/maven-repository:9.1.1-ibm-0003
+</codeblock>
+      <p>Create the Deployment and Ingress</p>
+      <codeblock outputclass="language-shell">
+kubectl create deployment bamoe-maven-repo --image=${BAMOE_MAVEN_REPOSITORY_IMAGE}
+kubectl expose deployment bamoe-maven-repo --port=80 --target-port=8080
+kubectl create ingress bamoe-maven-repo --rule="&lt;EXTERNAL_BAMOE_MAVEN_REPO_URL&gt;/*=bamoe-maven-repo:80"
+</codeblock>
+      <p>Replace <tt>&lt;EXTERNAL_BAMOE_MAVEN_REPO_URL&gt;</tt> with the URL that is mapped to your cluster. For Kind or Minikube you could use something like <tt>bamoe-maven-repo.localhost</tt>, and then map this hostname to the cluster IP on your <tt>/etc/hosts</tt> file.</p>
+   </body>
+</topic>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_using_the_job_service_add_on">
+   <title>Using the Job Service add-on</title>
+   <body>
+      <p>To use the Job service add-on in your project you must include the dependency related to the transport tier (in-vm):</p>
+      <codeblock outputclass="language-xml">
+  &lt;!-- Required for the Job service add-on transport tier definition --&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.kie&lt;/groupId&gt;
+    &lt;artifactId&gt;kogito-addons-quarkus-jobs-management&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+    &lt;groupId&gt;org.kie&lt;/groupId&gt;
+    &lt;artifactId&gt;kogito-addons-quarkus-jobs&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+</codeblock>
+      <p>Following that you must include the storage to be used, (postgresql):</p>
+      <codeblock outputclass="language-xml">
+&lt;!-- Required for the Job service add-on storage definition --&gt;
+  &lt;dependency&gt;
+      &lt;groupId&gt;org.kie&lt;/groupId&gt;
+      &lt;artifactId&gt;jobs-service-postgresql-common&lt;/artifactId&gt;
+  &lt;/dependency&gt;
+</codeblock>
+      <p>In this case for postgresql in-vm, your main available data source is automatically used. Here is an example of this configuration:</p>
+      <codeblock outputclass="language-properties">
+kogito.persistence.type=jdbc
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=kogito-user
+quarkus.datasource.password=kogito-pass
+quarkus.datasource.jdbc.url=${QUARKUS_DATASOURCE_JDBC_URL:jdbc:postgresql://localhost:5432/kogito}
+quarkus.datasource.reactive.url=${QUARKUS_DATASOURCE_REACTIVE_URL:postgresql://localhost:5432/kogito}
+</codeblock>
+      <note type="note">
+Use managed dependencies or specify the version of the dependencies.
+</note>
+      <note type="note">
+You can find ddl scripts for pgsql in <tt>jobs-service-postgresql-common/src/main/resources/db/jobs-service</tt>
+      </note>
+   </body>
+</topic>

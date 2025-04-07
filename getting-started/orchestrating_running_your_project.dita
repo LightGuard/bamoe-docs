@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_running_your_project">
+   <title>Running your project</title>
+   <body>
+      <p>You can start the Quarkus server with the following command in the project root:</p>
+      <codeblock outputclass="language-console">
+mvn quarkus:dev
+</codeblock>
+      <p>Then you can check the application Swagger UI at <tt>http://localhost:8080/q/swagger-ui/#/</tt>
+      </p>
+   </body>
+</topic>

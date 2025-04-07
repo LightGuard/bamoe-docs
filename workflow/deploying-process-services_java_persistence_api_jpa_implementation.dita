@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_java_persistence_api_jpa_implementation">
+   <title>Java Persistence API (JPA) implementation</title>
+   <body>
+      <p>The JPA implementation allows you to store the events to be stored in a database.
+To use this you will need to set up the datasource.</p>
+   </body>
+</topic>

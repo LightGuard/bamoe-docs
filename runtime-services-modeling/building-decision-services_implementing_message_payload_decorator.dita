@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_implementing_message_payload_decorator">
+   <title>Implementing message payload decorator</title>
+   <body>
+      <title>Implementing message payload decorator</title>
+      <p>Any dependant add-on can implement the <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/blob/main/addons/common/messaging/src/main/java/org/kie/kogito/addon/cloudevents/message/MessagePayloadDecorator.java" scope="external">MessagePayloadDecorator</xref>.</p>
+      <p outputclass="title">
+         <b>Prerequisites</b>
+      </p>
+      <ul>
+         <li>You have installed the Events add-on in IBM BAMOE.</li>
+      </ul>
+      <p outputclass="title">
+         <b>Procedure</b>
+      </p>
+      <ol>
+         <li>Create a file named <tt>META-INF/services/org.kie.kogito.add-on.cloudevents.message.MessagePayloadDecorator</tt> in your class path.</li>
+         <li>Open the file.</li>
+         <li>Enter the full name of your implementation class in the file.</li>
+         <li>Save the file.</li>
+      </ol>
+      <p>The <tt>MessagePayloadDecoratorProvider</tt> loads the file upon application startup and adds the file to the decoration chain. When IBM BAMOE calls the <xref href="https://github.com/apache/incubator-kie-kogito-runtimes/blob/main/addons/common/messaging/src/main/java/org/kie/kogito/addon/cloudevents/message/MessagePayloadDecoratorProvider.java" scope="external">MessagePayloadDecoratorProvider#decorate</xref>, your implementation is part of the decoration algorithm.</p>
+      <p>To use the events add-on, add the following code to the <tt>pom.xml</tt> file of your project:</p>
+      <p outputclass="title">
+         <b>Events Process add-on for Quarkus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-events-process&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+      <p outputclass="title">
+         <b>Events decisions add-on for Quarkus</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-events-decisions&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+   </body>
+</topic>

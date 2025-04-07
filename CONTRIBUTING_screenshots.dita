@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_screenshots">
+   <title>Screenshots</title>
+   <body>
+      <title>Screenshots</title>
+      <p>Documentation may often refer to screenshots, or, to be more precise, parts of screenshots.
+To ensure consistency across our documentation, we should use the color HEX: #008CB4 or rgb: rgba(0,140,180,255) when highlighting parts of a screenshot.</p>
+   </body>
+</topic>

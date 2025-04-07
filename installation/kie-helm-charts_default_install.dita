@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_default_install">
+   <title>Default install</title>
+   <body>
+      <title>Default install</title>
+      <codeblock outputclass="language-shell">
+$ helm install my-bamoe-canvas oci://quay.io/bamoe/canvas-helm-chart --version={VERSION}.
+</codeblock>
+   </body>
+</topic>

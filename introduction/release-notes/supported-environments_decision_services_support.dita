@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_decision_services_support">
+   <title>Decision services support</title>
+   <body>
+      <p>Decision services are supported as long as they run in production on an OpenShift Container Platform version in Full or Maintenance support in the Stable and EUS channels of OpenShift.</p>
+      <p>Any fixes, patches, and CVEs in BAMOE are provided only until the next BAMOE release.</p>
+      <p>Table.1 Supported runtimes</p>
+      <table>
+         <tgroup cols="3">
+            <colspec colname="col_1" colwidth="33.3333*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="33.3334*"/>
+            <thead>
+               <row>
+                  <entry>Runtime</entry>
+                  <entry>Version</entry>
+                  <entry>JDK</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Quarkus</p>
+                  </entry>
+                  <entry>
+                     <p>3.8.6</p>
+                  </entry>
+                  <entry>
+                     <p>OpenJDK 17</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>Table.2 Model level support</p>
+      <table>
+         <tgroup cols="2">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="50*"/>
+            <thead>
+               <row>
+                  <entry>Language</entry>
+                  <entry>Version</entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>DMN</p>
+                  </entry>
+                  <entry>
+                     <p>1.5</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>BPMN</p>
+                  </entry>
+                  <entry>
+                     <p>2.0</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+      <p>Following are the supported details for version 9.1.0:</p>
+   </body>
+</topic>

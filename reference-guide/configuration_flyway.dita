@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_flyway">
+   <title>Flyway</title>
+   <body>
+      <title>Flyway</title>
+      <p>The Flyway integration has the concept of a "module."
+A Flyway module is any Apache Maven artifact, typically a jar file, that contains a <tt>kie-flyway.properties</tt> file.
+An individual module can be skipped during the initial migration by setting the module enabled to <tt>false</tt> using the property within the table.</p>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kie.flyway.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggles the execution of the Flyway initializer during application startup.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kie.flyway.modules.<tt>&lt;module name&gt;</tt>.enabled</p>
+                  </entry>
+                  <entry>
+                     <p>Enables the execution of the Flyway initializer for a specific Kie module.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <tt>true</tt>
+                     </p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

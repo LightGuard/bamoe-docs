@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_stateful">
+   <title>Stateful</title>
+   <body>
+      <title>Stateful</title>
+      <p>The first session <xref href="https://docs.drools.org/8.44.0.Final/drools-docs/drools/rule-engine/index.html#kie-sessions-stateful-con_rule-engine" scope="external">stateful</xref>.
+It is obtained using the <tt>newKieSession()</tt> method.
+Stateful sessions can be worked with iteratively over time.</p>
+      <codeblock outputclass="language-java">
+KieSession kieSession = kieBase.newKieSession();
+</codeblock>
+   </body>
+</topic>

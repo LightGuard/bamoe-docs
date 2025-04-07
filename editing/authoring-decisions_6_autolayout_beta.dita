@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_6_autolayout_beta">
+   <title>6. Autolayout (beta)</title>
+   <body>
+      <p>The Autolayout is still a beta feature.
+It will automatically organize your model by arranging related nodes closer to each other.</p>
+      <fig>
+         <title>Enable/disable data type toolbar on nodes</title>
+         <image href="../images/tools/authoringDecisions/new-editor-autolayout.gif" placement="break">
+            <alt>new editor autolayout</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

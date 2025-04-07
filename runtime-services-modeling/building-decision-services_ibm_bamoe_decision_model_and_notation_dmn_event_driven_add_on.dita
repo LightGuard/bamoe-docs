@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_ibm_bamoe_decision_model_and_notation_dmn_event_driven_add_on">
+   <title>IBM BAMOE Decision Model and Notation (DMN) event-driven add-on</title>
+   <body>
+      <p outputclass="title">
+         <b>Quarkus</b>
+      </p>
+      <p>To use the DMN event-driven add-on, add the following code to the <tt>pom.xml</tt> file of your project:</p>
+      <codeblock outputclass="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;org.kie&lt;/groupId&gt;
+  &lt;artifactId&gt;kie-addons-quarkus-events-decisions&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</codeblock>
+   </body>
+</topic>

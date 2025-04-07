@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_updating_ibm_bamoe_developer_tools_for_vs_code">
+   <title>Updating IBM BAMOE Developer Tools for VS Code</title>
+   <body>
+      <p>The IBM BAMOE Developer Tools for VS Code will automatically update as long as you have set this option in VS Code.</p>
+      <p>To set this option, go to Visual Studio Code, click Extensions and then select the IBM BAMOE Developer Tools for VS Code. You will see a checkbox 'Auto Update' on the page. Click it to set. This will take care of your updates automatically. To know more about IBM BAMOE Developer Tools for VS Code, see <xref href="../tools/developer-tools-for-vscode.dita">Developer Tools for VS Code</xref>.</p>
+      <note type="note">
+         <p>After upgrading, the New DMN Editor will be opened automatically when you first access it in Canvas or Developer tools for VS Code.
+Existing DMN files (any version) can be opened directly in the editor. For more information, see <xref href="../editing/authoring-decisions.dita">Authoring decisions</xref>.</p>
+      </note>
+   </body>
+</topic>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_domain_specific_flexibility">
+   <title>Domain-specific Flexibility</title>
+   <body>
+      <title>Domain-specific Flexibility</title>
+      <p>IBM BAMOE adapts to your business domain, eliminating the need to modify your domain to work with BAMOE.
+You can expose your BAMOE services through domain-specific APIs based on the processes and decisions you have defined.
+These domain-specific APIs for BAMOE services do not require third-party or internal APIs.
+For example, a process for onboarding employees could generate remote REST API endpoints that allow you to onboard new employees or retrieve information about their status using domain-specific JSON data.
+You can also expose domain-specific data through events so that the data can be consumed and queried by other services.</p>
+   </body>
+</topic>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_update_maven_settings">
+   <title>Update Maven Settings</title>
+   <body>
+      <title>Update Maven Settings</title>
+      <p>A 'pom.xml' file is associated with a particular project whereas the Maven 'settings.xml' file is used to customize global operational parameters across projects.
+This file includes configurations such as the location of the local repository, alternative sources for remote repositories, and inputting credentials, among others.</p>
+      <p>There are two directories for the storage of the settings.xml file:</p>
+      <ul>
+         <li>Maven Installation Directory: Found at ${Maven.home}/conf/settings.xml, this location reflects the settings applied universally across all Maven projects on the system.</li>
+         <li>User-Specific Configuration: Located at ${user.home}/.m2/settings.xml, this directory allows for the storage of user-specific Maven settings.</li>
+      </ul>
+      <p>Users can adjust their Maven environment to better suit their development needs by using these configurations.</p>
+      <note type="note">
+         <p>The first <tt>settings.xml</tt> is also referred to as <tt>global settings</tt>, and the second is referenced as user settings.
+Both are combined with users taking precedence.</p>
+      </note>
+      <note type="tip">
+         <p>If you need to create user-specific settings from scratch, copy the global settings from your Maven installation to your <b>
+               <i>${user.home}/.m2</i>
+            </b> directory.
+Maven’s default <b>
+               <i>settings.xml</i>
+            </b> is a template with comments and examples so you can quickly tweak it to match your needs.
+<i>If you are looking to learn more about how to manage your various Maven settings, see <xref href="https://maven.apache.org/settings.html" scope="external">Maven Settings Reference</xref>.</i>
+         </p>
+      </note>
+      <p>With the knowledge from IBM BAMOE version 8 or Red Hat version 7, you might be familiar with product dependencies hosted by <xref href="https://maven.repository.redhat.com/ga/com/redhat/ba/" scope="external">Red Hat Maven repository</xref>.
+However, this is not required anymore as the product dependencies are hosted by <xref href="https://central.sonatype.com/search?q=bamoe" scope="external">Maven Central</xref>.
+There is no need to include an additional repository in <tt>pom.xml</tt> or <tt>settings.xml</tt>.</p>
+   </body>
+</topic>

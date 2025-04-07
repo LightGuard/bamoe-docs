@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_updating_bamoe_canvas">
+   <title>Updating BAMOE Canvas</title>
+   <body>
+      <title>Updating BAMOE Canvas</title>
+      <p>Before you update BAMOE Canvas:</p>
+      <ul>
+         <li>Save your existing projects to the browser.</li>
+         <li>Install your new version of BAMOE Canvas by replacing your existing installation or by using the blue-green deployment strategies (<xref href="https://docs.openshift.com/container-platform/4.14/applications/deployments/route-based-deployment-strategies.html#deployments-blue-green_route-based-deployment-strategies" scope="external">blue/green deployment strategies</xref>).</li>
+      </ul>
+      <p>If you want to know how to install BAMOE Canvas, see <xref href="../installation/installation.dita">Installing</xref>
+      </p>
+      <ul>
+         <li>If you have installed a parallel version, use Canvas Import functionality to import your saved projects. See <xref href="../tools/importing-existing-projects.dita">Importing existing projects</xref>
+         </li>
+      </ul>
+      <p>To know more on projects, see Step 4a.</p>
+   </body>
+</topic>

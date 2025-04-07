@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_job_related">
+   <title>Job related</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="53.8461*"/>
+            <colspec colname="col_2" colwidth="30.7692*"/>
+            <colspec colname="col_3" colwidth="7.6923*"/>
+            <colspec colname="col_4" colwidth="7.6924*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.job.recipient.sink.timeout-in-millis</p>
+                  </entry>
+                  <entry>
+                     <p>Default timeout to execute HTTP requests for the SinkRecipient when the Job’s timeout is not configured.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>5000</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.job.recipient.sink.max-timeout-in-millis</p>
+                  </entry>
+                  <entry>
+                     <p>Max accepted timeout to execute HTTP requests for the SinkRecipient when the Job’s timeout is configured.
+Attempts to surpass this value will result in a validation error at Job creation time.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>6000</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.job.recipient.http.timeout-in-millis</p>
+                  </entry>
+                  <entry>
+                     <p>Default timeout to execute HTTP requests for the HttpRecipient when the Job’s timeout is not configured.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>180000</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.job.recipient.http.max-timeout-in-millis</p>
+                  </entry>
+                  <entry>
+                     <p>Max accepted timeout to execute HTTP requests for the HttpRecipient when the Job’s timeout is configured.
+Attempts to surpass this value will result in a validation error at Job creation time.</p>
+                  </entry>
+                  <entry>
+                     <p>long</p>
+                  </entry>
+                  <entry>
+                     <p>300000</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_version_1_4">
+   <title>version 1.4</title>
+   <body>
+      <p>The new DMN Editor supports the following FEEL functions, Boxed Expression, and DRD representation available in DMN 1.4.</p>
+      <dl>
+         <dlentry>
+            <dt>FEEL Functions</dt>
+            <dd>
+               <p>The following FEEL functions are available:</p>
+               <ul>
+                  <li>
+                     <tt>context</tt>
+                  </li>
+                  <li>
+                     <tt>context put</tt>
+                  </li>
+                  <li>
+                     <tt>context merge</tt>
+                  </li>
+                  <li>
+                     <tt>number floor</tt>
+                  </li>
+                  <li>
+                     <tt>number ceiling</tt>
+                  </li>
+                  <li>
+                     <tt>number round up</tt>
+                  </li>
+                  <li>
+                     <tt>number round down</tt>
+                  </li>
+                  <li>
+                     <tt>number round half up</tt>
+                  </li>
+                  <li>
+                     <tt>number round half down</tt>
+                  </li>
+                  <li>
+                     <tt>string join</tt>
+                  </li>
+               </ul>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>Boxed Expression</dt>
+            <dd>The Filter, Conditional, Iterator, Every and Some Boxed Expressions are available.</dd>
+         </dlentry>
+         <dlentry>
+            <dt>DRD</dt>
+            <dd>Adds a marker on nodes that have a collection data type.</dd>
+         </dlentry>
+      </dl>
+      <fig>
+         <title>Collection mark</title>
+         <image href="../images/tools/authoringDecisions/overview-1.4-collection-marker.png" width="300" placement="break">
+            <alt>overview 1.4 collection marker</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

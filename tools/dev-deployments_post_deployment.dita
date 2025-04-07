@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_post_deployment">
+   <title>Post Deployment</title>
+   <body>
+      <p>Upon confirmation of the Dev Deployment, the Dev Deployments dropdown will open, displaying all the previous and current deployments and an indicator showing their status.</p>
+      <fig>
+         <title>Dev Deployments dropdown demonstrating the deployment process of a project named "bamoe-sample-project" on BAMOE Canvas</title>
+         <image href="../images/tools/devDeployments/kubernetes-waiting-done.png" placement="break">
+            <alt>kubernetes waiting done</alt>
+         </image>
+      </fig>
+      <p>After approximately 30 seconds, a green checkmark should appear next to the Dev Deployment.
+If the deployment was made with the <tt>Include DMN Form Webapp</tt> option checked, selecting an item in the dropdown will allow you to navigate to the webapp form for decisions. Otherwise, it will navigate to the Swagger UI for your application.</p>
+      <note type="note">
+Dev Deployments are immutable; therefore, if an error occurs or a change is required, a new Dev Deployment must be created.
+They can easily be deleted from the Dev Deployments dropdown.
+</note>
+   </body>
+</topic>

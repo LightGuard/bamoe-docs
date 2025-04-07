@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_configuring_canvas">
+   <title>Configuring Canvas</title>
+   <body>
+      <p>This image must be run with two environment variables that will allow it to communicate with the two backend services:</p>
+      <dl>
+         <dlentry>
+            <dt>
+               <tt>KIE_SANDBOX_EXTENDED_SERVICES_URL</tt>
+            </dt>
+            <dd>E.g., <xref href="https://extended-services.bamoe.company.com" scope="external">https://extended-services.bamoe.my-company.com</xref>
+            </dd>
+         </dlentry>
+         <dlentry>
+            <dt>
+               <tt>KIE_SANDBOX_CORS_PROXY_URL</tt>
+            </dt>
+            <dd>E.g., <xref href="https://cors-proxy.bamoe.company.com" scope="external">https://cors-proxy.bamoe.my-company.com</xref>
+            </dd>
+         </dlentry>
+      </dl>
+      <p>If you are running locally, following the previous steps, use this command to start your BAMOE Canvas instance with the backend services:</p>
+      <codeblock outputclass="language-shell">
+docker run -p 8080:8080 -it \
+  -e KIE_SANDBOX_EXTENDED_SERVICES_URL=http://localhost:21345 \
+  -e KIE_SANDBOX_CORS_PROXY_URL=http://localhost:8090 \
+  quay.io/bamoe/canvas:9.1.1-ibm-0003
+# Add the -d flag to run in detached mode.
+</codeblock>
+      <p>The HTTP server is accessed via port 8080.</p>
+      <p>Several customization options are available. For more information on the configurations available via environment variables see <xref href="https://quay.io/repository/bamoe/canvas?tab=info" scope="external">https://quay.io/repository/bamoe/canvas?tab=info</xref>
+      </p>
+      <note type="note">
+         <p>Those addresses need to be accessible from the users' machines, as BAMOE Canvas will communicate with them directly from the user’s browser.
+Using internal IP/DNS services will not work.
+Requests are made directly from the user’s browser to both URLs configured above.</p>
+      </note>
+      <p>Another very important environment variable to consider when deploying BAMOE Canvas is <tt>KIE_SANDBOX_DMN_DEV_DEPLOYMENT_BASE_IMAGE_URL</tt>. It points to a container image that is used when creating a Dev Deployment for Decisions.</p>
+      <p>By default, BAMOE Canvas is configured to fetch this image from <xref href="https://quay.io/repository/kie-tools/dmn-dev-deployment-base-image" scope="external">https://quay.io/repository/kie-tools/dmn-dev-deployment-base-image</xref> @ 0.30.4</p>
+      <note type="important">
+         <p>The pre-configured image is NOT part of BAMOE, and resides in the open-source Apache KIE community.
+If you are  installing BAMOE Canvas, you must change <tt>KIE_SANDBOX_DMN_DEV_DEPLOYMENT_BASE_IMAGE_URL</tt> to make sure the used image meets your requirements.
+For a reference on how to build your own image that is compatible with BAMOE Canvas development deployments, please go to the Apache KIE community’s source code for <tt>dmn-dev-deployment-base-image</tt> at <xref href="https://github.com/apache/incubator-kie-tools/tree/0.30.4/packages/dmn-dev-deployment-base-image" scope="external">https://github.com/apache/incubator-kie-tools/tree/0.30.4/packages/dmn-dev-deployment-base-image</xref>.</p>
+      </note>
+      <p>If you are installing BAMOE Canvas in an air-gapped environment, you will need to configure <tt>KIE_SANDBOX_DMN_DEV_DEPLOYMENT_BASE_IMAGE_URL</tt> to point to an image in a registry where the Cloud providers used by BAMOE Canvas users can access it.</p>
+      <p>For example, imagine a user is creating development deployments for Decisions on BAMOE Canvas to a local Kubernetes they have installed on their machine, for example Kind or Minikube.
+This local Kubernetes instance needs to be able to download the image configured in <tt>KIE_SANDBOX_DMN_DEV_DEPLOYMENT_BASE_IMAGE_URL</tt>.
+The same is true for remote Kubernetes and OpenShift instances that the users of BAMOE Canvas will configure to create their Dev Deployments for Decisions.</p>
+      <p>For other customization options of BAMOE Canvas, please refer to the <xref href="https://quay.io/repository/bamoe/canvas?tab=info" scope="external">description of the image</xref>.</p>
+   </body>
+</topic>

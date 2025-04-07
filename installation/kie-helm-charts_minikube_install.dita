@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_minikube_install">
+   <title>Minikube install</title>
+   <body>
+      <codeblock outputclass="language-shell">
+$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version={VERSION} --untar
+$ helm install my-bamoe-canvas ./canvas-helm-chart --values ./canvas-helm-chart/values-minikube-nginx.yaml
+</codeblock>
+   </body>
+</topic>

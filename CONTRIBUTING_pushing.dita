@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_pushing">
+   <title>Pushing</title>
+   <body>
+      <p>Publishing, or pushing, a branch is the process of making it available on a different remote.
+Typically, that would GitHub, however, it could be any other remote.
+The process is very simply from the command line:</p>
+      <codeblock outputclass="language-bash">
+git push &lt;remote name&gt; &lt;branch name&gt;
+</codeblock>
+      <p>If you wish to set the upstream for the branch to the remote branch, use the <tt>--set-upstream</tt> option.</p>
+      <p>Within VS Code, this is done using the Source Repo → Branch → Publish Branch menu item, as shown:</p>
+      <fig>
+         <title>Publish a branch in VS Code</title>
+         <image href="images/contributing/vscode-repo-publish-branch-menu.png" placement="break">
+            <alt>Publishing a Branch</alt>
+         </image>
+      </fig>
+      <p>Once selected, you will be prompted with a menu to select which configured remotes you would like to use:</p>
+      <fig>
+         <title>Publish to a defined remote</title>
+         <image href="images/contributing/vscode-repo-publish-branch-dialog.png" placement="break">
+            <alt>Select a configured remote</alt>
+         </image>
+      </fig>
+   </body>
+</topic>

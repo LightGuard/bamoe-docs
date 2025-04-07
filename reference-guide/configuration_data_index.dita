@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_data_index">
+   <title>Data Index</title>
+   <body>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="36.3636*"/>
+            <colspec colname="col_2" colwidth="36.3636*"/>
+            <colspec colname="col_3" colwidth="9.0909*"/>
+            <colspec colname="col_4" colwidth="18.1819*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.dataindex.http.url</p>
+                  </entry>
+                  <entry>
+                     <p>HTTP port the data index will use to accept incoming requests.
+Used to connect the runtime, with svg addon, to the data-index</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>
+                        <xref href="http://localhost:$\{quarkus.http.port}" scope="external">http://localhost:$\{quarkus.http.port}</xref>
+                     </p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.dataindex.ws.url</p>
+                  </entry>
+                  <entry>
+                     <p>HTTP port the data index websocket will use to accept incoming requests.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>ws://localhost:$\{quarkus.http.port}</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.data-index.graphql.ui.always-include</p>
+                  </entry>
+                  <entry>
+                     <p>Toogle to determine if the GraphQL UI should be enabled.
+By default, this is only included if the application is running in dev mode.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>false</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.data-index.url</p>
+                  </entry>
+                  <entry>
+                     <p>URL the data index will use.
+The same as <tt>kogito.dataindex.http.url</tt>, kept for backwards compatibility.</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

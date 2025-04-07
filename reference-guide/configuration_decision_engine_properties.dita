@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_decision_engine_properties">
+   <title>Decision Engine Properties</title>
+   <body>
+      <title>Decision Engine Properties</title>
+      <table>
+         <tgroup cols="4">
+            <colspec colname="col_1" colwidth="50*"/>
+            <colspec colname="col_2" colwidth="33.3333*"/>
+            <colspec colname="col_3" colwidth="8.3333*"/>
+            <colspec colname="col_4" colwidth="8.3334*"/>
+            <tbody>
+               <row>
+                  <entry>
+                     <p>Property Name</p>
+                  </entry>
+                  <entry>
+                     <p>Description</p>
+                  </entry>
+                  <entry>
+                     <p>Type</p>
+                  </entry>
+                  <entry>
+                     <p>Default</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.codegen.decisions</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling code generation for the decisions engine</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.generate.rest.decisions</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle for REST decisions endpoint generation.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.decisions.stronglytyped</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle to enable generated Java classes to support strongly typed input.</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>false</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.decisions.validation</p>
+                  </entry>
+                  <entry>
+                     <p>Validation activation for decision models.
+Possible values: ENABLED, DISABLED, IGNORE</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry>
+                     <p>ENABLED</p>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.addon.tracing.decision.kafka.bootstrapAddress</p>
+                  </entry>
+                  <entry>
+                     <p>Bootstrap Kafka server address</p>
+                  </entry>
+                  <entry>
+                     <p>string</p>
+                  </entry>
+                  <entry/>
+               </row>
+               <row>
+                  <entry>
+                     <p>kogito.addon.tracing.decision.asyncEnabled</p>
+                  </entry>
+                  <entry>
+                     <p>Toggle enabling asynchronous collection of decision events</p>
+                  </entry>
+                  <entry>
+                     <p>boolean</p>
+                  </entry>
+                  <entry>
+                     <p>true</p>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
+   </body>
+</topic>

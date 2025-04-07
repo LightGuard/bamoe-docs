@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_developer_centered_experience">
+   <title>Developer-centered Experience</title>
+   <body>
+      <p>IBM BAMOE is designed to provide an optimal developer experience.
+You can utilize much or all of your existing tooling and workflow to develop, build, and deploy BAMOE services, whether locally for testing or in the cloud.
+Quarkus offers development-mode features to assist with local testing, such as live reloading of your processes and decisions in your running applications for advanced debugging.
+BAMOE tooling is embeddable, allowing you to continue using the workflow you are already familiar with for cloud-native services. For
+example, the IBM BAMOE Developer Tools for VS Code enable you to edit your Business Process Model and Notation (BPMN) business processes and Decision Model and Notation (DMN) decision models directly in your VS Code IDE alongside your regular application code.</p>
+   </body>
+</topic>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_update_maven_settings">
+   <title>Update Maven settings</title>
+   <body>
+      <p>The <tt>settings.xml</tt> file is a repository for customizing Maven’s global operational parameters, distinguishing itself from the <tt>pom.xml</tt> by its non-association with particular projects.</p>
+      <p>This file includes configurations such as the location of the local repository, alternative sources for remote repositories, inputting credentials, among others.</p>
+      <p>There are two directories for the storage of the settings.xml file:</p>
+      <ul>
+         <li>Maven Installation Directory: Found at ${Maven.home}/conf/settings.xml, this location reflects the settings applied universally across all Maven projects on the system.</li>
+         <li>User-Specific Configuration: Located at ${user.home}/.m2/settings.xml, this directory allows for the storage of user-specific Maven settings.</li>
+      </ul>
+      <p>Users can tailor their Maven environment to better suit their development needs by using these configurations.</p>
+      <note type="note">
+         <p>The first <tt>settings.xml</tt> is also referred to as <tt>global settings</tt>, and the second is referenced as user settings.
+Both are combined with users taking precedence.</p>
+      </note>
+      <note type="tip">
+         <p>If you need to create user-specific settings from scratch, copy the global settings from your Maven installation to your <b>
+               <i>${user.home}/.m2</i>
+            </b> directory.
+Maven’s default <b>
+               <i>settings.xml</i>
+            </b> is a template with comments and examples so you can quickly tweak it to match your needs.
+<i>If you are looking to learn more about how to manage your various Maven settings, visit  <xref href="https://maven.apache.org/settings.html" scope="external">Maven Settings Reference</xref>.</i>
+         </p>
+      </note>
+      <p>IBM Business Automation Manager Open Editions version 8.0.x product dependencies are hosted by <xref href="https://maven.repository.redhat.com/ga/com/redhat/ba" scope="external">Red Hat’s Maven repository</xref>, so you need to ensure that your <tt>settings.xml</tt> reflects that, as seen in the following example:</p>
+      <p>
+         <b>Example Maven settings.xml for IBM BAMOE v8.0.x</b>
+      </p>
+      <codeblock outputclass="language-xml">
+&lt;profile&gt;
+    &lt;id&gt;redhat-public&lt;/id&gt;
+    &lt;activation&gt;
+        &lt;activeByDefault&gt;false&lt;/activeByDefault&gt;
+    &lt;/activation&gt;
+
+    &lt;repositories&gt;
+        &lt;repository&gt;
+            &lt;id&gt;redhat-ga-repository&lt;/id&gt;
+            &lt;name&gt;Red Hat General Availability repository&lt;/name&gt;
+            &lt;url&gt;https://maven.repository.redhat.com/ga/&lt;/url&gt;
+            &lt;layout&gt;default&lt;/layout&gt;
+            &lt;releases&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/releases&gt;
+            &lt;snapshots&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/snapshots&gt;
+        &lt;/repository&gt;
+    &lt;/repositories&gt;
+
+    &lt;pluginRepositories&gt;
+        &lt;pluginRepository&gt;
+            &lt;id&gt;redhat-ga-repository&lt;/id&gt;
+            &lt;name&gt;Red Hat General Availability repository&lt;/name&gt;
+            &lt;url&gt;https://maven.repository.redhat.com/ga/&lt;/url&gt;
+            &lt;layout&gt;default&lt;/layout&gt;
+            &lt;releases&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/releases&gt;
+            &lt;snapshots&gt;
+                &lt;updatePolicy&gt;always&lt;/updatePolicy&gt;
+                &lt;enabled&gt;true&lt;/enabled&gt;
+            &lt;/snapshots&gt;
+        &lt;/pluginRepository&gt;
+    &lt;/pluginRepositories&gt;
+&lt;/profile&gt;
+</codeblock>
+   </body>
+</topic>

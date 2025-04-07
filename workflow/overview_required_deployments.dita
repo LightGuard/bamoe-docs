@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_required_deployments">
+   <title>Required deployments</title>
+   <body>
+      <dl>
+         <dlentry>
+            <dt>Storage</dt>
+            <dd>This is another deployment. In our case would be PostgreSQL database where we are going to store the process state, jobs, data index, data audit and human task data. There can only be one storage that is shared among components and cannot be divided.</dd>
+         </dlentry>
+      </dl>
+   </body>
+</topic>

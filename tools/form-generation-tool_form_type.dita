@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_form_type">
+   <title>Form Type</title>
+   <body>
+      <title>Form Type</title>
+      <p>
+         <b>Form Generation Tool</b> supports two form types:</p>
+      <ul>
+         <li>
+            <b>patternfly</b>: This type generates <b>.tsx</b> files using the <b>patternfly</b> library for styling the forms.</li>
+         <li>
+            <b>bootstrap</b>: This type generates <b>.html</b> files using the <b>bootstrap</b> library for styling the forms.</li>
+      </ul>
+      <p>Furthermore, according to the file name extension, we can say that <b>.tsx</b> files are <b>React</b> forms and <b>.html</b> files are <b>plain html</b> forms.</p>
+   </body>
+</topic>

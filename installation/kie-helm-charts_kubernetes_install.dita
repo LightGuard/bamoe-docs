@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_kubernetes_install">
+   <title>Kubernetes install</title>
+   <body>
+      <codeblock outputclass="language-shell">
+$ helm pull oci://quay.io/bamoe/canvas-helm-chart --version={VERSION} --untar
+$ helm install my-bamoe-canvas ./canvas-helm-chart --values ./canvas-helm-chart/values-kubernetes.yaml --set global.kubernetesClusterDomain="&lt;YOUR_KUBERNETES_CLUSTER_DOMAIN&gt;" --set global.kubernetesIngressClass="&lt;YOUR_KUBERNETES_INGRESS_CLASS&gt;"
+</codeblock>
+   </body>
+</topic>

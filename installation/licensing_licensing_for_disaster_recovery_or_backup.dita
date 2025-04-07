@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_licensing_for_disaster_recovery_or_backup">
+   <title>Licensing for Disaster Recovery or Backup</title>
+   <body>
+      <title>Licensing for Disaster Recovery or Backup</title>
+      <p>When considering backup installations, active licenses are required for backup copies that are running simultaneously with the primary installation. Inactive or idling backup copies typically do not need extra licenses. In-depth information can be found in the <xref href="https://www.ibm.com/about/software-licensing/assets/guides_pdf/Backup.pdf" scope="external">Backup and Disaster Recovery Licensing Guide</xref>.</p>
+      <p>You can find the latest LI information for the available components, parts, and software versions in the <xref href="https://www.ibm.com/about/software-licensing/us-en/product_search?search=5900-AR4&amp;type=pid&amp;platform=" scope="external">License Information (LI) for IBM Business Automation Manager Open Editions</xref>.</p>
+   </body>
+</topic>

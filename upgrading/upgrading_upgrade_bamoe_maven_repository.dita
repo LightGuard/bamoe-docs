@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_upgrade_bamoe_maven_repository">
+   <title>Upgrade BAMOE Maven repository</title>
+   <body>
+      <title>Upgrade BAMOE Maven repository</title>
+      <p>
+         <xref href="http://maven.apache.org" scope="external">Apache Maven</xref> is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage the build, reporting and documentation of a project from a central piece of information.
+IBM Business Automation Manager Open Editions depends on Maven to build various types of deployable artifacts, such as decision service applications.
+For a quick start, see the <xref href="http://maven.apache.org/guides/getting-started/" scope="external">Maven Quick Start Guide</xref>.</p>
+      <p>Since BAMOE version 9.1.1 is based on Quarkus 3, the easiest route is to use the Quarkus Maven Plugin and adjust some of the details in the generated project to align it with BAMOE dependencies and plugins.
+You can read all about <b>Quarkus and Maven</b>
+         <xref href="https://quarkus.io/guides/maven-tooling" scope="external">here</xref>.</p>
+      <p>On the IBM BAMOE version 9.0.x the dependencies were hosted on the <xref href="https://central.sonatype.com/search?q=bamoe" scope="external">Maven Central</xref>.
+Now the dependencies are distributed with a container image or a zip file.
+For more information, see BAMOE version 9.1.1 <xref href="../installation/configure-maven.dita">Maven configuration</xref>.</p>
+      <p>It is recommended using the <xref href="https://docs.openshift.com/container-platform/4.16/applications/deployments/route-based-deployment-strategies.html#deployments-blue-green_route-based-deployment-strategies" scope="external">blue-green deployment strategy</xref> for Maven artifacts to be available for both your current version and BAMOE version 9.1.x.</p>
+      <p>If you are using the BAMOE Maven repository <tt>.zip</tt> instead of BAMOE Maven repository container images, simply extract the contents of BAMOE Maven repository <tt>.zip</tt> version 9.1.x to your local Maven repository.</p>
+      <p>In case you have installed BAMOE Maven repository in a Maven Repository Manager such as Artifactory or Nexus, follow the steps in <xref href="../installation/configure-maven.dita">Installing → BAMOE Maven repository</xref> to install the new BAMOE Maven repository version 9.1.x.</p>
+   </body>
+</topic>

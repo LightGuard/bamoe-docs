@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_generics_support">
+   <title>Generics Support</title>
+   <body>
+      <p>The non-executable model is tolerant of generics type.
+For example:</p>
+      <codeblock outputclass="language-drl">
+rule Rule1
+  no-loop true
+  when
+    $fact : Fact( str == "ADD", $val : "100" )
+  then
+    modify($fact) {
+      bdList.add($val);
+    }
+end
+</codeblock>
+      <p>By using the non-executable model you can add a String object to <tt>bdList</tt> even if <tt>Fact.bdList</tt> is <tt>List&lt;BigDecimal&gt;</tt> which is not acceptable in Java syntax.
+With the executable model, the rule fails with a build error, <tt>The method add(BigDecimal) in the type List&lt;BigDecimal&gt; is not applicable for the arguments (String)</tt>.
+You can fix the rule by using valid Java syntax.
+For example:</p>
+      <codeblock outputclass="language-drl">
+...
+then
+  modify($fact) {
+    bdList.add(new BigDecimal($val));
+  }
+end
+</codeblock>
+   </body>
+</topic>

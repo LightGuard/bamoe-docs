@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_decision_service">
+   <title>Decision Service</title>
+   <body>
+      <title>Decision Service</title>
+      <p>The <b>Decision Service</b> node, similar to the BKM node, is useful for reusing logic.
+You can also use it to wrap and structure a larger set of Decision nodes while producing a single output.</p>
+      <fig>
+         <title>Decision Service Node</title>
+         <image href="../images/tools/authoringDecisions/new-editor-decision-service-node.png" placement="break">
+            <alt>new editor decision service node</alt>
+         </image>
+      </fig>
+      <p>
+         <b>(1) Output decisions</b>
+These decisions (<b>Decision A</b> and <b>Decision B</b>) results will be present in the <b>Decision Service</b> output.
+The number of nodes in this section (and their Data Types) determines whether the <b>Decision Service</b> will be a Simple or Complex Data Type.
+In case of multiple items in the <b>Output decisions</b> section we are sure the <b>Decision Service</b> output is a Complex type.
+In case of a single item in the <b>Output decisions</b> section the <b>Decision Service</b> output depends on the type of the item.</p>
+      <p>
+         <b>(2) Encapsulated decisions</b>
+These decision (<b>Decision C</b>) results will be not present in the <b>Decision Service</b> output.
+They will be used only for its computation.</p>
+      <p>
+         <b>(3) Input decisions</b>
+These decisions (<b>Decision D</b>) are parameters for the <b>Decision Service</b> execution.
+You need to provide their values during <b>Decision Service</b> invocation.</p>
+      <p>
+         <b>(4) Input data</b>
+These inputs (<b>Input Data One</b>, <b>Input Data Two</b> and <b>Input Data Three</b>) are parameters for the <b>Decision Service</b> execution.
+You need to provide their values during <b>Decision Service</b> invocation.</p>
+      <p>
+         <b>(5) Invoking this Decision Service in FEEL</b>
+Is an example of the <b>Decision Service</b> invocation expression with its parameters in correct order.
+To change the parameters order, you can drag and drop items from the <b>Input decisions</b> and <b>Input data</b> sections.</p>
+      <p>In the <b>Decision Service</b> node, there is a divider line in the middle.
+The divider can be dragged to make <b>output</b> or <b>encapsulated</b> sections the required size.</p>
+      <p>The <b>Decision Service</b> node needs to be selected in order to see its context menus.
+You cannot just hover over the <b>Decision Service</b> node as you can with other DMN node types.</p>
+   </body>
+</topic>

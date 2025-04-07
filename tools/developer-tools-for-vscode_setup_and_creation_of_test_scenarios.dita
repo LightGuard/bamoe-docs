@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE topic
+ PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="_setup_and_creation_of_test_scenarios">
+   <title>Setup and creation of Test Scenarios</title>
+   <body>
+      <title>Setup and creation of Test Scenarios</title>
+      <p>Refer to <xref href="../editing/authoring-scesim.html">Authoring Test Scenario</xref> for setup and scenario creation.</p>
+   </body>
+</topic>
