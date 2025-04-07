@@ -56,7 +56,7 @@ jobs:
       # '-b' flag tells asciidoctor to use it for the conversion. The '-D' flag
       # specifies an output directory.
       - name: "Convert adoc files to dita"
-        run: find . -name '*.adoc' -print0 | xargs -0 bundle exec asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation -a 'toc=macro'
+        run: find . -name '*.adoc' --not -path "./vendor/*" -print0 | xargs -0 bundle exec asciidoctor -r dita-topic -b dita-topic -R . -D temp-generation -a 'toc=macro'
 
       # Some of the converted DITA files are not valid files (nested sections currently, could be other reasons)
       # loop through all the .dita files and run them through the XSLT to fix them.
@@ -69,7 +69,7 @@ jobs:
 
       # The ditamaps need to be copied over after the asciidoc conversation
       - name: "Copy ditamaps to the final location"
-        run: rsync -avhR --include '*.ditamap' --include '*/' --exclude '*' temp-generation/ generated-dita
+        run: cd temp-generation; rsync -avhR --include '*.ditamap' --include '*/' --exclude '*' ./ generated-dita; cd ..
 
       - name: "Commit to generated branch"
       # {github.ref_name} for branch
